@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">3d</string>
+    <string name="bottom">низ</string>
+    <string name="upper">верх</string>
+    <string name="center">центр</string>
+    <string name="text1">верх</string>
+    <string name="text2">центр</string>
+    <string name="text3">низ</string>
+    <string name="Favourites">Favourites</string>
+    <string name="Name">Name</string>
+    <string name="tekst">Какой-то текст</string>
+    <string name="photo">Фото Дифекта</string>
+    <string name="like">Добавить дифект в избранное</string>
+    <string name="Home">Домашная страница</string>
+    <string name="Favourite">Избранное</string>
+</resources>
