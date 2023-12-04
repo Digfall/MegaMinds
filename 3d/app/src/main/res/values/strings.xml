@@ -8,9 +8,12 @@
     <string name="text3">низ</string>
     <string name="Favourites">Favourites</string>
     <string name="Name">Name</string>
+    <string name="defect_name">Название дефекта</string>
     <string name="tekst">Какой-то текст</string>
     <string name="photo">Фото Дифекта</string>
     <string name="like">Добавить дифект в избранное</string>
     <string name="Home">Домашная страница</string>
     <string name="Favourite">Избранное</string>
+    <string name="defect_description">Описание дефекта</string>
+    <string name="hint_search_field">Поиск</string>
 </resources>

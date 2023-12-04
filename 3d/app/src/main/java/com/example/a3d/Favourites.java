@@ -13,12 +13,4 @@ public class Favourites extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
     }
-    public void startNewActivity(View v){
-        Intent intent = new Intent(this,  Main.class);
-        startActivity(intent);
-    }
-    public void startNewActivity2(View v){
-        Intent intent2 = new Intent(this, Favourites.class);
-        startActivity(intent2);
-    }
 }
