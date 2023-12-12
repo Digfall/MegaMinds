@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FFFFFFFF</color>
-    <color name="colorPrimaryDark">#8f8f8f</color>
-    <color name="lightGrayBlue">#7cc7be</color>
-    <color name="violetBlueCrayola">#3f48cc</color>
-    <color name="blueGreenCrayola">#a7c0ce</color>
-    <color name="color6">#1095be</color>
-    <color name="black">#000000</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="cyan">#700800</color>
 </resources>

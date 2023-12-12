@@ -4,76 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
     tools:context=".Page">
 
-
-    <ImageView
-        android:id="@+id/defect_background"
-        android:layout_width="340dp"
-        android:layout_height="614dp"
-        android:src="@tools:sample/avatars"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@drawable/defect_background" />
-
-    <ImageButton
-        android:id="@+id/addToFav"
+    <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/btn_star"
-        app:layout_constraintBottom_toBottomOf="@+id/background"
-        app:layout_constraintEnd_toEndOf="@+id/background" />
-
-    <ImageView
-        android:id="@+id/background"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:src="@tools:sample/avatars"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/search_field_background" />
-
-    <ImageView
-        android:id="@+id/defect_frame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:src="@tools:sample/avatars"
-        app:layout_constraintEnd_toEndOf="@+id/defect_background"
-        app:layout_constraintHorizontal_bias="0.482"
-        app:layout_constraintStart_toStartOf="@+id/defect_background"
-        app:layout_constraintTop_toTopOf="@+id/defect_background"
-        tools:srcCompat="@drawable/defect_frame" />
-
-    <EditText
-        android:id="@+id/defect_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="-80dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="@string/defect_name"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="170dp"
+        android:layout_marginBottom="631dp"
+        android:text="@string/Name"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="244dp"
+        android:layout_height="245dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="150dp"
+        android:contentDescription="@string/photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:srcCompat="@tools:sample/avatars" />
+
     <TextView
-        android:id="@+id/defect_description"
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/defect_frame"
-        android:text="@string/defect_description"
-        tools:layout_editor_absoluteX="134dp"
-        tools:layout_editor_absoluteY="532dp" />
+        android:layout_marginStart="160dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="216dp"
+        android:text="@string/tekst"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="603dp"
+        android:backgroundTint="@android:color/transparent"
+        android:contentDescription="@string/like"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.714"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.037"
+        app:srcCompat="@android:drawable/btn_star_big_off" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout2"
         android:layout_width="391dp"
         android:layout_height="76dp"
         android:layout_marginStart="1dp"
@@ -84,16 +77,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/centerlayout"
         app:layout_constraintVertical_bias="1.0">
-
-        <ImageView
-            android:id="@+id/footer"
-            android:layout_width="328dp"
-            android:layout_height="76dp"
-            android:src="@tools:sample/avatars"
-            tools:layout_editor_absoluteX="35dp"
-            tools:layout_editor_absoluteY="3dp"
-            tools:srcCompat="@drawable/footer" />
 
         <ImageButton
             android:id="@+id/Home"
@@ -124,6 +109,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
