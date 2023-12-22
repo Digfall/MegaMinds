@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme._3d"
         tools:targetApi="31">
+
+
         <activity
             android:name=".Page"
             android:exported="false" />
