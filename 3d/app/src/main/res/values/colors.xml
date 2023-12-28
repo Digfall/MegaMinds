@@ -2,7 +2,6 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="cyan">#0F9AAA</color>
-    <color name="transparent">#005A7173</color>
+    <color name="cyan">#00FFFF</color>
     <color name="nedo_blue">#A7C0CE</color>
 </resources>

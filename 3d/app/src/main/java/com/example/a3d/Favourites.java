@@ -14,7 +14,7 @@ public class Favourites extends AppCompatActivity {
     {
         if (item.getItemId() == R.id.item2)
         {
-            Intent intent = new Intent(this, Main.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
 
         } else if (item.getItemId() == R.id.item3)
@@ -38,13 +38,5 @@ public class Favourites extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favourites);
-    }
-    public void startNewActivity(View v){
-        Intent intent = new Intent(this,  Main.class);
-        startActivity(intent);
-    }
-    public void startNewActivity2(View v){
-        Intent intent2 = new Intent(this, Favourites.class);
-        startActivity(intent2);
     }
 }
