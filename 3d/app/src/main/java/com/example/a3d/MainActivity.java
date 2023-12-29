@@ -2,6 +2,7 @@ package com.example.a3d;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
@@ -57,34 +58,15 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
-        mDBHelper = new DatabaseHelper(this);
-
-        try {
-            mDBHelper.updateDataBase();
-        } catch (IOException mIOException) {
-            throw new Error("UnableToUpdateDatabase");
-        }
-
-        try {
-            mDb = mDBHelper.getWritableDatabase();
-        } catch (SQLException mSQLException) {
-            throw mSQLException;
-        }
-        init();
-    }
-
-    private void init() {
-        binding.rcView.setLayoutManager(new GridLayoutManager(this, 3));
+        binding.rcView.setLayoutManager(new LinearLayoutManager(this));
         binding.rcView.setAdapter(adapter);
-
-        binding.buttonAdd.setOnClickListener(v -> {
-            if (index > 3) index = 0;
-            Defect defect = new Defect(imageList[index], "Defect " + index, "bla bla bla");
-            adapter.addDefect(defect);
-            index++;
-        });
+        adapter.addDefect(new Defect(imageList[0], "Коробление\n(отклеивание от платформы)", "Распечатка не прилипает к платформе 3D-принтера, отклеивается от платформы, изгибается. Из-за перехода пластика из одного состояния  в другое и изменения температур, пластик начинает уменьшаться в объеме. Этот процесс проходит неравномерно - сначала остывают края, а затем только центральная часть. Из-за этого возникают внутренние напряжения, которые отрывают края или ломают деталь."));
+        adapter.addDefect(new Defect(imageList[1], "Недостаточное экструдирование\n(Недоэкструзия)", "Дырки в печати, щели между соседними слоями. Поверхность детали выходит не ровной, а со всякими вкраплениями, либо отсутствием пластика там, где он необходим."));
+        adapter.addDefect(new Defect(imageList[2], "Избыточное экструдирование", "Принтер поставляет больше материала, чем необходимо.  На распечатке есть излишки филамента."));
+        adapter.addDefect(new Defect(imageList[3], "Щели или дыры на верхнем слое", "Щели или дыры на верхнем слое изделия."));
     }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.example_menu, menu);
