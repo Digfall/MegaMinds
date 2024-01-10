@@ -3,7 +3,7 @@
     <style name="Base.Theme._3d" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-        <item name="android:statusBarColor" tools:targetApi="l">@color/cyan</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
     </style>
 
     <style name="Theme._3d" parent="Base.Theme._3d" />
