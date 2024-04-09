@@ -1,0 +1,2 @@
+# MegaMinds
+ Гитхаб команды MegaMinds
