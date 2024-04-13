@@ -377,6 +377,7 @@
 "Assets/Scripts/Enemy.cs"
 "Assets/Scripts/EnemyCastle.cs"
 "Assets/Scripts/HealthBar.cs"
+"Assets/Scripts/panelactive.cs"
 "Assets/Scripts/Player.cs"
 "Assets/Scripts/SpawnPlayer.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
