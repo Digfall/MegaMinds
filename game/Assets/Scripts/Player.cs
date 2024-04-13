@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public float speed;
     private Animator anim;
     private Rigidbody2D rb;
-    public bool speedOff = true;
+    [SerializeField] private bool speedOff = true;
     private bool isAttacking = false;
 
     public Transform attackPos;
@@ -32,10 +32,8 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        if (anim == null) // Проверяем, что anim был инициализирован
-            return;
-
         SearchForEnemy();
+
         if (!isAttacking && speedOff)
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
@@ -53,25 +51,18 @@ public class Player : MonoBehaviour
     public void OnAttack()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
-
         isAttacking = true;
         speedOff = false;
         anim.SetBool("Attack", true);
-
         for (int i = 0; i < enemies.Length; i++)
         {
-            if (enemies[i].CompareTag("Enemy"))
+            if (enemies[i].CompareTag("Enemy") || enemies[i].CompareTag("EnemyCastle"))
             {
-                enemies[i].GetComponent<Enemy>().TakeDamage(damage);
+                enemies[i].GetComponent<Enemy>()?.TakeDamage(damage);
+                enemies[i].GetComponent<EnemyCastle>()?.TakeDamage(damage);
                 nextDamageTime = Time.time + damageRate;
             }
-            if (enemies[i].CompareTag("EnemyCastle"))
-            {
-                enemies[i].GetComponent<EnemyCastle>().TakeDamage(damage);
-                nextDamageTime = Time.time + damageRate; // Устанавливаем время следующего нанесения урона
-            }
         }
-
         // Добавляем задержку перед включением движения и отключением анимации атаки
         StartCoroutine(EndAttackAnimation());
     }

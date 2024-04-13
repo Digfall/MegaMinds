@@ -9,96 +9,82 @@ public class Enemy : MonoBehaviour
     public int HP;
     public int damage;
     public HealthBar healthBar;
-
-    public Transform[] players;
     public Transform attackPos;
     public LayerMask playerMask;
-    public LayerMask TowerMask;
     public float radius;
 
     //private Animator anim;
     private bool isAttacking = false;
+    [SerializeField] private bool speedOff = true;
     private bool isDamaged = false;
-    private float damageStartTime = 0f;
+    //private float damageStartTime = 0f;
     public float attackRate = 1.0f; // Время между атаками
     public float damageRate = 1.0f; // Задержка между каждым нанесением урона
     private float nextAttackTime = 0f; // Время до следующей атаки
     private float nextDamageTime = 0f; // Время до следующего 
-
+    private Rigidbody2D rb;
     void Start()
     {
-        //anim = GetComponent<Animator>();
-        FindPlayers();
+        rb = GetComponent<Rigidbody2D>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
     }
-
     void Update()
     {
-        if (!isAttacking && !isDamaged)
+        SearchForEnemy();
+        if (!isAttacking && speedOff)
         {
-            transform.position = transform.position + new Vector3(-1.2f, 0, 0) * speed * Time.deltaTime;
-            //anim.SetBool("Run", true);
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
         }
         else
         {
-            //anim.SetBool("Run", false);
+            rb.velocity = Vector2.zero; // Останавливаем персонажа во время атаки
         }
-
         if (HP <= 0)
         {
             Destroy(gameObject);
         }
-
-        if (Time.time >= damageStartTime + 5f && isDamaged)
-        {
-            isDamaged = false;
-        }
-
-        if (Time.time >= nextAttackTime && !isAttacking && !isDamaged)
-        {
-            OnAttack();
-            nextAttackTime = Time.time + 1f / attackRate;
-        }
     }
     void OnAttack()
     {
-        if (Time.time >= nextDamageTime)
+        Collider2D[] targets = Physics2D.OverlapCircleAll(attackPos.position, radius, playerMask);
+        isAttacking = true;
+        speedOff = false;
+        for (int i = 0; i < targets.Length; i++)
         {
-            Collider2D[] targets = Physics2D.OverlapCircleAll(attackPos.position, radius, playerMask | TowerMask);
-            //anim.SetBool("Attack", true);
-            isAttacking = true;
-            for (int i = 0; i < targets.Length; i++)
+            if (targets[i].CompareTag("Player") || targets[i].CompareTag("Castle"))
             {
-                if (targets[i].CompareTag("Player") || targets[i].CompareTag("Castle"))
-                {
-                    targets[i].GetComponent<Player>()?.TakeDamage(damage);
-                    targets[i].GetComponent<Castle>()?.TakeDamage(damage);
-                    nextDamageTime = Time.time + damageRate;
-                }
+                targets[i].GetComponent<Player>()?.TakeDamage(damage);
+                targets[i].GetComponent<Castle>()?.TakeDamage(damage);
+                nextDamageTime = Time.time + damageRate;
             }
-            //anim.SetBool("Attack", false);
-            isAttacking = false;
         }
+        // Добавляем задержку перед включением движения и отключением анимации атаки
+        StartCoroutine(EndAttackAnimation());
     }
-
-    void FindPlayers()
+    IEnumerator EndAttackAnimation()
     {
-        List<Transform> playerList = new List<Transform>();
-
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
-        if (playerObject != null)
+        yield return new WaitForSeconds(0.5f); // Можно изменить этот параметр в зависимости от длительности анимации атаки
+        isAttacking = false;
+        speedOff = true;
+        //anim.SetBool("Attack", false);
+    }
+    void SearchForEnemy()
+    {
+        Collider2D[] targets = Physics2D.OverlapCircleAll(attackPos.position, radius);
+        for (int i = 0; i < targets.Length; i++)
         {
-            playerList.Add(playerObject.transform);
+            if (targets[i].CompareTag("Player") && Time.time >= nextDamageTime)
+            {
+                OnAttack();
+                break;
+            }
+            if (targets[i].CompareTag("Castle") && Time.time >= nextDamageTime)
+            {
+                OnAttack();
+                break;
+            }
         }
-
-        GameObject[] castleObjects = GameObject.FindGameObjectsWithTag("Castle");
-        foreach (GameObject castleObject in castleObjects)
-        {
-            playerList.Add(castleObject.transform);
-        }
-
-        players = playerList.ToArray();
     }
 
     private void OnDrawGizmosSelected()
@@ -124,7 +110,6 @@ public class Enemy : MonoBehaviour
     {
         healthBar.SetHealth(HP);
         HP -= damage;
-        isDamaged = true;
-        damageStartTime = Time.time;
+        //damageStartTime = Time.time;
     }
 }

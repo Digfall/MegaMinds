@@ -24,12 +24,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617355673283953286}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.099, y: -0.973, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.0002673638, y: 0.00080235675, z: -0.0121008195, w: 0.99992645}
+  m_LocalPosition: {x: -0.439, y: 0.3, z: -0.012}
+  m_LocalScale: {x: 0.45265263, y: 0.4526525, z: 0.4526525}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7034619283290289360}
+  m_Father: {fileID: 2474012708636347550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757723019090883929
 GameObject:
@@ -537,7 +537,8 @@ Transform:
   m_LocalPosition: {x: 1.3881125, y: -1.2723216, z: 0.028760359}
   m_LocalScale: {x: 2.2092, y: 2.2092001, z: 2.2092001}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3447318282570468402}
   m_Father: {fileID: 7034619283290289360}
   m_LocalEulerAnglesHint: {x: 0.032, y: -0.092, z: 1.387}
 --- !u!212 &8652031353743104516
@@ -663,7 +664,6 @@ Transform:
   m_Children:
   - {fileID: 1387818149333317080}
   - {fileID: 2474012708636347550}
-  - {fileID: 3447318282570468402}
   - {fileID: 6751800815243792036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -683,17 +683,12 @@ MonoBehaviour:
   HP: 200
   damage: 10
   healthBar: {fileID: 458502990280674890}
-  players:
-  - {fileID: 0}
-  - {fileID: 0}
   attackPos: {fileID: 3447318282570468402}
   playerMask:
     serializedVersion: 2
     m_Bits: 64
-  TowerMask:
-    serializedVersion: 2
-    m_Bits: 0
   radius: 2
+  speedOff: 1
   attackRate: 1
   damageRate: 1
 --- !u!50 &4121635748126923234
