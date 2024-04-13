@@ -29,8 +29,8 @@ public class Enemy : MonoBehaviour
     {
         //anim = GetComponent<Animator>();
         FindPlayers();
-        //healthBar.SetHealth(HP);
-        //healthBar.maxHealth = HP;
+        healthBar.SetHealth(HP);
+        healthBar.maxHealth = HP;
     }
 
     void Update()
@@ -47,7 +47,6 @@ public class Enemy : MonoBehaviour
 
         if (HP <= 0)
         {
-            FindObjectOfType<CoinManager>().Addone();
             Destroy(gameObject);
         }
 

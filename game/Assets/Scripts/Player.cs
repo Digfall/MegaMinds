@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     private bool isAttacking = false;
 
     public Transform attackPos;
-    public LayerMask enemy;
     public int damage;
     public float radius;
 
@@ -53,7 +52,7 @@ public class Player : MonoBehaviour
     }
     public void OnAttack()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius, enemy);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
 
         isAttacking = true;
         speedOff = false;
@@ -87,7 +86,7 @@ public class Player : MonoBehaviour
 
     void SearchForEnemy()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius, enemy);
+        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
         for (int i = 0; i < enemies.Length; i++)
         {
             if (enemies[i].CompareTag("Enemy") && Time.time >= nextDamageTime)

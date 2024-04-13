@@ -16,7 +16,7 @@ public class CoinManager : MonoBehaviour
     }
     public void Addone()
     {
-        coins += 1;
+        coins += 100;
         text.text = coins.ToString();
     }
 }
