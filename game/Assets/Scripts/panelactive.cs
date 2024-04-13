@@ -6,6 +6,7 @@ public class panelactive : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject panelll;
+
     void Start()
     {
         panelll.SetActive(true);
@@ -16,4 +17,6 @@ public class panelactive : MonoBehaviour
     {
 
     }
+
+
 }

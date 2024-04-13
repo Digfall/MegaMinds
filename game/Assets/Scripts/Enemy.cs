@@ -5,23 +5,28 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed;
+    [Header("Статы Персонажа")]
+
     public int HP;
     public int damage;
-    public HealthBar healthBar;
-    public Transform attackPos;
-    public LayerMask playerMask;
-    public float radius;
-    public Transform target;
-
-    //private Animator anim;
-    private bool isAttacking = false;
-    [SerializeField] private bool speedOff = true;
-    private bool isDamaged = false;
-    //private float damageStartTime = 0f;
+    public float speed;
     public float attackRate = 1.0f; // Время между атаками
     public float damageRate = 1.0f; // Задержка между каждым нанесением урона
-    private float nextAttackTime = 0f; // Время до следующей атаки
+    public float radius;
+
+    [Header("Обращения к объектам и трансформы")]
+    public Transform target;
+    public Transform attackPos;
+    public HealthBar healthBar;
+    public LayerMask playerMask;
+
+
+    private bool isAttacking = false;
+    private bool speedOff = true;
+    //private bool isDamaged = false;
+
+    //private float damageStartTime = 0f;
+    //private float nextAttackTime = 0f; // Время до следующей атаки
     private float nextDamageTime = 0f; // Время до следующего 
     private Rigidbody2D rb;
     void Start()
@@ -29,11 +34,15 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     void Update()
     {
-        //MoveToTarget();
+        target = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
+        // Если вражеский объект не найден, устанавливаем цель на замок
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Castle")?.GetComponent<Transform>();
+        }
         SearchForEnemy();
         if (!isAttacking && speedOff)
         {
@@ -75,7 +84,6 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f); // Можно изменить этот параметр в зависимости от длительности анимации атаки
         isAttacking = false;
         speedOff = true;
-        //anim.SetBool("Attack", false);
     }
     void SearchForEnemy()
     {
@@ -118,6 +126,6 @@ public class Enemy : MonoBehaviour
     {
         healthBar.SetHealth(HP);
         HP -= damage;
-        //damageStartTime = Time.time;
+        //damageStartTime = Time.time;  
     }
 }

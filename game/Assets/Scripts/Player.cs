@@ -4,21 +4,23 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float speed;
-    // private Animator anim;
-    private Rigidbody2D rb;
-    [SerializeField] private bool speedOff = true;
-    private bool isAttacking = false;
-
-    public Transform target;
-    public Transform attackPos;
-    public int damage;
-    public float radius;
+    [Header("Статы Персонажа")]
 
     public int HP;
+    public int damage;
+    public float speed;
+    public float attackRate = 1.0f; // Время между атаками
+    public float damageRate = 1.0f; // Задержка между каждым нанесением урона
+    public float radius;
+
+    [Header("Обращения к объектам и трансформы")]
+    public Transform target;
+    public Transform attackPos;
     public HealthBar healthBar;
-    public float attackRate = 2.0f; // Время между атаками
-    public float damageRate = 0.5f; // Задержка между нанесением урона
+
+    private bool isAttacking = false;
+    private bool speedOff = true;
+    private Rigidbody2D rb;
 
     private float nextAttackTime = 0f; // Время до следующей атаки
     private float nextDamageTime = 0f; // Время до следующего нанесения урона
@@ -30,13 +32,18 @@ public class Player : MonoBehaviour
         //anim = GetComponent<Animator>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
-        target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
+
     }
     void Update()
     {
         SearchForEnemy();
         //
-
+        target = GameObject.FindGameObjectWithTag("Enemy")?.GetComponent<Transform>();
+        // Если вражеский объект не найден, устанавливаем цель на замок
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("EnemyCastle")?.GetComponent<Transform>();
+        }
         if (!isAttacking && speedOff)
         {
             MoveToTarget();
