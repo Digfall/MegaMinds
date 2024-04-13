@@ -1,0 +1,4 @@
+repository "game@Digfall@cloud"
+  path "/"
+    br "/main"
+    co "/main"
