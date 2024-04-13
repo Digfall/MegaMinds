@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public Transform attackPos;
     public LayerMask playerMask;
     public float radius;
+    public Transform target;
 
     //private Animator anim;
     private bool isAttacking = false;
@@ -28,13 +29,15 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
     void Update()
     {
+        //MoveToTarget();
         SearchForEnemy();
         if (!isAttacking && speedOff)
         {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);
+            MoveToTarget();
         }
         else
         {
@@ -44,6 +47,11 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+    void MoveToTarget()
+    {
+        Vector2 direction = (target.position - transform.position).normalized;
+        rb.velocity = direction * speed;
     }
     void OnAttack()
     {

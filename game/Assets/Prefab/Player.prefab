@@ -443,6 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   speedOff: 1
+  target: {fileID: 0}
   attackPos: {fileID: 6516971221705103316}
   damage: 55
   radius: 1.3

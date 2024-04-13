@@ -5,11 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public float speed;
-    private Animator anim;
+    // private Animator anim;
     private Rigidbody2D rb;
     [SerializeField] private bool speedOff = true;
     private bool isAttacking = false;
 
+    public Transform target;
     public Transform attackPos;
     public int damage;
     public float radius;
@@ -26,17 +27,19 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
+        target = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Transform>();
     }
     void Update()
     {
         SearchForEnemy();
+        //
 
         if (!isAttacking && speedOff)
         {
-            rb.velocity = new Vector2(speed, rb.velocity.y);
+            MoveToTarget();
         }
         else
         {
@@ -53,7 +56,7 @@ public class Player : MonoBehaviour
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
         isAttacking = true;
         speedOff = false;
-        anim.SetBool("Attack", true);
+        // anim.SetBool("Attack", true);
         for (int i = 0; i < enemies.Length; i++)
         {
             if (enemies[i].CompareTag("Enemy") || enemies[i].CompareTag("EnemyCastle"))
@@ -66,13 +69,19 @@ public class Player : MonoBehaviour
         // Добавляем задержку перед включением движения и отключением анимации атаки
         StartCoroutine(EndAttackAnimation());
     }
+    void MoveToTarget()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        //Vector2 direction = (target.position - transform.position).normalized;
+        //rb.velocity = direction * speed;
+    }
 
     IEnumerator EndAttackAnimation()
     {
         yield return new WaitForSeconds(0.5f); // Можно изменить этот параметр в зависимости от длительности анимации атаки
         isAttacking = false;
         speedOff = true;
-        anim.SetBool("Attack", false);
+        // anim.SetBool("Attack", false);
     }
 
     void SearchForEnemy()
