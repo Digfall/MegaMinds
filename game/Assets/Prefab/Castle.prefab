@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 5389644568604521769}
   - component: {fileID: 6334279162118771418}
   m_Layer: 6
-  m_Name: "\u0431\u0430\u0448\u043D\u044F"
+  m_Name: Castle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

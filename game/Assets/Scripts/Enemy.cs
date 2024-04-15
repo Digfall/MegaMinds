@@ -37,21 +37,17 @@ public class Enemy : MonoBehaviour
     }
     void Update()
     {
-        target = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
-        // Если вражеский объект не найден, устанавливаем цель на замок
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("Castle")?.GetComponent<Transform>();
-        }
+        TargetToMove();
         SearchForEnemy();
         if (!isAttacking && speedOff)
         {
-            MoveToTarget();
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         else
         {
             rb.velocity = Vector2.zero; // Останавливаем персонажа во время атаки
         }
+
         if (HP <= 0)
         {
             Destroy(gameObject);
@@ -84,6 +80,16 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(0.5f); // Можно изменить этот параметр в зависимости от длительности анимации атаки
         isAttacking = false;
         speedOff = true;
+    }
+
+    void TargetToMove()
+    {
+        target = GameObject.FindGameObjectWithTag("Player")?.GetComponent<Transform>();
+        // Если вражеский объект не найден, устанавливаем цель на замок
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("Castle")?.GetComponent<Transform>();
+        }
     }
     void SearchForEnemy()
     {

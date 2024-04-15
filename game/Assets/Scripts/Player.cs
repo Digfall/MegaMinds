@@ -36,17 +36,11 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        TargetToMove();
         SearchForEnemy();
-        //
-        target = GameObject.FindGameObjectWithTag("Enemy")?.GetComponent<Transform>();
-        // Если вражеский объект не найден, устанавливаем цель на замок
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("EnemyCastle")?.GetComponent<Transform>();
-        }
         if (!isAttacking && speedOff)
         {
-            MoveToTarget();
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
         else
         {
@@ -76,13 +70,6 @@ public class Player : MonoBehaviour
         // Добавляем задержку перед включением движения и отключением анимации атаки
         StartCoroutine(EndAttackAnimation());
     }
-    void MoveToTarget()
-    {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        //Vector2 direction = (target.position - transform.position).normalized;
-        //rb.velocity = direction * speed;
-    }
-
     IEnumerator EndAttackAnimation()
     {
         yield return new WaitForSeconds(0.5f); // Можно изменить этот параметр в зависимости от длительности анимации атаки
@@ -91,6 +78,15 @@ public class Player : MonoBehaviour
         // anim.SetBool("Attack", false);
     }
 
+    void TargetToMove()
+    {
+        target = GameObject.FindGameObjectWithTag("Enemy")?.GetComponent<Transform>();
+        // Если вражеский объект не найден, устанавливаем цель на замок
+        if (target == null)
+        {
+            target = GameObject.FindGameObjectWithTag("EnemyCastle")?.GetComponent<Transform>();
+        }
+    }
     void SearchForEnemy()
     {
         Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
