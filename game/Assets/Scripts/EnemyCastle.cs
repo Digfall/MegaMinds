@@ -6,7 +6,7 @@ public class EnemyCastle : MonoBehaviour
 {
     public int HP;
     public LayerMask TowerMask;
-    public HealthBar healthBar;
+    public HealthBarCastle healthBar;
 
     void Start()
     {
@@ -23,7 +23,6 @@ public class EnemyCastle : MonoBehaviour
     {
         if (HP <= 0)
         {
-            FindObjectOfType<CoinManager>().Addone();
             Destroy(gameObject);
         }
     }

@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     private bool speedOff = true;
     private Rigidbody2D rb;
 
-    private float nextAttackTime = 0f; // Время до следующей атаки
+    //private float nextAttackTime = 0f; // Время до следующей атаки
     private float nextDamageTime = 0f; // Время до следующего нанесения урона
 
 

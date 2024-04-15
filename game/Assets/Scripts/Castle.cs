@@ -7,7 +7,7 @@ public class Castle : MonoBehaviour
     public int HP;
     public LayerMask TowerMask;
 
-    public HealthBar healthBar;
+    public HealthBarCastle healthBar;
 
     void Start()
     {
