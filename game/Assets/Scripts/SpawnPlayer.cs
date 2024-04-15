@@ -7,7 +7,7 @@ public class SpawnPlayer : MonoBehaviour
     public GameObject playerPrefab; // Префаб объекта Player
     public Transform spawnPosition; // Позиция, где будет создаваться Player
 
-    public int costOfUnit = 3; // Стоимость одного юнита в монетах
+    public int costOfUnit = 1; // Стоимость одного юнита в монетах
 
     public CoinManager coinManager;
     public TextMeshProUGUI coinCountText;
