@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     public HealthBar healthBar;
     public LayerMask playerMask;
 
-
+    private bool isFighting = false;
     private bool isAttacking = false;
     private bool speedOff = true;
     //private bool isDamaged = false;
@@ -38,13 +38,13 @@ public class Enemy : MonoBehaviour
     {
         TargetToMove();
         SearchForEnemy();
-        if (!isAttacking && speedOff)
+        if (!isFighting && !isAttacking)
         {
             MoveToTarget();
         }
         else
         {
-            rb.velocity = Vector2.zero; // Останавливаем персонажа во время атаки
+            rb.velocity = Vector2.zero;
         }
 
         if (HP <= 0)
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
     {
         Collider2D[] targets = Physics2D.OverlapCircleAll(attackPos.position, radius, playerMask);
         isAttacking = true;
-        speedOff = false;
+        isFighting = true; // Устанавливаем флаг isFighting в true при использовании OnAttack
         for (int i = 0; i < targets.Length; i++)
         {
             if (targets[i].CompareTag("Player") || targets[i].CompareTag("Castle"))
@@ -73,11 +73,18 @@ public class Enemy : MonoBehaviour
         // Добавляем задержку перед включением движения и отключением анимации атаки
         StartCoroutine(EndAttackAnimation());
     }
+
     IEnumerator EndAttackAnimation()
     {
         yield return new WaitForSeconds(0.5f); // Можно изменить этот параметр в зависимости от длительности анимации атаки
         isAttacking = false;
-        speedOff = true;
+        StartCoroutine(ResetIsFightingAfterDelay()); // Запускаем корутину для сброса isFighting обратно в false через 3 секунды после завершения атаки
+    }
+
+    IEnumerator ResetIsFightingAfterDelay()
+    {
+        yield return new WaitForSeconds(3f);
+        isFighting = false; // Сбрасываем флаг isFighting обратно в false через 3 секунды после завершения атаки
     }
 
     void TargetToMove()
@@ -130,6 +137,8 @@ public class Enemy : MonoBehaviour
     {
         healthBar.SetHealth(HP);
         HP -= damage;
-        //damageStartTime = Time.time;  
+        isFighting = true; // Устанавливаем isFighting в true при получении урона
+        StartCoroutine(ResetIsFightingAfterDelay());
     }
+
 }

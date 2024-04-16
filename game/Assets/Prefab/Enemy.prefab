@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 617355673283953286}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0002673638, y: 0.00080235675, z: -0.0121008195, w: 0.99992645}
-  m_LocalPosition: {x: -0.439, y: 0.3, z: -0.012}
+  m_LocalPosition: {x: -0.471, y: 0.339, z: -0.012}
   m_LocalScale: {x: 0.45265263, y: 0.4526525, z: 0.4526525}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -658,7 +658,7 @@ Transform:
   m_GameObject: {fileID: 8957537787719140412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.69, y: -1.63, z: -0.15230028}
+  m_LocalPosition: {x: 6.69, y: -1.63, z: 89.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -681,10 +681,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 200
   damage: 50
-  speed: 3
+  speed: 2
   attackRate: 1
   damageRate: 1
-  radius: 1
+  radius: 0.5
   target: {fileID: 0}
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}
@@ -750,8 +750,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02, y: 0.17}
-  m_Size: {x: 1.3718543, y: 1.792662}
+  m_Offset: {x: 0.010740995, y: 0.17623228}
+  m_Size: {x: 0.9721961, y: 1.5084587}
   m_Direction: 0
 --- !u!95 &2802972439622271650
 Animator:
