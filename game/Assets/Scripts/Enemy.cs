@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
     private bool isAttacking = false;
     private bool speedOff = true;
     //private bool isDamaged = false;
-
     //private float damageStartTime = 0f;
     //private float nextAttackTime = 0f; // Время до следующей атаки
     private float nextDamageTime = 0f; // Время до следующего 
@@ -41,7 +40,7 @@ public class Enemy : MonoBehaviour
         SearchForEnemy();
         if (!isAttacking && speedOff)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            MoveToTarget();
         }
         else
         {
@@ -55,8 +54,7 @@ public class Enemy : MonoBehaviour
     }
     void MoveToTarget()
     {
-        Vector2 direction = (target.position - transform.position).normalized;
-        rb.velocity = direction * speed;
+        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
     void OnAttack()
     {

@@ -2171,7 +2171,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonTransform: {fileID: 1123610291}
-  moveAmount: 50
+  moveAmount: 0.9
+  moveSpeed: 4.5
 --- !u!1 &1205901122
 GameObject:
   m_ObjectHideFlags: 0
@@ -3459,6 +3460,10 @@ PrefabInstance:
     - target: {fileID: 9064224950488525762, guid: a27affcd547530c48aa25fc4307e46ca, type: 3}
       propertyPath: m_RenderMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064224950488525762, guid: a27affcd547530c48aa25fc4307e46ca, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 9110103489845884456, guid: a27affcd547530c48aa25fc4307e46ca, type: 3}
       propertyPath: offset.y
