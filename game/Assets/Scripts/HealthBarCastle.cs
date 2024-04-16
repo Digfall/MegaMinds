@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class HealthBarCastle : MonoBehaviour
 {
     public Slider slider;
-    public Vector3 offset;
+    //public Vector3 offset;
     public float maxHealth;
 
     // Устанавливаем начальное значение слайдера равным максимальному здоровью
@@ -22,6 +22,6 @@ public class HealthBarCastle : MonoBehaviour
 
     void Update()
     {
-        slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
+        //slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position);
     }
 }
