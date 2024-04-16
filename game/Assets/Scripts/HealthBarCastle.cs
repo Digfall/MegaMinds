@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,15 +7,19 @@ public class HealthBarCastle : MonoBehaviour
     public Vector3 offset;
     public float maxHealth;
 
+    // Устанавливаем начальное значение слайдера равным максимальному здоровью
+    void Start()
+    {
+        SetHealth((int)maxHealth);
+    }
 
     public void SetHealth(int health)
     {
-        float healthFloat = (float)health; // Преобразуем int в float
+        float healthFloat = (float)health;
         slider.value = healthFloat;
         slider.maxValue = maxHealth;
     }
 
-    // Update is called once per frame
     void Update()
     {
         slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position + offset);
