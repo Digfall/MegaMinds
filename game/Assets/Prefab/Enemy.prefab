@@ -269,6 +269,37 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.35999998, y: 0.5899999}
   m_Direction: 0
+--- !u!1 &2714417495149754046
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4568984401801632686}
+  m_Layer: 6
+  m_Name: MOVEFINDER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4568984401801632686
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2714417495149754046}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.722, y: 0.191, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7034619283290289360}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4348112973029883950
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,13 +689,14 @@ Transform:
   m_GameObject: {fileID: 8957537787719140412}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.69, y: -1.63, z: 89.99}
+  m_LocalPosition: {x: 7.83, y: -0.56, z: 90.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6751800815243792036}
   - {fileID: 1387818149333317080}
   - {fileID: 2474012708636347550}
+  - {fileID: 4568984401801632686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1650413122702595513
@@ -682,15 +714,20 @@ MonoBehaviour:
   HP: 200
   damage: 50
   speed: 2
-  attackRate: 1
   damageRate: 1
   radius: 0.5
-  target: {fileID: 0}
+  moveTarget: {fileID: 0}
+  attackTarget: {fileID: 0}
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}
+  movePos: {fileID: 4568984401801632686}
   playerMask:
     serializedVersion: 2
     m_Bits: 64
+  raycastDistance: 0.5
+  raycastDistanceToMove: 15
+  isFighting: 0
+  isAttacking: 0
 --- !u!50 &4121635748126923234
 Rigidbody2D:
   serializedVersion: 4

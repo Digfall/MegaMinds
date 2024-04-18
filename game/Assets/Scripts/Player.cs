@@ -9,18 +9,24 @@ public class Player : MonoBehaviour
     public int HP;
     public int damage;
     public float speed;
-    public float attackRate = 1.0f; // Время между атаками
+    //public float attackRate = 1.0f; // Время между атаками
     public float damageRate = 1.0f; // Задержка между каждым нанесением урона
     public float radius;
 
+
     [Header("Обращения к объектам и трансформы")]
-    public Transform target;
     public Transform attackPos;
     public HealthBar healthBar;
+    public Transform movePos;
+    [SerializeField] private Transform moveTarget; // Цель для передвижения
+    [SerializeField] private Transform attackTarget; // Цель для атаки
+
+    [Header("Настройки луча")]
+    [SerializeField] private float raycastDistance = 0.5f; // Длина луча для поиска цели
+    [SerializeField] private float raycastDistanceToMove = 15f;
 
     private bool isAttacking = false;
     private bool isFighting = false;
-    private bool speedOff = true;
     private Rigidbody2D rb;
 
     //private float nextAttackTime = 0f; // Время до следующей атаки
@@ -37,11 +43,10 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        TargetToMove();
-        SearchForEnemy();
+        FindTargetToAttack();
         if (!isFighting && !isAttacking)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+            MoveToTarget();
         }
         else
         {
@@ -75,60 +80,45 @@ public class Player : MonoBehaviour
         isAttacking = false;
         StartCoroutine(ResetIsFightingAfterDelay()); // Запускаем корутину для сброса isFighting обратно в false через 3 секунды после завершения атаки
     }
-
     IEnumerator ResetIsFightingAfterDelay()
     {
         yield return new WaitForSeconds(3f);
         isFighting = false; // Сбрасываем флаг isFighting обратно в false через 3 секунды после завершения атаки
-        speedOff = true; // Включаем возможность движения после завершения атаки
     }
 
-    void TargetToMove()
+    void MoveToTarget()
     {
-        target = GameObject.FindGameObjectWithTag("Enemy")?.GetComponent<Transform>();
-        // Если вражеский объект не найден, устанавливаем цель на замок
-        if (target == null)
+        RaycastHit2D MoveHit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistanceToMove);
+        Debug.DrawRay(attackPos.position, Vector2.right * raycastDistanceToMove, Color.green);
+        if (MoveHit.collider != null)
         {
-            target = GameObject.FindGameObjectWithTag("EnemyCastle")?.GetComponent<Transform>();
-        }
-    }
-    void SearchForEnemy()
-    {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
-        for (int i = 0; i < enemies.Length; i++)
-        {
-            if (enemies[i].CompareTag("Enemy") && Time.time >= nextDamageTime)
+            Transform moveTargetCandidate = MoveHit.collider.transform;
+
+            if (moveTargetCandidate.CompareTag("Enemy") || moveTargetCandidate.CompareTag("EnemyCastle"))
             {
-                OnAttack();
-                break;
+                moveTarget = moveTargetCandidate;
             }
-            if (enemies[i].CompareTag("EnemyCastle") && Time.time >= nextDamageTime)
+            else
             {
-                OnAttack();
-                break;
+                moveTarget = null;
             }
         }
+        else
+        {
+            moveTarget = null;
+        }
+
+        if (moveTarget != null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
+        }
     }
+
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(attackPos.position, radius);
-    }
-
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            OnAttack();
-        }
-        EnemyCastle enemyCastle = collision.gameObject.GetComponent<EnemyCastle>();
-        if (enemyCastle != null)
-        {
-            OnAttack();
-        }
     }
     public void TakeDamage(int damage)
     {
@@ -137,5 +127,18 @@ public class Player : MonoBehaviour
         isFighting = true; // Устанавливаем isFighting в true при получении урона
         StartCoroutine(ResetIsFightingAfterDelay());
     }
-
+    void FindTargetToAttack()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistance);
+        Debug.DrawRay(attackPos.position, Vector2.right * raycastDistance, Color.red);
+        if (hit.collider != null)
+        {
+            attackTarget = hit.collider.transform;
+            if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
+            {
+                OnAttack();
+                Debug.Log("Я НАШЕЛ ВРАГА Я ИГРОК");
+            }
+        }
+    }
 }
