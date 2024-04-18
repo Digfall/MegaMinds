@@ -26,6 +26,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float raycastDistance = 0.5f; // Длина луча для поиска цели
     [SerializeField] private float raycastDistanceToMove = 15f;
 
+    [Header("Настройки вейпоинтов")]
+
+    [SerializeField] private int currentWayPoint;
+    [SerializeField] private GameObject[] wayPoints;
+    [SerializeField] private Vector2 targer;
 
     private bool isFighting = false;
     private bool isAttacking = false;
@@ -34,6 +39,8 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        wayPoints = GameObject.FindGameObjectsWithTag("WayPoint");
+        targer = wayPoints[currentWayPoint].transform.position;
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
@@ -41,10 +48,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
+
         FindTargetToAttack();
         if (!isFighting && !isAttacking)
         {
-            MoveToTarget();
+            // MoveToTarget();
+            MoveOnWayPoint();
         }
         else
         {
@@ -54,6 +63,25 @@ public class Enemy : MonoBehaviour
         if (HP <= 0)
         {
             Destroy(gameObject);
+        }
+    }
+    void MoveOnWayPoint()
+    {
+        transform.position = Vector2.MoveTowards(transform.position, targer, speed * Time.deltaTime);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "WayPoint")
+        {
+            if (currentWayPoint >= wayPoints.Length - 1)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                currentWayPoint++;
+                targer = wayPoints[currentWayPoint].transform.position;
+            }
         }
     }
     //Следование за целью

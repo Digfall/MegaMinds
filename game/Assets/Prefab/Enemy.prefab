@@ -716,18 +716,13 @@ MonoBehaviour:
   speed: 2
   damageRate: 1
   radius: 0.5
-  moveTarget: {fileID: 0}
-  attackTarget: {fileID: 0}
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}
   movePos: {fileID: 4568984401801632686}
-  playerMask:
-    serializedVersion: 2
-    m_Bits: 64
+  moveTarget: {fileID: 0}
+  attackTarget: {fileID: 0}
   raycastDistance: 0.5
   raycastDistanceToMove: 15
-  isFighting: 0
-  isAttacking: 0
 --- !u!50 &4121635748126923234
 Rigidbody2D:
   serializedVersion: 4

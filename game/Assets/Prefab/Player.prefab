@@ -129,17 +129,15 @@ MonoBehaviour:
   HP: 200
   damage: 50
   speed: 2
-  attackRate: 1
   damageRate: 1
   radius: 0.5
-  target: {fileID: 0}
   attackPos: {fileID: 5846939454715670355}
   healthBar: {fileID: 2469569338291405896}
-  movePos: {fileID: 0}
+  movePos: {fileID: 1187516809443334515}
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 0.5
-  raycastDistanceToMove: 15
+  raycastDistanceToMove: 17.5
 --- !u!50 &7972414612197178422
 Rigidbody2D:
   serializedVersion: 4

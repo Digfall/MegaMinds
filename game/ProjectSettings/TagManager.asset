@@ -8,6 +8,8 @@ TagManager:
   - Castle
   - EnemyTower
   - EnemyCastle
+  - WayPoint
+  - WayPointPlayer
   layers:
   - Default
   - TransparentFX
