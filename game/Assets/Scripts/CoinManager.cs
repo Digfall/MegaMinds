@@ -6,7 +6,7 @@ public class CoinManager : MonoBehaviour
 {
     public Image coinImage; // Ссылка на изображение монеты
     public TextMeshProUGUI coinCountText; // Ссылка на компонент TextMeshPro для отображения количества монет
-    public float coinGenerationTime = 3f; // Время, через которое генерируется монета (в секундах)
+    public float coinGenerationTime = 2f; // Время, через которое генерируется монета (в секундах)
 
     private float elapsedTime = 0f;
     public int coinCount = 0;

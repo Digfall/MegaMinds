@@ -12,6 +12,9 @@ public class Player : MonoBehaviour
     //public float attackRate = 1.0f; // Время между атаками
     public float damageRate = 1.0f; // Задержка между каждым нанесением урона
     public float radius;
+    public float attackRate = 1.5f; // Время между атаками в секундах
+    private float nextAttackTime = 0f; // Время до следующей атаки
+    private float nextDamageTime = 0f; // Время до следующего нанесения урона
 
 
     [Header("Обращения к объектам и трансформы")]
@@ -34,10 +37,6 @@ public class Player : MonoBehaviour
     private bool isFighting = false;
     private Rigidbody2D rb;
 
-    //private float nextAttackTime = 0f; // Время до следующей атаки
-    private float nextDamageTime = 0f; // Время до следующего нанесения урона
-
-
     void Start()
     {
 
@@ -54,7 +53,6 @@ public class Player : MonoBehaviour
         FindTargetToAttack();
         if (!isFighting && !isAttacking)
         {
-            // MoveToTarget();
             MoveOnWayPoint();
         }
         else
@@ -67,6 +65,7 @@ public class Player : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
     void MoveOnWayPoint()
     {
         transform.position = Vector2.MoveTowards(transform.position, targer, speed * Time.deltaTime);
@@ -88,19 +87,24 @@ public class Player : MonoBehaviour
     }
     public void OnAttack()
     {
-        Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
-        isAttacking = true;
-        isFighting = true; // Устанавливаем флаг isFighting в true при использовании OnAttack
-        for (int i = 0; i < enemies.Length; i++)
+        if (Time.time >= nextAttackTime)
         {
-            if (enemies[i].CompareTag("Enemy") || enemies[i].CompareTag("EnemyCastle"))
+            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
+            isAttacking = true;
+            isFighting = true; // Устанавливаем флаг isFighting в true при использовании OnAttack
+            for (int i = 0; i < enemies.Length; i++)
             {
-                enemies[i].GetComponent<Enemy>()?.TakeDamage(damage);
-                enemies[i].GetComponent<EnemyCastle>()?.TakeDamage(damage);
-                nextDamageTime = Time.time + damageRate;
+                if (enemies[i].CompareTag("Enemy") || enemies[i].CompareTag("EnemyCastle"))
+                {
+                    enemies[i].GetComponent<Enemy>()?.TakeDamage(damage);
+                    enemies[i].GetComponent<EnemyCastle>()?.TakeDamage(damage);
+                    nextDamageTime = Time.time + damageRate;
+                }
             }
+            StartCoroutine(EndAttackAnimation());
+
+            nextAttackTime = Time.time + 1f / attackRate; // Устанавливаем время следующей атаки
         }
-        StartCoroutine(EndAttackAnimation());
     }
     IEnumerator EndAttackAnimation()
     {
@@ -110,7 +114,7 @@ public class Player : MonoBehaviour
     }
     IEnumerator ResetIsFightingAfterDelay()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.5f);
         isFighting = false; // Сбрасываем флаг isFighting обратно в false через 3 секунды после завершения атаки
     }
 

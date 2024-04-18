@@ -138,6 +138,9 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 0.5
   raycastDistanceToMove: 17.5
+  currentWayPoint: 0
+  wayPoints: []
+  targer: {x: 0, y: 0}
 --- !u!50 &7972414612197178422
 Rigidbody2D:
   serializedVersion: 4
