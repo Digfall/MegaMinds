@@ -43,6 +43,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         wayPoints = GameObject.FindGameObjectsWithTag("WayPoint");
+        Array.Sort(wayPoints, new GameObjectComparerByName());
         targer = wayPoints[currentWayPoint].transform.position;
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetHealth(HP);

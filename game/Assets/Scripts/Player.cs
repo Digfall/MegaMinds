@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
     {
 
         wayPoints = GameObject.FindGameObjectsWithTag("WayPointPlayer");
+        Array.Sort(wayPoints, new GameObjectComparerByName());
         targer = wayPoints[currentWayPoint].transform.position;
         rb = GetComponent<Rigidbody2D>();
         //anim = GetComponent<Animator>();

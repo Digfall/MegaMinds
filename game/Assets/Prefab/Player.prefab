@@ -131,6 +131,7 @@ MonoBehaviour:
   speed: 2
   damageRate: 1
   radius: 0.5
+  attackRate: 1.5
   attackPos: {fileID: 5846939454715670355}
   healthBar: {fileID: 2469569338291405896}
   movePos: {fileID: 1187516809443334515}
@@ -139,7 +140,10 @@ MonoBehaviour:
   raycastDistance: 0.5
   raycastDistanceToMove: 17.5
   currentWayPoint: 0
-  wayPoints: []
+  wayPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   targer: {x: 0, y: 0}
 --- !u!50 &7972414612197178422
 Rigidbody2D:
