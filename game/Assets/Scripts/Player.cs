@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
     {
         if (collision.tag == "WayPointPlayer")
         {
-            if (currentWayPoint >= wayPoints.Length - 1)
+            if (currentWayPoint >= wayPoints.Length)
             {
                 Destroy(gameObject);
             }

@@ -74,7 +74,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.tag == "WayPoint")
         {
-            if (currentWayPoint >= wayPoints.Length - 1)
+            if (currentWayPoint >= wayPoints.Length)
             {
                 Destroy(gameObject);
             }
