@@ -70,19 +70,19 @@ public class Player : MonoBehaviour
 
     void MoveOnWayPoint()
     {
-        transform.position = Vector2.MoveTowards(transform.position, targer, speed * Time.deltaTime);
+        if (currentWayPoint < wayPoints.Length)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targer, speed * Time.deltaTime);
+        }
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "WayPointPlayer")
         {
-            if (currentWayPoint >= wayPoints.Length)
+            currentWayPoint++;
+            if (currentWayPoint < wayPoints.Length)
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                currentWayPoint++;
                 targer = wayPoints[currentWayPoint].transform.position;
             }
         }
@@ -120,33 +120,33 @@ public class Player : MonoBehaviour
         isFighting = false; // Сбрасываем флаг isFighting обратно в false через 3 секунды после завершения атаки
     }
 
-    void MoveToTarget()
-    {
-        RaycastHit2D MoveHit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistanceToMove);
-        Debug.DrawRay(attackPos.position, Vector2.right * raycastDistanceToMove, Color.green);
-        if (MoveHit.collider != null)
-        {
-            Transform moveTargetCandidate = MoveHit.collider.transform;
+    // void MoveToTarget()
+    // {
+    //     RaycastHit2D MoveHit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistanceToMove);
+    //     Debug.DrawRay(attackPos.position, Vector2.right * raycastDistanceToMove, Color.green);
+    //     if (MoveHit.collider != null)
+    //     {
+    //         Transform moveTargetCandidate = MoveHit.collider.transform;
 
-            if (moveTargetCandidate.CompareTag("Enemy") || moveTargetCandidate.CompareTag("EnemyCastle"))
-            {
-                moveTarget = moveTargetCandidate;
-            }
-            else
-            {
-                moveTarget = null;
-            }
-        }
-        else
-        {
-            moveTarget = null;
-        }
+    //         if (moveTargetCandidate.CompareTag("Enemy") || moveTargetCandidate.CompareTag("EnemyCastle"))
+    //         {
+    //             moveTarget = moveTargetCandidate;
+    //         }
+    //         else
+    //         {
+    //             moveTarget = null;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         moveTarget = null;
+    //     }
 
-        if (moveTarget != null)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
-        }
-    }
+    //     if (moveTarget != null)
+    //     {
+    //         transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
+    //     }
+    // }
 
 
     private void OnDrawGizmosSelected()
@@ -171,7 +171,6 @@ public class Player : MonoBehaviour
             if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
             {
                 OnAttack();
-                Debug.Log("Я НАШЕЛ ВРАГА Я ИГРОК");
             }
         }
     }

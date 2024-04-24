@@ -705,9 +705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '10000
-
-
+  m_text: '0
 
 '
   m_isRightToLeft: 0
@@ -1280,9 +1278,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '10000
-
-
+  m_text: '0
 
 '
   m_isRightToLeft: 0
@@ -1418,9 +1414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1000
-
-
+  m_text: '0
 
 '
   m_isRightToLeft: 0
@@ -1732,9 +1726,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1000
-
-
+  m_text: '0
 
 '
   m_isRightToLeft: 0
@@ -2432,9 +2424,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1000
-
-
+  m_text: '0
 
 '
   m_isRightToLeft: 0
@@ -2889,8 +2879,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b883bb127994247b834ed63c6c2714, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinCountText: {fileID: 260327696}
-  coinCount: 0
+  scienceCountEnemy: {fileID: 260327696}
+  scienceCountEnemyEnd: {fileID: 446975489}
+  scienceCountCastle: {fileID: 1210118843}
+  scienceTotalCount: {fileID: 251031597}
+  scienceCountEnemyEndLose: {fileID: 558370222}
+  scienceTotalCountLose: {fileID: 341569189}
+  scienceCount: 0
+  ScienceCastleCount: 0
+  ScienceTotal: 0
+  ScienceTotalLose: 0
 --- !u!4 &857479126
 Transform:
   m_ObjectHideFlags: 0
@@ -4880,9 +4878,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1000
-
-
+  m_text: '0
 
 '
   m_isRightToLeft: 0

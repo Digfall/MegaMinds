@@ -64,58 +64,57 @@ public class Enemy : MonoBehaviour
 
         if (HP <= 0)
         {
-            FindObjectOfType<ScienceManager>().UpdateScienceCountText();
+            FindObjectOfType<ScienceManager>().UpdateScienceCountEnemy();
             Destroy(gameObject);
         }
     }
     void MoveOnWayPoint()
     {
-        transform.position = Vector2.MoveTowards(transform.position, targer, speed * Time.deltaTime);
+        if (currentWayPoint < wayPoints.Length)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, targer, speed * Time.deltaTime);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "WayPoint")
         {
-            if (currentWayPoint >= wayPoints.Length)
+            currentWayPoint++;
+            if (currentWayPoint < wayPoints.Length)
             {
-                Destroy(gameObject);
-            }
-            else
-            {
-                currentWayPoint++;
                 targer = wayPoints[currentWayPoint].transform.position;
             }
         }
     }
     //Следование за целью
-    void MoveToTarget()
-    {
-        RaycastHit2D moveRaycastHit = Physics2D.Raycast(movePos.position, Vector2.left, raycastDistanceToMove);
-        Debug.DrawRay(movePos.position, Vector2.left * raycastDistanceToMove, Color.blue);
+    // void MoveToTarget()
+    // {
+    //     RaycastHit2D moveRaycastHit = Physics2D.Raycast(movePos.position, Vector2.left, raycastDistanceToMove);
+    //     Debug.DrawRay(movePos.position, Vector2.left * raycastDistanceToMove, Color.blue);
 
-        if (moveRaycastHit.collider != null)
-        {
-            Transform moveTargetCandidate = moveRaycastHit.collider.transform;
+    //     if (moveRaycastHit.collider != null)
+    //     {
+    //         Transform moveTargetCandidate = moveRaycastHit.collider.transform;
 
-            if (moveTargetCandidate.CompareTag("Player") || moveTargetCandidate.CompareTag("Castle"))
-            {
-                moveTarget = moveTargetCandidate;
-            }
-            else
-            {
-                moveTarget = null;
-            }
-        }
-        else
-        {
-            moveTarget = null;
-        }
+    //         if (moveTargetCandidate.CompareTag("Player") || moveTargetCandidate.CompareTag("Castle"))
+    //         {
+    //             moveTarget = moveTargetCandidate;
+    //         }
+    //         else
+    //         {
+    //             moveTarget = null;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         moveTarget = null;
+    //     }
 
-        if (moveTarget != null)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
-        }
-    }
+    //     if (moveTarget != null)
+    //     {
+    //         transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
+    //     }
+    // }
     //Метод на атаку
     public void OnAttack()
     {
@@ -177,7 +176,6 @@ public class Enemy : MonoBehaviour
             if (attackTarget.CompareTag("Player") || attackTarget.CompareTag("Castle"))
             {
                 OnAttack();
-                Debug.Log("Я НАШЕЛ ВРАГА");
             }
         }
 

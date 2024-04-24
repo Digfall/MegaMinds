@@ -29,6 +29,7 @@ public class EnemyCastle : MonoBehaviour
 
     void DestroyCastle()
     {
+        FindObjectOfType<ScienceManager>().UpdateScienceCountCastle();
         // Остановить все действия на карте
         Time.timeScale = 0f;
 
