@@ -64,6 +64,7 @@ public class Enemy : MonoBehaviour
 
         if (HP <= 0)
         {
+            FindObjectOfType<ScienceManager>().UpdateScienceCountText();
             Destroy(gameObject);
         }
     }
