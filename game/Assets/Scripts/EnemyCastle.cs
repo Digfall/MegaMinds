@@ -5,7 +5,7 @@ public class EnemyCastle : MonoBehaviour
     public int HP;
     public LayerMask TowerMask;
     public HealthBarCastle healthBar;
-    //public GameObject gameOverCanvas;
+    public GameObject gameOverCanvas;
 
     void Start()
     {
@@ -33,7 +33,7 @@ public class EnemyCastle : MonoBehaviour
         Time.timeScale = 0f;
 
         // Включить нужный вам Canvas
-        //gameOverCanvas.SetActive(true);
+        gameOverCanvas.SetActive(true);
 
         // Уничтожить объект башни
         Destroy(gameObject);

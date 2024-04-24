@@ -6,8 +6,8 @@ public class Castle : MonoBehaviour
 {
     public int HP;
     public LayerMask TowerMask;
-
     public HealthBarCastle healthBar;
+    public GameObject gameOverCanvas;
 
     void Start()
     {
@@ -24,7 +24,18 @@ public class Castle : MonoBehaviour
     {
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            DestroyCastle();
         }
+    }
+    void DestroyCastle()
+    {
+        // Остановить все действия на карте
+        Time.timeScale = 0f;
+
+        // Включить нужный вам Canvas
+        gameOverCanvas.SetActive(true);
+
+        // Уничтожить объект башни
+        Destroy(gameObject);
     }
 }

@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ArmyChoose.unity
     guid: 073d94462a441f347951440c9e964292
+  - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: b6f709a565b9e864388f74781cf5c4ce
   m_configObjects: {}
