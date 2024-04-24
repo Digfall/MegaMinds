@@ -138,7 +138,6 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 0.5
-  raycastDistanceToMove: 17.5
   currentWayPoint: 0
   wayPoints:
   - {fileID: 0}

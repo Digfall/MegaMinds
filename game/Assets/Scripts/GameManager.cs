@@ -8,10 +8,10 @@ public class GameManager : MonoBehaviour
     private bool gamePaused = false;
     private static int totalScience = 0;
 
-    void Start()
-    {
-        Time.timeScale = 0f; // Приостанавливаем время при старте игры
-    }
+    // void Start()
+    // {
+    //     Time.timeScale = 0f; // Приостанавливаем время при старте игры
+    // }
 
     public static int TotalScience
     {

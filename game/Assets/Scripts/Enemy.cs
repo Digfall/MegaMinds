@@ -6,9 +6,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [Header("Статы Персонажа")]
-    public int HP;
-    public int damage;
-    public float speed;
+    public int HP = 200;
+    public int damage = 50;
+    public float speed = 2;
     public float damageRate = 1.0f; // Задержка между каждым нанесением урона
     public float radius;
     public float attackRate = 1.5f; // Время между атаками в секундах
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
     [Header("Настройки луча")]
     [SerializeField] private float raycastDistance = 0.5f; // Длина луча для поиска цели
-    [SerializeField] private float raycastDistanceToMove = 15f;
+    //[SerializeField] private float raycastDistanceToMove = 15f;
 
     [Header("Настройки вейпоинтов")]
 
