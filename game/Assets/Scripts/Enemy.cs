@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
@@ -12,10 +13,8 @@ public class Enemy : MonoBehaviour
     public float damageRate = 1.0f; // Задержка между каждым нанесением урона
     public float radius;
     public float attackRate = 1.5f; // Время между атаками в секундах
-
     private float nextAttackTime = 0f; // Время до следующей атаки
     private float nextDamageTime = 0f; // Время до следующего удара
-
 
     [Header("Обращения к объектам и трансформы")]
     public Transform attackPos;
@@ -24,38 +23,31 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform moveTarget; // Цель для передвижения
     [SerializeField] private Transform attackTarget; // Цель для атаки
 
-
     [Header("Настройки луча")]
     [SerializeField] private float raycastDistance = 0.5f; // Длина луча для поиска цели
-    //[SerializeField] private float raycastDistanceToMove = 15f;
-
-    [Header("Настройки вейпоинтов")]
-
-    [SerializeField] private int currentWayPoint;
-    [SerializeField] private GameObject[] wayPoints;
-    [SerializeField] private Vector2 targer;
+    [SerializeField] private float raycastDistanceToMove = 15f;
 
     private bool isFighting = false;
     private bool isAttacking = false;
-
     private Rigidbody2D rb;
-
+    NavMeshAgent agent;
     void Start()
     {
-        wayPoints = GameObject.FindGameObjectsWithTag("WayPoint");
-        Array.Sort(wayPoints, new GameObjectComparerByName());
-        targer = wayPoints[currentWayPoint].transform.position;
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
     }
-
     void Update()
     {
         FindTargetToAttack();
         if (!isFighting && !isAttacking)
         {
-            MoveOnWayPoint();
+
+            MoveToTarget();
         }
         else
         {
@@ -68,53 +60,21 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void MoveOnWayPoint()
-    {
-        if (currentWayPoint < wayPoints.Length)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targer, speed * Time.deltaTime);
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "WayPoint")
-        {
-            currentWayPoint++;
-            if (currentWayPoint < wayPoints.Length)
-            {
-                targer = wayPoints[currentWayPoint].transform.position;
-            }
-        }
-    }
     //Следование за целью
-    // void MoveToTarget()
-    // {
-    //     RaycastHit2D moveRaycastHit = Physics2D.Raycast(movePos.position, Vector2.left, raycastDistanceToMove);
-    //     Debug.DrawRay(movePos.position, Vector2.left * raycastDistanceToMove, Color.blue);
+    void MoveToTarget()
+    {
+        Transform nearestTarget = FindNearestTarget();
 
-    //     if (moveRaycastHit.collider != null)
-    //     {
-    //         Transform moveTargetCandidate = moveRaycastHit.collider.transform;
-
-    //         if (moveTargetCandidate.CompareTag("Player") || moveTargetCandidate.CompareTag("Castle"))
-    //         {
-    //             moveTarget = moveTargetCandidate;
-    //         }
-    //         else
-    //         {
-    //             moveTarget = null;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         moveTarget = null;
-    //     }
-
-    //     if (moveTarget != null)
-    //     {
-    //         transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
-    //     }
-    // }
+        if (nearestTarget != null)
+        {
+            moveTarget = nearestTarget;
+            transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
+        }
+        else
+        {
+            moveTarget = null;
+        }
+    }
     //Метод на атаку
     public void OnAttack()
     {
@@ -140,25 +100,22 @@ public class Enemy : MonoBehaviour
     //Время после атаки для анимации
     IEnumerator EndAttackAnimation()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.5f);
         isAttacking = false;
         StartCoroutine(ResetIsFightingAfterDelay());
     }
-
     //Таймер файта
     IEnumerator ResetIsFightingAfterDelay()
     {
         yield return new WaitForSeconds(2.5f);
         isFighting = false;
     }
-
     //Рендж атаки
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(attackPos.position, radius);
     }
-
     public void TakeDamage(int damage)
     {
         healthBar.SetHealth(HP);
@@ -166,7 +123,6 @@ public class Enemy : MonoBehaviour
         isFighting = true;
         StartCoroutine(ResetIsFightingAfterDelay());
     }
-
     void FindTargetToAttack()
     {
         RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.left, raycastDistance);
@@ -181,5 +137,25 @@ public class Enemy : MonoBehaviour
 
         Debug.DrawRay(attackPos.position, Vector2.left * raycastDistance, Color.red);
     }
+    Transform FindNearestTarget()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, raycastDistanceToMove);
+        Transform nearestTarget = null;
+        float nearestDistance = Mathf.Infinity;
 
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Player") || collider.CompareTag("Castle"))
+            {
+                float distanceToTarget = Vector2.Distance(transform.position, collider.transform.position);
+                if (distanceToTarget < nearestDistance)
+                {
+                    nearestTarget = collider.transform;
+                    nearestDistance = distanceToTarget;
+                }
+            }
+        }
+
+        return nearestTarget;
+    }
 }

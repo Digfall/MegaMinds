@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
     [Header("Статы Персонажа")]
-
     public int HP = 200;
     public int damage = 50;
     public float speed = 2;
@@ -17,7 +17,6 @@ public class Player : MonoBehaviour
     private float nextAttackTime = 0f; // Время до следующей атаки
     private float nextDamageTime = 0f; // Время до следующего нанесения урона
 
-
     [Header("Обращения к объектам и трансформы")]
     public Transform attackPos;
     public HealthBar healthBar;
@@ -27,23 +26,18 @@ public class Player : MonoBehaviour
 
     [Header("Настройки луча")]
     [SerializeField] private float raycastDistance = 0.5f; // Длина луча для поиска цели
-    //[SerializeField] private float raycastDistanceToMove = 15f;
+    [SerializeField] private float raycastDistanceToMove = 15f;
 
-    [Header("Настройки вейпоинтов")]
-
-    [SerializeField] private int currentWayPoint;
-    [SerializeField] private GameObject[] wayPoints;
-    [SerializeField] private Vector2 targer;
     private bool isAttacking = false;
     private bool isFighting = false;
     private Rigidbody2D rb;
+    NavMeshAgent agent;
 
     void Start()
     {
-
-        wayPoints = GameObject.FindGameObjectsWithTag("WayPointPlayer");
-        Array.Sort(wayPoints, new GameObjectComparerByName());
-        targer = wayPoints[currentWayPoint].transform.position;
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
         rb = GetComponent<Rigidbody2D>();
         //anim = GetComponent<Animator>();
         healthBar.SetHealth(HP);
@@ -55,7 +49,7 @@ public class Player : MonoBehaviour
         FindTargetToAttack();
         if (!isFighting && !isAttacking)
         {
-            MoveOnWayPoint();
+            MoveToTarget();
         }
         else
         {
@@ -65,26 +59,6 @@ public class Player : MonoBehaviour
         if (HP <= 0)
         {
             Destroy(gameObject);
-        }
-    }
-
-    void MoveOnWayPoint()
-    {
-        if (currentWayPoint < wayPoints.Length)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, targer, speed * Time.deltaTime);
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "WayPointPlayer")
-        {
-            currentWayPoint++;
-            if (currentWayPoint < wayPoints.Length)
-            {
-                targer = wayPoints[currentWayPoint].transform.position;
-            }
         }
     }
     public void OnAttack()
@@ -110,7 +84,7 @@ public class Player : MonoBehaviour
     }
     IEnumerator EndAttackAnimation()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.5f);
         isAttacking = false;
         StartCoroutine(ResetIsFightingAfterDelay()); // Запускаем корутину для сброса isFighting обратно в false через 3 секунды после завершения атаки
     }
@@ -119,36 +93,20 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         isFighting = false; // Сбрасываем флаг isFighting обратно в false через 3 секунды после завершения атаки
     }
+    void MoveToTarget()
+    {
+        Transform nearestTarget = FindNearestTarget();
 
-    // void MoveToTarget()
-    // {
-    //     RaycastHit2D MoveHit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistanceToMove);
-    //     Debug.DrawRay(attackPos.position, Vector2.right * raycastDistanceToMove, Color.green);
-    //     if (MoveHit.collider != null)
-    //     {
-    //         Transform moveTargetCandidate = MoveHit.collider.transform;
-
-    //         if (moveTargetCandidate.CompareTag("Enemy") || moveTargetCandidate.CompareTag("EnemyCastle"))
-    //         {
-    //             moveTarget = moveTargetCandidate;
-    //         }
-    //         else
-    //         {
-    //             moveTarget = null;
-    //         }
-    //     }
-    //     else
-    //     {
-    //         moveTarget = null;
-    //     }
-
-    //     if (moveTarget != null)
-    //     {
-    //         transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
-    //     }
-    // }
-
-
+        if (nearestTarget != null)
+        {
+            moveTarget = nearestTarget;
+            transform.position = Vector2.MoveTowards(transform.position, moveTarget.position, speed * Time.deltaTime);
+        }
+        else
+        {
+            moveTarget = null;
+        }
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
@@ -173,5 +131,26 @@ public class Player : MonoBehaviour
                 OnAttack();
             }
         }
+    }
+    Transform FindNearestTarget()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, raycastDistanceToMove);
+        Transform nearestTarget = null;
+        float nearestDistance = Mathf.Infinity;
+
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Enemy") || collider.CompareTag("EnemyCastle"))
+            {
+                float distanceToTarget = Vector2.Distance(transform.position, collider.transform.position);
+                if (distanceToTarget < nearestDistance)
+                {
+                    nearestTarget = collider.transform;
+                    nearestDistance = distanceToTarget;
+                }
+            }
+        }
+
+        return nearestTarget;
     }
 }

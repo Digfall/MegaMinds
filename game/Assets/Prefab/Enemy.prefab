@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 4121635748126923234}
   - component: {fileID: 715487482305907082}
   - component: {fileID: 2802972439622271650}
+  - component: {fileID: 6362430502302983769}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -715,17 +716,15 @@ MonoBehaviour:
   damage: 50
   speed: 2
   damageRate: 1
-  radius: 0.5
+  radius: 0.8
+  attackRate: 1.5
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}
   movePos: {fileID: 4568984401801632686}
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 0.5
-  raycastDistanceToMove: 15
-  currentWayPoint: 0
-  wayPoints: []
-  targer: {x: 0, y: 0}
+  raycastDistanceToMove: 20
 --- !u!50 &4121635748126923234
 Rigidbody2D:
   serializedVersion: 4
@@ -782,7 +781,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.010740995, y: 0.17623228}
@@ -809,3 +808,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &6362430502302983769
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957537787719140412}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
