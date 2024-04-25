@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
             {
                 if (enemies[i].CompareTag("Enemy") || enemies[i].CompareTag("EnemyCastle"))
                 {
-                    enemies[i].GetComponent<Enemy>()?.TakeDamage(damage);
+                    enemies[i].GetComponent<EnemyBase>()?.TakeDamage(damage);
                     enemies[i].GetComponent<EnemyCastle>()?.TakeDamage(damage);
                     nextDamageTime = Time.time + damageRate;
                 }

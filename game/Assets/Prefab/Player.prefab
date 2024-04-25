@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 200
   damage: 50
-  speed: 2
+  speed: 0.5
   damageRate: 1
   radius: 0.8
   attackRate: 1.5
