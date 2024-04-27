@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ranger : EnemyBase
+public class PlayerWarrior : PlayerBase
 {
     protected override void Start()
     {
-        HP = 60;
-        damage = 20;
-        radius = 6f;
-        attackRate = 0.5f;
+        HP = 200;
+        damage = 50;
+        radius = 0.8f;
+        attackRate = 0.8f;
         speed = 2f;
 
         base.Start();
@@ -24,20 +24,13 @@ public class Ranger : EnemyBase
     {
         base.OnAttack();
     }
-
-    protected override void FindTargetToAttack()
-    {
-        base.FindTargetToAttack();
-    }
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
     }
 
-    protected override void OnDrawGizmosSelected()
+    protected override void FindTargetToAttack()
     {
-        base.OnDrawGizmosSelected();
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(attackPos.position, radius);
+        base.FindTargetToAttack();
     }
 }

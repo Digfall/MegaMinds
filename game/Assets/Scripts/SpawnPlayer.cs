@@ -4,45 +4,74 @@ using UnityEngine.UI;
 
 public class SpawnPlayer : MonoBehaviour
 {
-    public GameObject playerPrefab; // Префаб объекта Player
-    public Transform spawnPosition; // Позиция, где будет создаваться Player
+    // Префабы юнитов
+    public GameObject roguePrefab;
+    public int rogueCost = 3; // Стоимость юнита Rogue
 
-    public int costOfUnit = 3; // Стоимость одного юнита в монетах
+    public GameObject tankPrefab;
+    public int tankCost = 5; // Стоимость юнита Tank
+
+    public GameObject warriorPrefab;
+    public int warriorCost = 4; // Стоимость юнита Warrior
+
+    public GameObject rangerPrefab;
+    public int rangerCost = 6; // Стоимость юнита Ranger
+
+    public Transform[] spawnPositions; // Массив позиций, где будет создаваться юнит
 
     public CoinManager coinManager;
     public TextMeshProUGUI coinCountText;
 
-    public void SpawnPlayers()
+    // Метод спавна юнита
+    public void SpawnUnit(GameObject unitPrefab, int cost)
     {
         // Если у игрока достаточно монет для покупки юнита
-        if (coinManager.coinCount >= costOfUnit)
+        if (coinManager.coinCount >= cost)
         {
             // Уменьшаем количество монет на стоимость юнита
-            coinManager.coinCount -= costOfUnit;
+            coinManager.coinCount -= cost;
 
             // Обновляем текст с количеством монет в CoinManager
             coinManager.UpdateCoinCountText();
 
-            // Создаем объект Player на указанной позиции
-            GameObject playerInstance = Instantiate(playerPrefab, spawnPosition.position, Quaternion.identity);
+            // Выбираем случайную позицию из массива
+            int randomIndex = Random.Range(0, spawnPositions.Length);
+            Transform selectedSpawnPoint = spawnPositions[randomIndex];
 
-            // Получаем компонент Player из созданного объекта Player
-            Player playerComponent = playerInstance.GetComponent<Player>();
+            // Создаем объект юнита на выбранной позиции
+            GameObject unitInstance = Instantiate(unitPrefab, selectedSpawnPoint.position, Quaternion.identity);
 
-            // Если компонент Player найден
-            if (playerComponent != null)
+            // Если у объекта юнита есть компонент HealthBar, активируем его
+            HealthBar healthBar = unitInstance.GetComponentInChildren
+                <HealthBar>();
+
+            // Если компонент Healthbar найден
+            if (healthBar != null)
             {
-                // Получаем компонент Healthbar из объекта Player
-                HealthBar healthBar = playerComponent.GetComponentInChildren<HealthBar>();
-
-                // Если компонент Healthbar найден
-                if (healthBar != null)
-                {
-                    // Активируем объект Healthbar (Slider)
-                    healthBar.gameObject.SetActive(true);
-                }
+                // Активируем объект Healthbar (Slider)
+                healthBar.gameObject.SetActive(true);
             }
         }
     }
 
+    // Методы спавна конкретных юнитов
+    public void SpawnRogue()
+    {
+        SpawnUnit(roguePrefab, rogueCost);
+    }
+
+    public void SpawnTank()
+    {
+        SpawnUnit(tankPrefab, tankCost);
+    }
+
+    public void SpawnWarrior()
+    {
+        SpawnUnit(warriorPrefab, warriorCost);
+    }
+
+    public void SpawnRanger()
+    {
+        SpawnUnit(rangerPrefab, rangerCost);
+    }
 }

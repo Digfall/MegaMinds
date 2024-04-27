@@ -55,8 +55,7 @@ public class EnemyBase : MonoBehaviour
 
         if (HP <= 0)
         {
-            FindObjectOfType
-            <ScienceManager>().UpdateScienceCountEnemy();
+            FindObjectOfType<ScienceManager>().UpdateScienceCountEnemy();
             Destroy(gameObject);
         }
     }
@@ -88,7 +87,7 @@ public class EnemyBase : MonoBehaviour
             {
                 if (enemies[i].CompareTag("Player") || enemies[i].CompareTag("Castle"))
                 {
-                    enemies[i].GetComponent<Player>()?.TakeDamage(damage);
+                    enemies[i].GetComponent<PlayerBase>()?.TakeDamage(damage);
                     enemies[i].GetComponent<Castle>()?.TakeDamage(damage);
                     nextDamageTime = Time.time + damageRate;
                 }
@@ -101,14 +100,14 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual IEnumerator EndAttackAnimation()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4f);
         isAttacking = false;
         StartCoroutine(ResetIsFightingAfterDelay());
     }
 
     protected virtual IEnumerator ResetIsFightingAfterDelay()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         isFighting = false;
     }
 
@@ -152,8 +151,8 @@ public class EnemyBase : MonoBehaviour
     {
         healthBar.SetHealth(HP);
         HP -= damage;
-        isFighting = true;
-        StartCoroutine(ResetIsFightingAfterDelay());
+        // isFighting = true;
+        // StartCoroutine(ResetIsFightingAfterDelay());
     }
 
     protected virtual void OnDrawGizmosSelected()

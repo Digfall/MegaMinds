@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ranger : EnemyBase
+public class PlayerTank : PlayerBase
 {
     protected override void Start()
     {
-        HP = 60;
+        HP = 400;
         damage = 20;
-        radius = 6f;
-        attackRate = 0.5f;
-        speed = 2f;
+        radius = 0.8f;
+        attackRate = 0.6f;
+        speed = 0.8f;
 
         base.Start();
     }
@@ -24,20 +24,13 @@ public class Ranger : EnemyBase
     {
         base.OnAttack();
     }
-
-    protected override void FindTargetToAttack()
-    {
-        base.FindTargetToAttack();
-    }
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
     }
 
-    protected override void OnDrawGizmosSelected()
+    protected override void FindTargetToAttack()
     {
-        base.OnDrawGizmosSelected();
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(attackPos.position, radius);
+        base.FindTargetToAttack();
     }
 }

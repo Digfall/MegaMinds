@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 617355673283953286}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0002673638, y: 0.00080235675, z: -0.0121008195, w: 0.99992645}
-  m_LocalPosition: {x: -0.471, y: 0.339, z: -0.012}
+  m_LocalPosition: {x: 0.21, y: -0.18, z: -0.01}
   m_LocalScale: {x: 0.45265263, y: 0.4526525, z: 0.4526525}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -175,13 +175,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2598211506981550027}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.017020702, y: 0.18153936, z: 0.04050009}
-  m_LocalScale: {x: 2.4566, y: 2.4566, z: 2.4566}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7034619283290289360}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &3033670510424191014
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d2a4d396d7cf1d74883e424a9ab990e2, type: 3}
+  m_Sprite: {fileID: -857221436, guid: d57a8ced75074614aa651e1bdf40a604, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -550,7 +550,7 @@ GameObject:
   - component: {fileID: 2474012708636347550}
   - component: {fileID: 8652031353743104516}
   m_Layer: 6
-  m_Name: bat
+  m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -564,14 +564,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6539160011829895251}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0002673638, y: -0.00080235675, z: 0.0121008195, w: 0.99992645}
-  m_LocalPosition: {x: 0.34475946, y: -0.37769085, z: 0.028760359}
-  m_LocalScale: {x: 2.2092, y: 2.2092006, z: 2.2092006}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: -0.82, y: 0.36, z: 0.028760359}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3447318282570468402}
   m_Father: {fileID: 7034619283290289360}
-  m_LocalEulerAnglesHint: {x: 0.032, y: -0.092, z: 1.387}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!212 &8652031353743104516
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -613,7 +613,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 99c2dbfe2057ca94bbaafa55b95a728f, type: 3}
+  m_Sprite: {fileID: -288597414, guid: d57a8ced75074614aa651e1bdf40a604, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -759,8 +759,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010740995, y: 0.17623228}
-  m_Size: {x: 0.9721961, y: 1.5084587}
+  m_Offset: {x: 0.02734816, y: 0.16377711}
+  m_Size: {x: 1.1382654, y: 1.848901}
   m_Direction: 0
 --- !u!95 &2802972439622271650
 Animator:
@@ -802,7 +802,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 0
+  m_BaseOffset: 0.77
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &-4987323977823067325
@@ -819,14 +819,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 400
   damage: 20
-  speed: 0.8
-  damageRate: 0.6
-  radius: 0.8
+  speed: 1.2
+  damageRate: 1
+  radius: 1
   attackRate: 1.5
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}
   movePos: {fileID: 4568984401801632686}
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
-  raycastDistance: 0.5
+  raycastDistance: 1
   raycastDistanceToMove: 20

@@ -2,63 +2,65 @@ using System.Collections;
 using UnityEngine;
 
 [System.Serializable]
-public class SpawnScenario
+public class EnemySpawn
 {
-    public int enemyCount;
+    public GameObject[] enemyBase;
     public float spawnDelay;
+    public float betweenEnemiesDelay = 0.5f; // Задержка между спавнами элементов enemyBase
 }
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject enemyPrefab;
-    public Transform spawnPosition;
-    public SpawnScenario[] spawnScenarios;
+    public EnemySpawn[] enemyWaves;
+    public Transform[] spawnPositions; // Массив позиций, где будут создаваться враги
 
-    private float spawnTimer = 0f;
-    private bool canSpawn = true; // Флаг для контроля спавна врагов
+    private bool canSpawn = true;
 
-    void Update()
+    void Start()
     {
-        if (EnemyCastleIsAlive()) // Проверяем, что EnemyCastle не уничтожен
+        if (EnemyCastleIsAlive())
         {
-            spawnTimer += Time.deltaTime;
+            StartCoroutine(StartSpawnWithDelay());
+        }
+    }
 
-            if (spawnTimer >= spawnScenarios[0].spawnDelay)
+    IEnumerator StartSpawnWithDelay()
+    {
+        yield return new WaitForSeconds(10f); // Задержка в 10 секунд перед началом спавна
+        StartCoroutine(SpawnWaves());
+    }
+
+    IEnumerator SpawnWaves()
+    {
+        foreach (EnemySpawn wave in enemyWaves)
+        {
+            canSpawn = true; // Установка флага перед каждой волной
+
+            foreach (GameObject enemyPrefab in wave.enemyBase)
             {
-                SpawnRandomScenario();
-                spawnTimer = 0f;
+                if (canSpawn)
+                {
+                    // Выбираем случайную позицию из массива spawnPositions
+                    int randomIndex = Random.Range(0, spawnPositions.Length);
+                    Transform selectedSpawnPoint = spawnPositions[randomIndex];
+
+                    // Создаем объект врага на выбранной позиции
+                    Instantiate(enemyPrefab, selectedSpawnPoint.position, Quaternion.identity);
+                    yield return new WaitForSeconds(wave.betweenEnemiesDelay); // Задержка между спавнами элементов enemyBase
+                }
             }
-        }
-        else
-        {
-            canSpawn = false; // Если EnemyCastle уничтожен, останавливаем спавн
-        }
-    }
 
-    void SpawnRandomScenario()
-    {
-        int randomIndex = Random.Range(0, spawnScenarios.Length);
-        SpawnScenario randomScenario = spawnScenarios[randomIndex];
+            canSpawn = false; // После спавна всех врагов в волне выключаем спавн
 
-        if (canSpawn) // Проверяем флаг на возможность спавна
-        {
-            StartCoroutine(SpawnEnemies(randomScenario.enemyCount, randomScenario.spawnDelay));
+            // Если не последняя волна, ждем spawnDelay перед следующей
+            yield return new WaitForSeconds(wave.spawnDelay);
         }
     }
 
-    IEnumerator SpawnEnemies(int enemyCount, float spawnDelay)
-    {
-        for (int i = 0; i < enemyCount; i++)
-        {
-            Instantiate(enemyPrefab, spawnPosition.position, Quaternion.identity);
-            yield return new WaitForSeconds(spawnDelay);
-        }
-    }
-
-    // Добавляем метод для проверки наличия EnemyCastle
     bool EnemyCastleIsAlive()
     {
-        EnemyCastle enemyCastle = FindObjectOfType<EnemyCastle>();
+        EnemyCastle enemyCastle = FindObjectOfType
+        <EnemyCastle>();
         return enemyCastle != null;
     }
 }

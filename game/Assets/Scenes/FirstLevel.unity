@@ -207,9 +207,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d24c5be4b047c8b4cbdefdc7f0d992d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 3506097913677785157, guid: 98714d523171bff4c85e728aa1d103ff, type: 3}
-  spawnPosition: {fileID: 415272931}
-  costOfUnit: 3
+  roguePrefab: {fileID: 0}
+  rogueCost: 3
+  tankPrefab: {fileID: 0}
+  tankCost: 5
+  warriorPrefab: {fileID: 3506097913677785157, guid: 98714d523171bff4c85e728aa1d103ff, type: 3}
+  warriorCost: 1
+  rangerPrefab: {fileID: 0}
+  rangerCost: 6
+  spawnPositions:
+  - {fileID: 415272931}
+  - {fileID: 119562041}
+  - {fileID: 1509853095}
   coinManager: {fileID: 1865662091}
   coinCountText: {fileID: 1890852468}
 --- !u!114 &32203573
@@ -273,7 +282,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 32203572}
         m_TargetAssemblyTypeName: SpawnPlayer, Assembly-CSharp
-        m_MethodName: SpawnPlayers
+        m_MethodName: SpawnWarrior
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -303,7 +312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13fd3350123c01046a87919283d39743, type: 3}
+  m_Sprite: {fileID: -307111057, guid: 53fbe6252b56789469138fb0ddaf1b5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -396,6 +405,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 84757394}
   m_CullTransparentMesh: 1
+--- !u!1 &119562040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 119562041}
+  m_Layer: 0
+  m_Name: 'SpawnPoint '
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &119562041
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119562040}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.77, y: -1.21, z: 90.4068}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 919293672}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &135671410
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +573,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 135671410}
   m_CullTransparentMesh: 1
+--- !u!1 &150050611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150050612}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &150050612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150050611}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1076419192}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168448950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1590,7 +1662,7 @@ Transform:
   m_GameObject: {fileID: 415272930}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.66, y: -2.23, z: 90.4068}
+  m_LocalPosition: {x: -7.77, y: -2.23, z: 90.4068}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2360,6 +2432,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 558370220}
   m_CullTransparentMesh: 1
+--- !u!1 &559324138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 559324139}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &559324139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 559324138}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1509853095}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &580414253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2982,6 +3085,37 @@ Transform:
   - {fileID: 2101102966}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &919293671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 919293672}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &919293672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919293671}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 119562041}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945087214
 GameObject:
   m_ObjectHideFlags: 0
@@ -3464,6 +3598,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1053157410}
   m_CullTransparentMesh: 1
+--- !u!1 &1076419191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1076419192}
+  m_Layer: 0
+  m_Name: EnemySpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1076419192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076419191}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.1, y: 0.05, z: 89.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 150050612}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1081751442
 GameObject:
   m_ObjectHideFlags: 0
@@ -3476,6 +3642,8 @@ GameObject:
   - component: {fileID: 1081751446}
   - component: {fileID: 1081751445}
   - component: {fileID: 1081751444}
+  - component: {fileID: 1081751447}
+  - component: {fileID: 1081751448}
   m_Layer: 5
   m_Name: Button (Ranger)
   m_TagString: Untagged
@@ -3546,7 +3714,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1081751445}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1081751448}
+        m_TargetAssemblyTypeName: SpawnPlayer, Assembly-CSharp
+        m_MethodName: SpawnRanger
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1081751445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3567,7 +3747,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13fd3350123c01046a87919283d39743, type: 3}
+  m_Sprite: {fileID: 1090516542, guid: 53fbe6252b56789469138fb0ddaf1b5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3585,6 +3765,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081751442}
   m_CullTransparentMesh: 1
+--- !u!114 &1081751447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081751442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6452b711d1219d14e80082d7ac85da34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonTransform: {fileID: 1081751443}
+  moveAmount: 0.9
+  moveSpeed: 4.5
+--- !u!114 &1081751448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081751442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24c5be4b047c8b4cbdefdc7f0d992d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roguePrefab: {fileID: 0}
+  rogueCost: 3
+  tankPrefab: {fileID: 0}
+  tankCost: 5
+  warriorPrefab: {fileID: 0}
+  warriorCost: 4
+  rangerPrefab: {fileID: 3506097913677785157, guid: c1c989e84c280ee47b1f15b8dafd34d5, type: 3}
+  rangerCost: 1
+  spawnPositions:
+  - {fileID: 415272931}
+  - {fileID: 119562041}
+  - {fileID: 1509853095}
+  coinManager: {fileID: 1865662091}
+  coinCountText: {fileID: 1890852468}
 --- !u!1 &1124624391
 GameObject:
   m_ObjectHideFlags: 0
@@ -5104,6 +5325,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1406984003}
   m_CullTransparentMesh: 1
+--- !u!1 &1509853094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1509853095}
+  m_Layer: 0
+  m_Name: 'SpawnPoint '
+  m_TagString: Untagged
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1509853095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509853094}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.77, y: -0.22, z: 90.4068}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 559324139}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1538006384
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,6 +5505,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538006384}
   m_CullTransparentMesh: 1
+--- !u!1 &1556343373
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1556343374}
+  m_Layer: 0
+  m_Name: 'EnemySpawnPoint '
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1556343374
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556343373}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.1, y: -1.28, z: 89.99}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1599973937}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1559055905
 GameObject:
   m_ObjectHideFlags: 0
@@ -5281,11 +5566,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3a30ce68b9d244aac5b244a64798f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-  spawnPosition: {fileID: 912532545}
-  spawnScenarios:
-  - enemyCount: 1
+  enemyWaves:
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    spawnDelay: 8
+    betweenEnemiesDelay: 0
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     spawnDelay: 10
+    betweenEnemiesDelay: 0
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    spawnDelay: 15
+    betweenEnemiesDelay: 2
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    spawnDelay: 8
+    betweenEnemiesDelay: 0
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    spawnDelay: 25
+    betweenEnemiesDelay: 0
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    spawnDelay: 8
+    betweenEnemiesDelay: 0
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    spawnDelay: 30
+    betweenEnemiesDelay: 0
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    spawnDelay: 0
+    betweenEnemiesDelay: 0
+  spawnPositions:
+  - {fileID: 1076419192}
+  - {fileID: 1556343374}
+  - {fileID: 912532545}
 --- !u!4 &1559055907
 Transform:
   m_ObjectHideFlags: 0
@@ -5342,6 +5677,37 @@ RectTransform:
   m_AnchoredPosition: {x: -266.3, y: 18.1}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1599973936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1599973937}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1599973937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599973936}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1556343374}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682510834
 GameObject:
   m_ObjectHideFlags: 0
@@ -5562,6 +5928,8 @@ GameObject:
   - component: {fileID: 1721601404}
   - component: {fileID: 1721601403}
   - component: {fileID: 1721601402}
+  - component: {fileID: 1721601405}
+  - component: {fileID: 1721601406}
   m_Layer: 5
   m_Name: ' Button (Tank)'
   m_TagString: Untagged
@@ -5632,7 +6000,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1721601403}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1721601406}
+        m_TargetAssemblyTypeName: SpawnPlayer, Assembly-CSharp
+        m_MethodName: SpawnTank
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1721601403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,7 +6033,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13fd3350123c01046a87919283d39743, type: 3}
+  m_Sprite: {fileID: 1743884603, guid: 53fbe6252b56789469138fb0ddaf1b5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5671,6 +6051,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1721601400}
   m_CullTransparentMesh: 1
+--- !u!114 &1721601405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721601400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6452b711d1219d14e80082d7ac85da34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonTransform: {fileID: 1721601401}
+  moveAmount: 0.9
+  moveSpeed: 4.5
+--- !u!114 &1721601406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1721601400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24c5be4b047c8b4cbdefdc7f0d992d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roguePrefab: {fileID: 0}
+  rogueCost: 3
+  tankPrefab: {fileID: 3506097913677785157, guid: 01839ebef02e4ec47bd6f04aa0d12585, type: 3}
+  tankCost: 1
+  warriorPrefab: {fileID: 0}
+  warriorCost: 4
+  rangerPrefab: {fileID: 0}
+  rangerCost: 6
+  spawnPositions:
+  - {fileID: 415272931}
+  - {fileID: 119562041}
+  - {fileID: 1509853095}
+  coinManager: {fileID: 1865662091}
+  coinCountText: {fileID: 1890852468}
 --- !u!1 &1727115515
 GameObject:
   m_ObjectHideFlags: 0
@@ -6652,6 +7073,8 @@ GameObject:
   - component: {fileID: 2049121811}
   - component: {fileID: 2049121810}
   - component: {fileID: 2049121809}
+  - component: {fileID: 2049121812}
+  - component: {fileID: 2049121813}
   m_Layer: 5
   m_Name: Button (Rogue)
   m_TagString: Untagged
@@ -6722,7 +7145,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2049121810}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2049121813}
+        m_TargetAssemblyTypeName: SpawnPlayer, Assembly-CSharp
+        m_MethodName: SpawnRogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2049121810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6743,7 +7178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 13fd3350123c01046a87919283d39743, type: 3}
+  m_Sprite: {fileID: 1345686929, guid: 53fbe6252b56789469138fb0ddaf1b5c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6761,6 +7196,47 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2049121807}
   m_CullTransparentMesh: 1
+--- !u!114 &2049121812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049121807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6452b711d1219d14e80082d7ac85da34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonTransform: {fileID: 2049121808}
+  moveAmount: 0.9
+  moveSpeed: 4.5
+--- !u!114 &2049121813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2049121807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d24c5be4b047c8b4cbdefdc7f0d992d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roguePrefab: {fileID: 3506097913677785157, guid: e1a98294b42f0644090235e97fbb83e1, type: 3}
+  rogueCost: 1
+  tankPrefab: {fileID: 0}
+  tankCost: 5
+  warriorPrefab: {fileID: 0}
+  warriorCost: 4
+  rangerPrefab: {fileID: 0}
+  rangerCost: 6
+  spawnPositions:
+  - {fileID: 415272931}
+  - {fileID: 119562041}
+  - {fileID: 1509853095}
+  coinManager: {fileID: 1865662091}
+  coinCountText: {fileID: 1890852468}
 --- !u!1 &2101102965
 GameObject:
   m_ObjectHideFlags: 0
@@ -6986,8 +7462,12 @@ SceneRoots:
   - {fileID: 945087216}
   - {fileID: 727536973}
   - {fileID: 415272931}
+  - {fileID: 119562041}
+  - {fileID: 1509853095}
   - {fileID: 1559055907}
   - {fileID: 912532545}
+  - {fileID: 1556343374}
+  - {fileID: 1076419192}
   - {fileID: 593231105}
   - {fileID: 513736766}
   - {fileID: 1040662697}

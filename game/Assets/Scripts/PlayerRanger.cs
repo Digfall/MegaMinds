@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ranger : EnemyBase
+public class PlayerRanger : PlayerBase
 {
     protected override void Start()
     {

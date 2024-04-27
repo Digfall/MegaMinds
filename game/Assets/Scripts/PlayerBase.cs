@@ -100,14 +100,14 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual IEnumerator EndAttackAnimation()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(4f);
         isAttacking = false;
         StartCoroutine(ResetIsFightingAfterDelay());
     }
 
     protected virtual IEnumerator ResetIsFightingAfterDelay()
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(2f);
         isFighting = false;
     }
 
@@ -150,8 +150,8 @@ public class PlayerBase : MonoBehaviour
     {
         healthBar.SetHealth(HP);
         HP -= damage;
-        isFighting = true;
-        StartCoroutine(ResetIsFightingAfterDelay());
+        // isFighting = true;
+        // StartCoroutine(ResetIsFightingAfterDelay());
     }
 
     protected virtual void OnDrawGizmosSelected()
