@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29add6af6bcf91449acb5126b3cf043f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 2603405055794241883, guid: 98714d523171bff4c85e728aa1d103ff, type: 3}
+  playerWarrior: {fileID: 5936779502317487462, guid: 98714d523171bff4c85e728aa1d103ff, type: 3}
   totalScienceText: {fileID: 604571496}
   priceForUpgrade: {fileID: 1815439646}
   hpText: {fileID: 556238204}
@@ -1488,7 +1488,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 40210560db4dda943879246169621ed6, type: 3}
+  m_Sprite: {fileID: -307111057, guid: 53fbe6252b56789469138fb0ddaf1b5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1508,8 +1508,8 @@ Transform:
   m_GameObject: {fileID: 885845405}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -192.27925, y: -1.2754841, z: -18}
-  m_LocalScale: {x: 99.80664, y: 102.038734, z: 97.27529}
+  m_LocalPosition: {x: -192.27925, y: -1.2755, z: -18}
+  m_LocalScale: {x: 29.750088, y: 30.415424, z: 28.995552}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1906382091}

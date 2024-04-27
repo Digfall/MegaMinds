@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerTank : PlayerBase
 {
+    private const string HPPrefKey = "PlayerHP";
+    private const string DamagePrefKey = "PlayerDamage";
+    private const string SpeedPrefKey = "PlayerSpeed";
     protected override void Start()
     {
-        HP = 400;
-        damage = 20;
+        HP = PlayerPrefs.GetInt(HPPrefKey, 400);
+        damage = PlayerPrefs.GetInt(DamagePrefKey, 20);
+        speed = PlayerPrefs.GetFloat(SpeedPrefKey, 8f);
         radius = 0.8f;
         attackRate = 0.6f;
-        speed = 0.8f;
+
 
         base.Start();
     }
@@ -20,6 +24,11 @@ public class PlayerTank : PlayerBase
         base.Update();
     }
 
+    public void SavePlayerStats()
+    {
+        PlayerPrefs.SetInt(HPPrefKey, HP);
+        PlayerPrefs.SetInt(DamagePrefKey, damage);
+    }
     protected override void OnAttack()
     {
         base.OnAttack();

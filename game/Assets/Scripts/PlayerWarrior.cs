@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class PlayerWarrior : PlayerBase
 {
+    private const string HPPrefKey = "PlayerHP";
+    private const string DamagePrefKey = "PlayerDamage";
+    private const string SpeedPrefKey = "PlayerSpeed";
+
     protected override void Start()
     {
-        HP = 200;
-        damage = 50;
+        // При запуске игры загружаем сохраненные значения или устанавливаем начальные значения
+        HP = PlayerPrefs.GetInt(HPPrefKey, 200);
+        damage = PlayerPrefs.GetInt(DamagePrefKey, 50);
+        speed = PlayerPrefs.GetFloat(SpeedPrefKey, 2f);
         radius = 0.8f;
         attackRate = 0.8f;
-        speed = 2f;
 
         base.Start();
     }
@@ -20,6 +25,13 @@ public class PlayerWarrior : PlayerBase
         base.Update();
     }
 
+    // Метод для сохранения характеристик при улучшении
+    public void SavePlayerStats()
+    {
+        PlayerPrefs.SetInt(HPPrefKey, HP);
+        PlayerPrefs.SetInt(DamagePrefKey, damage);
+        PlayerPrefs.SetFloat(SpeedPrefKey, speed);
+    }
     protected override void OnAttack()
     {
         base.OnAttack();

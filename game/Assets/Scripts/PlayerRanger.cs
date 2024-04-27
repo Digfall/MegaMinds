@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class PlayerRanger : PlayerBase
 {
+    private const string HPPrefKey = "PlayerHP";
+    private const string DamagePrefKey = "PlayerDamage";
+    private const string SpeedPrefKey = "PlayerSpeed";
     protected override void Start()
     {
-        HP = 60;
-        damage = 20;
+        HP = PlayerPrefs.GetInt(HPPrefKey, 60);
+        damage = PlayerPrefs.GetInt(DamagePrefKey, 20);
+        speed = PlayerPrefs.GetFloat(SpeedPrefKey, 2f);
         radius = 6f;
         attackRate = 0.5f;
-        speed = 2f;
-
         base.Start();
     }
 
@@ -25,6 +27,12 @@ public class PlayerRanger : PlayerBase
         base.OnAttack();
     }
 
+    public void SavePlayerStats()
+    {
+        PlayerPrefs.SetInt(HPPrefKey, HP);
+        PlayerPrefs.SetInt(DamagePrefKey, damage);
+        PlayerPrefs.SetFloat(SpeedPrefKey, speed);
+    }
     protected override void FindTargetToAttack()
     {
         base.FindTargetToAttack();

@@ -1,9 +1,9 @@
 using TMPro;
 using UnityEngine;
 
-public class UpgradeManager : MonoBehaviour
+public class UpgradeTank : MonoBehaviour
 {
-    public PlayerWarrior playerWarrior; // Ссылка на скрипт Player
+    public PlayerTank playerTank; // Ссылка на скрипт Player
     public TextMeshProUGUI totalScienceText; // Ссылка на текст с общим количеством TotalScience
     public TextMeshProUGUI priceForUpgrade; // Ссылка на текст на кнопку Апгрейд
     public TextMeshProUGUI hpText; // Ссылка на текст для отображения HP
@@ -32,11 +32,10 @@ public class UpgradeManager : MonoBehaviour
             GameManager.TotalScience -= upgradeCost;
 
             // Улучшаем характеристики персонажа
-            playerWarrior.HP += 300;
-            playerWarrior.damage += 50;
+            playerTank.HP += 480;
+            playerTank.damage += 20;
 
-            // Сохраняем улучшенные характеристики
-            playerWarrior.SavePlayerStats();
+            playerTank.SavePlayerStats();
 
             // Обновляем отображение TotalScience и характеристик игрока
             UpdateTotalScienceText();
@@ -49,7 +48,6 @@ public class UpgradeManager : MonoBehaviour
         }
     }
 
-
     private void UpdateTotalScienceText()
     {
         // Обновляем текст с общим количеством TotalScience
@@ -59,8 +57,8 @@ public class UpgradeManager : MonoBehaviour
     private void UpdatePlayerStatsText()
     {
         // Обновляем тексты с характеристиками игрока
-        hpText.text = playerWarrior.HP.ToString();
-        damageText.text = playerWarrior.damage.ToString();
-        speedText.text = playerWarrior.speed.ToString();
+        hpText.text = playerTank.HP.ToString();
+        damageText.text = playerTank.damage.ToString();
+        speedText.text = playerTank.speed.ToString();
     }
 }

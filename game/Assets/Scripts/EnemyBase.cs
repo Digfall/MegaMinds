@@ -113,7 +113,9 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void FindTargetToAttack()
     {
-        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.left, raycastDistance);
+        LayerMask layerMask = ~LayerMask.GetMask("Enemy");
+        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.left, raycastDistance, layerMask);
+        Debug.DrawRay(attackPos.position, Vector2.left * raycastDistance, Color.red);
         if (hit.collider != null)
         {
             attackTarget = hit.collider.transform;
@@ -122,8 +124,10 @@ public class EnemyBase : MonoBehaviour
                 OnAttack();
             }
         }
-
-        Debug.DrawRay(attackPos.position, Vector2.left * raycastDistance, Color.red);
+        else
+        {
+            attackTarget = null; // Если не найдено цели, сбросить атакованную цель
+        }
     }
 
     protected virtual Transform FindNearestTarget()

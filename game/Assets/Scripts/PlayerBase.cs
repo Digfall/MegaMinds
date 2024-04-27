@@ -6,12 +6,12 @@ using UnityEngine.AI;
 public class PlayerBase : MonoBehaviour
 {
     [Header("Статы Персонажа")]
-    public int HP = 200;
-    public int damage = 50;
-    public float speed = 2;
+    public int HP;
+    public int damage;
+    public float speed;
     public float damageRate = 1.0f; // Задержка между каждым нанесением урона
     public float radius;
-    public float attackRate = 1.5f; // Время между атаками в секундах
+    public float attackRate; // Время между атаками в секундах
     protected float nextAttackTime = 0f; // Время до следующей атаки
     protected float nextDamageTime = 0f; // Время до следующего удара
 
@@ -113,8 +113,14 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual void FindTargetToAttack()
     {
-        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistance);
+        // Создаем маску слоя, игнорируя слой с объектами Player
+        LayerMask layerMask = ~LayerMask.GetMask("Player");
+
+        // Выполняем лучевое попадание
+        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistance, layerMask);
         Debug.DrawRay(attackPos.position, Vector2.right * raycastDistance, Color.red);
+
+        // Проверяем, попал ли луч в объект
         if (hit.collider != null)
         {
             attackTarget = hit.collider.transform;
@@ -122,8 +128,18 @@ public class PlayerBase : MonoBehaviour
             {
                 OnAttack();
             }
+            else
+            {
+                attackTarget = null; // Сбросить атакованную цель, если это не враг
+            }
+        }
+        else
+        {
+            attackTarget = null; // Если не найдено цели, сбросить атакованную цель
         }
     }
+
+
 
     protected virtual Transform FindNearestTarget()
     {
