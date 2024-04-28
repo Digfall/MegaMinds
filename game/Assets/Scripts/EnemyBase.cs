@@ -113,8 +113,7 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void FindTargetToAttack()
     {
-        LayerMask layerMask = ~LayerMask.GetMask("Enemy");
-        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.left, raycastDistance, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.left, raycastDistance);
         Debug.DrawRay(attackPos.position, Vector2.left * raycastDistance, Color.red);
         if (hit.collider != null)
         {

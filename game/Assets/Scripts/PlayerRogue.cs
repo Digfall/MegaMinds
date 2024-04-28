@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class PlayerRogue : PlayerBase
 {
-    private const string HPPrefKey = "PlayerHP";
-    private const string DamagePrefKey = "PlayerDamage";
-    private const string SpeedPrefKey = "PlayerSpeed";
+    private const string RogueHPPrefKey = "RogueHP";
+    private const string RogueDamagePrefKey = "RogueDamage";
+    private const string RogueSpeedPrefKey = "RogueSpeed";
     protected override void Start()
     {
-        HP = PlayerPrefs.GetInt(HPPrefKey, 50);
-        damage = PlayerPrefs.GetInt(DamagePrefKey, 50);
-        speed = PlayerPrefs.GetFloat(SpeedPrefKey, 2.5f);
+        HP = PlayerPrefs.GetInt(RogueHPPrefKey, 50);
+        damage = PlayerPrefs.GetInt(RogueDamagePrefKey, 50);
+        speed = PlayerPrefs.GetFloat(RogueSpeedPrefKey, 2.5f);
         radius = 0.8f;
         attackRate = 0.5f;
 
@@ -24,9 +24,8 @@ public class PlayerRogue : PlayerBase
     }
     public void SavePlayerStats()
     {
-        PlayerPrefs.SetInt(HPPrefKey, HP);
-        PlayerPrefs.SetInt(DamagePrefKey, damage);
-        PlayerPrefs.SetFloat(SpeedPrefKey, speed);
+        PlayerPrefs.SetInt(RogueHPPrefKey, HP);
+        PlayerPrefs.SetInt(RogueDamagePrefKey, damage);
     }
     protected override void OnAttack()
     {

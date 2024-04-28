@@ -9,4 +9,8 @@ public class SceneSwitcher : MonoBehaviour
     {
         SceneManager.LoadScene(targetSceneName);
     }
+    public void ClearPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+    }
 }

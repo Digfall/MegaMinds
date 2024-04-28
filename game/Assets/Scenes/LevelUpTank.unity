@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91922bf7abb6cfb4b973a6509342c869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSceneName: Entry
+  targetSceneName: ArmyChoose
 --- !u!114 &4707838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1490,7 +1490,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 40210560db4dda943879246169621ed6, type: 3}
+  m_Sprite: {fileID: 1743884603, guid: 53fbe6252b56789469138fb0ddaf1b5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1510,8 +1510,8 @@ Transform:
   m_GameObject: {fileID: 885845405}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -192.27925, y: -1.2754841, z: -18}
-  m_LocalScale: {x: 99.80664, y: 102.038734, z: 97.27529}
+  m_LocalPosition: {x: -192.27925, y: -1.2755, z: -18}
+  m_LocalScale: {x: 29.232368, y: 29.886126, z: 28.490961}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1906382091}

@@ -9,18 +9,31 @@ public class UpgradeRanger : MonoBehaviour
     public TextMeshProUGUI hpText; // Ссылка на текст для отображения HP
     public TextMeshProUGUI damageText; // Ссылка на текст для отображения damage
     public TextMeshProUGUI speedText; // Ссылка на текст для отображения speed
-    public int upgradeCost = 2000; // Стоимость улучшения
+    public int upgradeCost = 100; // Стоимость улучшения
 
     private void Start()
     {
         // Обновляем текст с общим количеством TotalScience при загрузке сцены
         UpdateTotalScienceText();
+
+        // Загружаем сохраненные характеристики игрока
+        LoadPlayerStats();
+
+        // Обновляем тексты с характеристиками игрока
         UpdatePlayerStatsText();
+    }
+    private void LoadPlayerStats()
+    {
+        // Загружаем сохраненные значения характеристик из PlayerPrefs
+        playerRanger.HP = PlayerPrefs.GetInt("RangerHP", playerRanger.HP);
+        playerRanger.damage = PlayerPrefs.GetInt("RangerDamage", playerRanger.damage);
+        playerRanger.speed = PlayerPrefs.GetFloat("RangerSpeed", playerRanger.speed);
     }
 
     void Update()
     {
         priceForUpgrade.text = upgradeCost.ToString();
+        UpdatePlayerStatsText();
     }
 
     public void UpgradePlayer()
@@ -59,6 +72,5 @@ public class UpgradeRanger : MonoBehaviour
         // Обновляем тексты с характеристиками игрока
         hpText.text = playerRanger.HP.ToString();
         damageText.text = playerRanger.damage.ToString();
-        speedText.text = playerRanger.speed.ToString();
     }
 }

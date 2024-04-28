@@ -9,18 +9,30 @@ public class UpgradeTank : MonoBehaviour
     public TextMeshProUGUI hpText; // Ссылка на текст для отображения HP
     public TextMeshProUGUI damageText; // Ссылка на текст для отображения damage
     public TextMeshProUGUI speedText; // Ссылка на текст для отображения speed
-    public int upgradeCost = 2000; // Стоимость улучшения
+    public int upgradeCost = 100; // Стоимость улучшения
 
     private void Start()
     {
         // Обновляем текст с общим количеством TotalScience при загрузке сцены
         UpdateTotalScienceText();
+
+        // Загружаем сохраненные характеристики игрока
+        LoadPlayerStats();
+
+        // Обновляем тексты с характеристиками игрока
         UpdatePlayerStatsText();
     }
-
+    private void LoadPlayerStats()
+    {
+        // Загружаем сохраненные значения характеристик из PlayerPrefs
+        playerTank.HP = PlayerPrefs.GetInt("TankHP", playerTank.HP);
+        playerTank.damage = PlayerPrefs.GetInt("TankDamage", playerTank.damage);
+        playerTank.speed = PlayerPrefs.GetFloat("TankSpeed", playerTank.speed);
+    }
     void Update()
     {
         priceForUpgrade.text = upgradeCost.ToString();
+        UpdatePlayerStatsText();
     }
 
     public void UpgradePlayer()
@@ -59,6 +71,5 @@ public class UpgradeTank : MonoBehaviour
         // Обновляем тексты с характеристиками игрока
         hpText.text = playerTank.HP.ToString();
         damageText.text = playerTank.damage.ToString();
-        speedText.text = playerTank.speed.ToString();
     }
 }

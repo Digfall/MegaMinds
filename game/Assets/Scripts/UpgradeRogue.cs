@@ -9,18 +9,31 @@ public class UpgradeRogue : MonoBehaviour
     public TextMeshProUGUI hpText; // Ссылка на текст для отображения HP
     public TextMeshProUGUI damageText; // Ссылка на текст для отображения damage
     public TextMeshProUGUI speedText; // Ссылка на текст для отображения speed
-    public int upgradeCost = 2000; // Стоимость улучшения
+    public int upgradeCost = 100; // Стоимость улучшения
 
     private void Start()
     {
         // Обновляем текст с общим количеством TotalScience при загрузке сцены
         UpdateTotalScienceText();
+
+        // Загружаем сохраненные характеристики игрока
+        LoadPlayerStats();
+
+        // Обновляем тексты с характеристиками игрока
         UpdatePlayerStatsText();
+    }
+    private void LoadPlayerStats()
+    {
+        // Загружаем сохраненные значения характеристик из PlayerPrefs
+        playerRogue.HP = PlayerPrefs.GetInt("RogueHP", playerRogue.HP);
+        playerRogue.damage = PlayerPrefs.GetInt("RogueDamage", playerRogue.damage);
+        playerRogue.speed = PlayerPrefs.GetFloat("RogueSpeed", playerRogue.speed);
     }
 
     void Update()
     {
         priceForUpgrade.text = upgradeCost.ToString();
+        UpdatePlayerStatsText();
     }
 
     public void UpgradePlayer()
@@ -59,6 +72,5 @@ public class UpgradeRogue : MonoBehaviour
         // Обновляем тексты с характеристиками игрока
         hpText.text = playerRogue.HP.ToString();
         damageText.text = playerRogue.damage.ToString();
-        speedText.text = playerRogue.speed.ToString();
     }
 }

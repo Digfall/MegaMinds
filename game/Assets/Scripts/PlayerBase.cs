@@ -113,11 +113,8 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual void FindTargetToAttack()
     {
-        // Создаем маску слоя, игнорируя слой с объектами Player
-        LayerMask layerMask = ~LayerMask.GetMask("Player");
-
         // Выполняем лучевое попадание
-        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistance, layerMask);
+        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistance);
         Debug.DrawRay(attackPos.position, Vector2.right * raycastDistance, Color.red);
 
         // Проверяем, попал ли луч в объект

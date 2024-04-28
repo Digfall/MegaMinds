@@ -723,7 +723,7 @@ MonoBehaviour:
   movePos: {fileID: 4568984401801632686}
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
-  raycastDistance: 0.5
+  raycastDistance: 0.8
   raycastDistanceToMove: 20
 --- !u!50 &4121635748126923234
 Rigidbody2D:
