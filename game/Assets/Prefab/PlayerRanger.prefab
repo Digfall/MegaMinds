@@ -365,6 +365,35 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 6
   raycastDistanceToMove: 20
+  upgradeLevels:
+  - levelran: 0
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+  - levelran: 0
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+  - levelran: 0
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+  - levelran: 0
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
 --- !u!1 &3517896390906296170
 GameObject:
   m_ObjectHideFlags: 0

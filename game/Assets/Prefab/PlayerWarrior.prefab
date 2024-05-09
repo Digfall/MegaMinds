@@ -352,8 +352,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74749832f2222644887cca8077de8da3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 200
-  damage: 50
+  HP: 750
+  damage: 165
   speed: 2
   damageRate: 1
   radius: 1
@@ -365,6 +365,35 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 0.8
   raycastDistanceToMove: 20
+  upgradeLevels:
+  - levelwar: 1
+    hpwar: 200
+    damagewar: 50
+    speed: 0
+    costwar: 100
+    damageUpTextwar: 50
+    hpUpTextwar: 300
+  - levelwar: 2
+    hpwar: 500
+    damagewar: 100
+    speed: 0
+    costwar: 500
+    damageUpTextwar: 65
+    hpUpTextwar: 250
+  - levelwar: 3
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
+  - levelwar: 3
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
 --- !u!1 &3517896390906296170
 GameObject:
   m_ObjectHideFlags: 0

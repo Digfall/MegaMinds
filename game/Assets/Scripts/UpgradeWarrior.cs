@@ -1,17 +1,19 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class UpgradeRanger : MonoBehaviour
+public class UpgradeManager : MonoBehaviour
 {
-    public PlayerRanger playerRanger;
+    public PlayerWarrior playerWarrior;
     public TextMeshProUGUI totalScienceText;
     public TextMeshProUGUI priceForUpgrade;
     public TextMeshProUGUI hpText;
     public TextMeshProUGUI damageText;
     public TextMeshProUGUI levelText;
-    public TextMeshProUGUI damageUpTextran;
-    public TextMeshProUGUI hpUpTextran;
+    public TextMeshProUGUI damageUpTextwar;
+    public TextMeshProUGUI hpUpTextwar;
+    public Slider upgradeSlider;
 
 
     private int currentLevel = 0;
@@ -24,7 +26,7 @@ public class UpgradeRanger : MonoBehaviour
         currentLevel = PlayerPrefs.GetInt(CurrentLevelPrefKey, 0);
 
         UpdateTotalScienceText();
-        UpdateRangerStatsText();
+        UpdateWarriorStatsText();
         DefineUpgradeLevels();
         UpgradePlayer(currentLevel);
         UpdatePriceForUpgrade(currentLevel);
@@ -32,15 +34,15 @@ public class UpgradeRanger : MonoBehaviour
 
     void Update()
     {
-        UpdateRangerStatsText();
+        UpdateWarriorStatsText();
         UpdatePriceForUpgrade(currentLevel);
     }
 
     public void UpgradePlayer()
     {
-        if (currentLevel < playerRanger.upgradeLevels.Count - 1)
+        if (currentLevel < playerWarrior.upgradeLevels.Count - 1)
         {
-            int upgradeCost = playerRanger.upgradeLevels[currentLevel].costran;
+            int upgradeCost = playerWarrior.upgradeLevels[currentLevel].costwar;
 
             if (GameManager.TotalScience >= upgradeCost)
             {
@@ -48,8 +50,10 @@ public class UpgradeRanger : MonoBehaviour
                 currentLevel++;
                 UpgradePlayer(currentLevel);
                 UpdateTotalScienceText();
-                UpdateRangerStatsText();
+                UpdateWarriorStatsText();
                 UpdatePriceForUpgrade(currentLevel);
+                upgradeSlider.value = (float)currentLevel / (float)(playerWarrior.upgradeLevels.Count - 1);
+
 
                 // Сохраняем текущий уровень в PlayerPrefs
                 PlayerPrefs.SetInt(CurrentLevelPrefKey, currentLevel);
@@ -67,12 +71,12 @@ public class UpgradeRanger : MonoBehaviour
     public void LoadPlayerStats()
     {
         // Загружаем сохраненные значения характеристик из PlayerPrefs
-        playerRanger.HP = PlayerPrefs.GetInt("RangerHP", playerRanger.HP);
-        playerRanger.damage = PlayerPrefs.GetInt("RangerDamage", playerRanger.damage);
+        playerWarrior.HP = PlayerPrefs.GetInt("WarriorHP", playerWarrior.HP);
+        playerWarrior.damage = PlayerPrefs.GetInt("WarriorDamage", playerWarrior.damage);
     }
     private void UpdatePriceForUpgrade(int nextLevel)
     {
-        priceForUpgrade.text = playerRanger.upgradeLevels[nextLevel].costran.ToString();
+        priceForUpgrade.text = playerWarrior.upgradeLevels[nextLevel].costwar.ToString();
     }
 
     private void UpdateTotalScienceText()
@@ -80,33 +84,33 @@ public class UpgradeRanger : MonoBehaviour
         totalScienceText.text = GameManager.TotalScience.ToString();
     }
 
-    private void UpdateRangerStatsText()
+    private void UpdateWarriorStatsText()
     {
-        hpText.text = playerRanger.HP.ToString();
-        damageText.text = playerRanger.damage.ToString();
+        hpText.text = playerWarrior.HP.ToString();
+        damageText.text = playerWarrior.damage.ToString();
         levelText.text = currentLevel.ToString();
-        damageUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevel].damageUpTextran.ToString();
-        hpUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevel].hpUpTextran.ToString();
+        damageUpTextwar.text = "+" + playerWarrior.upgradeLevels[currentLevel].damageUpTextwar.ToString();
+        hpUpTextwar.text = "+" + playerWarrior.upgradeLevels[currentLevel].hpUpTextwar.ToString();
     }
 
     private void DefineUpgradeLevels()
     {
-        playerRanger.upgradeLevels = new List<UpgradeRangers>
+        playerWarrior.upgradeLevels = new List<UpgradeLevel>
         {
-            new UpgradeRangers { levelran = 1, hpran = 60, damageran = 20, costran = 100, damageUpTextran = 20, hpUpTextran = 72 },
-            new UpgradeRangers { levelran = 2, hpran = 132, damageran = 40, costran = 500, damageUpTextran = 20, hpUpTextran = 68 },
-            new UpgradeRangers { levelran = 3, hpran = 198, damageran = 60, costran = 1000, damageUpTextran = 20, hpUpTextran = 105 },
-            new UpgradeRangers { levelran = 4, hpran = 250, damageran = 80, costran = 1500, damageUpTextran = 0, hpUpTextran = 0 }
+            new UpgradeLevel { levelwar = 1, hpwar = 200, damagewar = 50, costwar = 100, damageUpTextwar = 50, hpUpTextwar = 300 },
+            new UpgradeLevel { levelwar = 2, hpwar = 500, damagewar = 100, costwar = 500, damageUpTextwar = 65, hpUpTextwar = 250 },
+            new UpgradeLevel { levelwar = 3, hpwar = 750, damagewar = 165, costwar = 750, damageUpTextwar = 105, hpUpTextwar = 105 },
+            new UpgradeLevel { levelwar = 4, hpwar = 1000, damagewar = 165, costwar = 1000, damageUpTextwar = 0, hpUpTextwar = 0 }
         };
     }
 
-    private void UpgradePlayer(int levelran)
+    private void UpgradePlayer(int levelwar)
     {
-        if (levelran >= 0 && levelran < playerRanger.upgradeLevels.Count)
+        if (levelwar >= 0 && levelwar < playerWarrior.upgradeLevels.Count)
         {
-            playerRanger.HP = playerRanger.upgradeLevels[levelran].hpran;
-            playerRanger.damage = playerRanger.upgradeLevels[levelran].damageran;
-            playerRanger.SavePlayerStats();
+            playerWarrior.HP = playerWarrior.upgradeLevels[levelwar].hpwar;
+            playerWarrior.damage = playerWarrior.upgradeLevels[levelwar].damagewar;
+            playerWarrior.SavePlayerStats();
         }
     }
 }

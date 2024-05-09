@@ -1,76 +1,112 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class UpgradeRogue : MonoBehaviour
 {
-    public PlayerRogue playerRogue; // Ссылка на скрипт Player
-    public TextMeshProUGUI totalScienceText; // Ссылка на текст с общим количеством TotalScience
-    public TextMeshProUGUI priceForUpgrade; // Ссылка на текст на кнопку Апгрейд
-    public TextMeshProUGUI hpText; // Ссылка на текст для отображения HP
-    public TextMeshProUGUI damageText; // Ссылка на текст для отображения damage
-    public TextMeshProUGUI speedText; // Ссылка на текст для отображения speed
-    public int upgradeCost = 100; // Стоимость улучшения
+    public PlayerRogue playerRogue;
+    public TextMeshProUGUI totalScienceText;
+    public TextMeshProUGUI priceForUpgrade;
+    public TextMeshProUGUI hpText;
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI damageUpTextrog;
+    public TextMeshProUGUI hpUpTextrog;
+
+
+    [SerializeField] private int currentLevelrogue = 0;
+
+    private const string CurrentLevelPrefKey = "CurrentLevel"; // Ключ для сохранения/загрузки текущего уровня
 
     private void Start()
     {
-        // Обновляем текст с общим количеством TotalScience при загрузке сцены
+        // Загружаем текущий уровень из PlayerPrefs
+        currentLevelrogue = PlayerPrefs.GetInt(CurrentLevelPrefKey, 0);
+
         UpdateTotalScienceText();
-
-        // Загружаем сохраненные характеристики игрока
-        LoadPlayerStats();
-
-        // Обновляем тексты с характеристиками игрока
-        UpdatePlayerStatsText();
-    }
-    private void LoadPlayerStats()
-    {
-        // Загружаем сохраненные значения характеристик из PlayerPrefs
-        playerRogue.HP = PlayerPrefs.GetInt("RogueHP", playerRogue.HP);
-        playerRogue.damage = PlayerPrefs.GetInt("RogueDamage", playerRogue.damage);
-        playerRogue.speed = PlayerPrefs.GetFloat("RogueSpeed", playerRogue.speed);
+        UpdateRogueStatsText();
+        DefineUpgradeLevels();
+        UpgradePlayer(currentLevelrogue);
+        UpdatePriceForUpgrade(currentLevelrogue);
     }
 
     void Update()
     {
-        priceForUpgrade.text = upgradeCost.ToString();
-        UpdatePlayerStatsText();
+        UpdateRogueStatsText();
+        UpdatePriceForUpgrade(currentLevelrogue);
     }
 
     public void UpgradePlayer()
     {
-        // Проверяем, хватает ли TotalScience для улучшения
-        if (GameManager.TotalScience >= upgradeCost)
+        if (currentLevelrogue < playerRogue.upgradeLevels.Count - 1)
         {
-            // Уменьшаем TotalScience на стоимость улучшения
-            GameManager.TotalScience -= upgradeCost;
+            int upgradeCost = playerRogue.upgradeLevels[currentLevelrogue].costrog;
 
-            // Улучшаем характеристики персонажа
-            playerRogue.HP += 70;
-            playerRogue.damage += 50;
+            if (GameManager.TotalScience >= upgradeCost)
+            {
+                GameManager.TotalScience -= upgradeCost;
+                currentLevelrogue++;
+                UpgradePlayer(currentLevelrogue);
+                UpdateTotalScienceText();
+                UpdateRogueStatsText();
+                UpdatePriceForUpgrade(currentLevelrogue);
 
-            playerRogue.SavePlayerStats();
-
-            // Обновляем отображение TotalScience и характеристик игрока
-            UpdateTotalScienceText();
-            UpdatePlayerStatsText();
+                // Сохраняем текущий уровень в PlayerPrefs
+                PlayerPrefs.SetInt(CurrentLevelPrefKey, currentLevelrogue);
+            }
+            else
+            {
+                Debug.Log("Недостаточно TotalScience для улучшения.");
+            }
         }
         else
         {
-            // Если TotalScience недостаточно, выводим сообщение об этом
-            Debug.Log("Недостаточно TotalScience для улучшения.");
+            Debug.Log("Игрок достиг максимального уровня прокачки.");
         }
+    }
+    public void LoadPlayerStats()
+    {
+        // Загружаем сохраненные значения характеристик из PlayerPrefs
+        playerRogue.HP = PlayerPrefs.GetInt("RogueHP", playerRogue.HP);
+        playerRogue.damage = PlayerPrefs.GetInt("RogueDamage", playerRogue.damage);
+    }
+    private void UpdatePriceForUpgrade(int nextLevel)
+    {
+        priceForUpgrade.text = playerRogue.upgradeLevels[nextLevel].costrog.ToString();
     }
 
     private void UpdateTotalScienceText()
     {
-        // Обновляем текст с общим количеством TotalScience
         totalScienceText.text = GameManager.TotalScience.ToString();
     }
 
-    private void UpdatePlayerStatsText()
+    private void UpdateRogueStatsText()
     {
-        // Обновляем тексты с характеристиками игрока
         hpText.text = playerRogue.HP.ToString();
         damageText.text = playerRogue.damage.ToString();
+        levelText.text = currentLevelrogue.ToString();
+        damageUpTextrog.text = "+" + playerRogue.upgradeLevels[currentLevelrogue].damageUpTextrog.ToString(); // Прирост урона
+        hpUpTextrog.text = "+" + playerRogue.upgradeLevels[currentLevelrogue].hpUpTextrog.ToString(); // Прирост здоровья
+    }
+
+    private void DefineUpgradeLevels()
+    {
+        playerRogue.upgradeLevels = new List<UpgradeRogues>
+        {
+            new UpgradeRogues { levelrog = 1, hprog = 50, damagerog = 50, costrog = 100, damageUpTextrog = 50, hpUpTextrog = 70 },
+            new UpgradeRogues { levelrog = 2, hprog = 120, damagerog = 100, costrog = 500, damageUpTextrog = 80, hpUpTextrog = 60 },
+            new UpgradeRogues { levelrog = 3, hprog = 180, damagerog = 180, costrog = 1000, damageUpTextrog = 25, hpUpTextrog = 50 },
+            new UpgradeRogues { levelrog = 4, hprog = 280, damagerog = 200, costrog = 1500, damageUpTextrog = 0, hpUpTextrog = 0 }
+        };
+    }
+
+    private void UpgradePlayer(int levelrog)
+    {
+        if (levelrog >= 0 && levelrog < playerRogue.upgradeLevels.Count)
+        {
+            playerRogue.HP = playerRogue.upgradeLevels[levelrog].hprog;
+            playerRogue.damage = playerRogue.upgradeLevels[levelrog].damagerog;
+            playerRogue.SavePlayerStats();
+        }
     }
 }

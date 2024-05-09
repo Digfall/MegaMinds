@@ -2,18 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class UpgradeRangers
+{
+    public int levelran;
+    public int hpran;
+    public int damageran;
+    public float speed;
+    public int costran;
+    public int damageUpTextran;
+    public int hpUpTextran;
+}
+
 public class PlayerRanger : PlayerBase
 {
     private const string RangerHPPrefKey = "RangerHP";
     private const string RangerDamagePrefKey = "RangerDamage";
-    private const string RangerSpeedPrefKey = "RangerSpeed";
+
+    public List<UpgradeRangers> upgradeLevels = new List<UpgradeRangers>(); // Инициализация списка
+
     protected override void Start()
     {
-        HP = PlayerPrefs.GetInt(RangerHPPrefKey, 60);
-        damage = PlayerPrefs.GetInt(RangerDamagePrefKey, 20);
-        speed = PlayerPrefs.GetFloat(RangerSpeedPrefKey, 2f);
-        radius = 6f;
-        attackRate = 0.5f;
+        // При запуске игры загружаем сохраненные значения или устанавливаем начальные значения
+        UpdatePlayerStats(); // Обновляем характеристики при старте
         base.Start();
     }
 
@@ -22,30 +33,33 @@ public class PlayerRanger : PlayerBase
         base.Update();
     }
 
+    // Метод для сохранения характеристик при улучшении
+    public void SavePlayerStats()
+    {
+        PlayerPrefs.SetInt(RangerHPPrefKey, HP);
+        PlayerPrefs.SetInt(RangerDamagePrefKey, damage);
+        PlayerPrefs.Save(); // Сохраняем изменения в PlayerPrefs
+    }
+
+    // Метод для обновления характеристик персонажа в соответствии с текущими значениями из PlayerPrefs
+    public void UpdatePlayerStats()
+    {
+        HP = PlayerPrefs.GetInt(RangerHPPrefKey, HP);
+        damage = PlayerPrefs.GetInt(RangerDamagePrefKey, damage);
+    }
+
     protected override void OnAttack()
     {
         base.OnAttack();
     }
 
-    public void SavePlayerStats()
+    public override void TakeDamage(int damageran)
     {
-        PlayerPrefs.SetInt(RangerHPPrefKey, HP);
-        PlayerPrefs.SetInt(RangerDamagePrefKey, damage);
-
+        base.TakeDamage(damageran);
     }
+
     protected override void FindTargetToAttack()
     {
         base.FindTargetToAttack();
-    }
-    public override void TakeDamage(int damage)
-    {
-        base.TakeDamage(damage);
-    }
-
-    protected override void OnDrawGizmosSelected()
-    {
-        base.OnDrawGizmosSelected();
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(attackPos.position, radius);
     }
 }

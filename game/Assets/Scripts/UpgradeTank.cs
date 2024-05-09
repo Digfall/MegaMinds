@@ -1,75 +1,112 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
 public class UpgradeTank : MonoBehaviour
 {
-    public PlayerTank playerTank; // Ссылка на скрипт Player
-    public TextMeshProUGUI totalScienceText; // Ссылка на текст с общим количеством TotalScience
-    public TextMeshProUGUI priceForUpgrade; // Ссылка на текст на кнопку Апгрейд
-    public TextMeshProUGUI hpText; // Ссылка на текст для отображения HP
-    public TextMeshProUGUI damageText; // Ссылка на текст для отображения damage
-    public TextMeshProUGUI speedText; // Ссылка на текст для отображения speed
-    public int upgradeCost = 100; // Стоимость улучшения
+    public PlayerTank playerTank;
+    public TextMeshProUGUI totalScienceText;
+    public TextMeshProUGUI priceForUpgrade;
+    public TextMeshProUGUI hpText;
+    public TextMeshProUGUI damageText;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI damageUpTextTank;
+    public TextMeshProUGUI hpUpTextTank;
+
+
+    private int currentLevel = 0;
+
+    private const string CurrentLevelPrefKey = "CurrentLevel"; // Ключ для сохранения/загрузки текущего уровня
 
     private void Start()
     {
-        // Обновляем текст с общим количеством TotalScience при загрузке сцены
+        // Загружаем текущий уровень из PlayerPrefs
+        currentLevel = PlayerPrefs.GetInt(CurrentLevelPrefKey, 0);
+
         UpdateTotalScienceText();
-
-        // Загружаем сохраненные характеристики игрока
-        LoadPlayerStats();
-
-        // Обновляем тексты с характеристиками игрока
-        UpdatePlayerStatsText();
+        UpdateTankStatsText();
+        DefineUpgradeLevels();
+        UpgradePlayer(currentLevel);
+        UpdatePriceForUpgrade(currentLevel);
     }
-    private void LoadPlayerStats()
-    {
-        // Загружаем сохраненные значения характеристик из PlayerPrefs
-        playerTank.HP = PlayerPrefs.GetInt("TankHP", playerTank.HP);
-        playerTank.damage = PlayerPrefs.GetInt("TankDamage", playerTank.damage);
-        playerTank.speed = PlayerPrefs.GetFloat("TankSpeed", playerTank.speed);
-    }
+
     void Update()
     {
-        priceForUpgrade.text = upgradeCost.ToString();
-        UpdatePlayerStatsText();
+        UpdateTankStatsText();
+        UpdatePriceForUpgrade(currentLevel);
     }
 
     public void UpgradePlayer()
     {
-        // Проверяем, хватает ли TotalScience для улучшения
-        if (GameManager.TotalScience >= upgradeCost)
+        if (currentLevel < playerTank.upgradeLevels.Count - 1)
         {
-            // Уменьшаем TotalScience на стоимость улучшения
-            GameManager.TotalScience -= upgradeCost;
+            int upgradeCost = playerTank.upgradeLevels[currentLevel].costTank;
 
-            // Улучшаем характеристики персонажа
-            playerTank.HP += 480;
-            playerTank.damage += 20;
+            if (GameManager.TotalScience >= upgradeCost)
+            {
+                GameManager.TotalScience -= upgradeCost;
+                currentLevel++;
+                UpgradePlayer(currentLevel);
+                UpdateTotalScienceText();
+                UpdateTankStatsText();
+                UpdatePriceForUpgrade(currentLevel);
 
-            playerTank.SavePlayerStats();
-
-            // Обновляем отображение TotalScience и характеристик игрока
-            UpdateTotalScienceText();
-            UpdatePlayerStatsText();
+                // Сохраняем текущий уровень в PlayerPrefs
+                PlayerPrefs.SetInt(CurrentLevelPrefKey, currentLevel);
+            }
+            else
+            {
+                Debug.Log("Недостаточно TotalScience для улучшения.");
+            }
         }
         else
         {
-            // Если TotalScience недостаточно, выводим сообщение об этом
-            Debug.Log("Недостаточно TotalScience для улучшения.");
+            Debug.Log("Игрок достиг максимального уровня прокачки.");
         }
+    }
+    public void LoadPlayerStats()
+    {
+        // Загружаем сохраненные значения характеристик из PlayerPrefs
+        playerTank.HP = PlayerPrefs.GetInt("TankHP", playerTank.HP);
+        playerTank.damage = PlayerPrefs.GetInt("TankDamage", playerTank.damage);
+    }
+    private void UpdatePriceForUpgrade(int nextLevel)
+    {
+        priceForUpgrade.text = playerTank.upgradeLevels[nextLevel].costTank.ToString();
     }
 
     private void UpdateTotalScienceText()
     {
-        // Обновляем текст с общим количеством TotalScience
         totalScienceText.text = GameManager.TotalScience.ToString();
     }
 
-    private void UpdatePlayerStatsText()
+    private void UpdateTankStatsText()
     {
-        // Обновляем тексты с характеристиками игрока
         hpText.text = playerTank.HP.ToString();
         damageText.text = playerTank.damage.ToString();
+        levelText.text = currentLevel.ToString();
+        damageUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevel].damageUpTextTank.ToString();
+        hpUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevel].hpUpTextTank.ToString();
+    }
+
+    private void DefineUpgradeLevels()
+    {
+        playerTank.upgradeLevels = new List<UpgradeTanks>
+        {
+            new UpgradeTanks { levelTank = 1, hpTank = 400, damageTank = 20, costTank = 100, damageUpTextTank = 20, hpUpTextTank = 480 },
+            new UpgradeTanks { levelTank = 2, hpTank = 880, damageTank = 40, costTank = 500, damageUpTextTank = 26, hpUpTextTank = 480 },
+            new UpgradeTanks { levelTank = 3, hpTank = 1320, damageTank = 66, costTank = 1000, damageUpTextTank = 26, hpUpTextTank = 480 },
+            new UpgradeTanks { levelTank = 4, hpTank = 1520, damageTank = 100, costTank = 1500, damageUpTextTank = 0, hpUpTextTank = 0 }
+        };
+    }
+
+    private void UpgradePlayer(int levelTank)
+    {
+        if (levelTank >= 0 && levelTank < playerTank.upgradeLevels.Count)
+        {
+            playerTank.HP = playerTank.upgradeLevels[levelTank].hpTank;
+            playerTank.damage = playerTank.upgradeLevels[levelTank].damageTank;
+            playerTank.SavePlayerStats();
+        }
     }
 }

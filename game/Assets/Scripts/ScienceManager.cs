@@ -37,7 +37,7 @@ public class ScienceManager : MonoBehaviour
     public void UpdateScienceCountCastle()
     {
 
-        ScienceCastleCount += 250;
+        ScienceCastleCount += 1000;
         scienceCountCastle.text = ScienceCastleCount.ToString();
         UpdateScienceCountTotal();
     }

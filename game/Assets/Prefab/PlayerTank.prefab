@@ -365,6 +365,35 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 1
   raycastDistanceToMove: 20
+  upgradeLevels:
+  - levelTank: 0
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+  - levelTank: 0
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+  - levelTank: 0
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+  - levelTank: 0
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
 --- !u!1 &3517896390906296170
 GameObject:
   m_ObjectHideFlags: 0

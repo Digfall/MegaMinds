@@ -2057,8 +2057,9 @@ MonoBehaviour:
   priceForUpgrade: {fileID: 1815439646}
   hpText: {fileID: 556238204}
   damageText: {fileID: 1726377515}
-  speedText: {fileID: 1478629020}
-  upgradeCost: 100
+  levelText: {fileID: 119554770}
+  damageUpTextrog: {fileID: 337866204}
+  hpUpTextrog: {fileID: 1775191519}
 --- !u!1 &868376471
 GameObject:
   m_ObjectHideFlags: 0
