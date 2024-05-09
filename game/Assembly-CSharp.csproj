@@ -77,6 +77,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexColorCycler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\Scripts\SpawnPlayer.cs" />
+    <Compile Include="Assets\Scripts\OptionsOnOff.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\SpawnEnemy.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Assets\Scripts\UpgradeRanger.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\PlayerBase.cs" />
+    <Compile Include="Assets\Scripts\EarlyFinish.cs" />
     <Compile Include="Assets\Scripts\Rogue.cs" />
     <Compile Include="Assets\Scripts\PlayerTank.cs" />
     <Compile Include="Assets\Scripts\Warrior.cs" />

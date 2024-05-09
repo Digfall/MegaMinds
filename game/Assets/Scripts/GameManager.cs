@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    private bool gameStarted = false;
+    //private bool gameStarted = false;
     private bool gamePaused = false;
     private static int totalScience = 0;
 
@@ -20,21 +20,21 @@ public class GameManager : MonoBehaviour
     }
     public void ToggleStartPause()
     {
-        if (!gameStarted)
-        {
-            StartGame();
-        }
-        else
+        // if (!gameStarted)
+        // {
+        //     StartGame();
+        // }
+        // else
         {
             TogglePause();
         }
     }
 
-    void StartGame()
-    {
-        Time.timeScale = 1f; // Возобновляем время
-        gameStarted = true; // Устанавливаем флаг, что игра уже начата
-    }
+    // void StartGame()
+    // {
+    //     Time.timeScale = 1f; // Возобновляем время
+    //     gameStarted = true; // Устанавливаем флаг, что игра уже начата
+    // }
 
     void TogglePause()
     {

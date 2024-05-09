@@ -55,8 +55,6 @@ public class PlayerBase : MonoBehaviour
 
         if (HP <= 0)
         {
-            FindObjectOfType
-            <ScienceManager>().UpdateScienceCountEnemy();
             Destroy(gameObject);
         }
     }
@@ -100,8 +98,9 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual IEnumerator EndAttackAnimation()
     {
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         isAttacking = false;
+        isFighting = false;
         StartCoroutine(ResetIsFightingAfterDelay());
     }
 

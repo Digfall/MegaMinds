@@ -27,7 +27,7 @@ public class Castle : MonoBehaviour
             DestroyCastle();
         }
     }
-    void DestroyCastle()
+    public void DestroyCastle()
     {
         FindObjectOfType<ScienceManager>().UpdateScienceCountTotalLose();
         // Остановить все действия на карте
