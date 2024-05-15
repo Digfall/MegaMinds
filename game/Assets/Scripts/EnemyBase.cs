@@ -92,40 +92,40 @@ public class EnemyBase : MonoBehaviour
                     nextDamageTime = Time.time + damageRate;
                 }
             }
-            StartCoroutine(EndAttackAnimation());
 
             nextAttackTime = Time.time + 1f / attackRate;
         }
     }
 
-    protected virtual IEnumerator EndAttackAnimation()
-    {
-        yield return new WaitForSeconds(4f);
-        isAttacking = false;
-        StartCoroutine(ResetIsFightingAfterDelay());
-    }
-
-    protected virtual IEnumerator ResetIsFightingAfterDelay()
-    {
-        yield return new WaitForSeconds(2f);
-        isFighting = false;
-    }
 
     protected virtual void FindTargetToAttack()
     {
+        // Выполняем лучевое попадание
         RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.left, raycastDistance);
         Debug.DrawRay(attackPos.position, Vector2.left * raycastDistance, Color.red);
+
+        // Проверяем, попал ли луч в объект
         if (hit.collider != null)
         {
             attackTarget = hit.collider.transform;
             if (attackTarget.CompareTag("Player") || attackTarget.CompareTag("Castle"))
             {
-                OnAttack();
+                // Если атакуемый объект в зоне атаки, устанавливаем флаги isAttacking и isFighting в true
+                isAttacking = true;
+                isFighting = true;
+                OnAttack(); // Вызываем метод атаки
+            }
+            else
+            {
+                attackTarget = null; // Сбросить атакованную цель, если это не враг
             }
         }
         else
         {
-            attackTarget = null; // Если не найдено цели, сбросить атакованную цель
+            // Если цель атаки не найдена, сбрасываем флаги атаки и боя в false
+            attackTarget = null; // Сбросить атакованную цель
+            isAttacking = false;
+            isFighting = false;
         }
     }
 
@@ -154,8 +154,6 @@ public class EnemyBase : MonoBehaviour
     {
         healthBar.SetHealth(HP);
         HP -= damage;
-        // isFighting = true;
-        // StartCoroutine(ResetIsFightingAfterDelay());
     }
 
     protected virtual void OnDrawGizmosSelected()

@@ -8,7 +8,7 @@ public class Rogue : EnemyBase
     {
         HP = 50;
         damage = 50;
-        radius = 0.8f;
+        radius = 0.6f;
         attackRate = 0.5f;
         speed = 2.5f;
 

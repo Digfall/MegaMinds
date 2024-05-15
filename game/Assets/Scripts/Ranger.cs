@@ -8,7 +8,7 @@ public class Ranger : EnemyBase
     {
         HP = 60;
         damage = 20;
-        radius = 6f;
+        radius = 5f;
         attackRate = 0.5f;
         speed = 2f;
 

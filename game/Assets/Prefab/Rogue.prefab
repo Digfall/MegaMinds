@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 617355673283953286}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0002673638, y: 0.00080235675, z: -0.0121008195, w: 0.99992645}
-  m_LocalPosition: {x: 0.969, y: 0.711, z: -0.01}
+  m_LocalPosition: {x: 1.25, y: 0.342, z: -0.01}
   m_LocalScale: {x: 0.45265263, y: 0.4526525, z: 0.4526525}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -58,7 +58,7 @@ Transform:
   m_GameObject: {fileID: 1557180357882208898}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0.01, y: 0.189, z: 0.040496826}
+  m_LocalPosition: {x: 0.01, y: 0.062, z: 0.040496826}
   m_LocalScale: {x: 0.58988, y: 0.58988, z: 0.58988}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 6539160011829895251}
   serializedVersion: 2
   m_LocalRotation: {x: 0.012103583, y: 0.99992675, z: -0.0002792682, w: 0.000003380393}
-  m_LocalPosition: {x: 0.235, y: -0.128, z: 0.028760359}
+  m_LocalPosition: {x: 0.235, y: -0.255, z: 0.028760359}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -694,8 +694,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 3791302866684180845}
   - {fileID: 6751800815243792036}
+  - {fileID: 3791302866684180845}
   - {fileID: 2474012708636347550}
   - {fileID: 4568984401801632686}
   m_Father: {fileID: 0}
@@ -759,7 +759,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.010740995, y: 0.17623228}
+  m_Offset: {x: 0.010740995, y: -0.02}
   m_Size: {x: 0.9721961, y: 1.5084587}
   m_Direction: 0
 --- !u!95 &2802972439622271650
@@ -792,7 +792,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8957537787719140412}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.76
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -801,8 +801,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0.77
+  m_Height: 1.56
+  m_BaseOffset: 0.71
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &3039789034051944834
@@ -821,7 +821,7 @@ MonoBehaviour:
   damage: 50
   speed: 2.5
   damageRate: 1
-  radius: 0.8
+  radius: 0.4
   attackRate: 0.5
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}

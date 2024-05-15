@@ -90,24 +90,9 @@ public class PlayerBase : MonoBehaviour
                     nextDamageTime = Time.time + damageRate;
                 }
             }
-            StartCoroutine(EndAttackAnimation());
 
             nextAttackTime = Time.time + 1f / attackRate; // Устанавливаем время следующей атаки
         }
-    }
-
-    protected virtual IEnumerator EndAttackAnimation()
-    {
-        yield return new WaitForSeconds(3f);
-        isAttacking = false;
-        isFighting = false;
-        StartCoroutine(ResetIsFightingAfterDelay());
-    }
-
-    protected virtual IEnumerator ResetIsFightingAfterDelay()
-    {
-        yield return new WaitForSeconds(2f);
-        isFighting = false;
     }
 
     protected virtual void FindTargetToAttack()
@@ -122,7 +107,10 @@ public class PlayerBase : MonoBehaviour
             attackTarget = hit.collider.transform;
             if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
             {
-                OnAttack();
+                // Если атакуемый объект в зоне атаки, устанавливаем флаги isAttacking и isFighting в true
+                isAttacking = true;
+                isFighting = true;
+                OnAttack(); // Вызываем метод атаки
             }
             else
             {
@@ -131,11 +119,12 @@ public class PlayerBase : MonoBehaviour
         }
         else
         {
-            attackTarget = null; // Если не найдено цели, сбросить атакованную цель
+            // Если цель атаки не найдена, сбрасываем флаги атаки и боя в false
+            attackTarget = null; // Сбросить атакованную цель
+            isAttacking = false;
+            isFighting = false;
         }
     }
-
-
 
     protected virtual Transform FindNearestTarget()
     {
@@ -162,8 +151,6 @@ public class PlayerBase : MonoBehaviour
     {
         healthBar.SetHealth(HP);
         HP -= damage;
-        // isFighting = true;
-        // StartCoroutine(ResetIsFightingAfterDelay());
     }
 
     protected virtual void OnDrawGizmosSelected()

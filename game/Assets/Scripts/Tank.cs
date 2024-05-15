@@ -8,9 +8,9 @@ public class Tank : EnemyBase
     {
         HP = 400;
         damage = 20;
-        radius = 0.8f;
-        attackRate = 0.6f;
-        speed = 0.8f;
+        radius = 1;
+        attackRate = 1.5f;
+        speed = 1.2f;
 
         base.Start();
     }
