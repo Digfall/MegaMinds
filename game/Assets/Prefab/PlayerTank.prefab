@@ -308,6 +308,8 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 1
   raycastDistanceToMove: 20
+  isFighting: 0
+  isAttacking: 0
   upgradeLevels:
   - levelTank: 0
     hpTank: 0
@@ -374,7 +376,7 @@ GameObject:
   - component: {fileID: 2469569338291405896}
   m_Layer: 6
   m_Name: PlayerHpbar
-  m_TagString: Untagged
+  m_TagString: HpBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -10,6 +10,7 @@ TagManager:
   - EnemyCastle
   - WayPoint
   - WayPointPlayer
+  - HpBar
   layers:
   - Default
   - TransparentFX

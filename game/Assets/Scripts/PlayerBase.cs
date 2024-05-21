@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,8 +13,8 @@ public class PlayerBase : MonoBehaviour
     public float damageRate = 1.0f; // Задержка между каждым нанесением урона
     public float radius;
     public float attackRate; // Время между атаками в секундах
-    protected float nextAttackTime = 0f; // Время до следующей атаки
-    protected float nextDamageTime = 0f; // Время до следующего удара
+    protected float nextAttackTime = 0.8f; // Время до следующей атаки
+    protected float nextDamageTime = 0.8f; // Время до следующего удара
 
     [Header("Обращения к объектам и трансформы")]
     public Transform attackPos;
@@ -39,6 +40,7 @@ public class PlayerBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
+        nextAttackTime = Time.time + 0.8f;
     }
 
     protected virtual void Update()
@@ -76,19 +78,16 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual void OnAttack()
     {
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime && attackTarget != null)
         {
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
             isAttacking = true;
             isFighting = true; // Устанавливаем флаг isFighting в true при использовании OnAttack
-            for (int i = 0; i < enemies.Length; i++)
+
+            if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
             {
-                if (enemies[i].CompareTag("Enemy") || enemies[i].CompareTag("EnemyCastle"))
-                {
-                    enemies[i].GetComponent<EnemyBase>()?.TakeDamage(damage);
-                    enemies[i].GetComponent<EnemyCastle>()?.TakeDamage(damage);
-                    nextDamageTime = Time.time + damageRate;
-                }
+                attackTarget.GetComponent<EnemyBase>()?.TakeDamage(damage);
+                attackTarget.GetComponent<EnemyCastle>()?.TakeDamage(damage);
+                nextDamageTime = Time.time + damageRate;
             }
 
             nextAttackTime = Time.time + 1f / attackRate; // Устанавливаем время следующей атаки
@@ -97,34 +96,47 @@ public class PlayerBase : MonoBehaviour
 
     protected virtual void FindTargetToAttack()
     {
-        // Выполняем лучевое попадание
-        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.right, raycastDistance);
-        Debug.DrawRay(attackPos.position, Vector2.right * raycastDistance, Color.red);
-
-        // Проверяем, попал ли луч в объект
-        if (hit.collider != null)
+        Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(attackPos.position, radius);
+        if (targetsInRange.Length > 0)
         {
-            attackTarget = hit.collider.transform;
-            if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
+            Transform closestTarget = null;
+            float minDistance = Mathf.Infinity;
+
+            foreach (Collider2D target in targetsInRange)
             {
-                // Если атакуемый объект в зоне атаки, устанавливаем флаги isAttacking и isFighting в true
+                if (target.CompareTag("Enemy") || target.CompareTag("EnemyCastle"))
+                {
+                    float distance = Vector2.Distance(transform.position, target.transform.position);
+                    if (distance < minDistance)
+                    {
+                        closestTarget = target.transform;
+                        minDistance = distance;
+                    }
+                }
+            }
+
+            attackTarget = closestTarget;
+
+            if (attackTarget != null)
+            {
                 isAttacking = true;
                 isFighting = true;
-                OnAttack(); // Вызываем метод атаки
+                OnAttack(); // Начинаем атаку
             }
             else
             {
-                attackTarget = null; // Сбросить атакованную цель, если это не враг
+                isAttacking = false;
+                isFighting = false;
             }
         }
         else
         {
-            // Если цель атаки не найдена, сбрасываем флаги атаки и боя в false
-            attackTarget = null; // Сбросить атакованную цель
+            attackTarget = null;
             isAttacking = false;
             isFighting = false;
         }
     }
+
 
     protected virtual Transform FindNearestTarget()
     {
@@ -147,15 +159,26 @@ public class PlayerBase : MonoBehaviour
 
         return nearestTarget;
     }
+
     public virtual void TakeDamage(int damage)
     {
-        healthBar.SetHealth(HP);
         HP -= damage;
+        if (HP <= 0)
+        {
+            HP = 0; // Убедитесь, что HP не становится меньше 0
+            healthBar.SetHealth(HP); // Обновите здоровье перед уничтожением
+            Destroy(gameObject);
+        }
+        else
+        {
+            healthBar.SetHealth(HP);
+        }
     }
 
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
         Gizmos.DrawWireSphere(attackPos.position, radius);
+        Gizmos.DrawWireSphere(transform.position, raycastDistanceToMove);
     }
 }

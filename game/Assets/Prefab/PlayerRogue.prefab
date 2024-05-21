@@ -223,6 +223,8 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 0.8
   raycastDistanceToMove: 20
+  isFighting: 0
+  isAttacking: 0
   upgradeLevels:
   - levelrog: 0
     hprog: 0
@@ -289,7 +291,7 @@ GameObject:
   - component: {fileID: 2469569338291405896}
   m_Layer: 6
   m_Name: PlayerHpbar
-  m_TagString: Untagged
+  m_TagString: HpBar
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -36,6 +36,11 @@ public class Castle : MonoBehaviour
         // Включить нужный вам Canvas
         gameOverCanvas.SetActive(true);
 
+        GameObject[] HpBars = GameObject.FindGameObjectsWithTag("HpBar");
+        foreach (GameObject HpBar in HpBars)
+        {
+            HpBar.SetActive(false);
+        }
         // Уничтожить объект башни
         Destroy(gameObject);
     }

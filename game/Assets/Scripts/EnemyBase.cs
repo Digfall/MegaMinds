@@ -152,8 +152,9 @@ public class EnemyBase : MonoBehaviour
     }
     public virtual void TakeDamage(int damage)
     {
-        healthBar.SetHealth(HP);
         HP -= damage;
+        healthBar.SetHealth(HP);
+
     }
 
     protected virtual void OnDrawGizmosSelected()
