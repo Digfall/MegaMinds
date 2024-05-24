@@ -1,15 +1,17 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSwitchetChooseLvl : MonoBehaviour
+public class SceneSwitcherChooseLevel : MonoBehaviour
 {
-    public string targetSceneName;
+    private string targetSceneName;
 
+    // Метод для выбора сцены, вызываемый кнопками уровня
     public void SelectScene(string sceneName)
     {
         targetSceneName = sceneName;
     }
 
+    // Метод для переключения сцены, вызываемый кнопкой "Play"
     public void SwitchScene()
     {
         if (!string.IsNullOrEmpty(targetSceneName))
@@ -22,4 +24,3 @@ public class SceneSwitchetChooseLvl : MonoBehaviour
         }
     }
 }
-

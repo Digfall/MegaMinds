@@ -6,17 +6,20 @@ public class EnemyCastle : MonoBehaviour
     public LayerMask TowerMask;
     public HealthBarCastle healthBar;
     public GameObject gameOverCanvas;
+    private LevelManager levelManager;
+    public int levelNumber; // Номер этого уровня
 
     void Start()
     {
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
+        levelManager = FindObjectOfType<LevelManager>();
     }
 
     public void TakeDamage(int damage)
     {
-        healthBar.SetHealth(HP);
         HP -= damage;
+        healthBar.SetHealth(HP);
     }
 
     void Update()
@@ -30,6 +33,7 @@ public class EnemyCastle : MonoBehaviour
     void DestroyCastle()
     {
         FindObjectOfType<ScienceManager>().UpdateScienceCountCastle();
+        levelManager.CompleteLevel(levelNumber);
         // Остановить все действия на карте
         Time.timeScale = 0f;
 

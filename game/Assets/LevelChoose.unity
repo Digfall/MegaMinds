@@ -1224,7 +1224,7 @@ Transform:
   m_GameObject: {fileID: 552027107}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -44.7, y: -45.000015, z: -0.03}
+  m_LocalPosition: {x: -37, y: -45.000015, z: -0.03}
   m_LocalScale: {x: 23.769922, y: 23.769922, z: 23.769922}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1929,7 +1929,7 @@ MonoBehaviour:
   - {fileID: 1553529747}
   unlockedSprite: {fileID: 496127062, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   lockedSprite: {fileID: -1536849863, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  availableSprite: {fileID: -768119840, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  levelReached: 2
 --- !u!4 &1006132447
 Transform:
   m_ObjectHideFlags: 0
@@ -2138,8 +2138,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.9500036, y: -3.4000244}
-  m_SizeDelta: {x: -29.200006, y: -60}
+  m_AnchoredPosition: {x: -0.1000061, y: -3.4000244}
+  m_SizeDelta: {x: -32.9, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1038204728
 MonoBehaviour:
@@ -3539,7 +3539,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -49, y: -112}
-  m_SizeDelta: {x: 85, y: 75}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1553529747
 MonoBehaviour:
@@ -3593,18 +3593,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 3
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1553529751}
-        m_TargetAssemblyTypeName: ObjectController, Assembly-CSharp
-        m_MethodName: Button3Pressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3692,7 +3680,7 @@ MonoBehaviour:
   levelButtons: []
   unlockedSprite: {fileID: 496127062, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   lockedSprite: {fileID: -1536849863, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  availableSprite: {fileID: 0}
+  levelReached: 0
 --- !u!1 &1630191837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,7 +3958,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.5, y: -3.4000244}
+  m_AnchoredPosition: {x: -0.1000061, y: -3.4000244}
   m_SizeDelta: {x: -32.9, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742137733
@@ -4111,7 +4099,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 16, y: -26}
-  m_SizeDelta: {x: 85, y: 75}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1746467779
 MonoBehaviour:
@@ -4165,18 +4153,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1746467783}
-        m_TargetAssemblyTypeName: ObjectController, Assembly-CSharp
-        m_MethodName: Button2Pressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4264,7 +4240,7 @@ MonoBehaviour:
   levelButtons: []
   unlockedSprite: {fileID: 496127062, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   lockedSprite: {fileID: -1536849863, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  availableSprite: {fileID: 0}
+  levelReached: 0
 --- !u!1 &1765495055
 GameObject:
   m_ObjectHideFlags: 0
@@ -4399,8 +4375,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2.5499997, y: -3.4000015}
-  m_SizeDelta: {x: -28, y: -60}
+  m_AnchoredPosition: {x: -0.099998474, y: -3.4000015}
+  m_SizeDelta: {x: -32.9, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917123843
 MonoBehaviour:
@@ -4843,7 +4819,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 65, y: -93}
-  m_SizeDelta: {x: 85, y: 75}
+  m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &2061414449
 MonoBehaviour:
@@ -4897,18 +4873,6 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2061414453}
-        m_TargetAssemblyTypeName: ObjectController, Assembly-CSharp
-        m_MethodName: Button1Pressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -4996,7 +4960,7 @@ MonoBehaviour:
   levelButtons: []
   unlockedSprite: {fileID: 496127062, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   lockedSprite: {fileID: -1536849863, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  availableSprite: {fileID: 0}
+  levelReached: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

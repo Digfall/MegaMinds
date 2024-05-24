@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FirstLevel.unity
+    path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Entry.unity
@@ -33,9 +33,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LevelUpTank.unity
     guid: d1ae32c6fc7ab664189ee4c534d7d2d1
   - enabled: 1
-    path: Assets/Scenes/SecondLevel.unity
+    path: Assets/Scenes/Level2.unity
     guid: 4b81f2a0526064547a7cb704eb5090e6
   - enabled: 1
-    path: Assets/Scenes/ThirdLevel.unity
+    path: Assets/Scenes/Level3.unity
     guid: ef110efc511442f41a199aa59219ab6d
   m_configObjects: {}
