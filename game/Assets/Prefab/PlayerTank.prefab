@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5167066501747752735}
   - component: {fileID: 1621627635920606519}
   m_Layer: 6
-  m_Name: 'bat '
+  m_Name: tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -288597414, guid: d57a8ced75074614aa651e1bdf40a604, type: 3}
+  m_Sprite: {fileID: -1731181596, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -308,8 +308,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 1
   raycastDistanceToMove: 20
-  isFighting: 0
-  isAttacking: 0
   upgradeLevels:
   - levelTank: 0
     hpTank: 0
@@ -641,7 +639,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -857221436, guid: d57a8ced75074614aa651e1bdf40a604, type: 3}
+  m_Sprite: {fileID: 415916868, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

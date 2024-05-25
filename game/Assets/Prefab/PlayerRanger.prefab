@@ -223,8 +223,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 10
   raycastDistanceToMove: 20
-  isFighting: 0
-  isAttacking: 0
   upgradeLevels:
   - levelran: 0
     hpran: 0
@@ -615,7 +613,7 @@ Transform:
   m_GameObject: {fileID: 6209633994560293061}
   serializedVersion: 2
   m_LocalRotation: {x: 0.008195642, y: 0.009168554, z: -0.052503385, w: 0.99854505}
-  m_LocalPosition: {x: -0.10800004, y: -0.23400003, z: 0.028762817}
+  m_LocalPosition: {x: -0.10800004, y: -0.358, z: 0.028762817}
   m_LocalScale: {x: 0.58532995, y: 0.58533, z: 0.58532983}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -663,7 +661,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 827287429, guid: ec02341f50a3e95479a3b38ba92c82d3, type: 3}
+  m_Sprite: {fileID: 1655087678, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -747,7 +745,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 498131159, guid: 94872ad3e80bf474bae76de0526ae02e, type: 3}
+  m_Sprite: {fileID: 1743253761, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

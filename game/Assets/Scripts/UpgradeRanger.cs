@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeRanger : MonoBehaviour
 {
@@ -12,16 +13,17 @@ public class UpgradeRanger : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI damageUpTextran;
     public TextMeshProUGUI hpUpTextran;
+    public Slider upgradeRangerSlider;
 
 
     private int currentLevel = 0;
 
-    private const string CurrentLevelPrefKey = "CurrentLevel"; // Ключ для сохранения/загрузки текущего уровня
+    private const string CurrentLevelRngPrefKey = "CurrentLevelRng"; // Ключ для сохранения/загрузки текущего уровня
 
     private void Start()
     {
         // Загружаем текущий уровень из PlayerPrefs
-        currentLevel = PlayerPrefs.GetInt(CurrentLevelPrefKey, 0);
+        currentLevel = PlayerPrefs.GetInt(CurrentLevelRngPrefKey, 0);
 
         UpdateTotalScienceText();
         UpdateRangerStatsText();
@@ -50,9 +52,10 @@ public class UpgradeRanger : MonoBehaviour
                 UpdateTotalScienceText();
                 UpdateRangerStatsText();
                 UpdatePriceForUpgrade(currentLevel);
+                upgradeRangerSlider.value = (float)currentLevel / (float)(playerRanger.upgradeLevels.Count - 1);
 
                 // Сохраняем текущий уровень в PlayerPrefs
-                PlayerPrefs.SetInt(CurrentLevelPrefKey, currentLevel);
+                PlayerPrefs.SetInt(CurrentLevelRngPrefKey, currentLevel);
             }
             else
             {

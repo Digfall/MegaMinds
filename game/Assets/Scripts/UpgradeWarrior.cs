@@ -18,12 +18,12 @@ public class UpgradeManager : MonoBehaviour
 
     private int currentLevel = 0;
 
-    private const string CurrentLevelPrefKey = "CurrentLevel"; // Ключ для сохранения/загрузки текущего уровня
+    private const string CurrentLevelWarPrefKey = "CurrentLevelWar"; // Ключ для сохранения/загрузки текущего уровня
 
     private void Start()
     {
         // Загружаем текущий уровень из PlayerPrefs
-        currentLevel = PlayerPrefs.GetInt(CurrentLevelPrefKey, 0);
+        currentLevel = PlayerPrefs.GetInt(CurrentLevelWarPrefKey, 0);
 
         UpdateTotalScienceText();
         UpdateWarriorStatsText();
@@ -56,7 +56,7 @@ public class UpgradeManager : MonoBehaviour
 
 
                 // Сохраняем текущий уровень в PlayerPrefs
-                PlayerPrefs.SetInt(CurrentLevelPrefKey, currentLevel);
+                PlayerPrefs.SetInt(CurrentLevelWarPrefKey, currentLevel);
             }
             else
             {

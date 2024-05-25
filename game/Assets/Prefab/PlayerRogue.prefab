@@ -223,8 +223,6 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 0.8
   raycastDistanceToMove: 20
-  isFighting: 0
-  isAttacking: 0
   upgradeLevels:
   - levelrog: 0
     hprog: 0
@@ -556,7 +554,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 498131159, guid: 94872ad3e80bf474bae76de0526ae02e, type: 3}
+  m_Sprite: {fileID: 997581090, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -667,14 +665,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6626489397786520488}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.008195642, y: 0.009168554, z: -0.052503385, w: 0.99854505}
-  m_LocalPosition: {x: -0.187, y: -0.292, z: 0.028762817}
+  m_LocalRotation: {x: -0.26022744, y: -0.058511104, z: -0.48195875, w: 0.83461004}
+  m_LocalPosition: {x: 0.08, y: -0.079, z: 0.028762817}
   m_LocalScale: {x: 0.58532995, y: 0.58533, z: 0.5853299}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7348144419259115319}
   m_Father: {fileID: 3522216667716468516}
-  m_LocalEulerAnglesHint: {x: 0.993, y: 1, z: -6.011}
+  m_LocalEulerAnglesHint: {x: -29.392, y: 10.125, z: -62.672}
 --- !u!212 &2731349444321637542
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -716,7 +714,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1541154543, guid: f559f44eca487d84b8c8307461ed41c3, type: 3}
+  m_Sprite: {fileID: 1811557326, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

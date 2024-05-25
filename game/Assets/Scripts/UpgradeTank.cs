@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UpgradeTank : MonoBehaviour
 {
@@ -12,16 +13,17 @@ public class UpgradeTank : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI damageUpTextTank;
     public TextMeshProUGUI hpUpTextTank;
+    public Slider upgradeSlidertank;
 
 
     private int currentLevel = 0;
 
-    private const string CurrentLevelPrefKey = "CurrentLevel"; // Ключ для сохранения/загрузки текущего уровня
+    private const string CurrentLevelTankPrefKey = "CurrentLevelTank"; // Ключ для сохранения/загрузки текущего уровня
 
     private void Start()
     {
         // Загружаем текущий уровень из PlayerPrefs
-        currentLevel = PlayerPrefs.GetInt(CurrentLevelPrefKey, 0);
+        currentLevel = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 0);
 
         UpdateTotalScienceText();
         UpdateTankStatsText();
@@ -50,9 +52,10 @@ public class UpgradeTank : MonoBehaviour
                 UpdateTotalScienceText();
                 UpdateTankStatsText();
                 UpdatePriceForUpgrade(currentLevel);
+                upgradeSlidertank.value = (float)currentLevel / (float)(playerTank.upgradeLevels.Count - 1);
 
                 // Сохраняем текущий уровень в PlayerPrefs
-                PlayerPrefs.SetInt(CurrentLevelPrefKey, currentLevel);
+                PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevel);
             }
             else
             {

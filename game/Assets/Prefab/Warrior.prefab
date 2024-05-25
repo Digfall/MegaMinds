@@ -223,7 +223,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 498131159, guid: 94872ad3e80bf474bae76de0526ae02e, type: 3}
+  m_Sprite: {fileID: -966095764, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -564,14 +564,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6539160011829895251}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.05242395, y: 0.99858683, z: -0.008705241, w: 0.00060951855}
-  m_LocalPosition: {x: -0.264, y: -0.028540023, z: 0.028762817}
+  m_LocalRotation: {x: -0.49077418, y: 0.8516633, z: 0.17243506, w: -0.06384833}
+  m_LocalPosition: {x: -0.19799995, y: -0.083000004, z: 0.028762817}
   m_LocalScale: {x: 0.5853347, y: 0.5853347, z: 0.5853347}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3447318282570468402}
   m_Father: {fileID: 7034619283290289360}
-  m_LocalEulerAnglesHint: {x: 0.993, y: 179.878, z: -6.011}
+  m_LocalEulerAnglesHint: {x: -13.358, y: 196.603, z: -61.864}
 --- !u!212 &8652031353743104516
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -613,7 +613,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1017025947, guid: 94872ad3e80bf474bae76de0526ae02e, type: 3}
+  m_Sprite: {fileID: -1856477228, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -718,8 +718,6 @@ MonoBehaviour:
   damageRate: 1
   radius: 0.6
   attackRate: 0.3
-  nextAttackTime: 0
-  nextDamageTime: 0
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}
   movePos: {fileID: 4568984401801632686}
