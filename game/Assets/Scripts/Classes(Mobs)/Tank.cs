@@ -8,7 +8,7 @@ public class Tank : EnemyBase
     {
         HP = 400;
         damage = 20;
-        radius = 1;
+        radius = 1.5f;
         attackRate = 1.5f;
         speed = 1.2f;
 

@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HealthBarCastle : MonoBehaviour
 {
-    public Slider slider;
+    public Slider sliderr;
     //public Vector3 offset;
     public float maxHealth;
 
@@ -16,8 +16,8 @@ public class HealthBarCastle : MonoBehaviour
     public void SetHealth(int health)
     {
         float healthFloat = (float)health;
-        slider.value = healthFloat;
-        slider.maxValue = maxHealth;
+        sliderr.value = healthFloat;
+        sliderr.maxValue = maxHealth;
     }
 
     void Update()

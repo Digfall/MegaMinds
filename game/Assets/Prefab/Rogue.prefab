@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 617355673283953286}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0002673638, y: 0.00080235675, z: -0.0121008195, w: 0.99992645}
-  m_LocalPosition: {x: 1.25, y: 0.342, z: -0.01}
+  m_LocalPosition: {x: 0.05, y: 0.14, z: -0.07}
   m_LocalScale: {x: 0.45265263, y: 0.4526525, z: 0.4526525}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -565,7 +565,7 @@ Transform:
   m_GameObject: {fileID: 6539160011829895251}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5012561, y: 0.864743, z: 0.0068885298, w: -0.030240411}
-  m_LocalPosition: {x: -0.071, y: -0.014, z: 0.028762817}
+  m_LocalPosition: {x: 0.064, y: -0.163, z: 0.028762817}
   m_LocalScale: {x: 0.5853299, y: 0.58533, z: 0.5853299}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -821,7 +821,7 @@ MonoBehaviour:
   damage: 50
   speed: 2.5
   damageRate: 1
-  radius: 0.4
+  radius: 1.4
   attackRate: 0.5
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}

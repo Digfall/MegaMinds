@@ -271,7 +271,7 @@ Animator:
   m_GameObject: {fileID: 3506097913677785157}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 961a316a2930bf04c8e8f23eb3ccde38, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1873ed85eb44b8841bd60dd4c623ce7e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -298,7 +298,7 @@ MonoBehaviour:
   damage: 50
   speed: 2
   damageRate: 1
-  radius: 0.6
+  radius: 1.4
   attackRate: 0.8
   attackPos: {fileID: 5988168487641782112}
   healthBar: {fileID: 2469569338291405896}
@@ -501,7 +501,7 @@ Transform:
   m_GameObject: {fileID: 4222361182884922688}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0002673638, y: 0.00080235675, z: -0.0121008195, w: 0.99992645}
-  m_LocalPosition: {x: 0.86, y: 0.18, z: 0.02}
+  m_LocalPosition: {x: -0.22, y: 0.54, z: -0.01}
   m_LocalScale: {x: 0.45265263, y: 0.4526525, z: 0.4526525}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -684,7 +684,7 @@ GameObject:
   m_Layer: 6
   m_Name: 'bat '
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -696,14 +696,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6209633994560293061}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.011615787, y: 0.00403798, z: -0.5305865, w: 0.84754163}
-  m_LocalPosition: {x: 0.289, y: -0.104, z: 0.028762817}
+  m_LocalRotation: {x: 0.011400931, y: 0.0046102623, z: -0.48781884, w: 0.8728583}
+  m_LocalPosition: {x: -0.155, y: -0.368, z: 0.028762817}
   m_LocalScale: {x: 0.58532995, y: 0.58533, z: 0.5853299}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5988168487641782112}
   m_Father: {fileID: 3522216667716468516}
-  m_LocalEulerAnglesHint: {x: 1.374, y: -0.314, z: -64.099}
+  m_LocalEulerAnglesHint: {x: 1.398, y: -0.176, z: -58.402}
 --- !u!212 &2522155930940487985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -755,7 +755,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!1 &6817274740201727070
 GameObject:
   m_ObjectHideFlags: 0

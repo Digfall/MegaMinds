@@ -100,30 +100,42 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void FindTargetToAttack()
     {
-        // Выполняем лучевое попадание
-        RaycastHit2D hit = Physics2D.Raycast(attackPos.position, Vector2.left, raycastDistance);
-        Debug.DrawRay(attackPos.position, Vector2.left * raycastDistance, Color.red);
-
-        // Проверяем, попал ли луч в объект
-        if (hit.collider != null)
+        Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(attackPos.position, radius);
+        if (targetsInRange.Length > 0)
         {
-            attackTarget = hit.collider.transform;
-            if (attackTarget.CompareTag("Player") || attackTarget.CompareTag("Castle"))
+            Transform closestTarget = null;
+            float minDistance = Mathf.Infinity;
+
+            foreach (Collider2D target in targetsInRange)
             {
-                // Если атакуемый объект в зоне атаки, устанавливаем флаги isAttacking и isFighting в true
+                if (target.CompareTag("Player") || target.CompareTag("Castle"))
+                {
+                    float distance = Vector2.Distance(transform.position, target.transform.position);
+                    if (distance < minDistance)
+                    {
+                        closestTarget = target.transform;
+                        minDistance = distance;
+                    }
+                }
+            }
+
+            attackTarget = closestTarget;
+
+            if (attackTarget != null)
+            {
                 isAttacking = true;
                 isFighting = true;
-                OnAttack(); // Вызываем метод атаки
+                OnAttack(); // Начинаем атаку
             }
             else
             {
-                attackTarget = null; // Сбросить атакованную цель, если это не враг
+                isAttacking = false;
+                isFighting = false;
             }
         }
         else
         {
-            // Если цель атаки не найдена, сбрасываем флаги атаки и боя в false
-            attackTarget = null; // Сбросить атакованную цель
+            attackTarget = null;
             isAttacking = false;
             isFighting = false;
         }

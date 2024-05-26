@@ -8,7 +8,7 @@ public class Warrior : EnemyBase
     {
         HP = 200;
         damage = 50;
-        radius = 0.6f;
+        radius = 1.5f;
         attackRate = 0.8f;
         speed = 2f;
 
