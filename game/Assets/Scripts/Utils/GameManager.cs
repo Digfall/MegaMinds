@@ -4,49 +4,31 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //private bool gameStarted = false;
-    private bool gamePaused = false;
+    public bool gamePaused = false;
     private static int totalScience = 0;
 
-    // void Start()
-    // {
-    //     Time.timeScale = 0f; // Приостанавливаем время при старте игры
-    // }
+    void Start()
+    {
+        // Начать сцену
+        Time.timeScale = 1f; // Возобновляем время
+    }
 
     public static int TotalScience
     {
         get { return totalScience; }
         set { totalScience = value; }
     }
-    public void ToggleStartPause()
+
+    // Сделаем функцию TogglePause доступной извне
+    public void TogglePauseOn()
     {
-        // if (!gameStarted)
-        // {
-        //     StartGame();
-        // }
-        // else
-        {
-            TogglePause();
-        }
+        Time.timeScale = 0f; // Приостанавливаем время
+        gamePaused = true; // Устанавливаем флаг, что игра приостановлена
+
     }
-
-    // void StartGame()
-    // {
-    //     Time.timeScale = 1f; // Возобновляем время
-    //     gameStarted = true; // Устанавливаем флаг, что игра уже начата
-    // }
-
-    void TogglePause()
+    public void TogglePauseOff()
     {
-        if (!gamePaused)
-        {
-            Time.timeScale = 0f; // Приостанавливаем время
-            gamePaused = true; // Устанавливаем флаг, что игра приостановлена
-        }
-        else
-        {
-            Time.timeScale = 1f; // Возобновляем время
-            gamePaused = false; // Устанавливаем флаг, что игра возобновлена
-        }
+        Time.timeScale = 1f; // Возобновляем время
+        gamePaused = false; // Устанавливаем флаг, что игра возобновлена
     }
 }

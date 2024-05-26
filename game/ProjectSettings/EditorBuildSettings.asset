@@ -13,23 +13,23 @@ EditorBuildSettings:
     guid: 2e6304a51170e0844b9505ef6a868dba
   - enabled: 1
     path: Assets/Scenes/LevelChoose.unity
-    guid: c70ce72f5ebd3c94b93f978a349178e7
+    guid: 746594e58edc85e4bbae5f30a6db87e6
   - enabled: 1
     path: Assets/Scenes/ArmyChoose.unity
     guid: 073d94462a441f347951440c9e964292
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Options.unity
     guid: b6f709a565b9e864388f74781cf5c4ce
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelUpWarriors.unity
     guid: 757fada3c14dd5540bb3313d7a4da839
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelUpRanger.unity
     guid: 658eab6608a45ce45bc7f767653f17c8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelUpRogue.unity
     guid: 79b9b19514bc7e747a882a4226612f22
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/LevelUpTank.unity
     guid: d1ae32c6fc7ab664189ee4c534d7d2d1
   - enabled: 1
