@@ -7421,7 +7421,7 @@ MonoBehaviour:
     m_Bits: 0
   healthBar: {fileID: 973686141}
   gameOverCanvas: {fileID: 2145414052}
-  levelNumber: 2
+  levelNumber: 3
 --- !u!224 &1276831484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10946,71 +10946,71 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyWaves:
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 8
     betweenEnemiesDelay: 0
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 12
     betweenEnemiesDelay: 0
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
-    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
+    - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     spawnDelay: 20
     betweenEnemiesDelay: 2
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 10
     betweenEnemiesDelay: 2
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
-    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
+    - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     spawnDelay: 25
     betweenEnemiesDelay: 1
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
     spawnDelay: 8
     betweenEnemiesDelay: 0
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 16
     betweenEnemiesDelay: 2
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
-    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
+    - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     spawnDelay: 20
     betweenEnemiesDelay: 0
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
     spawnDelay: 30
     betweenEnemiesDelay: 0
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
+    - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 30
     betweenEnemiesDelay: 2
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
-    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
+    - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
     spawnDelay: 20
     betweenEnemiesDelay: 0
   spawnPositions:
