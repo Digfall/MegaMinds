@@ -24,7 +24,7 @@ public class EnemyBase : MonoBehaviour
 
     [Header("Настройки луча")]
     [SerializeField] protected float raycastDistance = 0.5f; // Длина луча для поиска цели
-    [SerializeField] protected float raycastDistanceToMove = 15f;
+    [SerializeField] protected float raycastDistanceToMove = 25f;
 
     protected bool isFighting = false;
     protected bool isAttacking = false;

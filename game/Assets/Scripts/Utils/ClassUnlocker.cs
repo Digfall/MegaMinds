@@ -6,22 +6,24 @@ public class ClassUnlocker : MonoBehaviour
     public Button rogueButton;
     public Button tankButton;
 
+
     public int rogueCost = 200;
     public int tankCost = 250;
 
     private const string RogueUnlockedPrefKey = "RogueUnlocked";
     private const string TankUnlockedPrefKey = "TankUnlocked";
 
+
     private void Start()
     {
-
         bool isRogueUnlocked = PlayerPrefs.GetInt(RogueUnlockedPrefKey, 0) == 1;
         bool isTankUnlocked = PlayerPrefs.GetInt(TankUnlockedPrefKey, 0) == 1;
 
+        rogueButton.gameObject.SetActive(!isRogueUnlocked);
+        tankButton.gameObject.SetActive(!isTankUnlocked);
 
         rogueButton.interactable = !isRogueUnlocked;
         tankButton.interactable = !isTankUnlocked;
-
 
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
     }
@@ -42,6 +44,7 @@ public class ClassUnlocker : MonoBehaviour
         {
             GameManager.TotalScience -= cost;
             PlayerPrefs.SetInt(prefKey, 1);
+            PlayerPrefs.Save();
             button.gameObject.SetActive(false);
             FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         }

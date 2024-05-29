@@ -33,9 +33,9 @@ public class UpgradeRanger : MonoBehaviour
         upgradeRangerSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRangerValuePrefKey, 0f);
 
         DefineUpgradeLevels(); // Определяем уровни до их использования
-        UpdateTotalScienceText();
-        UpdateRangerStatsText();
+        FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpgradePlayer(currentLevel);
+        UpdateRangerStatsText();
         UpdatePriceForUpgrade(currentLevel);
     }
 
@@ -56,7 +56,7 @@ public class UpgradeRanger : MonoBehaviour
                 GameManager.TotalScience -= upgradeCost;
                 currentLevel++;
                 UpgradePlayer(currentLevel);
-                UpdateTotalScienceText();
+                FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateRangerStatsText();
                 UpdatePriceForUpgrade(currentLevel);
                 upgradeRangerSlider.value = (float)(currentLevel - 1) / (float)(playerRanger.upgradeLevels.Count - 1);
@@ -103,11 +103,6 @@ public class UpgradeRanger : MonoBehaviour
         }
     }
 
-    private void UpdateTotalScienceText()
-    {
-        totalScienceText.text = GameManager.TotalScience.ToString();
-    }
-
     private void UpdateRangerStatsText()
     {
         if (currentLevel <= playerRanger.upgradeLevels.Count)
@@ -115,7 +110,7 @@ public class UpgradeRanger : MonoBehaviour
             hpText.text = playerRanger.HP.ToString();
             damageText.text = playerRanger.damage.ToString();
             levelText.text = currentLevel.ToString();
-            if (currentLevel < 3)
+            if (currentLevel < playerRanger.upgradeLevels.Count)
             {
                 damageUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevel - 1].damageUpTextran.ToString();
                 hpUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevel - 1].hpUpTextran.ToString();
@@ -132,15 +127,15 @@ public class UpgradeRanger : MonoBehaviour
     {
         playerRanger.upgradeLevels = new List<UpgradeRangers>
         {
-            new UpgradeRangers { levelran = 1, hpran = 150, damageran = 35, costran = 0, damageUpTextran = 35, hpUpTextran = 150 },
-            new UpgradeRangers { levelran = 2, hpran = 300, damageran = 70, costran = 100, damageUpTextran = 70, hpUpTextran = 150 },
-            new UpgradeRangers { levelran = 3, hpran = 450, damageran = 140, costran = 300, damageUpTextran = 0, hpUpTextran = 0 }
+            new UpgradeRangers { levelran = 1, hpran = 60, damageran = 20, costran = 0, damageUpTextran = 20, hpUpTextran = 72 },
+            new UpgradeRangers { levelran = 2, hpran = 132, damageran = 40, costran = 100, damageUpTextran = 20, hpUpTextran = 68 },
+            new UpgradeRangers { levelran = 3, hpran = 198, damageran = 60, costran = 500, damageUpTextran = 20, hpUpTextran = 105 }
         };
     }
 
     private void UpgradePlayer(int levelran)
     {
-        if (levelran >= 0 && levelran < playerRanger.upgradeLevels.Count)
+        if (levelran > 0 && levelran <= playerRanger.upgradeLevels.Count)
         {
             playerRanger.HP = playerRanger.upgradeLevels[levelran - 1].hpran;
             playerRanger.damage = playerRanger.upgradeLevels[levelran - 1].damageran;

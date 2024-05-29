@@ -33,7 +33,7 @@ public class UpgradeRogue : MonoBehaviour
         upgradeRogueSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRogueValuePrefKey, 0f);
 
         DefineUpgradeLevels(); // Определяем уровни до их использования
-        UpdateTotalScienceText();
+        FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateRogueStatsText();
         UpgradePlayer(currentLevel);
         UpdatePriceForUpgrade(currentLevel);
@@ -56,7 +56,7 @@ public class UpgradeRogue : MonoBehaviour
                 GameManager.TotalScience -= upgradeCost;
                 currentLevel++;
                 UpgradePlayer(currentLevel);
-                UpdateTotalScienceText();
+                FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateRogueStatsText();
                 UpdatePriceForUpgrade(currentLevel);
                 upgradeRogueSlider.value = (float)(currentLevel - 1) / (float)(playerRogue.upgradeLevels.Count - 1);
@@ -101,11 +101,6 @@ public class UpgradeRogue : MonoBehaviour
         {
             priceForUpgrade.text = "Max";
         }
-    }
-
-    private void UpdateTotalScienceText()
-    {
-        totalScienceText.text = GameManager.TotalScience.ToString();
     }
 
     private void UpdateRogueStatsText()

@@ -54,28 +54,45 @@ public class SpawnPlayer : MonoBehaviour
     private void UpdateText()
     {
         // Обновляем только те текстовые элементы, которые существуют
-        if (rogueLvlText != null && rogueCostText != null && rogueImage != null && rogueSprites.Length > CurrentLevelRog)
+        if (rogueLvlText != null && rogueCostText != null)
         {
             rogueLvlText.text = CurrentLevelRog.ToString();
             rogueCostText.text = rogueCost.ToString();
-            rogueImage.sprite = rogueSprites[CurrentLevelRog];
         }
-        if (tankLvlText != null && tankCostText != null && tankImage != null && tankSprites.Length > CurrentLevelTank)
+        if (tankLvlText != null && tankCostText != null)
         {
             tankLvlText.text = CurrentLevelTank.ToString();
             tankCostText.text = tankCost.ToString();
-            tankImage.sprite = tankSprites[CurrentLevelTank];
         }
-        if (warriorLvlText != null && warriorCostText != null && warriorImage != null && warriorSprites.Length > CurrentLevelWar)
+        if (warriorLvlText != null && warriorCostText != null)
         {
             warriorLvlText.text = CurrentLevelWar.ToString();
             warriorCostText.text = warriorCost.ToString();
-            warriorImage.sprite = warriorSprites[CurrentLevelWar];
         }
-        if (rangerLvlText != null && rangerCostText != null && rangerImage != null && rangerSprites.Length > CurrentLevelRng)
+        if (rangerLvlText != null && rangerCostText != null)
         {
             rangerLvlText.text = CurrentLevelRng.ToString();
             rangerCostText.text = rangerCost.ToString();
+        }
+    }
+
+    private void UpdateUnitImages()
+    {
+        // Обновляем только те изображения, которые существуют
+        if (rogueImage != null && rogueSprites.Length > CurrentLevelRog)
+        {
+            rogueImage.sprite = rogueSprites[CurrentLevelRog];
+        }
+        if (tankImage != null && tankSprites.Length > CurrentLevelTank)
+        {
+            tankImage.sprite = tankSprites[CurrentLevelTank];
+        }
+        if (warriorImage != null && warriorSprites.Length > CurrentLevelWar)
+        {
+            warriorImage.sprite = warriorSprites[CurrentLevelWar];
+        }
+        if (rangerImage != null && rangerSprites.Length > CurrentLevelRng)
+        {
             rangerImage.sprite = rangerSprites[CurrentLevelRng];
         }
     }
@@ -83,6 +100,13 @@ public class SpawnPlayer : MonoBehaviour
     private void Start()
     {
         LoadUnitLvlInfo();
+        UpdateUnitImages();
+        UpdateText();
+    }
+
+    void Update()
+    {
+        UpdateUnitImages();
         UpdateText();
     }
 

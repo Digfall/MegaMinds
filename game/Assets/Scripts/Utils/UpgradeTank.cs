@@ -33,7 +33,7 @@ public class UpgradeTank : MonoBehaviour
         upgradeSlidertank.value = PlayerPrefs.GetFloat(UpgradeSliderTankValuePrefKey, 0f);
 
         DefineUpgradeLevels(); // Определяем уровни до их использования
-        UpdateTotalScienceText();
+        FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateTankStatsText();
         UpgradePlayer(currentLevel);
         UpdatePriceForUpgrade(currentLevel);
@@ -56,7 +56,7 @@ public class UpgradeTank : MonoBehaviour
                 GameManager.TotalScience -= upgradeCost;
                 currentLevel++;
                 UpgradePlayer(currentLevel);
-                UpdateTotalScienceText();
+                FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateTankStatsText();
                 UpdatePriceForUpgrade(currentLevel);
                 upgradeSlidertank.value = (float)(currentLevel - 1) / (float)(playerTank.upgradeLevels.Count - 1);
@@ -101,11 +101,6 @@ public class UpgradeTank : MonoBehaviour
         {
             priceForUpgrade.text = "Max";
         }
-    }
-
-    private void UpdateTotalScienceText()
-    {
-        totalScienceText.text = GameManager.TotalScience.ToString();
     }
 
     private void UpdateTankStatsText()

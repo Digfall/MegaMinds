@@ -33,7 +33,7 @@ public class UpgradeWarrior : MonoBehaviour
         upgradeSlider.value = PlayerPrefs.GetFloat(UpgradeSliderWarValuePrefKey, 0f);
 
         DefineUpgradeLevels(); // Определяем уровни до их использования
-        UpdateTotalScienceText();
+        FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateWarriorStatsText();
         UpgradePlayer(currentLevel);
         UpdatePriceForUpgrade(currentLevel);
@@ -58,7 +58,7 @@ public class UpgradeWarrior : MonoBehaviour
                     GameManager.TotalScience -= upgradeCost;
                     currentLevel++;
                     UpgradePlayer(currentLevel);
-                    UpdateTotalScienceText();
+                    FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                     UpdateWarriorStatsText();
                     UpdatePriceForUpgrade(currentLevel);
                     upgradeSlider.value = (float)(currentLevel - 1) / (float)(playerWarrior.upgradeLevels.Count - 1);
