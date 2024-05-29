@@ -30,7 +30,7 @@ public class UpgradeRogue : MonoBehaviour
         currentLevel = PlayerPrefs.GetInt(CurrentLevelRogPrefKey, 1);
 
         // Загружаем значение слайдера из PlayerPrefs
-        upgradeRogueSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRogueValuePrefKey, 0.367f);
+        upgradeRogueSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRogueValuePrefKey, 0f);
 
         DefineUpgradeLevels(); // Определяем уровни до их использования
         UpdateTotalScienceText();

@@ -30,7 +30,7 @@ public class UpgradeRanger : MonoBehaviour
         currentLevel = PlayerPrefs.GetInt(CurrentLevelRngPrefKey, 1);
 
         // Загружаем значение слайдера из PlayerPrefs
-        upgradeRangerSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRangerValuePrefKey, 0.367f);
+        upgradeRangerSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRangerValuePrefKey, 0f);
 
         DefineUpgradeLevels(); // Определяем уровни до их использования
         UpdateTotalScienceText();

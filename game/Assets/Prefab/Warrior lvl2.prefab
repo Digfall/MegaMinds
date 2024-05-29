@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 5658627465284852785}
-  offset: {x: 0.06, y: 1.12, z: 0}
+  offset: {x: 0.06, y: 0.9, z: 0}
   maxHealth: 150
 --- !u!1 &2598211506981550027
 GameObject:
