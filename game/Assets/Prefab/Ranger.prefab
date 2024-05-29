@@ -817,16 +817,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8f78a2c89178f408959f44085a376c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 60
-  damage: 20
+  HP: 150
+  damage: 35
   speed: 2
   damageRate: 1
   radius: 2.13
-  attackRate: 0.5
+  attackRate: 0.8
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 7270612880133840835}
   movePos: {fileID: 4568984401801632686}
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
-  raycastDistance: 6
+  raycastDistance: 10
   raycastDistanceToMove: 20

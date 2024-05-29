@@ -132,9 +132,9 @@ public class UpgradeTank : MonoBehaviour
     {
         playerTank.upgradeLevels = new List<UpgradeTanks>
         {
-            new UpgradeTanks { levelTank = 1, hpTank = 400, damageTank = 20, costTank = 0, damageUpTextTank = 20, hpUpTextTank = 480 },
-            new UpgradeTanks { levelTank = 2, hpTank = 880, damageTank = 40, costTank = 100, damageUpTextTank = 26, hpUpTextTank = 480 },
-            new UpgradeTanks { levelTank = 3, hpTank = 1320, damageTank = 66, costTank = 500, damageUpTextTank = 26, hpUpTextTank = 480 }
+            new UpgradeTanks { levelTank = 1, hpTank = 800, damageTank = 75, costTank = 0, damageUpTextTank = 45, hpUpTextTank = 500 },
+            new UpgradeTanks { levelTank = 2, hpTank = 1300, damageTank = 120, costTank = 300, damageUpTextTank = 50, hpUpTextTank = 700 },
+            new UpgradeTanks { levelTank = 3, hpTank = 2000, damageTank = 170, costTank = 400, damageUpTextTank = 0, hpUpTextTank = 0 }
         };
     }
 

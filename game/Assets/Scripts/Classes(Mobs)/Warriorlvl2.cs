@@ -6,8 +6,8 @@ public class Warriorlvl2 : EnemyBase
 {
     protected override void Start()
     {
-        HP = 500;
-        damage = 100;
+        HP = 400;
+        damage = 90;
         radius = 1.5f;
         attackRate = 0.8f;
         speed = 2f;

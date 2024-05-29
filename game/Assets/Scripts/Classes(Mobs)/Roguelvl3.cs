@@ -6,8 +6,8 @@ public class Roguelvl3 : EnemyBase
 {
     protected override void Start()
     {
-        HP = 180;
-        damage = 180;
+        HP = 200;
+        damage = 200;
         radius = 1.5f;
         attackRate = 0.5f;
         speed = 2.5f;

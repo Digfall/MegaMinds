@@ -328,8 +328,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086a16d5270bf1d4b8bcac42b5b7dec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 50
-  damage: 50
+  HP: 150
+  damage: 150
   speed: 2.5
   damageRate: 1
   radius: 1.4
@@ -342,32 +342,25 @@ MonoBehaviour:
   raycastDistance: 0.8
   raycastDistanceToMove: 20
   upgradeLevels:
-  - levelrog: 0
-    hprog: 0
-    damagerog: 0
+  - levelrog: 1
+    hprog: 150
+    damagerog: 150
     speed: 0
     costrog: 0
-    damageUpTextrog: 0
-    hpUpTextrog: 0
-  - levelrog: 0
-    hprog: 0
-    damagerog: 0
+    damageUpTextrog: 50
+    hpUpTextrog: 50
+  - levelrog: 2
+    hprog: 200
+    damagerog: 200
     speed: 0
-    costrog: 0
-    damageUpTextrog: 0
-    hpUpTextrog: 0
-  - levelrog: 0
-    hprog: 0
-    damagerog: 0
+    costrog: 300
+    damageUpTextrog: 100
+    hpUpTextrog: 100
+  - levelrog: 3
+    hprog: 300
+    damagerog: 500
     speed: 0
-    costrog: 0
-    damageUpTextrog: 0
-    hpUpTextrog: 0
-  - levelrog: 0
-    hprog: 0
-    damagerog: 0
-    speed: 0
-    costrog: 0
+    costrog: 400
     damageUpTextrog: 0
     hpUpTextrog: 0
 --- !u!195 &2630744706594389900

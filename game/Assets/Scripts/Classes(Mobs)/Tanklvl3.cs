@@ -6,8 +6,8 @@ public class Tanklvl3 : EnemyBase
 {
     protected override void Start()
     {
-        HP = 1320;
-        damage = 66;
+        HP = 2000;
+        damage = 150;
         radius = 1.5f;
         attackRate = 1.5f;
         speed = 1.2f;
