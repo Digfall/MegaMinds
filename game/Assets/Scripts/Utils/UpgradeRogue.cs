@@ -132,9 +132,9 @@ public class UpgradeRogue : MonoBehaviour
     {
         playerRogue.upgradeLevels = new List<UpgradeRogues>
         {
-            new UpgradeRogues { levelrog = 1, hprog = 50, damagerog = 50, costrog = 0, damageUpTextrog = 50, hpUpTextrog = 70 },
-            new UpgradeRogues { levelrog = 2, hprog = 120, damagerog = 100, costrog = 100, damageUpTextrog = 80, hpUpTextrog = 60 },
-            new UpgradeRogues { levelrog = 3, hprog = 180, damagerog = 180, costrog = 500, damageUpTextrog = 25, hpUpTextrog = 50 }
+            new UpgradeRogues { levelrog = 1, hprog = 150, damagerog = 150, costrog = 0, damageUpTextrog = 50, hpUpTextrog = 50 },
+            new UpgradeRogues { levelrog = 2, hprog = 200, damagerog = 200, costrog = 300, damageUpTextrog = 100, hpUpTextrog = 100 },
+            new UpgradeRogues { levelrog = 3, hprog = 300, damagerog = 500, costrog = 400, damageUpTextrog = 0, hpUpTextrog = 0 }
         };
     }
 

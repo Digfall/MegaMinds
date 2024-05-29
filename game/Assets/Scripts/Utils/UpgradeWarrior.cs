@@ -134,9 +134,9 @@ public class UpgradeWarrior : MonoBehaviour
     {
         playerWarrior.upgradeLevels = new List<UpgradeLevel>
         {
-            new UpgradeLevel { levelwar = 1, hpwar = 200, damagewar = 50, costwar = 0, damageUpTextwar = 50, hpUpTextwar = 300 },
-            new UpgradeLevel { levelwar = 2, hpwar = 500, damagewar = 100, costwar = 100, damageUpTextwar = 65, hpUpTextwar = 250 },
-            new UpgradeLevel { levelwar = 3, hpwar = 750, damagewar = 165, costwar = 500, damageUpTextwar = 105, hpUpTextwar = 105 }
+            new UpgradeLevel { levelwar = 1, hpwar = 200, damagewar = 50, costwar = 0, damageUpTextwar = 50, hpUpTextwar = 200 },
+            new UpgradeLevel { levelwar = 2, hpwar = 400, damagewar = 100, costwar = 100, damageUpTextwar = 65, hpUpTextwar = 200 },
+            new UpgradeLevel { levelwar = 3, hpwar = 600, damagewar = 165, costwar = 300, damageUpTextwar = 0, hpUpTextwar = 0 }
         };
     }
 

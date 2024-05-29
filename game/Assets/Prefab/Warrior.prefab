@@ -717,7 +717,7 @@ MonoBehaviour:
   speed: 2
   damageRate: 1
   radius: 1.4
-  attackRate: 0.3
+  attackRate: 0.8
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 458502990280674890}
   movePos: {fileID: 4568984401801632686}

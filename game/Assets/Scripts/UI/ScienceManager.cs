@@ -29,7 +29,7 @@ public class ScienceManager : MonoBehaviour
     public void UpdateScienceCountEnemy()
     {
         // Обновляем текстовый компонент с количеством монет
-        scienceCount += 5;
+        scienceCount += 25;
         scienceCountEnemy.text = scienceCount.ToString();
         scienceCountEnemyEnd.text = scienceCount.ToString();
         scienceCountEnemyEndLose.text = scienceCount.ToString();
@@ -37,7 +37,7 @@ public class ScienceManager : MonoBehaviour
     public void UpdateScienceCountCastle()
     {
 
-        ScienceCastleCount += 1000;
+        ScienceCastleCount += 350;
         scienceCountCastle.text = ScienceCastleCount.ToString();
         UpdateScienceCountTotal();
     }

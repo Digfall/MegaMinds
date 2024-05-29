@@ -6,10 +6,10 @@ public class Rangerlvl3 : EnemyBase
 {
     protected override void Start()
     {
-        HP = 198;
-        damage = 66;
+        HP = 450;
+        damage = 100;
         radius = 2.13f;
-        attackRate = 0.5f;
+        attackRate = 0.8f;
         speed = 2f;
 
         base.Start();

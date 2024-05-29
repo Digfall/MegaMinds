@@ -2843,7 +2843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeec6c0a59298e4894f9eaada11d5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 250
+  HP: 2000
   TowerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -5774,7 +5774,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977262cb3b8e61b4b9a845ed78dd3ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 250
+  HP: 21000
   TowerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -7559,7 +7559,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 580414255}
-  maxHealth: 250
+  maxHealth: 21000
 --- !u!1 &1243303753
 GameObject:
   m_ObjectHideFlags: 0
@@ -7617,7 +7617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
   m_sharedMaterial: {fileID: 5335139831177009369, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
@@ -9143,40 +9143,40 @@ MonoBehaviour:
   enemyWaves:
   - enemyBase:
     - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    spawnDelay: 8
-    betweenEnemiesDelay: 0
-  - enemyBase:
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     spawnDelay: 12
     betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    spawnDelay: 20
-    betweenEnemiesDelay: 2
-  - enemyBase:
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    spawnDelay: 10
-    betweenEnemiesDelay: 0
-  - enemyBase:
-    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
-    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
-    spawnDelay: 25
+    spawnDelay: 24
     betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    spawnDelay: 6
+    betweenEnemiesDelay: 1
+  - enemyBase:
     - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
-    spawnDelay: 8
+    spawnDelay: 5
     betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
     - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
-    spawnDelay: 30
+    spawnDelay: 18
+    betweenEnemiesDelay: 0
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    spawnDelay: 5
+    betweenEnemiesDelay: 0
+  - enemyBase:
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    spawnDelay: 60
     betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
@@ -12123,7 +12123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 555882439}
-  maxHealth: 250
+  maxHealth: 2000
 --- !u!1 &2142079086
 GameObject:
   m_ObjectHideFlags: 0

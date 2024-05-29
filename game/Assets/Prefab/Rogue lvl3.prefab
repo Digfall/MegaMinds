@@ -700,18 +700,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 200
-  damage: 50
+  damage: 200
   speed: 2
   damageRate: 1
   radius: 1.4
-  attackRate: 1.5
+  attackRate: 0.5
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 8207706295019545565}
   movePos: {fileID: 4568984401801632686}
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 0.5
-  raycastDistanceToMove: 15
+  raycastDistanceToMove: 20
 --- !u!1 &9121578260169716665
 GameObject:
   m_ObjectHideFlags: 0

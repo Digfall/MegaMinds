@@ -6,7 +6,7 @@ public class SpawnPlayer : MonoBehaviour
 {
     // Префабы юнитов и их стоимости
     public GameObject roguePrefab;
-    public int rogueCost = 3;
+    public int rogueCost = 2;
     public TextMeshProUGUI rogueCostText;
     public TextMeshProUGUI rogueLvlText;
     public Image rogueImage; // Добавьте изображение для Rogue
@@ -30,7 +30,7 @@ public class SpawnPlayer : MonoBehaviour
     public int CurrentLevelWar;
 
     public GameObject rangerPrefab;
-    public int rangerCost = 6;
+    public int rangerCost = 4;
     public TextMeshProUGUI rangerCostText;
     public TextMeshProUGUI rangerLvlText;
     public Image rangerImage; // Добавьте изображение для Ranger

@@ -26,7 +26,7 @@ public class SpawnEnemy : MonoBehaviour
 
     IEnumerator StartSpawnWithDelay()
     {
-        yield return new WaitForSeconds(10f); // Задержка в 10 секунд перед началом спавна
+        yield return new WaitForSeconds(13f); // Задержка в 10 секунд перед началом спавна
         StartCoroutine(SpawnWaves());
     }
 

@@ -1665,31 +1665,30 @@ MonoBehaviour:
   enemyWaves:
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    spawnDelay: 8
+    spawnDelay: 24
     betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    spawnDelay: 12
-    betweenEnemiesDelay: 2
+    spawnDelay: 30
+    betweenEnemiesDelay: 1
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    spawnDelay: 20
+    spawnDelay: 8
     betweenEnemiesDelay: 2
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
-    spawnDelay: 15
+    spawnDelay: 24
     betweenEnemiesDelay: 2
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
     spawnDelay: 25
-    betweenEnemiesDelay: 2
+    betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
     - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
@@ -1697,7 +1696,7 @@ MonoBehaviour:
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
     spawnDelay: 30
-    betweenEnemiesDelay: 2
+    betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
@@ -1705,12 +1704,12 @@ MonoBehaviour:
     - {fileID: 8957537787719140412, guid: 5db7a82e34105c441918f87b70870509, type: 3}
     - {fileID: 8957537787719140412, guid: 5db7a82e34105c441918f87b70870509, type: 3}
     spawnDelay: 20
-    betweenEnemiesDelay: 2
+    betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 8c967f390924d3d44bb1e5518286e05f, type: 3}
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
     spawnDelay: 16
-    betweenEnemiesDelay: 2
+    betweenEnemiesDelay: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
@@ -1720,10 +1719,8 @@ MonoBehaviour:
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
     - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    spawnDelay: 30
-    betweenEnemiesDelay: 4
+    spawnDelay: 0
+    betweenEnemiesDelay: 0
   spawnPositions:
   - {fileID: 1829270787}
   - {fileID: 1619805550}
@@ -2673,7 +2670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 388131920}
-  maxHealth: 250
+  maxHealth: 5000
 --- !u!1 &370100754
 GameObject:
   m_ObjectHideFlags: 0
@@ -5060,7 +5057,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10
+  m_text: 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
   m_sharedMaterial: {fileID: 5335139831177009369, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
@@ -6408,7 +6405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977262cb3b8e61b4b9a845ed78dd3ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 250
+  HP: 120000
   TowerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -7168,7 +7165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeec6c0a59298e4894f9eaada11d5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 250
+  HP: 5000
   TowerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -9073,7 +9070,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 1471599583}
-  maxHealth: 250
+  maxHealth: 120000
 --- !u!224 &1604595591
 RectTransform:
   m_ObjectHideFlags: 0

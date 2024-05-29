@@ -6,8 +6,8 @@ public class Tank : EnemyBase
 {
     protected override void Start()
     {
-        HP = 400;
-        damage = 20;
+        HP = 800;
+        damage = 75;
         radius = 1.5f;
         attackRate = 1.5f;
         speed = 1.2f;

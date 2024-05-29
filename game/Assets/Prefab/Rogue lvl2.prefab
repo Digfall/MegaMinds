@@ -711,7 +711,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 0.5
-  raycastDistanceToMove: 15
+  raycastDistanceToMove: 20
 --- !u!1 &9121578260169716665
 GameObject:
   m_ObjectHideFlags: 0
