@@ -669,11 +669,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7034619283290289360}
-  - component: {fileID: 6252973688936384585}
   - component: {fileID: 4121635748126923234}
   - component: {fileID: 715487482305907082}
   - component: {fileID: 2802972439622271650}
   - component: {fileID: 6362430502302983769}
+  - component: {fileID: 3649150150053309202}
   m_Layer: 6
   m_Name: Warrior lvl3
   m_TagString: Enemy
@@ -700,31 +700,6 @@ Transform:
   - {fileID: 4568984401801632686}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6252973688936384585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8957537787719140412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42a327758ad096242a432eb17637cabb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HP: 200
-  damage: 50
-  speed: 2
-  damageRate: 1
-  radius: 1.4
-  attackRate: 0.3
-  attackPos: {fileID: 3447318282570468402}
-  healthBar: {fileID: 458502990280674890}
-  movePos: {fileID: 4568984401801632686}
-  moveTarget: {fileID: 0}
-  attackTarget: {fileID: 0}
-  raycastDistance: 0.6
-  raycastDistanceToMove: 20
 --- !u!50 &4121635748126923234
 Rigidbody2D:
   serializedVersion: 4
@@ -830,3 +805,28 @@ NavMeshAgent:
   m_BaseOffset: 0.59
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &3649150150053309202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8957537787719140412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5b26330d4002b41b775d4939158596, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HP: 200
+  damage: 50
+  speed: 2
+  damageRate: 1
+  radius: 1.4
+  attackRate: 1.5
+  attackPos: {fileID: 3447318282570468402}
+  healthBar: {fileID: 458502990280674890}
+  movePos: {fileID: 4568984401801632686}
+  moveTarget: {fileID: 0}
+  attackTarget: {fileID: 0}
+  raycastDistance: 0.5
+  raycastDistanceToMove: 15

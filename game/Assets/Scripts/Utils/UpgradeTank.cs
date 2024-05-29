@@ -14,20 +14,27 @@ public class UpgradeTank : MonoBehaviour
     public TextMeshProUGUI damageUpTextTank;
     public TextMeshProUGUI hpUpTextTank;
     public Slider upgradeSlidertank;
+    public Image levelImage;
+    public Image levelImageButton;
+    public List<Sprite> levelSprites;
+    public List<Sprite> levelSpritesButton;
 
-
-    private int currentLevel = 0;
+    private int currentLevel = 1;
 
     private const string CurrentLevelTankPrefKey = "CurrentLevelTank"; // Ключ для сохранения/загрузки текущего уровня
+    private const string UpgradeSliderTankValuePrefKey = "UpgradeSliderTankValue"; // Ключ для сохранения значения слайдера
 
     private void Start()
     {
         // Загружаем текущий уровень из PlayerPrefs
-        currentLevel = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 0);
+        currentLevel = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 1);
 
+        // Загружаем значение слайдера из PlayerPrefs
+        upgradeSlidertank.value = PlayerPrefs.GetFloat(UpgradeSliderTankValuePrefKey, 0f);
+
+        DefineUpgradeLevels(); // Определяем уровни до их использования
         UpdateTotalScienceText();
         UpdateTankStatsText();
-        DefineUpgradeLevels();
         UpgradePlayer(currentLevel);
         UpdatePriceForUpgrade(currentLevel);
     }
@@ -40,7 +47,7 @@ public class UpgradeTank : MonoBehaviour
 
     public void UpgradePlayer()
     {
-        if (currentLevel < playerTank.upgradeLevels.Count - 1)
+        if (currentLevel < playerTank.upgradeLevels.Count)
         {
             int upgradeCost = playerTank.upgradeLevels[currentLevel].costTank;
 
@@ -52,7 +59,16 @@ public class UpgradeTank : MonoBehaviour
                 UpdateTotalScienceText();
                 UpdateTankStatsText();
                 UpdatePriceForUpgrade(currentLevel);
-                upgradeSlidertank.value = (float)currentLevel / (float)(playerTank.upgradeLevels.Count - 1);
+                upgradeSlidertank.value = (float)(currentLevel - 1) / (float)(playerTank.upgradeLevels.Count - 1);
+
+                if (currentLevel - 1 < levelSprites.Count)
+                {
+                    levelImage.sprite = levelSprites[currentLevel - 1];
+                    levelImageButton.sprite = levelSpritesButton[currentLevel - 1];
+                }
+
+                // Сохраняем текущее значение слайдера в PlayerPrefs
+                PlayerPrefs.SetFloat(UpgradeSliderTankValuePrefKey, upgradeSlidertank.value);
 
                 // Сохраняем текущий уровень в PlayerPrefs
                 PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevel);
@@ -67,15 +83,24 @@ public class UpgradeTank : MonoBehaviour
             Debug.Log("Игрок достиг максимального уровня прокачки.");
         }
     }
+
     public void LoadPlayerStats()
     {
         // Загружаем сохраненные значения характеристик из PlayerPrefs
         playerTank.HP = PlayerPrefs.GetInt("TankHP", playerTank.HP);
         playerTank.damage = PlayerPrefs.GetInt("TankDamage", playerTank.damage);
     }
-    private void UpdatePriceForUpgrade(int nextLevel)
+
+    private void UpdatePriceForUpgrade(int currentLevel)
     {
-        priceForUpgrade.text = playerTank.upgradeLevels[nextLevel].costTank.ToString();
+        if (currentLevel < playerTank.upgradeLevels.Count)
+        {
+            priceForUpgrade.text = playerTank.upgradeLevels[currentLevel].costTank.ToString();
+        }
+        else
+        {
+            priceForUpgrade.text = "Max";
+        }
     }
 
     private void UpdateTotalScienceText()
@@ -85,31 +110,46 @@ public class UpgradeTank : MonoBehaviour
 
     private void UpdateTankStatsText()
     {
-        hpText.text = playerTank.HP.ToString();
-        damageText.text = playerTank.damage.ToString();
-        levelText.text = currentLevel.ToString();
-        damageUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevel].damageUpTextTank.ToString();
-        hpUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevel].hpUpTextTank.ToString();
+        if (currentLevel <= playerTank.upgradeLevels.Count)
+        {
+            hpText.text = playerTank.HP.ToString();
+            damageText.text = playerTank.damage.ToString();
+            levelText.text = currentLevel.ToString();
+            if (currentLevel < 3)
+            {
+                damageUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevel - 1].damageUpTextTank.ToString();
+                hpUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevel - 1].hpUpTextTank.ToString();
+            }
+            else
+            {
+                damageUpTextTank.text = "";
+                hpUpTextTank.text = "";
+            }
+        }
     }
 
     private void DefineUpgradeLevels()
     {
         playerTank.upgradeLevels = new List<UpgradeTanks>
         {
-            new UpgradeTanks { levelTank = 1, hpTank = 400, damageTank = 20, costTank = 100, damageUpTextTank = 20, hpUpTextTank = 480 },
-            new UpgradeTanks { levelTank = 2, hpTank = 880, damageTank = 40, costTank = 500, damageUpTextTank = 26, hpUpTextTank = 480 },
-            new UpgradeTanks { levelTank = 3, hpTank = 1320, damageTank = 66, costTank = 1000, damageUpTextTank = 26, hpUpTextTank = 480 },
-            new UpgradeTanks { levelTank = 4, hpTank = 1520, damageTank = 100, costTank = 1500, damageUpTextTank = 0, hpUpTextTank = 0 }
+            new UpgradeTanks { levelTank = 1, hpTank = 400, damageTank = 20, costTank = 0, damageUpTextTank = 20, hpUpTextTank = 480 },
+            new UpgradeTanks { levelTank = 2, hpTank = 880, damageTank = 40, costTank = 100, damageUpTextTank = 26, hpUpTextTank = 480 },
+            new UpgradeTanks { levelTank = 3, hpTank = 1320, damageTank = 66, costTank = 500, damageUpTextTank = 26, hpUpTextTank = 480 }
         };
     }
 
     private void UpgradePlayer(int levelTank)
     {
-        if (levelTank >= 0 && levelTank < playerTank.upgradeLevels.Count)
+        if (levelTank > 0 && levelTank <= playerTank.upgradeLevels.Count)
         {
-            playerTank.HP = playerTank.upgradeLevels[levelTank].hpTank;
-            playerTank.damage = playerTank.upgradeLevels[levelTank].damageTank;
+            playerTank.HP = playerTank.upgradeLevels[levelTank - 1].hpTank;
+            playerTank.damage = playerTank.upgradeLevels[levelTank - 1].damageTank;
             playerTank.SavePlayerStats();
+            if (levelTank - 1 < levelSprites.Count)
+            {
+                levelImage.sprite = levelSprites[levelTank - 1];
+                levelImageButton.sprite = levelSpritesButton[levelTank - 1];
+            }
         }
     }
 }

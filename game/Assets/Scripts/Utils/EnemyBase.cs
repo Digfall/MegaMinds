@@ -77,23 +77,19 @@ public class EnemyBase : MonoBehaviour
 
     protected virtual void OnAttack()
     {
-        if (Time.time >= nextAttackTime)
+        if (Time.time >= nextAttackTime && attackTarget != null)
         {
-            Collider2D[] enemies = Physics2D.OverlapCircleAll(attackPos.position, radius);
             isAttacking = true;
-            isFighting = true;
+            isFighting = true; // Устанавливаем флаг isFighting в true при использовании OnAttack
 
-            for (int i = 0; i < enemies.Length; i++)
+            if (attackTarget.CompareTag("Player") || attackTarget.CompareTag("Castle"))
             {
-                if (enemies[i].CompareTag("Player") || enemies[i].CompareTag("Castle"))
-                {
-                    enemies[i].GetComponent<PlayerBase>()?.TakeDamage(damage);
-                    enemies[i].GetComponent<Castle>()?.TakeDamage(damage);
-                    nextDamageTime = Time.time + damageRate;
-                }
+                attackTarget.GetComponent<PlayerBase>()?.TakeDamage(damage);
+                attackTarget.GetComponent<Castle>()?.TakeDamage(damage);
+                nextDamageTime = Time.time + damageRate;
             }
 
-            nextAttackTime = Time.time + 1f / attackRate;
+            nextAttackTime = Time.time + 1f / attackRate; // Устанавливаем время следующей атаки
         }
     }
 

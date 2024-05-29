@@ -14,20 +14,27 @@ public class UpgradeRanger : MonoBehaviour
     public TextMeshProUGUI damageUpTextran;
     public TextMeshProUGUI hpUpTextran;
     public Slider upgradeRangerSlider;
+    public Image levelImage;
+    public Image levelImageButton;
+    public List<Sprite> levelSprites;
+    public List<Sprite> levelSpritesButton;
 
-
-    private int currentLevel = 0;
+    private int currentLevel = 1;
 
     private const string CurrentLevelRngPrefKey = "CurrentLevelRng"; // Ключ для сохранения/загрузки текущего уровня
+    private const string UpgradeSliderRangerValuePrefKey = "UpgradeSliderRangerValue"; // Ключ для сохранения значения слайдера
 
     private void Start()
     {
         // Загружаем текущий уровень из PlayerPrefs
-        currentLevel = PlayerPrefs.GetInt(CurrentLevelRngPrefKey, 0);
+        currentLevel = PlayerPrefs.GetInt(CurrentLevelRngPrefKey, 1);
 
+        // Загружаем значение слайдера из PlayerPrefs
+        upgradeRangerSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRangerValuePrefKey, 0.367f);
+
+        DefineUpgradeLevels(); // Определяем уровни до их использования
         UpdateTotalScienceText();
         UpdateRangerStatsText();
-        DefineUpgradeLevels();
         UpgradePlayer(currentLevel);
         UpdatePriceForUpgrade(currentLevel);
     }
@@ -40,7 +47,7 @@ public class UpgradeRanger : MonoBehaviour
 
     public void UpgradePlayer()
     {
-        if (currentLevel < playerRanger.upgradeLevels.Count - 1)
+        if (currentLevel < playerRanger.upgradeLevels.Count)
         {
             int upgradeCost = playerRanger.upgradeLevels[currentLevel].costran;
 
@@ -52,7 +59,16 @@ public class UpgradeRanger : MonoBehaviour
                 UpdateTotalScienceText();
                 UpdateRangerStatsText();
                 UpdatePriceForUpgrade(currentLevel);
-                upgradeRangerSlider.value = (float)currentLevel / (float)(playerRanger.upgradeLevels.Count - 1);
+                upgradeRangerSlider.value = (float)(currentLevel - 1) / (float)(playerRanger.upgradeLevels.Count - 1);
+
+                if (currentLevel - 1 < levelSprites.Count)
+                {
+                    levelImage.sprite = levelSprites[currentLevel - 1];
+                    levelImageButton.sprite = levelSpritesButton[currentLevel - 1];
+                }
+
+                // Сохраняем текущее значение слайдера в PlayerPrefs
+                PlayerPrefs.SetFloat(UpgradeSliderRangerValuePrefKey, upgradeRangerSlider.value);
 
                 // Сохраняем текущий уровень в PlayerPrefs
                 PlayerPrefs.SetInt(CurrentLevelRngPrefKey, currentLevel);
@@ -67,15 +83,24 @@ public class UpgradeRanger : MonoBehaviour
             Debug.Log("Игрок достиг максимального уровня прокачки.");
         }
     }
+
     public void LoadPlayerStats()
     {
         // Загружаем сохраненные значения характеристик из PlayerPrefs
         playerRanger.HP = PlayerPrefs.GetInt("RangerHP", playerRanger.HP);
         playerRanger.damage = PlayerPrefs.GetInt("RangerDamage", playerRanger.damage);
     }
-    private void UpdatePriceForUpgrade(int nextLevel)
+
+    private void UpdatePriceForUpgrade(int currentLevel)
     {
-        priceForUpgrade.text = playerRanger.upgradeLevels[nextLevel].costran.ToString();
+        if (currentLevel < playerRanger.upgradeLevels.Count)
+        {
+            priceForUpgrade.text = playerRanger.upgradeLevels[currentLevel].costran.ToString();
+        }
+        else
+        {
+            priceForUpgrade.text = "Max";
+        }
     }
 
     private void UpdateTotalScienceText()
@@ -85,21 +110,31 @@ public class UpgradeRanger : MonoBehaviour
 
     private void UpdateRangerStatsText()
     {
-        hpText.text = playerRanger.HP.ToString();
-        damageText.text = playerRanger.damage.ToString();
-        levelText.text = currentLevel.ToString();
-        damageUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevel].damageUpTextran.ToString();
-        hpUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevel].hpUpTextran.ToString();
+        if (currentLevel <= playerRanger.upgradeLevels.Count)
+        {
+            hpText.text = playerRanger.HP.ToString();
+            damageText.text = playerRanger.damage.ToString();
+            levelText.text = currentLevel.ToString();
+            if (currentLevel < 3)
+            {
+                damageUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevel - 1].damageUpTextran.ToString();
+                hpUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevel - 1].hpUpTextran.ToString();
+            }
+            else
+            {
+                damageUpTextran.text = "";
+                hpUpTextran.text = "";
+            }
+        }
     }
 
     private void DefineUpgradeLevels()
     {
         playerRanger.upgradeLevels = new List<UpgradeRangers>
         {
-            new UpgradeRangers { levelran = 1, hpran = 60, damageran = 20, costran = 100, damageUpTextran = 20, hpUpTextran = 72 },
-            new UpgradeRangers { levelran = 2, hpran = 132, damageran = 40, costran = 500, damageUpTextran = 20, hpUpTextran = 68 },
-            new UpgradeRangers { levelran = 3, hpran = 198, damageran = 60, costran = 1000, damageUpTextran = 20, hpUpTextran = 105 },
-            new UpgradeRangers { levelran = 4, hpran = 250, damageran = 80, costran = 1500, damageUpTextran = 0, hpUpTextran = 0 }
+            new UpgradeRangers { levelran = 1, hpran = 60, damageran = 20, costran = 0, damageUpTextran = 20, hpUpTextran = 72 },
+            new UpgradeRangers { levelran = 2, hpran = 132, damageran = 40, costran = 100, damageUpTextran = 20, hpUpTextran = 68 },
+            new UpgradeRangers { levelran = 3, hpran = 198, damageran = 60, costran = 500, damageUpTextran = 20, hpUpTextran = 105 }
         };
     }
 
@@ -107,9 +142,14 @@ public class UpgradeRanger : MonoBehaviour
     {
         if (levelran >= 0 && levelran < playerRanger.upgradeLevels.Count)
         {
-            playerRanger.HP = playerRanger.upgradeLevels[levelran].hpran;
-            playerRanger.damage = playerRanger.upgradeLevels[levelran].damageran;
+            playerRanger.HP = playerRanger.upgradeLevels[levelran - 1].hpran;
+            playerRanger.damage = playerRanger.upgradeLevels[levelran - 1].damageran;
             playerRanger.SavePlayerStats();
+            if (levelran - 1 < levelSprites.Count)
+            {
+                levelImage.sprite = levelSprites[levelran - 1];
+                levelImageButton.sprite = levelSpritesButton[levelran - 1];
+            }
         }
     }
 }

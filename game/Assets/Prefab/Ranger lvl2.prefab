@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 715487482305907082}
   - component: {fileID: 2802972439622271650}
   - component: {fileID: 6362430502302983769}
-  - component: {fileID: 2038876014943062757}
+  - component: {fileID: -4234480015717343040}
   m_Layer: 6
   m_Name: Ranger lvl2
   m_TagString: Enemy
@@ -805,7 +805,7 @@ NavMeshAgent:
   m_BaseOffset: 0.84
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &2038876014943062757
+--- !u!114 &-4234480015717343040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -814,19 +814,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 8957537787719140412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac8f78a2c89178f408959f44085a376c, type: 3}
+  m_Script: {fileID: 11500000, guid: 095f164a89ebd5640a79b45e6d8f3def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 60
-  damage: 20
+  HP: 200
+  damage: 50
   speed: 2
   damageRate: 1
   radius: 2.13
-  attackRate: 0.5
+  attackRate: 1.5
   attackPos: {fileID: 3447318282570468402}
   healthBar: {fileID: 7270612880133840835}
   movePos: {fileID: 4568984401801632686}
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
-  raycastDistance: 6
-  raycastDistanceToMove: 20
+  raycastDistance: 0.5
+  raycastDistanceToMove: 15

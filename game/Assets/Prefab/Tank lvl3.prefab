@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 715487482305907082}
   - component: {fileID: 2802972439622271650}
   - component: {fileID: 6362430502302983769}
-  - component: {fileID: -4987323977823067325}
+  - component: {fileID: 1469670690221791040}
   m_Layer: 6
   m_Name: Tank lvl3
   m_TagString: Enemy
@@ -805,7 +805,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-4987323977823067325
+--- !u!114 &1469670690221791040
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -814,12 +814,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8957537787719140412}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86094b4389ae9fe4d9546d68d0a22905, type: 3}
+  m_Script: {fileID: 11500000, guid: 784aa72034514554dbfa63e5a30765d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 400
-  damage: 20
-  speed: 1.2
+  HP: 200
+  damage: 50
+  speed: 2
   damageRate: 1
   radius: 1.5
   attackRate: 1.5
@@ -828,5 +828,5 @@ MonoBehaviour:
   movePos: {fileID: 4568984401801632686}
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
-  raycastDistance: 1
-  raycastDistanceToMove: 20
+  raycastDistance: 0.5
+  raycastDistanceToMove: 15
