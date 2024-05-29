@@ -1279,7 +1279,7 @@ SpriteRenderer:
   m_Size: {x: 4.42, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &552027110
@@ -1929,7 +1929,7 @@ MonoBehaviour:
   - {fileID: 1553529747}
   unlockedSprite: {fileID: 496127062, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   lockedSprite: {fileID: -1536849863, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  levelReached: 2
+  availableSprite: {fileID: 0}
 --- !u!4 &1006132447
 Transform:
   m_ObjectHideFlags: 0
@@ -2395,7 +2395,7 @@ SpriteRenderer:
   m_Size: {x: 7.36, y: 3.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!4 &1115499949
@@ -3076,7 +3076,7 @@ SpriteRenderer:
   m_Size: {x: 4.42, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1401379676
@@ -3680,7 +3680,7 @@ MonoBehaviour:
   levelButtons: []
   unlockedSprite: {fileID: 496127062, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   lockedSprite: {fileID: -1536849863, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  levelReached: 0
+  availableSprite: {fileID: 0}
 --- !u!1 &1630191837
 GameObject:
   m_ObjectHideFlags: 0
@@ -4240,7 +4240,7 @@ MonoBehaviour:
   levelButtons: []
   unlockedSprite: {fileID: 496127062, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   lockedSprite: {fileID: -1536849863, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  levelReached: 0
+  availableSprite: {fileID: 0}
 --- !u!1 &1765495055
 GameObject:
   m_ObjectHideFlags: 0
@@ -4323,7 +4323,7 @@ SpriteRenderer:
   m_Size: {x: 4.42, y: 4.3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1765495058
@@ -4960,7 +4960,7 @@ MonoBehaviour:
   levelButtons: []
   unlockedSprite: {fileID: 496127062, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   lockedSprite: {fileID: -1536849863, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  levelReached: 0
+  availableSprite: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
