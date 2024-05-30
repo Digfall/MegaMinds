@@ -9157,7 +9157,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -51.9, y: -24.000002}
+  m_AnchoredPosition: {x: -51.9, y: -24}
   m_SizeDelta: {x: 101, y: 136}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1414529587
@@ -9360,7 +9360,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -155, y: -23.399992}
+  m_AnchoredPosition: {x: -155, y: -23.399994}
   m_SizeDelta: {x: 101, y: 136}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1470818824
@@ -11421,30 +11421,36 @@ MonoBehaviour:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 12
     betweenEnemiesDelay: 0
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 18
     betweenEnemiesDelay: 0
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     spawnDelay: 25
     betweenEnemiesDelay: 0.5
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 3
     betweenEnemiesDelay: 0.5
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     spawnDelay: 25
     betweenEnemiesDelay: 0.5
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
     spawnDelay: 5
     betweenEnemiesDelay: 0
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
@@ -11453,16 +11459,19 @@ MonoBehaviour:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 3
     betweenEnemiesDelay: 1
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
     spawnDelay: 28
     betweenEnemiesDelay: 0
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
     - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
     spawnDelay: 30
     betweenEnemiesDelay: 0
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
@@ -11470,6 +11479,7 @@ MonoBehaviour:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 4
     betweenEnemiesDelay: 0.5
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
@@ -11479,6 +11489,7 @@ MonoBehaviour:
     - {fileID: 8957537787719140412, guid: 7cb6009c0c7eae140b679f6a44a7bce7, type: 3}
     spawnDelay: 60
     betweenEnemiesDelay: 0.5
+    level: 0
   - enemyBase:
     - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
     - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
@@ -11486,6 +11497,7 @@ MonoBehaviour:
     - {fileID: 8957537787719140412, guid: e980f630d00af604b9392fd50cf3539c, type: 3}
     spawnDelay: 0
     betweenEnemiesDelay: 0
+    level: 0
   spawnPositions:
   - {fileID: 796394097}
   - {fileID: 498695863}
@@ -11841,7 +11853,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 52.8, y: -24.000002}
+  m_AnchoredPosition: {x: 155.5001, y: -24}
   m_SizeDelta: {x: 101, y: 136}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2066348035
@@ -12044,7 +12056,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 155.50008, y: -24.000002}
+  m_AnchoredPosition: {x: 52.8, y: -24}
   m_SizeDelta: {x: 101, y: 136}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2085814056

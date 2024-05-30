@@ -129,7 +129,7 @@ public class UpgradeRanger : MonoBehaviour
         {
             new UpgradeRangers { levelran = 1, hpran = 60, damageran = 20, costran = 0, damageUpTextran = 20, hpUpTextran = 72 },
             new UpgradeRangers { levelran = 2, hpran = 132, damageran = 40, costran = 100, damageUpTextran = 20, hpUpTextran = 68 },
-            new UpgradeRangers { levelran = 3, hpran = 198, damageran = 60, costran = 500, damageUpTextran = 20, hpUpTextran = 105 }
+            new UpgradeRangers { levelran = 3, hpran = 198, damageran = 60, costran = 300, damageUpTextran = 20, hpUpTextran = 105 }
         };
     }
 

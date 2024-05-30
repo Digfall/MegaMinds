@@ -81,11 +81,8 @@
     <Compile Include="Assets\Scripts\Classes(Mobs)\PlayerTank.cs" />
     <Compile Include="Assets\Scripts\Utils\UpgradeWarrior.cs" />
     <Compile Include="Assets\Scripts\Classes(Mobs)\Rogue.cs" />
-    <Compile Include="Assets\Scripts\Classes(Mobs)\Tanklvl3.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Scripts\Classes(Mobs)\PlayerRanger.cs" />
-    <Compile Include="Assets\Scripts\Classes(Mobs)\Tanklvl2.cs" />
-    <Compile Include="Assets\Scripts\Classes(Mobs)\Roguelvl2.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -103,7 +100,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Scripts\Classes(Mobs)\Warriorlvl3.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBarCastle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
@@ -117,8 +113,6 @@
     <Compile Include="Assets\Scripts\Utils\CoinManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
-    <Compile Include="Assets\Scripts\Classes(Mobs)\Rangerlvl2.cs" />
-    <Compile Include="Assets\Scripts\Classes(Mobs)\Roguelvl3.cs" />
     <Compile Include="Assets\Scripts\UI\ScienceManager.cs" />
     <Compile Include="Assets\Scripts\Utils\EarlyFinish.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
@@ -128,7 +122,6 @@
     <Compile Include="Assets\Scripts\Classes(Mobs)\EnemyCastle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ShaderPropAnimator.cs" />
     <Compile Include="Assets\Scripts\Utils\UpgradeRanger.cs" />
-    <Compile Include="Assets\Scripts\Classes(Mobs)\Rangerlvl3.cs" />
     <Compile Include="Assets\Scripts\Utils\EnemyBase.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\UI\OptionsOnOff.cs" />
@@ -136,7 +129,6 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Scripts\UI\ToggleObjects.cs" />
     <Compile Include="Assets\Scripts\Utils\SpawnPlayer.cs" />
-    <Compile Include="Assets\Scripts\Classes(Mobs)\Warriorlvl2.cs" />
     <Compile Include="Assets\Scripts\Utils\NavMeshSettings.cs" />
     <Compile Include="Assets\Scripts\Utils\UpgradeRogue.cs" />
     <Compile Include="Assets\Scripts\Utils\UpgradeTank.cs" />

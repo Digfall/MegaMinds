@@ -6,13 +6,14 @@ public class EnemySpawn
 {
     public GameObject[] enemyBase;
     public float spawnDelay;
-    public float betweenEnemiesDelay = 0.5f; // Задержка между спавнами элементов enemyBase
+    public float betweenEnemiesDelay = 0.5f;
+    public int level;
 }
 
 public class SpawnEnemy : MonoBehaviour
 {
     public EnemySpawn[] enemyWaves;
-    public Transform[] spawnPositions; // Массив позиций, где будут создаваться враги
+    public Transform[] spawnPositions;
 
     private bool canSpawn = true;
 
@@ -26,7 +27,7 @@ public class SpawnEnemy : MonoBehaviour
 
     IEnumerator StartSpawnWithDelay()
     {
-        yield return new WaitForSeconds(13f); // Задержка в 10 секунд перед началом спавна
+        yield return new WaitForSeconds(13f);
         StartCoroutine(SpawnWaves());
     }
 
@@ -34,33 +35,37 @@ public class SpawnEnemy : MonoBehaviour
     {
         foreach (EnemySpawn wave in enemyWaves)
         {
-            canSpawn = true; // Установка флага перед каждой волной
+            canSpawn = true;
 
             foreach (GameObject enemyPrefab in wave.enemyBase)
             {
                 if (canSpawn)
                 {
-                    // Выбираем случайную позицию из массива spawnPositions
                     int randomIndex = Random.Range(0, spawnPositions.Length);
                     Transform selectedSpawnPoint = spawnPositions[randomIndex];
 
-                    // Создаем объект врага на выбранной позиции
-                    Instantiate(enemyPrefab, selectedSpawnPoint.position, Quaternion.identity);
-                    yield return new WaitForSeconds(wave.betweenEnemiesDelay); // Задержка между спавнами элементов enemyBase
+                    GameObject enemyObject = Instantiate(enemyPrefab, selectedSpawnPoint.position, Quaternion.identity);
+
+                    EnemyBase enemyBase = enemyObject.GetComponent<EnemyBase>();
+                    if (enemyBase != null)
+                    {
+                        enemyBase.level = wave.level;
+                        enemyBase.ApplyLevelAdjustments();
+                    }
+
+                    yield return new WaitForSeconds(wave.betweenEnemiesDelay);
                 }
             }
 
-            canSpawn = false; // После спавна всех врагов в волне выключаем спавн
+            canSpawn = false;
 
-            // Если не последняя волна, ждем spawnDelay перед следующей
             yield return new WaitForSeconds(wave.spawnDelay);
         }
     }
 
     bool EnemyCastleIsAlive()
     {
-        EnemyCastle enemyCastle = FindObjectOfType
-        <EnemyCastle>();
+        EnemyCastle enemyCastle = FindObjectOfType<EnemyCastle>();
         return enemyCastle != null;
     }
 }

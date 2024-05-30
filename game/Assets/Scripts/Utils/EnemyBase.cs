@@ -3,28 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBase : MonoBehaviour
+public abstract class EnemyBase : MonoBehaviour
 {
     [Header("Статы Персонажа")]
     public int HP = 200;
     public int damage = 50;
     public float speed = 2;
-    public float damageRate = 1.0f; // Задержка между каждым нанесением урона
+    public float damageRate = 1.0f;
     public float radius;
-    public float attackRate = 1.5f; // Время между атаками в секундах
-    protected float nextAttackTime = 0f; // Время до следующей атаки
-    protected float nextDamageTime = 0f; // Время до следующего удара
+    public float attackRate = 1.5f;
+    protected float nextAttackTime = 0f;
+    protected float nextDamageTime = 0f;
 
     [Header("Обращения к объектам и трансформы")]
     public Transform attackPos;
     public HealthBar healthBar;
     public Transform movePos;
-    [SerializeField] protected Transform moveTarget; // Цель для передвижения
-    [SerializeField] protected Transform attackTarget; // Цель для атаки
+    [SerializeField] protected Transform moveTarget;
+    [SerializeField] protected Transform attackTarget;
 
     [Header("Настройки луча")]
-    [SerializeField] protected float raycastDistance = 0.5f; // Длина луча для поиска цели
+    [SerializeField] protected float raycastDistance = 0.5f;
     [SerializeField] protected float raycastDistanceToMove = 25f;
+
+    public int level = 1;
 
     protected bool isFighting = false;
     protected bool isAttacking = false;
@@ -37,6 +39,7 @@ public class EnemyBase : MonoBehaviour
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         rb = GetComponent<Rigidbody2D>();
+        ApplyLevelAdjustments();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
     }
@@ -58,6 +61,7 @@ public class EnemyBase : MonoBehaviour
             FindObjectOfType<ScienceManager>().UpdateScienceCountEnemy();
             Destroy(gameObject);
         }
+
     }
 
     protected virtual void MoveToTarget()
@@ -80,7 +84,7 @@ public class EnemyBase : MonoBehaviour
         if (Time.time >= nextAttackTime && attackTarget != null)
         {
             isAttacking = true;
-            isFighting = true; // Устанавливаем флаг isFighting в true при использовании OnAttack
+            isFighting = true;
 
             if (attackTarget.CompareTag("Player") || attackTarget.CompareTag("Castle"))
             {
@@ -89,7 +93,7 @@ public class EnemyBase : MonoBehaviour
                 nextDamageTime = Time.time + damageRate;
             }
 
-            nextAttackTime = Time.time + 1f / attackRate; // Устанавливаем время следующей атаки
+            nextAttackTime = Time.time + 1f / attackRate;
         }
     }
 
@@ -121,7 +125,7 @@ public class EnemyBase : MonoBehaviour
             {
                 isAttacking = true;
                 isFighting = true;
-                OnAttack(); // Начинаем атаку
+                OnAttack();
             }
             else
             {
@@ -164,6 +168,7 @@ public class EnemyBase : MonoBehaviour
         healthBar.SetHealth(HP);
 
     }
+    public abstract void ApplyLevelAdjustments();
 
     protected virtual void OnDrawGizmosSelected()
     {
