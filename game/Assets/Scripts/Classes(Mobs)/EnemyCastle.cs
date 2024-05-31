@@ -9,6 +9,8 @@ public class EnemyCastle : MonoBehaviour
     private LevelManager levelManager;
     public int levelNumber; // Номер этого уровня
 
+    public int rewardLevel = 1; // Уровень награды
+
     void Start()
     {
         healthBar.SetHealth(HP);
@@ -32,7 +34,7 @@ public class EnemyCastle : MonoBehaviour
 
     void DestroyCastle()
     {
-        FindObjectOfType<ScienceManager>().UpdateScienceCountCastle();
+        FindObjectOfType<ScienceManager>().UpdateScienceCountCastle(rewardLevel);
         levelManager.CompleteLevel(levelNumber);
         // Остановить все действия на карте
         Time.timeScale = 0f;
