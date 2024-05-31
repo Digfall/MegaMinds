@@ -228,7 +228,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.36, y: 0.59}
+  m_Size: {x: 1.16, y: 1.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -618,7 +618,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.52, y: 0.39}
+  m_Size: {x: 0.65, y: 1.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -725,6 +725,7 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistance: 0.6
   raycastDistanceToMove: 20
+  level: 0
 --- !u!50 &4121635748126923234
 Rigidbody2D:
   serializedVersion: 4
