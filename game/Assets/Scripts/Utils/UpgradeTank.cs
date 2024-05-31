@@ -19,7 +19,7 @@ public class UpgradeTank : MonoBehaviour
     public List<Sprite> levelSprites;
     public List<Sprite> levelSpritesButton;
 
-    private int currentLevel = 1;
+    private int currentLevelTank = 1;
 
     private const string CurrentLevelTankPrefKey = "CurrentLevelTank"; // Ключ для сохранения/загрузки текущего уровня
     private const string UpgradeSliderTankValuePrefKey = "UpgradeSliderTankValue"; // Ключ для сохранения значения слайдера
@@ -27,7 +27,7 @@ public class UpgradeTank : MonoBehaviour
     private void Start()
     {
         // Загружаем текущий уровень из PlayerPrefs
-        currentLevel = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 1);
+        currentLevelTank = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 1);
 
         // Загружаем значение слайдера из PlayerPrefs
         upgradeSlidertank.value = PlayerPrefs.GetFloat(UpgradeSliderTankValuePrefKey, 0f);
@@ -35,43 +35,43 @@ public class UpgradeTank : MonoBehaviour
         DefineUpgradeLevels(); // Определяем уровни до их использования
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateTankStatsText();
-        UpgradePlayer(currentLevel);
-        UpdatePriceForUpgrade(currentLevel);
+        UpgradePlayer(currentLevelTank);
+        UpdatePriceForUpgrade(currentLevelTank);
     }
 
     void Update()
     {
         UpdateTankStatsText();
-        UpdatePriceForUpgrade(currentLevel);
+        UpdatePriceForUpgrade(currentLevelTank);
     }
 
     public void UpgradePlayer()
     {
-        if (currentLevel < playerTank.upgradeLevels.Count)
+        if (currentLevelTank < playerTank.upgradeLevels.Count)
         {
-            int upgradeCost = playerTank.upgradeLevels[currentLevel].costTank;
+            int upgradeCost = playerTank.upgradeLevels[currentLevelTank].costTank;
 
             if (GameManager.TotalScience >= upgradeCost)
             {
                 GameManager.TotalScience -= upgradeCost;
-                currentLevel++;
-                UpgradePlayer(currentLevel);
+                currentLevelTank++;
+                UpgradePlayer(currentLevelTank);
                 FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateTankStatsText();
-                UpdatePriceForUpgrade(currentLevel);
-                upgradeSlidertank.value = (float)(currentLevel - 1) / (float)(playerTank.upgradeLevels.Count - 1);
+                UpdatePriceForUpgrade(currentLevelTank);
+                upgradeSlidertank.value = (float)(currentLevelTank - 1) / (float)(playerTank.upgradeLevels.Count - 1);
 
-                if (currentLevel - 1 < levelSprites.Count)
+                if (currentLevelTank - 1 < levelSprites.Count)
                 {
-                    levelImage.sprite = levelSprites[currentLevel - 1];
-                    levelImageButton.sprite = levelSpritesButton[currentLevel - 1];
+                    levelImage.sprite = levelSprites[currentLevelTank - 1];
+                    levelImageButton.sprite = levelSpritesButton[currentLevelTank - 1];
                 }
 
                 // Сохраняем текущее значение слайдера в PlayerPrefs
                 PlayerPrefs.SetFloat(UpgradeSliderTankValuePrefKey, upgradeSlidertank.value);
 
                 // Сохраняем текущий уровень в PlayerPrefs
-                PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevel);
+                PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevelTank);
             }
             else
             {
@@ -91,11 +91,11 @@ public class UpgradeTank : MonoBehaviour
         playerTank.damage = PlayerPrefs.GetInt("TankDamage", playerTank.damage);
     }
 
-    private void UpdatePriceForUpgrade(int currentLevel)
+    private void UpdatePriceForUpgrade(int currentLevelTank)
     {
-        if (currentLevel < playerTank.upgradeLevels.Count)
+        if (currentLevelTank < playerTank.upgradeLevels.Count)
         {
-            priceForUpgrade.text = playerTank.upgradeLevels[currentLevel].costTank.ToString();
+            priceForUpgrade.text = playerTank.upgradeLevels[currentLevelTank].costTank.ToString();
         }
         else
         {
@@ -105,15 +105,15 @@ public class UpgradeTank : MonoBehaviour
 
     private void UpdateTankStatsText()
     {
-        if (currentLevel <= playerTank.upgradeLevels.Count)
+        if (currentLevelTank <= playerTank.upgradeLevels.Count)
         {
             hpText.text = playerTank.HP.ToString();
             damageText.text = playerTank.damage.ToString();
-            levelText.text = currentLevel.ToString();
-            if (currentLevel < 3)
+            levelText.text = currentLevelTank.ToString();
+            if (currentLevelTank < 3)
             {
-                damageUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevel - 1].damageUpTextTank.ToString();
-                hpUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevel - 1].hpUpTextTank.ToString();
+                damageUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevelTank - 1].damageUpTextTank.ToString();
+                hpUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevelTank - 1].hpUpTextTank.ToString();
             }
             else
             {

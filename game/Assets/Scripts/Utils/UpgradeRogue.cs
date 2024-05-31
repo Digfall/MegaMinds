@@ -19,7 +19,7 @@ public class UpgradeRogue : MonoBehaviour
     public List<Sprite> levelSprites;
     public List<Sprite> levelSpritesButton;
 
-    private int currentLevel = 1;
+    private int currentLevelRogue = 1;
 
     private const string CurrentLevelRogPrefKey = "CurrentLevelRog"; // Ключ для сохранения/загрузки текущего уровня
     private const string UpgradeSliderRogueValuePrefKey = "UpgradeSliderRogueValue"; // Ключ для сохранения значения слайдера
@@ -27,7 +27,7 @@ public class UpgradeRogue : MonoBehaviour
     private void Start()
     {
         // Загружаем текущий уровень из PlayerPrefs
-        currentLevel = PlayerPrefs.GetInt(CurrentLevelRogPrefKey, 1);
+        currentLevelRogue = PlayerPrefs.GetInt(CurrentLevelRogPrefKey, 1);
 
         // Загружаем значение слайдера из PlayerPrefs
         upgradeRogueSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRogueValuePrefKey, 0f);
@@ -35,43 +35,43 @@ public class UpgradeRogue : MonoBehaviour
         DefineUpgradeLevels(); // Определяем уровни до их использования
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateRogueStatsText();
-        UpgradePlayer(currentLevel);
-        UpdatePriceForUpgrade(currentLevel);
+        UpgradePlayer(currentLevelRogue);
+        UpdatePriceForUpgrade(currentLevelRogue);
     }
 
     void Update()
     {
         UpdateRogueStatsText();
-        UpdatePriceForUpgrade(currentLevel);
+        UpdatePriceForUpgrade(currentLevelRogue);
     }
 
     public void UpgradePlayer()
     {
-        if (currentLevel < playerRogue.upgradeLevels.Count)
+        if (currentLevelRogue < playerRogue.upgradeLevels.Count)
         {
-            int upgradeCost = playerRogue.upgradeLevels[currentLevel].costrog;
+            int upgradeCost = playerRogue.upgradeLevels[currentLevelRogue].costrog;
 
             if (GameManager.TotalScience >= upgradeCost)
             {
                 GameManager.TotalScience -= upgradeCost;
-                currentLevel++;
-                UpgradePlayer(currentLevel);
+                currentLevelRogue++;
+                UpgradePlayer(currentLevelRogue);
                 FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateRogueStatsText();
-                UpdatePriceForUpgrade(currentLevel);
-                upgradeRogueSlider.value = (float)(currentLevel - 1) / (float)(playerRogue.upgradeLevels.Count - 1);
+                UpdatePriceForUpgrade(currentLevelRogue);
+                upgradeRogueSlider.value = (float)(currentLevelRogue - 1) / (float)(playerRogue.upgradeLevels.Count - 1);
 
-                if (currentLevel - 1 < levelSprites.Count)
+                if (currentLevelRogue - 1 < levelSprites.Count)
                 {
-                    levelImage.sprite = levelSprites[currentLevel - 1];
-                    levelImageButton.sprite = levelSpritesButton[currentLevel - 1];
+                    levelImage.sprite = levelSprites[currentLevelRogue - 1];
+                    levelImageButton.sprite = levelSpritesButton[currentLevelRogue - 1];
                 }
 
                 // Сохраняем текущее значение слайдера в PlayerPrefs
                 PlayerPrefs.SetFloat(UpgradeSliderRogueValuePrefKey, upgradeRogueSlider.value);
 
                 // Сохраняем текущий уровень в PlayerPrefs
-                PlayerPrefs.SetInt(CurrentLevelRogPrefKey, currentLevel);
+                PlayerPrefs.SetInt(CurrentLevelRogPrefKey, currentLevelRogue);
             }
             else
             {
@@ -91,11 +91,11 @@ public class UpgradeRogue : MonoBehaviour
         playerRogue.damage = PlayerPrefs.GetInt("RogueDamage", playerRogue.damage);
     }
 
-    private void UpdatePriceForUpgrade(int currentLevel)
+    private void UpdatePriceForUpgrade(int currentLevelRogue)
     {
-        if (currentLevel < playerRogue.upgradeLevels.Count)
+        if (currentLevelRogue < playerRogue.upgradeLevels.Count)
         {
-            priceForUpgrade.text = playerRogue.upgradeLevels[currentLevel].costrog.ToString();
+            priceForUpgrade.text = playerRogue.upgradeLevels[currentLevelRogue].costrog.ToString();
         }
         else
         {
@@ -105,15 +105,15 @@ public class UpgradeRogue : MonoBehaviour
 
     private void UpdateRogueStatsText()
     {
-        if (currentLevel <= playerRogue.upgradeLevels.Count)
+        if (currentLevelRogue <= playerRogue.upgradeLevels.Count)
         {
             hpText.text = playerRogue.HP.ToString();
             damageText.text = playerRogue.damage.ToString();
-            levelText.text = currentLevel.ToString();
-            if (currentLevel < 3)
+            levelText.text = currentLevelRogue.ToString();
+            if (currentLevelRogue < 3)
             {
-                damageUpTextrog.text = "+" + playerRogue.upgradeLevels[currentLevel - 1].damageUpTextrog.ToString();
-                hpUpTextrog.text = "+" + playerRogue.upgradeLevels[currentLevel - 1].hpUpTextrog.ToString();
+                damageUpTextrog.text = "+" + playerRogue.upgradeLevels[currentLevelRogue - 1].damageUpTextrog.ToString();
+                hpUpTextrog.text = "+" + playerRogue.upgradeLevels[currentLevelRogue - 1].hpUpTextrog.ToString();
             }
             else
             {

@@ -6087,7 +6087,7 @@ MonoBehaviour:
   - {fileID: -322324815, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   - {fileID: 1203803746, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   - {fileID: 97039831, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
-  currentLevel: 1
+  currentLevelWar: 1
 --- !u!114 &826852970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8111,6 +8111,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rogueButton: {fileID: 234977930}
   tankButton: {fileID: 950178717}
+  playerWarrior: {fileID: 5936779502317487462, guid: 98714d523171bff4c85e728aa1d103ff, type: 3}
+  levelWarImage: {fileID: 1274076417}
+  levelWarSprites:
+  - {fileID: -322324815, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  - {fileID: 1203803746, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  - {fileID: 97039831, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  playerTank: {fileID: 7476295032263776217, guid: 01839ebef02e4ec47bd6f04aa0d12585, type: 3}
+  levelTankImage: {fileID: 1940893819}
+  levelTankSprites:
+  - {fileID: -978054252, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  - {fileID: -1439698125, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  - {fileID: -1029855748, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  playerRanger: {fileID: 4864305090776730808, guid: c1c989e84c280ee47b1f15b8dafd34d5, type: 3}
+  levelRangerImage: {fileID: 920432643}
+  levelRangerSprites:
+  - {fileID: -37648256, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  - {fileID: -1273716407, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  - {fileID: -1133465702, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  playerRogue: {fileID: -8702032987371493619, guid: e1a98294b42f0644090235e97fbb83e1, type: 3}
+  levelRogueImage: {fileID: 2080394713}
+  levelRogueSprites:
+  - {fileID: -1115343572, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  - {fileID: -994227025, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
+  - {fileID: -715859193, guid: b4e5bbdbd7a5b2e4985566a9b2ae515d, type: 3}
   rogueCost: 1500
   tankCost: 1000
 --- !u!1 &947815559
@@ -17609,7 +17633,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -19010,7 +19034,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}

@@ -19,7 +19,7 @@ public class UpgradeWarrior : MonoBehaviour
     public List<Sprite> levelSprites;
     public List<Sprite> levelSpritesButton;
 
-    [SerializeField] private int currentLevel = 1;
+    [SerializeField] private int currentLevelWar = 1;
 
     private const string CurrentLevelWarPrefKey = "CurrentLevelWar"; // Ключ для сохранения/загрузки текущего уровня
     private const string UpgradeSliderWarValuePrefKey = "UpgradeSliderWarValue"; // Ключ для сохранения значения слайдера
@@ -27,7 +27,7 @@ public class UpgradeWarrior : MonoBehaviour
     private void Start()
     {
         // Загружаем текущий уровень из PlayerPrefs, если значение 0, устанавливаем на 1
-        currentLevel = PlayerPrefs.GetInt(CurrentLevelWarPrefKey, 1);
+        currentLevelWar = PlayerPrefs.GetInt(CurrentLevelWarPrefKey, 1);
 
         // Загружаем значение слайдера из PlayerPrefs
         upgradeSlider.value = PlayerPrefs.GetFloat(UpgradeSliderWarValuePrefKey, 0f);
@@ -35,44 +35,44 @@ public class UpgradeWarrior : MonoBehaviour
         DefineUpgradeLevels(); // Определяем уровни до их использования
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateWarriorStatsText();
-        UpgradePlayer(currentLevel);
-        UpdatePriceForUpgrade(currentLevel);
+        UpgradePlayer(currentLevelWar);
+        UpdatePriceForUpgrade(currentLevelWar);
     }
 
     void Update()
     {
         UpdateWarriorStatsText();
-        UpdatePriceForUpgrade(currentLevel);
+        UpdatePriceForUpgrade(currentLevelWar);
     }
 
     public void UpgradePlayer()
     {
-        if (currentLevel < playerWarrior.upgradeLevels.Count)
+        if (currentLevelWar < playerWarrior.upgradeLevels.Count)
         {
-            if (currentLevel < 3)
+            if (currentLevelWar < 3)
             {
-                int upgradeCost = playerWarrior.upgradeLevels[currentLevel].costwar;
+                int upgradeCost = playerWarrior.upgradeLevels[currentLevelWar].costwar;
 
                 if (GameManager.TotalScience >= upgradeCost)
                 {
                     GameManager.TotalScience -= upgradeCost;
-                    currentLevel++;
-                    UpgradePlayer(currentLevel);
+                    currentLevelWar++;
+                    UpgradePlayer(currentLevelWar);
                     FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                     UpdateWarriorStatsText();
-                    UpdatePriceForUpgrade(currentLevel);
-                    upgradeSlider.value = (float)(currentLevel - 1) / (float)(playerWarrior.upgradeLevels.Count - 1);
+                    UpdatePriceForUpgrade(currentLevelWar);
+                    upgradeSlider.value = (float)(currentLevelWar - 1) / (float)(playerWarrior.upgradeLevels.Count - 1);
 
-                    if (currentLevel - 1 < levelSprites.Count)
+                    if (currentLevelWar - 1 < levelSprites.Count)
                     {
-                        levelImage.sprite = levelSprites[currentLevel - 1];
-                        levelImageButton.sprite = levelSpritesButton[currentLevel - 1];
+                        levelImage.sprite = levelSprites[currentLevelWar - 1];
+                        levelImageButton.sprite = levelSpritesButton[currentLevelWar - 1];
                     }
 
                     // Сохраняем текущее значение слайдера в PlayerPrefs
                     PlayerPrefs.SetFloat(UpgradeSliderWarValuePrefKey, upgradeSlider.value);
                     // Сохраняем текущий уровень в PlayerPrefs
-                    PlayerPrefs.SetInt(CurrentLevelWarPrefKey, currentLevel);
+                    PlayerPrefs.SetInt(CurrentLevelWarPrefKey, currentLevelWar);
                 }
                 else
                 {
@@ -93,11 +93,11 @@ public class UpgradeWarrior : MonoBehaviour
         playerWarrior.damage = PlayerPrefs.GetInt("WarriorDamage", playerWarrior.damage);
     }
 
-    private void UpdatePriceForUpgrade(int currentLevel)
+    private void UpdatePriceForUpgrade(int currentLevelWar)
     {
-        if (currentLevel < playerWarrior.upgradeLevels.Count)
+        if (currentLevelWar < playerWarrior.upgradeLevels.Count)
         {
-            priceForUpgrade.text = playerWarrior.upgradeLevels[currentLevel].costwar.ToString();
+            priceForUpgrade.text = playerWarrior.upgradeLevels[currentLevelWar].costwar.ToString();
         }
         else
         {
@@ -105,22 +105,17 @@ public class UpgradeWarrior : MonoBehaviour
         }
     }
 
-    private void UpdateTotalScienceText()
-    {
-        totalScienceText.text = GameManager.TotalScience.ToString();
-    }
-
     private void UpdateWarriorStatsText()
     {
-        if (currentLevel <= playerWarrior.upgradeLevels.Count)
+        if (currentLevelWar <= playerWarrior.upgradeLevels.Count)
         {
             hpText.text = playerWarrior.HP.ToString();
             damageText.text = playerWarrior.damage.ToString();
-            levelText.text = currentLevel.ToString();
-            if (currentLevel < 3)
+            levelText.text = currentLevelWar.ToString();
+            if (currentLevelWar < 3)
             {
-                damageUpTextwar.text = "+" + playerWarrior.upgradeLevels[currentLevel - 1].damageUpTextwar.ToString();
-                hpUpTextwar.text = "+" + playerWarrior.upgradeLevels[currentLevel - 1].hpUpTextwar.ToString();
+                damageUpTextwar.text = "+" + playerWarrior.upgradeLevels[currentLevelWar - 1].damageUpTextwar.ToString();
+                hpUpTextwar.text = "+" + playerWarrior.upgradeLevels[currentLevelWar - 1].hpUpTextwar.ToString();
             }
             else
             {
