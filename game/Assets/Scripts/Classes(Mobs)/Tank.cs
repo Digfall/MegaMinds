@@ -18,12 +18,12 @@ public class Tank : EnemyBase
                 damage = 20;
                 break;
             case 2:
-                HP = 880;
-                damage = 40;
+                HP = 1300;
+                damage = 100;
                 break;
             case 3:
-                HP = 1320;
-                damage = 60;
+                HP = 2000;
+                damage = 150;
                 break;
             default:
                 HP = 400;

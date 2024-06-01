@@ -18,12 +18,12 @@ public class Warrior : EnemyBase
                 damage = 50;
                 break;
             case 2:
-                HP = 500;
-                damage = 100;
+                HP = 400;
+                damage = 90;
                 break;
             case 3:
-                HP = 750;
-                damage = 165;
+                HP = 600;
+                damage = 149;
                 break;
             default:
                 HP = 200;

@@ -22,8 +22,8 @@ public class Rogue : EnemyBase
                 damage = 100;
                 break;
             case 3:
-                HP = 180;
-                damage = 180;
+                HP = 200;
+                damage = 200;
                 break;
             default:
                 HP = 50;

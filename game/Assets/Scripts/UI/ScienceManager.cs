@@ -38,6 +38,9 @@ public class ScienceManager : MonoBehaviour
             case 2:
                 reward = 500;
                 break;
+            case 3:
+                reward = 1000;
+                break;
             // третий сам добавь 
             default:
                 reward = 350;

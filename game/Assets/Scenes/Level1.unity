@@ -3250,7 +3250,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 979756953}
   m_HandleRect: {fileID: 0}
@@ -3640,7 +3640,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1727115516}
   m_HandleRect: {fileID: 0}
@@ -5777,13 +5777,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977262cb3b8e61b4b9a845ed78dd3ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 21000
+  HP: 15000
   TowerMask:
     serializedVersion: 2
     m_Bits: 0
   healthBar: {fileID: 1225089520}
   gameOverCanvas: {fileID: 961901380}
   levelNumber: 2
+  rewardLevel: 1
 --- !u!1 &1040913557
 GameObject:
   m_ObjectHideFlags: 0
@@ -7563,7 +7564,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 580414255}
-  maxHealth: 21000
+  maxHealth: 15000
 --- !u!1 &1243303753
 GameObject:
   m_ObjectHideFlags: 0

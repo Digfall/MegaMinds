@@ -14,20 +14,20 @@ public class Ranger : EnemyBase
         switch (level)
         {
             case 1:
-                HP = 60;
-                damage = 20;
+                HP = 150;
+                damage = 35;
                 break;
             case 2:
-                HP = 132;
-                damage = 40;
+                HP = 300;
+                damage = 70;
                 break;
             case 3:
-                HP = 198;
-                damage = 66;
+                HP = 450;
+                damage = 100;
                 break;
             default:
-                HP = 60;
-                damage = 20;
+                HP = 150;
+                damage = 35;
                 break;
         }
         speed = 2f;

@@ -1804,72 +1804,72 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyWaves:
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     spawnDelay: 24
     betweenEnemiesDelay: 0
-    level: 0
+    level: 3
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     spawnDelay: 30
     betweenEnemiesDelay: 1
-    level: 0
+    level: 3
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     spawnDelay: 8
     betweenEnemiesDelay: 2
-    level: 0
+    level: 3
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
-    - {fileID: 8957537787719140412, guid: 8d7e55be65b90624fa1201f84f734995, type: 3}
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
     spawnDelay: 24
     betweenEnemiesDelay: 2
-    level: 0
+    level: 3
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
     spawnDelay: 25
     betweenEnemiesDelay: 0
-    level: 0
+    level: 3
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 7f22d66596172894f89572e92a4e3627, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: ff662fa52e4468a4b96cee415e6dccb6, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
     spawnDelay: 30
     betweenEnemiesDelay: 0
-    level: 0
+    level: 3
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 5db7a82e34105c441918f87b70870509, type: 3}
-    - {fileID: 8957537787719140412, guid: 5db7a82e34105c441918f87b70870509, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: 96d0199627214714fbd4df26f7404c15, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
     spawnDelay: 20
     betweenEnemiesDelay: 0
-    level: 0
+    level: 3
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 8c967f390924d3d44bb1e5518286e05f, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
+    - {fileID: 8957537787719140412, guid: dd57685fc153cca4b94705d612c2eb98, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
     spawnDelay: 16
-    betweenEnemiesDelay: 0
-    level: 0
+    betweenEnemiesDelay: 0.2
+    level: 3
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
-    - {fileID: 8957537787719140412, guid: 66c41c1082270dd4da8fcbac272b9e12, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
+    - {fileID: 8957537787719140412, guid: b56c4a975466391429b378cbf214b089, type: 3}
     spawnDelay: 0
     betweenEnemiesDelay: 0
-    level: 0
+    level: 3
   spawnPositions:
   - {fileID: 1829270787}
   - {fileID: 1619805550}
@@ -6411,7 +6411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 1636451094}
-  maxHealth: 2000
+  maxHealth: 5000
 --- !u!1 &1022830002
 GameObject:
   m_ObjectHideFlags: 0
@@ -6836,7 +6836,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 473819300}
   m_HandleRect: {fileID: 0}
@@ -7076,7 +7076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeec6c0a59298e4894f9eaada11d5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 2000
+  HP: 5000
   TowerMask:
     serializedVersion: 2
     m_Bits: 0
@@ -7570,13 +7570,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977262cb3b8e61b4b9a845ed78dd3ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 120000
+  HP: 100000
   TowerMask:
     serializedVersion: 2
     m_Bits: 0
   healthBar: {fileID: 2009578112}
   gameOverCanvas: {fileID: 1276753132}
   levelNumber: 4
+  rewardLevel: 3
 --- !u!114 &1213667732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10055,7 +10056,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 293179317}
   m_HandleRect: {fileID: 0}
@@ -11660,7 +11661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 1091748197}
-  maxHealth: 21000
+  maxHealth: 100000
 --- !u!224 &2009578113
 RectTransform:
   m_ObjectHideFlags: 0
