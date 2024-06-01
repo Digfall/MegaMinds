@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class UpgradeLevel
 {
-    public int levelwar;
+    public int levelwar = 1;
     public int hpwar;
     public int damagewar;
     public float speed;
@@ -19,12 +19,11 @@ public class PlayerWarrior : PlayerBase
     private const string WarriorHPPrefKey = "WarriorHP";
     private const string WarriorDamagePrefKey = "WarriorDamage";
 
-    public List<UpgradeLevel> upgradeLevels = new List<UpgradeLevel>(); // Инициализация списка
+    public List<UpgradeLevel> upgradeLevels = new List<UpgradeLevel>();
 
     protected override void Start()
     {
-        // При запуске игры загружаем сохраненные значения или устанавливаем начальные значения
-        UpdatePlayerStats(); // Обновляем характеристики при старте
+        UpdatePlayerStats();
         base.Start();
     }
 
@@ -32,16 +31,12 @@ public class PlayerWarrior : PlayerBase
     {
         base.Update();
     }
-
-    // Метод для сохранения характеристик при улучшении
     public void SavePlayerStats()
     {
         PlayerPrefs.SetInt(WarriorHPPrefKey, HP);
         PlayerPrefs.SetInt(WarriorDamagePrefKey, damage);
-        PlayerPrefs.Save(); // Сохраняем изменения в PlayerPrefs
+        PlayerPrefs.Save();
     }
-
-    // Метод для обновления характеристик персонажа в соответствии с текущими значениями из PlayerPrefs
     public void UpdatePlayerStats()
     {
         HP = PlayerPrefs.GetInt(WarriorHPPrefKey, HP);

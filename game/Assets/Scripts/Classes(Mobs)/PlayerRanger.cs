@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class UpgradeRangers
 {
-    public int levelran;
+    public int levelran = 1;
     public int hpran;
     public int damageran;
     public float speed;

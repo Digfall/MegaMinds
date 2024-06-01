@@ -3711,7 +3711,7 @@ MonoBehaviour:
   tankCost: 5
   tankCostText: {fileID: 0}
   tankLvlText: {fileID: 0}
-  tankImage: {fileID: 0}
+  tankImage: {fileID: 526182610}
   tankSprites: []
   CurrentLevelTank: 0
   warriorPrefab: {fileID: 0}
@@ -6281,9 +6281,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
-
-'
+  m_text: 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
   m_sharedMaterial: {fileID: 5335139831177009369, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
@@ -8381,7 +8379,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
+  m_text: '1
 
 '
   m_isRightToLeft: 0
@@ -8585,7 +8583,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
+  m_text: '1
 
 '
   m_isRightToLeft: 0
@@ -8717,7 +8715,7 @@ MonoBehaviour:
   m_LayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_UseGeometry: 1
+  m_UseGeometry: 0
   m_DefaultArea: 0
   m_IgnoreNavMeshAgent: 1
   m_IgnoreNavMeshObstacle: 1
@@ -8727,7 +8725,7 @@ MonoBehaviour:
   m_VoxelSize: 0.41666666
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 0ef1018aa6bed6146a58e1837dc00cae, type: 2}
 --- !u!4 &1520831191
 Transform:
   m_ObjectHideFlags: 0
@@ -12073,7 +12071,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '0
+  m_text: '1
 
 '
   m_isRightToLeft: 0
@@ -12428,14 +12426,14 @@ SceneRoots:
   - {fileID: 1043734833}
   - {fileID: 152071998}
   - {fileID: 446600291}
-  - {fileID: 1520831191}
   - {fileID: 108178928}
   - {fileID: 1691649440}
   - {fileID: 991410380}
   - {fileID: 1224896120}
-  - {fileID: 851611937}
   - {fileID: 1506781878}
   - {fileID: 467144788}
   - {fileID: 1034470003}
   - {fileID: 1886798971}
   - {fileID: 1749627605}
+  - {fileID: 851611937}
+  - {fileID: 1520831191}

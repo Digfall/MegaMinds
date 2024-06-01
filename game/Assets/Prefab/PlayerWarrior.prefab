@@ -329,13 +329,6 @@ MonoBehaviour:
     costwar: 750
     damageUpTextwar: 105
     hpUpTextwar: 105
-  - levelwar: 4
-    hpwar: 1000
-    damagewar: 165
-    speed: 0
-    costwar: 1000
-    damageUpTextwar: 0
-    hpUpTextwar: 0
 --- !u!195 &7136469544366765969
 NavMeshAgent:
   m_ObjectHideFlags: 0

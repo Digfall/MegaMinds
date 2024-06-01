@@ -377,13 +377,6 @@ MonoBehaviour:
     costran: 0
     damageUpTextran: 0
     hpUpTextran: 0
-  - levelran: 0
-    hpran: 0
-    damageran: 0
-    speed: 0
-    costran: 0
-    damageUpTextran: 0
-    hpUpTextran: 0
 --- !u!195 &495190775389374601
 NavMeshAgent:
   m_ObjectHideFlags: 0

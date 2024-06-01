@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class UpgradeTanks
 {
-    public int levelTank;
+    public int levelTank = 1;
     public int hpTank;
     public int damageTank;
     public float speed;
@@ -19,12 +19,11 @@ public class PlayerTank : PlayerBase
     private const string TankHPPrefKey = "TankHP";
     private const string TankDamagePrefKey = "TankDamage";
 
-    public List<UpgradeTanks> upgradeLevels = new List<UpgradeTanks>(); // Инициализация списка
+    public List<UpgradeTanks> upgradeLevels = new List<UpgradeTanks>();
 
     protected override void Start()
     {
-        // При запуске игры загружаем сохраненные значения или устанавливаем начальные значения
-        UpdatePlayerStats(); // Обновляем характеристики при старте
+        UpdatePlayerStats();
         base.Start();
     }
 
@@ -32,16 +31,13 @@ public class PlayerTank : PlayerBase
     {
         base.Update();
     }
-
-    // Метод для сохранения характеристик при улучшении
     public void SavePlayerStats()
     {
         PlayerPrefs.SetInt(TankHPPrefKey, HP);
         PlayerPrefs.SetInt(TankDamagePrefKey, damage);
-        PlayerPrefs.Save(); // Сохраняем изменения в PlayerPrefs
+        PlayerPrefs.Save();
     }
 
-    // Метод для обновления характеристик персонажа в соответствии с текущими значениями из PlayerPrefs
     public void UpdatePlayerStats()
     {
         HP = PlayerPrefs.GetInt(TankHPPrefKey, HP);

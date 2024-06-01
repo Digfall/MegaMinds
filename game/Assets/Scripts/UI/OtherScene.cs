@@ -1,17 +1,23 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class OtherScene : MonoBehaviour
 {
-    public TextMeshProUGUI scienceTotalCount; // Ссылка на компонент TextMeshPro для отображения количества науки всего
+    public TextMeshProUGUI scienceTotalCount;
+    private const string CurrentTotalSciencePrefKey = "TotalScienceKey";
 
     void Start()
     {
         UpdateTotalScienceText();
     }
+
     public void UpdateTotalScienceText()
     {
+
+        GameManager.TotalScience = PlayerPrefs.GetInt(CurrentTotalSciencePrefKey, 0);
+
         scienceTotalCount.text = GameManager.TotalScience.ToString();
+
+        Time.timeScale = 1f;
     }
 }

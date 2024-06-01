@@ -291,13 +291,6 @@ MonoBehaviour:
     costTank: 0
     damageUpTextTank: 0
     hpUpTextTank: 0
-  - levelTank: 0
-    hpTank: 0
-    damageTank: 0
-    speed: 0
-    costTank: 0
-    damageUpTextTank: 0
-    hpUpTextTank: 0
 --- !u!195 &5576329713370540825
 NavMeshAgent:
   m_ObjectHideFlags: 0

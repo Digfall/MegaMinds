@@ -4,38 +4,38 @@ using UnityEngine.UI;
 
 public class SpawnPlayer : MonoBehaviour
 {
-    // Префабы юнитов и их стоимости
+    [Header("Настройки Роги")]
     public GameObject roguePrefab;
     public int rogueCost = 2;
     public TextMeshProUGUI rogueCostText;
     public TextMeshProUGUI rogueLvlText;
-    public Image rogueImage; // Добавьте изображение для Rogue
-    public Sprite[] rogueSprites; // Массив спрайтов для разных уровней Rogue
-    public int CurrentLevelRog;
-
+    public Image rogueImage;
+    public Sprite[] rogueSprites;
+    public int CurrentLevelRog = 1;
+    [Header("Настройки Танка")]
     public GameObject tankPrefab;
     public int tankCost = 5;
     public TextMeshProUGUI tankCostText;
     public TextMeshProUGUI tankLvlText;
-    public Image tankImage; // Добавьте изображение для Tank
-    public Sprite[] tankSprites; // Массив спрайтов для разных уровней Tank
-    public int CurrentLevelTank;
-
+    public Image tankImage;
+    public Sprite[] tankSprites;
+    public int CurrentLevelTank = 1;
+    [Header("Настройки Воина")]
     public GameObject warriorPrefab;
     public int warriorCost = 4;
     public TextMeshProUGUI warriorCostText;
     public TextMeshProUGUI warriorLvlText;
-    public Image warriorImage; // Добавьте изображение для Warrior
-    public Sprite[] warriorSprites; // Массив спрайтов для разных уровней Warrior
-    public int CurrentLevelWar;
-
+    public Image warriorImage;
+    public Sprite[] warriorSprites;
+    public int CurrentLevelWar = 1;
+    [Header("Настройки Ренжа")]
     public GameObject rangerPrefab;
     public int rangerCost = 4;
     public TextMeshProUGUI rangerCostText;
     public TextMeshProUGUI rangerLvlText;
-    public Image rangerImage; // Добавьте изображение для Ranger
-    public Sprite[] rangerSprites; // Массив спрайтов для разных уровней Ranger
-    public int CurrentLevelRng;
+    public Image rangerImage;
+    public Sprite[] rangerSprites;
+    public int CurrentLevelRng = 1;
 
 
     public Transform[] spawnPositions;
@@ -53,7 +53,6 @@ public class SpawnPlayer : MonoBehaviour
 
     private void UpdateText()
     {
-        // Обновляем только те текстовые элементы, которые существуют
         if (rogueLvlText != null && rogueCostText != null)
         {
             rogueLvlText.text = CurrentLevelRog.ToString();
@@ -78,7 +77,6 @@ public class SpawnPlayer : MonoBehaviour
 
     private void UpdateUnitImages()
     {
-        // Обновляем только те изображения, которые существуют
         if (rogueImage != null && rogueSprites.Length > CurrentLevelRog)
         {
             rogueImage.sprite = rogueSprites[CurrentLevelRog];
@@ -110,8 +108,6 @@ public class SpawnPlayer : MonoBehaviour
         UpdateText();
     }
 
-
-    // Метод спавна юнита
     public void SpawnUnit(GameObject unitPrefab, int cost)
     {
         if (coinManager.coinCount >= cost)
@@ -131,7 +127,6 @@ public class SpawnPlayer : MonoBehaviour
         }
     }
 
-    // Методы спавна конкретных юнитов
     public void SpawnRogue()
     {
         SpawnUnit(roguePrefab, rogueCost);

@@ -19,7 +19,6 @@ public class Castle : MonoBehaviour
         healthBar.SetHealth(HP);
         HP -= damage;
     }
-    // Update is called once per frame
     void Update()
     {
         if (HP <= 0)
@@ -29,11 +28,9 @@ public class Castle : MonoBehaviour
     }
     public void DestroyCastle()
     {
-        FindObjectOfType<ScienceManager>().UpdateScienceCountTotalLose();
-        // Остановить все действия на карте
+        FindObjectOfType<ScienceManager>().UpdateUI();
         Time.timeScale = 0f;
 
-        // Включить нужный вам Canvas
         gameOverCanvas.SetActive(true);
 
         GameObject[] HpBars = GameObject.FindGameObjectsWithTag("HpBar");
@@ -41,7 +38,6 @@ public class Castle : MonoBehaviour
         {
             HpBar.SetActive(false);
         }
-        // Уничтожить объект башни
         Destroy(gameObject);
     }
 }

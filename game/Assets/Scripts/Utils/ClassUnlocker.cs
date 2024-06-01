@@ -45,7 +45,10 @@ public class ClassUnlocker : MonoBehaviour
         currentLevelRogue = PlayerPrefs.GetInt(CurrentLevelRogPrefKey, 1);
         currentLevelRanger = PlayerPrefs.GetInt(CurrentLevelRngPrefKey, 1);
         currentLevelTank = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 1);
-
+        UpgradeImageWar(currentLevelWar);
+        UpgradeImageRang(currentLevelRanger);
+        UpgradeImageRog(currentLevelRogue);
+        UpgradeImageTank(currentLevelTank);
         bool isRogueUnlocked = PlayerPrefs.GetInt(RogueUnlockedPrefKey, 0) == 1;
         bool isTankUnlocked = PlayerPrefs.GetInt(TankUnlockedPrefKey, 0) == 1;
 
@@ -54,7 +57,7 @@ public class ClassUnlocker : MonoBehaviour
 
         rogueButton.interactable = !isRogueUnlocked;
         tankButton.interactable = !isTankUnlocked;
-        UpgradeImage(currentLevelWar, currentLevelRogue, currentLevelTank, currentLevelRanger);
+
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
     }
 
@@ -84,7 +87,7 @@ public class ClassUnlocker : MonoBehaviour
         }
     }
 
-    private void UpgradeImage(int levelwar, int levelran, int levelTank, int levelrog)
+    private void UpgradeImageWar(int levelwar)
     {
         if (levelwar > 0 && levelwar <= playerWarrior.upgradeLevels.Count)
         {
@@ -93,20 +96,10 @@ public class ClassUnlocker : MonoBehaviour
                 levelWarImage.sprite = levelWarSprites[levelwar - 1];
             }
         }
-        if (levelrog > 0 && levelrog <= playerRogue.upgradeLevels.Count)
-        {
-            if (levelrog - 1 < levelRogueSprites.Count)
-            {
-                levelRogueImage.sprite = levelRogueSprites[levelrog - 1];
-            }
-        }
-        if (levelran > 0 && levelran <= playerRanger.upgradeLevels.Count)
-        {
-            if (levelran - 1 < levelRangerSprites.Count)
-            {
-                levelRangerImage.sprite = levelRangerSprites[levelran - 1];
-            }
-        }
+
+    }
+    private void UpgradeImageTank(int levelTank)
+    {
         if (levelTank > 0 && levelTank <= playerTank.upgradeLevels.Count)
         {
             if (levelTank - 1 < levelTankSprites.Count)
@@ -115,4 +108,25 @@ public class ClassUnlocker : MonoBehaviour
             }
         }
     }
+    private void UpgradeImageRang(int levelran)
+    {
+        if (levelran > 0 && levelran <= playerRanger.upgradeLevels.Count)
+        {
+            if (levelran - 1 < levelRangerSprites.Count)
+            {
+                levelRangerImage.sprite = levelRangerSprites[levelran - 1];
+            }
+        }
+    }
+    private void UpgradeImageRog(int levelrog)
+    {
+        if (levelrog > 0 && levelrog <= playerRogue.upgradeLevels.Count)
+        {
+            if (levelrog - 1 < levelRogueSprites.Count)
+            {
+                levelRogueImage.sprite = levelRogueSprites[levelrog - 1];
+            }
+        }
+    }
+
 }

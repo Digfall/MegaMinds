@@ -1,34 +1,38 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public bool gamePaused = false;
     private static int totalScience = 0;
+    private const string CurrentTotalSciencePrefKey = "TotalScienceKey";
 
     void Start()
     {
-        // Начать сцену
-        Time.timeScale = 1f; // Возобновляем время
+        totalScience = PlayerPrefs.GetInt(CurrentTotalSciencePrefKey, 0);
+        Time.timeScale = 1f;
     }
 
     public static int TotalScience
     {
         get { return totalScience; }
-        set { totalScience = value; }
+        set
+        {
+            totalScience = value;
+            PlayerPrefs.SetInt(CurrentTotalSciencePrefKey, totalScience);
+            PlayerPrefs.Save();
+        }
     }
 
-    // Сделаем функцию TogglePause доступной извне
+
     public void TogglePauseOn()
     {
-        Time.timeScale = 0f; // Приостанавливаем время
-        gamePaused = true; // Устанавливаем флаг, что игра приостановлена
-
+        Time.timeScale = 0f;
+        gamePaused = true;
     }
+
     public void TogglePauseOff()
     {
-        Time.timeScale = 1f; // Возобновляем время
-        gamePaused = false; // Устанавливаем флаг, что игра возобновлена
+        Time.timeScale = 1f;
+        gamePaused = false;
     }
 }
