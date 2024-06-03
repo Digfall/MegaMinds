@@ -129,7 +129,7 @@ public class UpgradeRogue : MonoBehaviour
         {
             new UpgradeRogues { levelrog = 1, hprog = 150, damagerog = 150, costrog = 0, damageUpTextrog = 50, hpUpTextrog = 50 },
             new UpgradeRogues { levelrog = 2, hprog = 200, damagerog = 200, costrog = 300, damageUpTextrog = 100, hpUpTextrog = 100 },
-            new UpgradeRogues { levelrog = 3, hprog = 300, damagerog = 500, costrog = 400, damageUpTextrog = 0, hpUpTextrog = 0 }
+            new UpgradeRogues { levelrog = 3, hprog = 300, damagerog = 500, costrog = 450, damageUpTextrog = 0, hpUpTextrog = 0 }
         };
     }
 

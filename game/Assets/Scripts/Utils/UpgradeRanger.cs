@@ -127,9 +127,9 @@ public class UpgradeRanger : MonoBehaviour
     {
         playerRanger.upgradeLevels = new List<UpgradeRangers>
         {
-            new UpgradeRangers { levelran = 1, hpran = 150, damageran = 35, costran = 0, damageUpTextran = 35, hpUpTextran = 150 },
+            new UpgradeRangers { levelran = 1, hpran = 170, damageran = 55, costran = 0, damageUpTextran = 15, hpUpTextran = 130 },
             new UpgradeRangers { levelran = 2, hpran = 300, damageran = 70, costran = 100, damageUpTextran = 70, hpUpTextran = 150 },
-            new UpgradeRangers { levelran = 3, hpran = 450, damageran = 140, costran = 300, damageUpTextran = 0, hpUpTextran = 0 }
+            new UpgradeRangers { levelran = 3, hpran = 450, damageran = 140, costran = 500, damageUpTextran = 0, hpUpTextran = 0 }
         };
     }
 
