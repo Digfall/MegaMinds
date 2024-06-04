@@ -4179,6 +4179,10 @@ MonoBehaviour:
   scienceTotalCount: {fileID: 251031597}
   scienceCountEnemyEndLose: {fileID: 558370222}
   scienceTotalCountLose: {fileID: 341569189}
+  scienceCount: 0
+  ScienceCastleCount: 0
+  ScienceTotal: 0
+  ScienceTotalLose: 0
 --- !u!4 &857479126
 Transform:
   m_ObjectHideFlags: 0

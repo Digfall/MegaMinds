@@ -10,8 +10,10 @@ public class ScienceManager : MonoBehaviour
     public TextMeshProUGUI scienceCountEnemyEndLose;
     public TextMeshProUGUI scienceTotalCountLose;
 
-    private int scienceCount = 0;
-    private int scienceCastleCount = 0;
+    public int scienceCount = 0;
+    public int ScienceCastleCount = 0;
+    public int ScienceTotal = 0;
+    public int ScienceTotalLose = 0;
 
     private void Update()
     {
@@ -20,39 +22,46 @@ public class ScienceManager : MonoBehaviour
     public void UpdateScienceCountEnemy()
     {
         scienceCount += 25;
-        UpdateUI();
+        scienceCountEnemy.text = scienceCount.ToString();
+        scienceCountEnemyEnd.text = scienceCount.ToString();
+        scienceCountEnemyEndLose.text = scienceCount.ToString();
     }
 
     public void UpdateScienceCountCastle(int level)
     {
-        int reward = GetRewardForLevel(level);
-        scienceCastleCount += reward;
-        UpdateUI();
-    }
-
-    private int GetRewardForLevel(int level)
-    {
+        int reward = 0;
         switch (level)
         {
-            case 1: return 350;
-            case 2: return 500;
-            case 3: return 1000;
-            default: return 350;
+            case 1:
+                reward = 350;
+                break;
+            case 2:
+                reward = 500;
+                break;
+            case 3:
+                reward = 1000;
+                break;
+            // третий сам добавь 
+            default:
+                reward = 350;
+                break;
         }
+        ScienceCastleCount += reward;
+        scienceCountCastle.text = ScienceCastleCount.ToString();
+        UpdateScienceCountTotal();
     }
 
-    public void UpdateUI()
+    public void UpdateScienceCountTotal()
     {
-        scienceCountEnemy.text = scienceCount.ToString();
-        scienceCountEnemyEnd.text = scienceCount.ToString();
-        scienceCountEnemyEndLose.text = scienceCount.ToString();
-        scienceCountCastle.text = scienceCastleCount.ToString();
+        ScienceTotal = GameManager.TotalScience + scienceCount + ScienceCastleCount;
+        scienceTotalCount.text = ScienceTotal.ToString();
+        GameManager.TotalScience = ScienceTotal;
+    }
 
-        int totalScience = GameManager.TotalScience + scienceCount + scienceCastleCount;
-        scienceTotalCount.text = totalScience.ToString();
-        GameManager.TotalScience = totalScience;
-
-        int totalScienceLose = GameManager.TotalScience + scienceCount;
-        scienceTotalCountLose.text = totalScienceLose.ToString();
+    public void UpdateScienceCountTotalLose()
+    {
+        ScienceTotalLose = GameManager.TotalScience + scienceCount;
+        scienceTotalCountLose.text = ScienceTotalLose.ToString();
+        GameManager.TotalScience = ScienceTotalLose;
     }
 }

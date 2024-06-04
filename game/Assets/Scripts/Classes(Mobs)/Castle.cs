@@ -28,7 +28,7 @@ public class Castle : MonoBehaviour
     }
     public void DestroyCastle()
     {
-        FindObjectOfType<ScienceManager>().UpdateUI();
+        FindObjectOfType<ScienceManager>().UpdateScienceCountTotalLose();
         Time.timeScale = 0f;
 
         gameOverCanvas.SetActive(true);
