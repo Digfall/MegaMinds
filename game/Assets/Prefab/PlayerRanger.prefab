@@ -342,12 +342,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438b48ccdf1ba1d4897ecd8f3572a715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 60
-  damage: 20
+  HP: 150
+  damage: 51
   speed: 2
   damageRate: 1
-  radius: 2.13
-  attackRate: 0.5
+  radius: 3
+  attackRate: 0.8
   attackPos: {fileID: 5988168487641782112}
   healthBar: {fileID: 5171637987144300617}
   movePos: {fileID: 1187516809443334515}
