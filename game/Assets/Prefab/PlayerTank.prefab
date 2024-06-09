@@ -256,8 +256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b673141d349159c4fb19de71c9d2cce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 400
-  damage: 20
+  HP: 800
+  damage: 75
   speed: 1.2
   damageRate: 1
   radius: 1.5
