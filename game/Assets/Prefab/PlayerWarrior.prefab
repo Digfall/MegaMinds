@@ -306,7 +306,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 0.6
-  raycastDistanceToMove: 20
+  raycastDistanceToMove: 100
   upgradeLevels:
   - levelwar: 1
     hpwar: 200

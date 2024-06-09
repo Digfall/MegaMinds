@@ -829,5 +829,5 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 10
-  raycastDistanceToMove: 20
+  raycastDistanceToMove: 100
   level: 0

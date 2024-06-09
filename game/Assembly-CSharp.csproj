@@ -132,6 +132,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\Scripts\UI\OtherScene.cs" />
+    <Compile Include="Assets\Scripts\Utils\NavMeshUpdater.cs" />
     <Compile Include="Assets\Scripts\Classes(Mobs)\Castle.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\RemoteConfig\RemoteConfigGetYandexOptions.cs" />

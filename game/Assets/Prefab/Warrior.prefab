@@ -724,7 +724,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 0.6
-  raycastDistanceToMove: 20
+  raycastDistanceToMove: 100
   level: 0
 --- !u!50 &4121635748126923234
 Rigidbody2D:

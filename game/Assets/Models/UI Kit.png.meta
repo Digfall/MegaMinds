@@ -1017,9 +1017,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1860
-        y: 5441
+        y: 5464
         width: 972
-        height: 203
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1038,9 +1038,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 3052
-        y: 5441
+        y: 5464
         width: 972
-        height: 203
+        height: 180
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1186,7 +1186,7 @@ TextureImporter:
         serializedVersion: 2
         x: 1988
         y: 5288
-        width: 846
+        width: 844
         height: 116
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -1205,10 +1205,10 @@ TextureImporter:
       name: UI Kit_64
       rect:
         serializedVersion: 2
-        x: 3022
-        y: 5259
-        width: 874
-        height: 145
+        x: 3052
+        y: 5288
+        width: 843
+        height: 116
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}

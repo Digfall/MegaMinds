@@ -268,7 +268,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 1
-  raycastDistanceToMove: 20
+  raycastDistanceToMove: 100
   upgradeLevels:
   - levelTank: 0
     hpTank: 0

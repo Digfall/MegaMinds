@@ -340,7 +340,7 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistance: 0.8
-  raycastDistanceToMove: 20
+  raycastDistanceToMove: 100
   upgradeLevels:
   - levelrog: 1
     hprog: 150
