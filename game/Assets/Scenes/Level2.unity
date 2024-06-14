@@ -8880,7 +8880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b5c23f583da3b48b2fd9ec9fe8860d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverCanvas: {fileID: 0}
+  gameOverCanvas: {fileID: 1224896116}
 --- !u!114 &1525376701
 MonoBehaviour:
   m_ObjectHideFlags: 0
