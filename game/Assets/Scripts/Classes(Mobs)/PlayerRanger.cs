@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,6 +17,8 @@ public class UpgradeRangers
 
 public class PlayerRanger : PlayerBase
 {
+    [SerializeField] private TextMeshProUGUI rangerLvlText;
+    [SerializeField] private int CurrentLevelRng = 1;
     private const string RangerHPPrefKey = "RangerHP";
     private const string RangerDamagePrefKey = "RangerDamage";
 
@@ -23,10 +26,18 @@ public class PlayerRanger : PlayerBase
 
     protected override void Start()
     {
+        CurrentLevelRng = PlayerPrefs.GetInt("CurrentLevelRng", CurrentLevelRng);
+        UpdateText();
         UpdatePlayerStats();
         base.Start();
     }
-
+    private void UpdateText()
+    {
+        if (rangerLvlText != null)
+        {
+            rangerLvlText.text = CurrentLevelRng.ToString();
+        }
+    }
     protected override void Update()
     {
         base.Update();

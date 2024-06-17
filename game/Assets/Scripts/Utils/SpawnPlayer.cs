@@ -43,6 +43,19 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private CoinManager coinManager;
     [SerializeField] private TextMeshProUGUI coinCountText;
 
+    private void Start()
+    {
+        LoadUnitLvlInfo();
+        UpdateUnitImages();
+        UpdateText();
+    }
+
+    void Update()
+    {
+        UpdateUnitImages();
+        UpdateText();
+    }
+
     private void LoadUnitLvlInfo()
     {
         CurrentLevelRog = PlayerPrefs.GetInt("CurrentLevelRog", CurrentLevelRog);
@@ -93,19 +106,6 @@ public class SpawnPlayer : MonoBehaviour
         {
             rangerImage.sprite = rangerSprites[CurrentLevelRng];
         }
-    }
-
-    private void Start()
-    {
-        LoadUnitLvlInfo();
-        UpdateUnitImages();
-        UpdateText();
-    }
-
-    void Update()
-    {
-        UpdateUnitImages();
-        UpdateText();
     }
 
     public void SpawnUnit(GameObject unitPrefab, int cost)

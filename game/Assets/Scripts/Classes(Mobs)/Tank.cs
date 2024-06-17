@@ -1,14 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Tank : EnemyBase
 {
+    [SerializeField] private TextMeshProUGUI tankLvlText;
     protected override void Start()
     {
+        UpdateText();
         base.Start();
     }
-
+    private void UpdateText()
+    {
+        if (tankLvlText != null)
+        {
+            tankLvlText.text = level.ToString();
+        }
+    }
     public override void ApplyLevelAdjustments()
     {
         switch (level)

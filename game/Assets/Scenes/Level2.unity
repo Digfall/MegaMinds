@@ -2330,6 +2330,7 @@ MonoBehaviour:
   gameOverCanvas: {fileID: 1900747579}
   levelNumber: 3
   level: 2
+  rewardRepeatable: 0
 --- !u!114 &472956155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7778,7 +7779,7 @@ Canvas:
   m_GameObject: {fileID: 1224896116}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1034470001}
   m_PlaneDistance: 10
   m_PixelPerfect: 0

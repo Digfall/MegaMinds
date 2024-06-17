@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Ranger : EnemyBase
 {
+    [SerializeField] private TextMeshProUGUI rangerLvlText;
     protected override void Start()
     {
+        UpdateText();
         base.Start();
+    }
+    private void UpdateText()
+    {
+        if (rangerLvlText != null)
+        {
+            rangerLvlText.text = level.ToString();
+        }
     }
 
     public override void ApplyLevelAdjustments()

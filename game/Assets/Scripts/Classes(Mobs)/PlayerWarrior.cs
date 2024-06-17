@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,6 +17,8 @@ public class UpgradeLevel
 
 public class PlayerWarrior : PlayerBase
 {
+    [SerializeField] private TextMeshProUGUI warriorLvlText;
+    [SerializeField] private int CurrentLevelWar = 1;
     private const string WarriorHPPrefKey = "WarriorHP";
     private const string WarriorDamagePrefKey = "WarriorDamage";
 
@@ -23,10 +26,18 @@ public class PlayerWarrior : PlayerBase
 
     protected override void Start()
     {
+        CurrentLevelWar = PlayerPrefs.GetInt("CurrentLevelWar", CurrentLevelWar);
+        UpdateText();
         UpdatePlayerStats();
         base.Start();
     }
-
+    private void UpdateText()
+    {
+        if (warriorLvlText != null)
+        {
+            warriorLvlText.text = CurrentLevelWar.ToString();
+        }
+    }
     protected override void Update()
     {
         base.Update();

@@ -1,12 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Rogue : EnemyBase
 {
+    [SerializeField] private TextMeshProUGUI rogueLvlText;
     protected override void Start()
     {
+        UpdateText();
         base.Start();
+    }
+    private void UpdateText()
+    {
+        if (rogueLvlText != null)
+        {
+            rogueLvlText.text = level.ToString();
+        }
     }
 
     public override void ApplyLevelAdjustments()

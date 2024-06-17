@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,6 +17,8 @@ public class UpgradeTanks
 
 public class PlayerTank : PlayerBase
 {
+    [SerializeField] private TextMeshProUGUI tankLvlText;
+    [SerializeField] private int CurrentLevelTank = 1;
     private const string TankHPPrefKey = "TankHP";
     private const string TankDamagePrefKey = "TankDamage";
 
@@ -23,10 +26,19 @@ public class PlayerTank : PlayerBase
 
     protected override void Start()
     {
+        CurrentLevelTank = PlayerPrefs.GetInt("CurrentLevelTank", CurrentLevelTank);
+        UpdateText();
         UpdatePlayerStats();
         base.Start();
     }
 
+    private void UpdateText()
+    {
+        if (tankLvlText != null)
+        {
+            tankLvlText.text = CurrentLevelTank.ToString();
+        }
+    }
     protected override void Update()
     {
         base.Update();

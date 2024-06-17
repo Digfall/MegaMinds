@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [System.Serializable]
@@ -16,6 +17,8 @@ public class UpgradeRogues
 
 public class PlayerRogue : PlayerBase
 {
+    [SerializeField] private TextMeshProUGUI rogueLvlText;
+    [SerializeField] private int CurrentLevelRog = 1;
     private const string RogueHPPrefKey = "RogueHP";
     private const string RogueDamagePrefKey = "RogueDamage";
 
@@ -23,10 +26,18 @@ public class PlayerRogue : PlayerBase
 
     protected override void Start()
     {
+        CurrentLevelRog = PlayerPrefs.GetInt("CurrentLevelRog", CurrentLevelRog);
+        UpdateText();
         UpdatePlayerStats();
         base.Start();
     }
-
+    private void UpdateText()
+    {
+        if (rogueLvlText != null)
+        {
+            rogueLvlText.text = CurrentLevelRog.ToString();
+        }
+    }
     protected override void Update()
     {
         base.Update();

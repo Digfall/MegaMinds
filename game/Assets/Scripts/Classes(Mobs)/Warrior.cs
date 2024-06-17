@@ -1,14 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Warrior : EnemyBase
 {
+    [SerializeField] private TextMeshProUGUI warriorLvlText;
+
     protected override void Start()
     {
+        UpdateText();
         base.Start();
     }
-
+    private void UpdateText()
+    {
+        if (warriorLvlText != null)
+        {
+            warriorLvlText.text = level.ToString();
+        }
+    }
     public override void ApplyLevelAdjustments()
     {
         switch (level)
