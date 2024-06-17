@@ -3,7 +3,7 @@ using TMPro;
 
 public class OtherScene : MonoBehaviour
 {
-    public TextMeshProUGUI scienceTotalCount;
+    [SerializeField] private TextMeshProUGUI scienceTotalCount;
     private const string CurrentTotalSciencePrefKey = "TotalScienceKey";
 
     void Start()

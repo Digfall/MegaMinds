@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class UpgradeTank : MonoBehaviour
 {
-    public PlayerTank playerTank;
-    public TextMeshProUGUI totalScienceText;
-    public TextMeshProUGUI priceForUpgrade;
-    public TextMeshProUGUI hpText;
-    public TextMeshProUGUI damageText;
-    public TextMeshProUGUI levelText;
-    public TextMeshProUGUI damageUpTextTank;
-    public TextMeshProUGUI hpUpTextTank;
-    public Slider upgradeSlidertank;
-    public Image levelImage;
-    public Image levelImageButton;
-    public List<Sprite> levelSprites;
-    public List<Sprite> levelSpritesButton;
+    [SerializeField] private PlayerTank playerTank;
+    [SerializeField] private TextMeshProUGUI totalScienceText;
+    [SerializeField] private TextMeshProUGUI priceForUpgrade;
+    [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI damageUpTextTank;
+    [SerializeField] private TextMeshProUGUI hpUpTextTank;
+    [SerializeField] private Slider upgradeSlidertank;
+    [SerializeField] private Image levelImage;
+    [SerializeField] private Image levelImageButton;
+    [SerializeField] private List<Sprite> levelSprites;
+    [SerializeField] private List<Sprite> levelSpritesButton;
 
     private int currentLevelTank = 1;
 
@@ -26,13 +26,11 @@ public class UpgradeTank : MonoBehaviour
 
     private void Start()
     {
-        // Загружаем текущий уровень из PlayerPrefs
         currentLevelTank = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 1);
 
-        // Загружаем значение слайдера из PlayerPrefs
         upgradeSlidertank.value = PlayerPrefs.GetFloat(UpgradeSliderTankValuePrefKey, 0f);
 
-        DefineUpgradeLevels(); // Определяем уровни до их использования
+        DefineUpgradeLevels();
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateTankStatsText();
         UpgradePlayer(currentLevelTank);
@@ -67,26 +65,16 @@ public class UpgradeTank : MonoBehaviour
                     levelImageButton.sprite = levelSpritesButton[currentLevelTank - 1];
                 }
 
-                // Сохраняем текущее значение слайдера в PlayerPrefs
                 PlayerPrefs.SetFloat(UpgradeSliderTankValuePrefKey, upgradeSlidertank.value);
-
-                // Сохраняем текущий уровень в PlayerPrefs
                 PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevelTank);
             }
-            else
-            {
-                Debug.Log("Недостаточно TotalScience для улучшения.");
-            }
+
         }
-        else
-        {
-            Debug.Log("Игрок достиг максимального уровня прокачки.");
-        }
+
     }
 
     public void LoadPlayerStats()
     {
-        // Загружаем сохраненные значения характеристик из PlayerPrefs
         playerTank.HP = PlayerPrefs.GetInt("TankHP", playerTank.HP);
         playerTank.damage = PlayerPrefs.GetInt("TankDamage", playerTank.damage);
     }

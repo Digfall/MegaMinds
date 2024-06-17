@@ -12,8 +12,8 @@ public class EnemySpawn
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public EnemySpawn[] enemyWaves;
-    public Transform[] spawnPositions;
+    [SerializeField] private EnemySpawn[] enemyWaves;
+    [SerializeField] private Transform[] spawnPositions;
 
     private bool canSpawn = true;
 

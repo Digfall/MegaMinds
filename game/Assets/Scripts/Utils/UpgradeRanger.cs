@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class UpgradeRanger : MonoBehaviour
 {
-    public PlayerRanger playerRanger;
-    public TextMeshProUGUI totalScienceText;
-    public TextMeshProUGUI priceForUpgrade;
-    public TextMeshProUGUI hpText;
-    public TextMeshProUGUI damageText;
-    public TextMeshProUGUI levelText;
-    public TextMeshProUGUI damageUpTextran;
-    public TextMeshProUGUI hpUpTextran;
-    public Slider upgradeRangerSlider;
-    public Image levelImage;
-    public Image levelImageButton;
-    public List<Sprite> levelSprites;
-    public List<Sprite> levelSpritesButton;
+    [SerializeField] private PlayerRanger playerRanger;
+    [SerializeField] private TextMeshProUGUI totalScienceText;
+    [SerializeField] private TextMeshProUGUI priceForUpgrade;
+    [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI damageUpTextran;
+    [SerializeField] private TextMeshProUGUI hpUpTextran;
+    [SerializeField] private Slider upgradeRangerSlider;
+    [SerializeField] private Image levelImage;
+    [SerializeField] private Image levelImageButton;
+    [SerializeField] private List<Sprite> levelSprites;
+    [SerializeField] private List<Sprite> levelSpritesButton;
 
     private int currentLevelRanger = 1;
 
@@ -26,13 +26,11 @@ public class UpgradeRanger : MonoBehaviour
 
     private void Start()
     {
-        // Загружаем текущий уровень из PlayerPrefs
         currentLevelRanger = PlayerPrefs.GetInt(CurrentLevelRngPrefKey, 1);
 
-        // Загружаем значение слайдера из PlayerPrefs
         upgradeRangerSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRangerValuePrefKey, 0f);
 
-        DefineUpgradeLevels(); // Определяем уровни до их использования
+        DefineUpgradeLevels();
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpgradePlayer(currentLevelRanger);
         UpdateRangerStatsText();
@@ -67,26 +65,16 @@ public class UpgradeRanger : MonoBehaviour
                     levelImageButton.sprite = levelSpritesButton[currentLevelRanger - 1];
                 }
 
-                // Сохраняем текущее значение слайдера в PlayerPrefs
                 PlayerPrefs.SetFloat(UpgradeSliderRangerValuePrefKey, upgradeRangerSlider.value);
-
-                // Сохраняем текущий уровень в PlayerPrefs
                 PlayerPrefs.SetInt(CurrentLevelRngPrefKey, currentLevelRanger);
             }
-            else
-            {
-                Debug.Log("Недостаточно TotalScience для улучшения.");
-            }
+
         }
-        else
-        {
-            Debug.Log("Игрок достиг максимального уровня прокачки.");
-        }
+
     }
 
     public void LoadPlayerStats()
     {
-        // Загружаем сохраненные значения характеристик из PlayerPrefs
         playerRanger.HP = PlayerPrefs.GetInt("RangerHP", playerRanger.HP);
         playerRanger.damage = PlayerPrefs.GetInt("RangerDamage", playerRanger.damage);
     }

@@ -3,17 +3,17 @@ using TMPro;
 
 public class ScienceManager : MonoBehaviour
 {
-    public TextMeshProUGUI scienceCountEnemy;
-    public TextMeshProUGUI scienceCountEnemyEnd;
-    public TextMeshProUGUI scienceCountCastle;
-    public TextMeshProUGUI scienceTotalCount;
-    public TextMeshProUGUI scienceCountEnemyEndLose;
-    public TextMeshProUGUI scienceTotalCountLose;
+    [SerializeField] private TextMeshProUGUI scienceCountEnemy;
+    [SerializeField] private TextMeshProUGUI scienceCountEnemyEnd;
+    [SerializeField] private TextMeshProUGUI scienceCountCastle;
+    [SerializeField] private TextMeshProUGUI scienceTotalCount;
+    [SerializeField] private TextMeshProUGUI scienceCountEnemyEndLose;
+    [SerializeField] private TextMeshProUGUI scienceTotalCountLose;
 
-    public int scienceCount = 0;
-    public int ScienceCastleCount = 0;
-    public int ScienceTotal = 0;
-    public int ScienceTotalLose = 0;
+    [SerializeField] private int scienceCount = 0;
+    [SerializeField] private int ScienceCastleCount = 0;
+    [SerializeField] private int ScienceTotal = 0;
+    [SerializeField] private int ScienceTotalLose = 0;
 
     private void Update()
     {

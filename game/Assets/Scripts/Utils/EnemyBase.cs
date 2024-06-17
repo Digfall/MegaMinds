@@ -17,13 +17,12 @@ public abstract class EnemyBase : MonoBehaviour
 
     [Header("Обращения к объектам и трансформы")]
     public Transform attackPos;
-    public HealthBar healthBar;
-    public Transform movePos;
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private Transform movePos;
     [SerializeField] protected Transform moveTarget;
     [SerializeField] protected Transform attackTarget;
 
     [Header("Настройки луча")]
-    [SerializeField] protected float raycastDistance = 0.5f;
     [SerializeField] protected float raycastDistanceToMove = 25f;
 
     public int level = 1;

@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class LevelSelection : MonoBehaviour
 {
-    public Button[] levelButtons;
-    public Sprite unlockedSprite;
-    public Sprite lockedSprite;
-    public Sprite availableSprite;
+    [SerializeField] private Button[] levelButtons;
+    [SerializeField] private Sprite unlockedSprite;
+    [SerializeField] private Sprite lockedSprite;
+    [SerializeField] private Sprite availableSprite;
 
     private void Start()
     {
@@ -23,7 +23,6 @@ public class LevelSelection : MonoBehaviour
             }
             else if (i + 1 == levelReached)
             {
-                // Уровень доступен и не пройден
                 levelButtons[i].interactable = true;
                 levelButtons[i].GetComponent<Image>().sprite = availableSprite;
                 int levelIndex = i + 1;
@@ -31,7 +30,6 @@ public class LevelSelection : MonoBehaviour
             }
             else
             {
-                // Уровень еще не доступен
                 levelButtons[i].interactable = false;
                 levelButtons[i].GetComponent<Image>().sprite = lockedSprite;
             }

@@ -5,43 +5,43 @@ using UnityEngine.UI;
 public class SpawnPlayer : MonoBehaviour
 {
     [Header("Настройки Роги")]
-    public GameObject roguePrefab;
-    public int rogueCost = 2;
-    public TextMeshProUGUI rogueCostText;
-    public TextMeshProUGUI rogueLvlText;
-    public Image rogueImage;
-    public Sprite[] rogueSprites;
-    public int CurrentLevelRog = 1;
+    [SerializeField] private GameObject roguePrefab;
+    [SerializeField] private int rogueCost = 2;
+    [SerializeField] private TextMeshProUGUI rogueCostText;
+    [SerializeField] private TextMeshProUGUI rogueLvlText;
+    [SerializeField] private Image rogueImage;
+    [SerializeField] private Sprite[] rogueSprites;
+    [SerializeField] private int CurrentLevelRog = 1;
     [Header("Настройки Танка")]
-    public GameObject tankPrefab;
-    public int tankCost = 5;
-    public TextMeshProUGUI tankCostText;
-    public TextMeshProUGUI tankLvlText;
-    public Image tankImage;
-    public Sprite[] tankSprites;
-    public int CurrentLevelTank = 1;
+    [SerializeField] private GameObject tankPrefab;
+    [SerializeField] private int tankCost = 5;
+    [SerializeField] private TextMeshProUGUI tankCostText;
+    [SerializeField] private TextMeshProUGUI tankLvlText;
+    [SerializeField] private Image tankImage;
+    [SerializeField] private Sprite[] tankSprites;
+    [SerializeField] private int CurrentLevelTank = 1;
     [Header("Настройки Воина")]
-    public GameObject warriorPrefab;
-    public int warriorCost = 4;
-    public TextMeshProUGUI warriorCostText;
-    public TextMeshProUGUI warriorLvlText;
-    public Image warriorImage;
-    public Sprite[] warriorSprites;
-    public int CurrentLevelWar = 1;
+    [SerializeField] private GameObject warriorPrefab;
+    [SerializeField] private int warriorCost = 4;
+    [SerializeField] private TextMeshProUGUI warriorCostText;
+    [SerializeField] private TextMeshProUGUI warriorLvlText;
+    [SerializeField] private Image warriorImage;
+    [SerializeField] private Sprite[] warriorSprites;
+    [SerializeField] private int CurrentLevelWar = 1;
     [Header("Настройки Ренжа")]
-    public GameObject rangerPrefab;
-    public int rangerCost = 4;
-    public TextMeshProUGUI rangerCostText;
-    public TextMeshProUGUI rangerLvlText;
-    public Image rangerImage;
-    public Sprite[] rangerSprites;
-    public int CurrentLevelRng = 1;
+    [SerializeField] private GameObject rangerPrefab;
+    [SerializeField] private int rangerCost = 4;
+    [SerializeField] private TextMeshProUGUI rangerCostText;
+    [SerializeField] private TextMeshProUGUI rangerLvlText;
+    [SerializeField] private Image rangerImage;
+    [SerializeField] private Sprite[] rangerSprites;
+    [SerializeField] private int CurrentLevelRng = 1;
 
 
-    public Transform[] spawnPositions;
+    [SerializeField] private Transform[] spawnPositions;
 
-    public CoinManager coinManager;
-    public TextMeshProUGUI coinCountText;
+    [SerializeField] private CoinManager coinManager;
+    [SerializeField] private TextMeshProUGUI coinCountText;
 
     private void LoadUnitLvlInfo()
     {

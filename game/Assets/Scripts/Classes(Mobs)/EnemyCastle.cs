@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class EnemyCastle : MonoBehaviour
 {
-    public int HP;
-    public LayerMask TowerMask;
-    public HealthBarCastle healthBar;
-    public GameObject gameOverCanvas;
+    [SerializeField] private int HP;
+    [SerializeField] private HealthBarCastle healthBar;
+    [SerializeField] private GameObject gameOverCanvas;
     private LevelManager levelManager;
-    public int levelNumber; // Номер этого уровня
+    [SerializeField] private int levelNumber; // Номер этого уровня
 
-    public int level; // Уровень награды
+    [SerializeField] private int level; // Уровень награды
 
     void Start()
     {

@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public bool gamePaused = false;
-    private static int totalScience = 0;
+    [SerializeField] private static int totalScience = 0;
     private const string CurrentTotalSciencePrefKey = "TotalScienceKey";
 
     void Start()

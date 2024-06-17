@@ -3,12 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public string targetSceneName;
+    [SerializeField] private string targetSceneName;
 
     public void SwitchScene()
     {
         SceneManager.LoadScene(targetSceneName);
     }
+    //Очистка даты playerprefs
     public void ClearPlayerPrefs()
     {
         PlayerPrefs.DeleteAll();

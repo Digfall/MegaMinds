@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OptionsOnOff : MonoBehaviour
 {
-    public GameObject gameOverCanvas;
+    [SerializeField] private GameObject gameOverCanvas;
 
     public void turnOnCanvas()
     {
@@ -14,8 +14,5 @@ public class OptionsOnOff : MonoBehaviour
     {
         gameOverCanvas.SetActive(false);
     }
-    void Update()
-    {
 
-    }
 }

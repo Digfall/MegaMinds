@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class Castle : MonoBehaviour
 {
-    public int HP;
-    public LayerMask TowerMask;
-    public HealthBarCastle healthBar;
-    public GameObject gameOverCanvas;
+    [SerializeField] private int HP;
+    [SerializeField] private HealthBarCastle healthBar;
+    [SerializeField] private GameObject gameOverCanvas;
 
     void Start()
     {

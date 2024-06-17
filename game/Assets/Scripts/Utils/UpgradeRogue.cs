@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class UpgradeRogue : MonoBehaviour
 {
-    public PlayerRogue playerRogue;
-    public TextMeshProUGUI totalScienceText;
-    public TextMeshProUGUI priceForUpgrade;
-    public TextMeshProUGUI hpText;
-    public TextMeshProUGUI damageText;
-    public TextMeshProUGUI levelText;
-    public TextMeshProUGUI damageUpTextrog;
-    public TextMeshProUGUI hpUpTextrog;
-    public Slider upgradeRogueSlider;
-    public Image levelImage;
-    public Image levelImageButton;
-    public List<Sprite> levelSprites;
-    public List<Sprite> levelSpritesButton;
+    [SerializeField] private PlayerRogue playerRogue;
+    [SerializeField] private TextMeshProUGUI totalScienceText;
+    [SerializeField] private TextMeshProUGUI priceForUpgrade;
+    [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI damageUpTextrog;
+    [SerializeField] private TextMeshProUGUI hpUpTextrog;
+    [SerializeField] private Slider upgradeRogueSlider;
+    [SerializeField] private Image levelImage;
+    [SerializeField] private Image levelImageButton;
+    [SerializeField] private List<Sprite> levelSprites;
+    [SerializeField] private List<Sprite> levelSpritesButton;
 
     private int currentLevelRogue = 1;
 
@@ -26,13 +26,11 @@ public class UpgradeRogue : MonoBehaviour
 
     private void Start()
     {
-        // Загружаем текущий уровень из PlayerPrefs
         currentLevelRogue = PlayerPrefs.GetInt(CurrentLevelRogPrefKey, 1);
 
-        // Загружаем значение слайдера из PlayerPrefs
         upgradeRogueSlider.value = PlayerPrefs.GetFloat(UpgradeSliderRogueValuePrefKey, 0f);
 
-        DefineUpgradeLevels(); // Определяем уровни до их использования
+        DefineUpgradeLevels();
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateRogueStatsText();
         UpgradePlayer(currentLevelRogue);
@@ -67,26 +65,16 @@ public class UpgradeRogue : MonoBehaviour
                     levelImageButton.sprite = levelSpritesButton[currentLevelRogue - 1];
                 }
 
-                // Сохраняем текущее значение слайдера в PlayerPrefs
                 PlayerPrefs.SetFloat(UpgradeSliderRogueValuePrefKey, upgradeRogueSlider.value);
-
-                // Сохраняем текущий уровень в PlayerPrefs
                 PlayerPrefs.SetInt(CurrentLevelRogPrefKey, currentLevelRogue);
             }
-            else
-            {
-                Debug.Log("Недостаточно TotalScience для улучшения.");
-            }
+
         }
-        else
-        {
-            Debug.Log("Игрок достиг максимального уровня прокачки.");
-        }
+
     }
 
     public void LoadPlayerStats()
     {
-        // Загружаем сохраненные значения характеристик из PlayerPrefs
         playerRogue.HP = PlayerPrefs.GetInt("RogueHP", playerRogue.HP);
         playerRogue.damage = PlayerPrefs.GetInt("RogueDamage", playerRogue.damage);
     }

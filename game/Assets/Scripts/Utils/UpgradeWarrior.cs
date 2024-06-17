@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class UpgradeWarrior : MonoBehaviour
 {
-    public PlayerWarrior playerWarrior;
-    public TextMeshProUGUI totalScienceText;
-    public TextMeshProUGUI priceForUpgrade;
-    public TextMeshProUGUI hpText;
-    public TextMeshProUGUI damageText;
-    public TextMeshProUGUI levelText;
-    public TextMeshProUGUI damageUpTextwar;
-    public TextMeshProUGUI hpUpTextwar;
-    public Slider upgradeSlider;
-    public Image levelImage;
-    public Image levelImageButton;
-    public List<Sprite> levelSprites;
-    public List<Sprite> levelSpritesButton;
+    [SerializeField] private PlayerWarrior playerWarrior;
+    [SerializeField] private TextMeshProUGUI totalScienceText;
+    [SerializeField] private TextMeshProUGUI priceForUpgrade;
+    [SerializeField] private TextMeshProUGUI hpText;
+    [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI damageUpTextwar;
+    [SerializeField] private TextMeshProUGUI hpUpTextwar;
+    [SerializeField] private Slider upgradeSlider;
+    [SerializeField] private Image levelImage;
+    [SerializeField] private Image levelImageButton;
+    [SerializeField] private List<Sprite> levelSprites;
+    [SerializeField] private List<Sprite> levelSpritesButton;
 
     [SerializeField] private int currentLevelWar = 1;
 
@@ -26,13 +26,11 @@ public class UpgradeWarrior : MonoBehaviour
 
     private void Start()
     {
-        // Загружаем текущий уровень из PlayerPrefs, если значение 0, устанавливаем на 1
         currentLevelWar = PlayerPrefs.GetInt(CurrentLevelWarPrefKey, 1);
 
-        // Загружаем значение слайдера из PlayerPrefs
         upgradeSlider.value = PlayerPrefs.GetFloat(UpgradeSliderWarValuePrefKey, 0f);
 
-        DefineUpgradeLevels(); // Определяем уровни до их использования
+        DefineUpgradeLevels();
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
         UpdateWarriorStatsText();
         UpgradePlayer(currentLevelWar);
@@ -69,26 +67,17 @@ public class UpgradeWarrior : MonoBehaviour
                         levelImageButton.sprite = levelSpritesButton[currentLevelWar - 1];
                     }
 
-                    // Сохраняем текущее значение слайдера в PlayerPrefs
                     PlayerPrefs.SetFloat(UpgradeSliderWarValuePrefKey, upgradeSlider.value);
-                    // Сохраняем текущий уровень в PlayerPrefs
                     PlayerPrefs.SetInt(CurrentLevelWarPrefKey, currentLevelWar);
                 }
-                else
-                {
-                    Debug.Log("Недостаточно TotalScience для улучшения.");
-                }
+
             }
-            else
-            {
-                Debug.Log("Игрок достиг максимального уровня прокачки.");
-            }
+
         }
     }
 
     public void LoadPlayerStats()
     {
-        // Загружаем сохраненные значения характеристик из PlayerPrefs
         playerWarrior.HP = PlayerPrefs.GetInt("WarriorHP", playerWarrior.HP);
         playerWarrior.damage = PlayerPrefs.GetInt("WarriorDamage", playerWarrior.damage);
     }

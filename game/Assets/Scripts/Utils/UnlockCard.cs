@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class UnlockCard : MonoBehaviour
 {
 
-    public Button rogueActionButton;
-    public Button tankActionButton;
+    [SerializeField] private Button rogueActionButton;
+    [SerializeField] private Button tankActionButton;
 
     private const string RogueUnlockedPrefKey = "RogueUnlocked";
     private const string TankUnlockedPrefKey = "TankUnlocked";

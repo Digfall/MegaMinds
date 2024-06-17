@@ -4,31 +4,31 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 public class ClassUnlocker : MonoBehaviour
 {
-    public Button rogueButton;
-    public Button tankButton;
+    [SerializeField] private Button rogueButton;
+    [SerializeField] private Button tankButton;
 
-    public PlayerWarrior playerWarrior;
-    public Image levelWarImage;
-    public List<Sprite> levelWarSprites;
+    [SerializeField] private PlayerWarrior playerWarrior;
+    [SerializeField] private Image levelWarImage;
+    [SerializeField] private List<Sprite> levelWarSprites;
 
-    public PlayerTank playerTank;
-    public Image levelTankImage;
-    public List<Sprite> levelTankSprites;
+    [SerializeField] private PlayerTank playerTank;
+    [SerializeField] private Image levelTankImage;
+    [SerializeField] private List<Sprite> levelTankSprites;
 
-    public PlayerRanger playerRanger;
-    public Image levelRangerImage;
-    public List<Sprite> levelRangerSprites;
+    [SerializeField] private PlayerRanger playerRanger;
+    [SerializeField] private Image levelRangerImage;
+    [SerializeField] private List<Sprite> levelRangerSprites;
 
-    public PlayerRogue playerRogue;
-    public Image levelRogueImage;
-    public List<Sprite> levelRogueSprites;
+    [SerializeField] private PlayerRogue playerRogue;
+    [SerializeField] private Image levelRogueImage;
+    [SerializeField] private List<Sprite> levelRogueSprites;
 
-    public int rogueCost = 200;
-    public int tankCost = 250;
-    private int currentLevelWar = 1;
-    private int currentLevelRogue = 1;
-    private int currentLevelRanger = 1;
-    private int currentLevelTank = 1;
+    [SerializeField] private int rogueCost = 200;
+    [SerializeField] private int tankCost = 250;
+    [SerializeField] private int currentLevelWar = 1;
+    [SerializeField] private int currentLevelRogue = 1;
+    [SerializeField] private int currentLevelRanger = 1;
+    [SerializeField] private int currentLevelTank = 1;
 
     private const string RogueUnlockedPrefKey = "RogueUnlocked";
     private const string TankUnlockedPrefKey = "TankUnlocked";
@@ -80,10 +80,6 @@ public class ClassUnlocker : MonoBehaviour
             PlayerPrefs.Save();
             button.gameObject.SetActive(false);
             FindObjectOfType<OtherScene>().UpdateTotalScienceText();
-        }
-        else
-        {
-            Debug.Log("Недостаточно науки для открытия карточки.");
         }
     }
 

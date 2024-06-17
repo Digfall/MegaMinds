@@ -3,23 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private int currentLevel;
+    [SerializeField] private int currentLevel;
 
     void Start()
     {
         LoadProgress();
     }
 
-    // Метод для загрузки уровня по имени
     public void LoadLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
     }
 
-    // Метод для завершения уровня и сохранения прогресса
     public void CompleteLevel(int levelNumber)
     {
-        // Если пройденный уровень больше текущего сохраненного, обновляем прогресс
         if (levelNumber > currentLevel)
         {
             currentLevel = levelNumber;
@@ -30,7 +27,7 @@ public class LevelManager : MonoBehaviour
 
     public void LoadProgress()
     {
-        currentLevel = PlayerPrefs.GetInt("LevelReached", 1); // По умолчанию первый уровень
+        currentLevel = PlayerPrefs.GetInt("LevelReached", 1);
     }
 
     public int GetCurrentLevel()

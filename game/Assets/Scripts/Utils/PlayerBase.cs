@@ -18,13 +18,13 @@ public class PlayerBase : MonoBehaviour
 
     [Header("Обращения к объектам и трансформы")]
     public Transform attackPos;
-    public HealthBar healthBar;
-    public Transform movePos;
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private Transform movePos;
     [SerializeField] protected Transform moveTarget; // Цель для передвижения
     [SerializeField] protected Transform attackTarget; // Цель для атаки
 
     [Header("Настройки луча")]
-    [SerializeField] protected float raycastDistance = 0.5f; // Длина луча для поиска цели
+
     [SerializeField] protected float raycastDistanceToMove = 25f;
 
     protected bool isFighting = false;
@@ -81,7 +81,7 @@ public class PlayerBase : MonoBehaviour
         if (Time.time >= nextAttackTime && attackTarget != null)
         {
             isAttacking = true;
-            isFighting = true; // Устанавливаем флаг isFighting в true при использовании OnAttack
+            isFighting = true;
 
             if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
             {
@@ -90,7 +90,7 @@ public class PlayerBase : MonoBehaviour
                 nextDamageTime = Time.time + damageRate;
             }
 
-            nextAttackTime = Time.time + 1f / attackRate; // Устанавливаем время следующей атаки
+            nextAttackTime = Time.time + 1f / attackRate;
         }
     }
 
@@ -121,7 +121,7 @@ public class PlayerBase : MonoBehaviour
             {
                 isAttacking = true;
                 isFighting = true;
-                OnAttack(); // Начинаем атаку
+                OnAttack();
             }
             else
             {
@@ -165,8 +165,8 @@ public class PlayerBase : MonoBehaviour
         HP -= damage;
         if (HP <= 0)
         {
-            HP = 0; // Убедитесь, что HP не становится меньше 0
-            healthBar.SetHealth(HP); // Обновите здоровье перед уничтожением
+            HP = 0;
+            healthBar.SetHealth(HP);
             Destroy(gameObject);
         }
         else

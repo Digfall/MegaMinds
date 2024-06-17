@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ObjectController : MonoBehaviour
 {
-    public GameObject[] objectsButton1; // объекты, связанные с кнопкой №1
-    public GameObject[] objectsButton2; // объекты, связанные с кнопкой №2
-    public GameObject[] objectsButton3; // объекты, связанные с кнопкой №2
+    [SerializeField] private GameObject[] objectsButton1;
+    [SerializeField] private GameObject[] objectsButton2;
+    [SerializeField] private GameObject[] objectsButton3;
 
     public void Button1Pressed()
     {

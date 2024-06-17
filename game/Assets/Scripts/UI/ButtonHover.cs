@@ -4,11 +4,11 @@ using UnityEngine.EventSystems;
 
 public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public RectTransform buttonTransform;
-    public float moveAmount = 0.9f; // Расстояние, на которое кнопка будет двигаться вверх
-    public float moveSpeed = 4.5f; // Скорость движения кнопки
-    private Vector3 originalPos;
-    private bool isHovering = false;
+    [SerializeField] private RectTransform buttonTransform;
+    [SerializeField] private float moveAmount = 0.9f; // Расстояние, на которое кнопка будет двигаться вверх
+    [SerializeField] private float moveSpeed = 4.5f; // Скорость движения кнопки
+    [SerializeField] private Vector3 originalPos;
+    [SerializeField] private bool isHovering = false;
 
     private void Start()
     {
