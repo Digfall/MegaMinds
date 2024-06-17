@@ -34,4 +34,9 @@ public class LevelManager : MonoBehaviour
     {
         return currentLevel;
     }
+
+    public bool IsLevelCompleted(int levelNumber)
+    {
+        return levelNumber <= currentLevel;
+    }
 }

@@ -9,6 +9,7 @@ public class EnemyCastle : MonoBehaviour
     [SerializeField] private int levelNumber; // Номер этого уровня
 
     [SerializeField] private int level; // Уровень награды
+    [SerializeField] private bool rewardRepeatable = false; // Повторная выдача награды
 
     void Start()
     {
@@ -33,12 +34,18 @@ public class EnemyCastle : MonoBehaviour
 
     void DestroyCastle()
     {
-        FindObjectOfType<ScienceManager>().UpdateScienceCountCastle(level);
-        levelManager.CompleteLevel(levelNumber);
-        // Остановить все действия на карте
+        if (!levelManager.IsLevelCompleted(levelNumber) || rewardRepeatable)
+        {
+            FindObjectOfType<ScienceManager>().UpdateScienceCountCastle(level);
+            levelManager.CompleteLevel(levelNumber);
+        }
+        else
+        {
+            FindObjectOfType<ScienceManager>().UpdateScienceCountTotal();
+        }
+
         Time.timeScale = 0f;
 
-        // Включить нужный вам Canvas
         gameOverCanvas.SetActive(true);
 
         GameObject[] HpBars = GameObject.FindGameObjectsWithTag("HpBar");
@@ -46,7 +53,8 @@ public class EnemyCastle : MonoBehaviour
         {
             HpBar.SetActive(false);
         }
-        // Уничтожить объект башни
+
         Destroy(gameObject);
+
     }
 }
