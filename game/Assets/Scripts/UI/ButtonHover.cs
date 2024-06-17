@@ -5,28 +5,26 @@ using UnityEngine.EventSystems;
 public class ButtonHoverEffect : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private RectTransform buttonTransform;
-    [SerializeField] private float moveAmount = 0.9f; // Расстояние, на которое кнопка будет двигаться вверх
+    [SerializeField] private float moveAmount = 10f; // Расстояние, на которое кнопка будет двигаться вверх
     [SerializeField] private float moveSpeed = 4.5f; // Скорость движения кнопки
-    [SerializeField] private Vector3 originalPos;
-    [SerializeField] private bool isHovering = false;
+    private Vector2 originalPos;
+    private bool isHovering = false;
 
     private void Start()
     {
-        originalPos = buttonTransform.position;
+        originalPos = buttonTransform.anchoredPosition;
     }
 
     private void Update()
     {
-
         if (isHovering)
         {
-            Vector3 targetPos = originalPos + new Vector3(0, moveAmount, 0);
-            buttonTransform.position = Vector3.Lerp(buttonTransform.position, targetPos, moveSpeed * Time.deltaTime);
+            Vector2 targetPos = originalPos + new Vector2(0, moveAmount);
+            buttonTransform.anchoredPosition = Vector2.Lerp(buttonTransform.anchoredPosition, targetPos, moveSpeed * Time.deltaTime);
         }
         else
         {
-
-            buttonTransform.position = Vector3.Lerp(buttonTransform.position, originalPos, moveSpeed * Time.deltaTime);
+            buttonTransform.anchoredPosition = Vector2.Lerp(buttonTransform.anchoredPosition, originalPos, moveSpeed * Time.deltaTime);
         }
     }
 
