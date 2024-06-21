@@ -137,6 +137,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\RemoteConfig\RemoteConfigGetYandexOptions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
+    <Compile Include="Assets\Scripts\Utils\Projectile.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Social\CreatePostVkOptions.cs" />
     <Compile Include="Assets\Examples\Scripts\LeaderboardPanel.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\ShowBannerPlatformDependedOptions.cs" />

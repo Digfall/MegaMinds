@@ -17,6 +17,8 @@ public class UpgradeRangers
 
 public class PlayerRanger : PlayerBase
 {
+    [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private TextMeshProUGUI rangerLvlText;
     [SerializeField] private int CurrentLevelRng = 1;
     private const string RangerHPPrefKey = "RangerHP";
@@ -31,6 +33,7 @@ public class PlayerRanger : PlayerBase
         UpdatePlayerStats();
         base.Start();
     }
+
     private void UpdateText()
     {
         if (rangerLvlText != null)
@@ -38,6 +41,7 @@ public class PlayerRanger : PlayerBase
             rangerLvlText.text = CurrentLevelRng.ToString();
         }
     }
+
     protected override void Update()
     {
         base.Update();
@@ -65,26 +69,23 @@ public class PlayerRanger : PlayerBase
     {
         if (Time.time >= nextAttackTime && attackTarget != null)
         {
-            EnemyBase enemyBase = attackTarget.GetComponent<EnemyBase>();
-            EnemyCastle enemyCastle = attackTarget.GetComponent<EnemyCastle>();
-
-            if (enemyBase != null)
-            {
-                enemyBase.TakeDamage(damage);
-            }
-            else if (enemyCastle != null)
-            {
-                enemyCastle.TakeDamage(damage);
-            }
+            LaunchProjectile(attackTarget);
 
             nextDamageTime = Time.time + damageRate;
             nextAttackTime = Time.time + 1f / attackRate;
         }
     }
 
+    private void LaunchProjectile(Transform target)
+    {
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+        Projectile projectileScript = projectile.GetComponent<Projectile>();
+        projectileScript.Initialize(target, damage);
+    }
+
     protected override void FindTargetToAttack()
     {
-        if (attackTarget != null && (Vector2.Distance(transform.position, attackTarget.position) > radius || !attackTarget.CompareTag("Enemy") && !attackTarget.CompareTag("EnemyCastle")))
+        if (attackTarget != null && (Vector2.Distance(transform.position, attackTarget.position) > radius || (!attackTarget.CompareTag("Enemy") && !attackTarget.CompareTag("EnemyCastle"))))
         {
             attackTarget = null;
         }

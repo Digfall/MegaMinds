@@ -262,6 +262,7 @@ Transform:
   - {fileID: 1187516809443334515}
   - {fileID: 2491355556261055789}
   - {fileID: 5428892064114449753}
+  - {fileID: 8130045306813776044}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7972414612197178422
@@ -336,7 +337,7 @@ Animator:
   m_GameObject: {fileID: 3506097913677785157}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 961a316a2930bf04c8e8f23eb3ccde38, type: 2}
+  m_Controller: {fileID: 9100000, guid: 43774d1b9d925c347ad9ef8bb61fe9b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -371,6 +372,8 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
+  projectilePrefab: {fileID: 550702248292563470, guid: c0f8f4c70d863c1408935323dad27cfe, type: 3}
+  projectileSpawnPoint: {fileID: 5428892064114449753}
   rangerLvlText: {fileID: 3156740994325825830}
   CurrentLevelRng: 1
   upgradeLevels:
@@ -404,7 +407,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3506097913677785157}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.76
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -417,6 +420,37 @@ NavMeshAgent:
   m_BaseOffset: 0.84
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!1 &3606857244957876667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8130045306813776044}
+  m_Layer: 0
+  m_Name: tochka
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8130045306813776044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3606857244957876667}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.764, y: 0.076, z: 172.41818}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3522216667716468516}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4222361182884922688
 GameObject:
   m_ObjectHideFlags: 0

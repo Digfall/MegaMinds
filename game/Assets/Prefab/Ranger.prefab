@@ -675,7 +675,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 8957537787719140412}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.76
+  m_Radius: 0.5
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -714,6 +714,8 @@ MonoBehaviour:
   raycastDistanceToMove: 100
   level: 0
   rangerLvlText: {fileID: 1610425876453108046}
+  projectilePrefab: {fileID: 550702248292563470, guid: c0f8f4c70d863c1408935323dad27cfe, type: 3}
+  projectileSpawnPoint: {fileID: 2474012708636347550}
 --- !u!1 &9026848329510381380
 GameObject:
   m_ObjectHideFlags: 0
