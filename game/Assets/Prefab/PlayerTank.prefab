@@ -561,6 +561,7 @@ MonoBehaviour:
   raycastDistanceToMove: 100
   tankLvlText: {fileID: 5904816669054426390}
   CurrentLevelTank: 1
+  anim: {fileID: 4231507967514794430}
   upgradeLevels:
   - levelTank: 0
     hpTank: 0

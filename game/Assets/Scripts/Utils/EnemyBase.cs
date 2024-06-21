@@ -29,6 +29,7 @@ public abstract class EnemyBase : MonoBehaviour
 
     protected bool isFighting = false;
     protected bool isAttacking = false;
+    protected bool isDead = false;
     protected Rigidbody2D rb;
     protected NavMeshAgent agent;
 
@@ -41,10 +42,15 @@ public abstract class EnemyBase : MonoBehaviour
         ApplyLevelAdjustments();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
+        nextAttackTime = Time.time + 1.0f;
     }
 
     protected virtual void Update()
     {
+        if (isDead)
+        {
+            return; // Если мертв, не выполнять обновления
+        }
         FindTargetToAttack();
         if (!isFighting && !isAttacking)
         {
@@ -53,12 +59,6 @@ public abstract class EnemyBase : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
-        }
-
-        if (HP <= 0)
-        {
-            FindObjectOfType<ScienceManager>().UpdateScienceCountEnemy();
-            Destroy(gameObject);
         }
 
     }
@@ -163,9 +163,25 @@ public abstract class EnemyBase : MonoBehaviour
     }
     public virtual void TakeDamage(int damage)
     {
-        HP -= damage;
-        healthBar.SetHealth(HP);
+        if (isDead) return;
 
+        HP -= damage;
+        if (HP <= 0)
+        {
+            HP = 0;
+            isDead = true;
+            healthBar.SetHealth(HP);
+            OnDeath();
+        }
+        else
+        {
+            healthBar.SetHealth(HP);
+        }
+    }
+    protected virtual void OnDeath()
+    {
+        FindObjectOfType<ScienceManager>().UpdateScienceCountEnemy();
+        Destroy(gameObject);
     }
     public abstract void ApplyLevelAdjustments();
 

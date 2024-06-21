@@ -14,7 +14,7 @@ public class PlayerBase : MonoBehaviour
     public float radius;
     public float attackRate; // Время между атаками в секундах
     protected float nextAttackTime = 0.8f; // Время до следующей атаки
-    protected float nextDamageTime = 0.8f; // Время до следующего удара
+    protected float nextDamageTime = 1.8f; // Время до следующего удара
 
     [Header("Обращения к объектам и трансформы")]
     public Transform attackPos;
@@ -29,6 +29,7 @@ public class PlayerBase : MonoBehaviour
 
     protected bool isFighting = false;
     protected bool isAttacking = false;
+    protected bool isDead = false;
     protected Rigidbody2D rb;
     protected NavMeshAgent agent;
 
@@ -40,11 +41,16 @@ public class PlayerBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         healthBar.SetHealth(HP);
         healthBar.maxHealth = HP;
-        nextAttackTime = Time.time + 0.8f;
+        nextAttackTime = Time.time + 1.0f;
     }
 
     protected virtual void Update()
     {
+        if (isDead)
+        {
+            return; // Если мертв, не выполнять обновления
+        }
+
         FindTargetToAttack();
         if (!isFighting && !isAttacking)
         {
@@ -53,11 +59,6 @@ public class PlayerBase : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
-        }
-
-        if (HP <= 0)
-        {
-            Destroy(gameObject);
         }
     }
 
@@ -137,7 +138,6 @@ public class PlayerBase : MonoBehaviour
         }
     }
 
-
     protected virtual Transform FindNearestTarget()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, raycastDistanceToMove);
@@ -162,17 +162,25 @@ public class PlayerBase : MonoBehaviour
 
     public virtual void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         HP -= damage;
         if (HP <= 0)
         {
             HP = 0;
+            isDead = true;
             healthBar.SetHealth(HP);
-            Destroy(gameObject);
+            OnDeath();
         }
         else
         {
             healthBar.SetHealth(HP);
         }
+    }
+
+    protected virtual void OnDeath()
+    {
+        Destroy(gameObject);
     }
 
     protected virtual void OnDrawGizmosSelected()

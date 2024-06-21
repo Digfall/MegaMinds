@@ -469,6 +469,7 @@ MonoBehaviour:
   raycastDistanceToMove: 100
   rogueLvlText: {fileID: 1807518501572954927}
   CurrentLevelRog: 1
+  anim: {fileID: 4231507967514794430}
   upgradeLevels:
   - levelrog: 1
     hprog: 150
