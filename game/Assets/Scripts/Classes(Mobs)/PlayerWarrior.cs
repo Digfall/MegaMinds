@@ -84,14 +84,14 @@ public class PlayerWarrior : PlayerBase
         base.TakeDamage(damagewar);
         if (HP <= 0 && isDead)
         {
-            anim.SetBool("Death", true);
+            anim.SetTrigger("Death");
             StartCoroutine(DestroyAfterDeath());
         }
     }
 
     private IEnumerator DestroyAfterDeath()
     {
-        yield return new WaitForSeconds(0.8f); // Задержка в секундах перед уничтожением объекта
+        yield return new WaitForSeconds(1f); // Задержка в секундах перед уничтожением объекта
         Destroy(gameObject);
     }
 

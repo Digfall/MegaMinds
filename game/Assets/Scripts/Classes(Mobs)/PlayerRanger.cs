@@ -23,6 +23,7 @@ public class PlayerRanger : PlayerBase
     [SerializeField] private int CurrentLevelRng = 1;
     private const string RangerHPPrefKey = "RangerHP";
     private const string RangerDamagePrefKey = "RangerDamage";
+    public Animator anim;
 
     public List<UpgradeRangers> upgradeLevels = new List<UpgradeRangers>();
 
@@ -110,12 +111,14 @@ public class PlayerRanger : PlayerBase
 
             if (attackTarget != null)
             {
+                anim.SetBool("Attack", true);
                 isAttacking = true;
                 isFighting = true;
                 rb.velocity = Vector2.zero;
             }
             else
             {
+                anim.SetBool("Attack", false);
                 isAttacking = false;
                 isFighting = false;
             }
@@ -161,7 +164,25 @@ public class PlayerRanger : PlayerBase
 
     public override void TakeDamage(int damageran)
     {
+        if (isDead) return;
+
         base.TakeDamage(damageran);
+        if (HP <= 0 && isDead)
+        {
+            anim.SetTrigger("Death");
+            StartCoroutine(DestroyAfterDeath());
+        }
+    }
+
+    private IEnumerator DestroyAfterDeath()
+    {
+        yield return new WaitForSeconds(1f); // Задержка в секундах перед уничтожением объекта
+        Destroy(gameObject);
+    }
+
+    protected override void OnDeath()
+    {
+        // Оставляем пустым, чтобы не вызывать Destroy в базовом классе
     }
 
     protected override void OnDrawGizmosSelected()
