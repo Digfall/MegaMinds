@@ -66,11 +66,18 @@ public class PlayerRanger : PlayerBase
         damage = PlayerPrefs.GetInt(RangerDamagePrefKey, damage);
     }
 
+    public void FireProjectile()
+    {
+        if (attackTarget != null)
+        {
+            LaunchProjectile(attackTarget);
+        }
+    }
+
     protected override void OnAttack()
     {
         if (Time.time >= nextAttackTime && attackTarget != null)
         {
-            LaunchProjectile(attackTarget);
 
             nextDamageTime = Time.time + damageRate;
             nextAttackTime = Time.time + 1f / attackRate;
