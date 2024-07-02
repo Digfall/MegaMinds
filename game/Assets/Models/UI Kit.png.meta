@@ -1796,7 +1796,7 @@ TextureImporter:
         x: 1832
         y: 3620
         width: 236
-        height: 198
+        height: 177
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1817,7 +1817,7 @@ TextureImporter:
         x: 2116
         y: 3624
         width: 236
-        height: 198
+        height: 176
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2108,10 +2108,10 @@ TextureImporter:
       name: UI Kit_108
       rect:
         serializedVersion: 2
-        x: 1829
-        y: 1366
-        width: 2975
-        height: 715
+        x: 1860
+        y: 1386
+        width: 2944
+        height: 686
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2126,33 +2126,12 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UI Kit_109
-      rect:
-        serializedVersion: 2
-        x: 2008
-        y: 2068
-        width: 21
-        height: 33
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 263baf3cf1038a24f911b4871bbaf571
-      internalID: 61478167
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: UI Kit_110
       rect:
         serializedVersion: 2
-        x: 1829
+        x: 1860
         y: 392
-        width: 3006
+        width: 2944
         height: 756
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

@@ -179,6 +179,7 @@
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Device\DeviceType.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\BannerState.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\GetEntriesYandexOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\CameraController.cs" />
     <Compile Include="Assets\Examples\Scripts\SocialPanel.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Storage\StorageModule.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\ShowNativePopupPlatformDependedOptions.cs" />
