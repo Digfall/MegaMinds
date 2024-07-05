@@ -148,6 +148,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\RewardedState.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Device\DeviceModule.cs" />
+    <Compile Include="Assets\Scripts\UI\CameraController2D.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\LeaderboardEntry.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\ScienceManager.cs" />
@@ -171,6 +172,7 @@
     <Compile Include="Assets\Scripts\UI\OptionsOnOff.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Payments\PaymentsModule.cs" />
     <Compile Include="Assets\Scripts\Classes(Mobs)\PlayerWarrior.cs" />
+    <Compile Include="Assets\Scripts\UI\BackgroundMover.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\RemoteConfig\RemoteConfigClientFeature.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Social\SharePlatformDependedOptions.cs" />
@@ -179,7 +181,6 @@
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Device\DeviceType.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\BannerState.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\GetEntriesYandexOptions.cs" />
-    <Compile Include="Assets\Scripts\UI\CameraController.cs" />
     <Compile Include="Assets\Examples\Scripts\SocialPanel.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Storage\StorageModule.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\ShowNativePopupPlatformDependedOptions.cs" />

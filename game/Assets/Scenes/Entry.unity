@@ -366,11 +366,11 @@ RectTransform:
   - {fileID: 1015679525}
   m_Father: {fileID: 2133476691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -368, y: -0.000015258789}
-  m_SizeDelta: {x: 99, y: 100}
-  m_Pivot: {x: 0, y: 0.5}
+  m_AnchorMin: {x: 0.055000003, y: 0.09741547}
+  m_AnchorMax: {x: 0.5492066, y: 0.93458456}
+  m_AnchoredPosition: {x: -172.50107, y: -6.5000153}
+  m_SizeDelta: {x: -265, y: -247}
+  m_Pivot: {x: 0.4999998, y: 0.5}
 --- !u!1 &324197685
 GameObject:
   m_ObjectHideFlags: 0
@@ -1225,10 +1225,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2133476691}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 736, y: 414}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &913354704
 MonoBehaviour:
@@ -3324,14 +3324,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 0
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 736, y: 414}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 1
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
+  m_FallbackScreenDPI: 75.9
+  m_DefaultSpriteDPI: 83
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
 --- !u!223 &2133476690
