@@ -7,9 +7,12 @@ public class ClassUnlocker : MonoBehaviour
 {
     [SerializeField] private Button rogueUnlockButton;
     [SerializeField] private Button tankUnlockButton;
+    [SerializeField] private Button rogueAvaibleButton;
+    [SerializeField] private Button tankAvaibleButton;
 
     [SerializeField] private Button rogueUpgradeButton;
     [SerializeField] private Button tankUpgradeButton;
+
     [Header("WARRIOR")]
     [SerializeField] private PlayerWarrior playerWarrior;
     [SerializeField] private Image levelWarUnitImage;
@@ -18,6 +21,7 @@ public class ClassUnlocker : MonoBehaviour
     [SerializeField] private List<Sprite> levelWarUnitSprites;
     [SerializeField] private List<Sprite> levelWarBgSprites;
     [SerializeField] private List<Sprite> levelWarWepSprites;
+
     [Header("TANK")]
     [SerializeField] private PlayerTank playerTank;
     [SerializeField] private Image levelTankUnitImage;
@@ -26,6 +30,7 @@ public class ClassUnlocker : MonoBehaviour
     [SerializeField] private List<Sprite> levelTankUnitSprites;
     [SerializeField] private List<Sprite> levelTankBgSprites;
     [SerializeField] private List<Sprite> levelTankWepSprites;
+
     [Header("RANGER")]
     [SerializeField] private PlayerRanger playerRanger;
     [SerializeField] private Image levelRangerUnitImage;
@@ -34,6 +39,7 @@ public class ClassUnlocker : MonoBehaviour
     [SerializeField] private List<Sprite> levelRangerUnitSprites;
     [SerializeField] private List<Sprite> levelRangerBgSprites;
     [SerializeField] private List<Sprite> levelRangerWepSprites;
+
     [Header("ROGUE")]
     [SerializeField] private PlayerRogue playerRogue;
     [SerializeField] private Image levelRogueUnitImage;
@@ -49,6 +55,7 @@ public class ClassUnlocker : MonoBehaviour
     private int currentLevelRogue = 1;
     private int currentLevelRanger = 1;
     private int currentLevelTank = 1;
+    [SerializeField] private int currentLevel = 1;
 
     private const string RogueUnlockedPrefKey = "RogueUnlocked";
     private const string TankUnlockedPrefKey = "TankUnlocked";
@@ -57,39 +64,95 @@ public class ClassUnlocker : MonoBehaviour
     private const string CurrentLevelRogPrefKey = "CurrentLevelRog";
     private const string CurrentLevelRngPrefKey = "CurrentLevelRng";
     private const string CurrentLevelTankPrefKey = "CurrentLevelTank";
+
     [SerializeField] private UpgradeSoundManager soundManager;
 
     private void Start()
     {
-        currentLevelWar = PlayerPrefs.GetInt(CurrentLevelWarPrefKey, 1);
-        currentLevelRogue = PlayerPrefs.GetInt(CurrentLevelRogPrefKey, 1);
-        currentLevelRanger = PlayerPrefs.GetInt(CurrentLevelRngPrefKey, 1);
-        currentLevelTank = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 1);
+        LoadPlayerPrefs();
+
+        // Устанавливаем изображения и интерактивность кнопок на основе сохраненных данных
         UpgradeImagesWar(currentLevelWar);
         UpgradeImagesRanger(currentLevelRanger);
         UpgradeImagesRogue(currentLevelRogue);
         UpgradeImagesTank(currentLevelTank);
 
+        // Проверяем, разблокированы ли рога и танк
         bool isRogueUnlocked = PlayerPrefs.GetInt(RogueUnlockedPrefKey, 0) == 1;
         bool isTankUnlocked = PlayerPrefs.GetInt(TankUnlockedPrefKey, 0) == 1;
 
-        rogueUnlockButton.gameObject.SetActive(!isRogueUnlocked);
-        tankUnlockButton.gameObject.SetActive(!isTankUnlocked);
+        // Активируем или деактивируем кнопки разблокировки в зависимости от их состояния
+        rogueAvaibleButton.gameObject.SetActive(!isRogueUnlocked && currentLevel >= 7);
+        tankAvaibleButton.gameObject.SetActive(!isTankUnlocked && currentLevel >= 4);
+        rogueUnlockButton.gameObject.SetActive(!isRogueUnlocked && currentLevel >= 7);
+        tankUnlockButton.gameObject.SetActive(!isTankUnlocked && currentLevel >= 4);
 
+        // Устанавливаем доступность кнопок улучшения
         rogueUpgradeButton.interactable = isRogueUnlocked;
         tankUpgradeButton.interactable = isTankUnlocked;
 
+        // Обновляем текст общего количества ресурсов
         FindObjectOfType<OtherScene>().UpdateTotalScienceText();
+    }
+    private void Update()
+    {
+        // Проверяем текущий уровень игры
+        if (currentLevel >= 4)
+        {
+            // Выключаем кнопку, если достигнут уровень 3 и она была активна
+            if (tankAvaibleButton.gameObject.activeSelf)
+            {
+                tankAvaibleButton.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            // Включаем кнопку, если уровень игры меньше 3 и она была выключена
+            if (!tankAvaibleButton.gameObject.activeSelf)
+            {
+                tankAvaibleButton.gameObject.SetActive(true);
+            }
+        }
+
+        if (currentLevel >= 7)
+        {
+            // Выключаем кнопку, если достигнут уровень 6 и она была активна
+            if (rogueAvaibleButton.gameObject.activeSelf)
+            {
+                rogueAvaibleButton.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            // Включаем кнопку, если уровень игры меньше 6 и она была выключена
+            if (!rogueAvaibleButton.gameObject.activeSelf)
+            {
+                rogueAvaibleButton.gameObject.SetActive(true);
+            }
+        }
+    }
+
+    private void LoadPlayerPrefs()
+    {
+        currentLevel = PlayerPrefs.GetInt("LevelReached", 1);
+        currentLevelWar = PlayerPrefs.GetInt(CurrentLevelWarPrefKey, 1);
+        currentLevelRogue = PlayerPrefs.GetInt(CurrentLevelRogPrefKey, 1);
+        currentLevelRanger = PlayerPrefs.GetInt(CurrentLevelRngPrefKey, 1);
+        currentLevelTank = PlayerPrefs.GetInt(CurrentLevelTankPrefKey, 1);
     }
 
     public void UnlockRogue()
     {
         UnlockCharacter(RogueUnlockedPrefKey, rogueCost, rogueUnlockButton, rogueUpgradeButton);
+        PlayerPrefs.SetInt("LevelReached", currentLevel);
+        PlayerPrefs.Save();
     }
 
     public void UnlockTank()
     {
         UnlockCharacter(TankUnlockedPrefKey, tankCost, tankUnlockButton, tankUpgradeButton);
+        PlayerPrefs.SetInt("LevelReached", currentLevel);
+        PlayerPrefs.Save();
     }
 
     private void UnlockCharacter(string prefKey, int cost, Button unlockButton, Button upgradeButton)
@@ -113,18 +176,9 @@ public class ClassUnlocker : MonoBehaviour
     {
         if (levelwar > 0 && levelwar <= playerWarrior.upgradeLevels.Count)
         {
-            if (levelwar - 1 < levelWarUnitSprites.Count)
-            {
-                levelWarUnitImage.sprite = levelWarUnitSprites[levelwar - 1];
-            }
-            if (levelwar - 1 < levelWarBgSprites.Count)
-            {
-                levelWarBgImage.sprite = levelWarBgSprites[levelwar - 1];
-            }
-            if (levelwar - 1 < levelWarWepSprites.Count)
-            {
-                levelWarWepImage.sprite = levelWarWepSprites[levelwar - 1];
-            }
+            levelWarUnitImage.sprite = levelWarUnitSprites[levelwar - 1];
+            levelWarBgImage.sprite = levelWarBgSprites[levelwar - 1];
+            levelWarWepImage.sprite = levelWarWepSprites[levelwar - 1];
         }
     }
 
@@ -132,18 +186,9 @@ public class ClassUnlocker : MonoBehaviour
     {
         if (levelTank > 0 && levelTank <= playerTank.upgradeLevels.Count)
         {
-            if (levelTank - 1 < levelTankUnitSprites.Count)
-            {
-                levelTankUnitImage.sprite = levelTankUnitSprites[levelTank - 1];
-            }
-            if (levelTank - 1 < levelTankBgSprites.Count)
-            {
-                levelTankBgImage.sprite = levelTankBgSprites[levelTank - 1];
-            }
-            if (levelTank - 1 < levelTankWepSprites.Count)
-            {
-                levelTankWepImage.sprite = levelTankWepSprites[levelTank - 1];
-            }
+            levelTankUnitImage.sprite = levelTankUnitSprites[levelTank - 1];
+            levelTankBgImage.sprite = levelTankBgSprites[levelTank - 1];
+            levelTankWepImage.sprite = levelTankWepSprites[levelTank - 1];
         }
     }
 
@@ -151,18 +196,9 @@ public class ClassUnlocker : MonoBehaviour
     {
         if (levelran > 0 && levelran <= playerRanger.upgradeLevels.Count)
         {
-            if (levelran - 1 < levelRangerUnitSprites.Count)
-            {
-                levelRangerUnitImage.sprite = levelRangerUnitSprites[levelran - 1];
-            }
-            if (levelran - 1 < levelRangerBgSprites.Count)
-            {
-                levelRangerBgImage.sprite = levelRangerBgSprites[levelran - 1];
-            }
-            if (levelran - 1 < levelRangerWepSprites.Count)
-            {
-                levelRangerWepImage.sprite = levelRangerWepSprites[levelran - 1];
-            }
+            levelRangerUnitImage.sprite = levelRangerUnitSprites[levelran - 1];
+            levelRangerBgImage.sprite = levelRangerBgSprites[levelran - 1];
+            levelRangerWepImage.sprite = levelRangerWepSprites[levelran - 1];
         }
     }
 
@@ -170,18 +206,9 @@ public class ClassUnlocker : MonoBehaviour
     {
         if (levelrog > 0 && levelrog <= playerRogue.upgradeLevels.Count)
         {
-            if (levelrog - 1 < levelRogueUnitSprites.Count)
-            {
-                levelRogueUnitImage.sprite = levelRogueUnitSprites[levelrog - 1];
-            }
-            if (levelrog - 1 < levelRogueBgSprites.Count)
-            {
-                levelRogueBgImage.sprite = levelRogueBgSprites[levelrog - 1];
-            }
-            if (levelrog - 1 < levelRogueWepSprites.Count)
-            {
-                levelRogueWepImage.sprite = levelRogueWepSprites[levelrog - 1];
-            }
+            levelRogueUnitImage.sprite = levelRogueUnitSprites[levelrog - 1];
+            levelRogueBgImage.sprite = levelRogueBgSprites[levelrog - 1];
+            levelRogueWepImage.sprite = levelRogueWepSprites[levelrog - 1];
         }
     }
 }

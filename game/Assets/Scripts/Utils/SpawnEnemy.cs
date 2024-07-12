@@ -12,6 +12,7 @@ public class EnemySpawn
 
 public class SpawnEnemy : MonoBehaviour
 {
+    [SerializeField] private bool loopWaves = false;   // Флаг для зацикливания волн
     [SerializeField] private EnemySpawn[] enemyWaves;
     [SerializeField] private Transform[] spawnPositions;
 
@@ -33,34 +34,39 @@ public class SpawnEnemy : MonoBehaviour
 
     IEnumerator SpawnWaves()
     {
-        foreach (EnemySpawn wave in enemyWaves)
+        do
         {
-            canSpawn = true;
-
-            foreach (GameObject enemyPrefab in wave.enemyBase)
+            foreach (EnemySpawn wave in enemyWaves)
             {
-                if (canSpawn)
+                canSpawn = true;
+
+                foreach (GameObject enemyPrefab in wave.enemyBase)
                 {
-                    int randomIndex = Random.Range(0, spawnPositions.Length);
-                    Transform selectedSpawnPoint = spawnPositions[randomIndex];
-
-                    GameObject enemyObject = Instantiate(enemyPrefab, selectedSpawnPoint.position, Quaternion.identity);
-
-                    EnemyBase enemyBase = enemyObject.GetComponent<EnemyBase>();
-                    if (enemyBase != null)
+                    if (canSpawn)
                     {
-                        enemyBase.level = wave.level;
-                        enemyBase.ApplyLevelAdjustments();
+                        int randomIndex = Random.Range(0, spawnPositions.Length);
+                        Transform selectedSpawnPoint = spawnPositions[randomIndex];
+
+                        GameObject enemyObject = Instantiate(enemyPrefab, selectedSpawnPoint.position, Quaternion.identity);
+
+                        EnemyBase enemyBase = enemyObject.GetComponent<EnemyBase>();
+                        if (enemyBase != null)
+                        {
+                            enemyBase.level = wave.level;
+                            enemyBase.ApplyLevelAdjustments();
+                        }
+
+                        yield return new WaitForSeconds(wave.betweenEnemiesDelay);
                     }
-
-                    yield return new WaitForSeconds(wave.betweenEnemiesDelay);
                 }
+
+                canSpawn = false;
+
+                yield return new WaitForSeconds(wave.spawnDelay);
             }
+        } while (loopWaves); // Повторяем волны, если установлен флаг зацикливания
 
-            canSpawn = false;
 
-            yield return new WaitForSeconds(wave.spawnDelay);
-        }
     }
 
     bool EnemyCastleIsAlive()
