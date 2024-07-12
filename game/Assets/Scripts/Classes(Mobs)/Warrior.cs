@@ -24,20 +24,48 @@ public class Warrior : EnemyBase
         switch (level)
         {
             case 1:
-                HP = 200;
-                damage = 50;
+                HP = 45;
+                damage = 8;
                 break;
             case 2:
-                HP = 400;
-                damage = 90;
+                HP = 50;
+                damage = 8;
                 break;
             case 3:
-                HP = 600;
-                damage = 149;
+                HP = 55;
+                damage = 9;
+                break;
+            case 4:
+                HP = 62;
+                damage = 10;
+                break;
+            case 5:
+                HP = 70;
+                damage = 12;
+                break;
+            case 6:
+                HP = 78;
+                damage = 13;
+                break;
+            case 7:
+                HP = 86;
+                damage = 14;
+                break;
+            case 8:
+                HP = 94;
+                damage = 16;
+                break;
+            case 9:
+                HP = 102;
+                damage = 17;
+                break;
+            case 10:
+                HP = 110;
+                damage = 18;
                 break;
             default:
-                HP = 200;
-                damage = 50;
+                HP = 45;
+                damage = 8;
                 break;
         }
         speed = 2f;

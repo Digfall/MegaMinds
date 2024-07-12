@@ -115,9 +115,16 @@ public class UpgradeTank : MonoBehaviour
     {
         playerTank.upgradeLevels = new List<UpgradeTanks>
         {
-            new UpgradeTanks { levelTank = 1, hpTank = 800, damageTank = 75, costTank = 0, damageUpTextTank = 45, hpUpTextTank = 500 },
-            new UpgradeTanks { levelTank = 2, hpTank = 1300, damageTank = 120, costTank = 450, damageUpTextTank = 50, hpUpTextTank = 700 },
-            new UpgradeTanks { levelTank = 3, hpTank = 2000, damageTank = 170, costTank = 700, damageUpTextTank = 0, hpUpTextTank = 0 }
+            new UpgradeLevel { levelwar = 1, hpwar = 84, damagewar = 8, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 2, hpwar = 90, damagewar = 9, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 3, hpwar = 96, damagewar = 10, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 4, hpwar = 104, damagewar = 10, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 5, hpwar = 112, damagewar = 11, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 6, hpwar = 122, damagewar = 12, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 7, hpwar = 132, damagewar = 13, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 8, hpwar = 142, damagewar = 14, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 9, hpwar = 152, damagewar = 15, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 10, hpwar = 162, damagewar = 16, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 }
         };
     }
 

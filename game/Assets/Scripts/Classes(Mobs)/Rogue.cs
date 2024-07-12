@@ -23,21 +23,50 @@ public class Rogue : EnemyBase
     {
         switch (level)
         {
+            // характеристики танка!!!!
             case 1:
-                HP = 50;
-                damage = 50;
+                HP = 84;
+                damage = 8;
                 break;
             case 2:
-                HP = 120;
-                damage = 100;
+                HP = 90;
+                damage = 9;
                 break;
             case 3:
-                HP = 200;
-                damage = 200;
+                HP = 96;
+                damage = 10;
+                break;
+            case 4:
+                HP = 104;
+                damage = 10;
+                break;
+            case 5:
+                HP = 70;
+                damage = 11;
+                break;
+            case 6:
+                HP = 112;
+                damage = 12;
+                break;
+            case 7:
+                HP = 132;
+                damage = 13;
+                break;
+            case 8:
+                HP = 142;
+                damage = 14;
+                break;
+            case 9:
+                HP = 152;
+                damage = 15;
+                break;
+            case 10:
+                HP = 162;
+                damage = 16;
                 break;
             default:
-                HP = 50;
-                damage = 50;
+                HP = 84;
+                damage = 8;
                 break;
         }
         speed = 2.5f;

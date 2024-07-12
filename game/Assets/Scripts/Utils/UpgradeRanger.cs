@@ -115,9 +115,16 @@ public class UpgradeRanger : MonoBehaviour
     {
         playerRanger.upgradeLevels = new List<UpgradeRangers>
         {
-            new UpgradeRangers { levelran = 1, hpran = 150, damageran = 50, costran = 0, damageUpTextran = 50, hpUpTextran = 150 },
-            new UpgradeRangers { levelran = 2, hpran = 300, damageran = 100, costran = 100, damageUpTextran = 50, hpUpTextran = 150 },
-            new UpgradeRangers { levelran = 3, hpran = 450, damageran = 150, costran = 500, damageUpTextran = 0, hpUpTextran = 0 }
+            new UpgradeLevel { levelwar = 1, hpwar = 24, damagewar = 12, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 2, hpwar = 27, damagewar = 14, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 3, hpwar = 30, damagewar = 15, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 4, hpwar = 33, damagewar = 17, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 5, hpwar = 36, damagewar = 18, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 6, hpwar = 39, damagewar = 19, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 7, hpwar = 42, damagewar = 20, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 8, hpwar = 45, damagewar = 21, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 9, hpwar = 48, damagewar = 23, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 },
+            new UpgradeLevel { levelwar = 10, hpwar = 51, damagewar = 24, costwar = 0, damageUpTextwar = 000, hpUpTextwar = 000 }
         };
     }
 
