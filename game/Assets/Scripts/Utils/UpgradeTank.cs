@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UpgradeTank : MonoBehaviour
 {
     [SerializeField] private PlayerTank playerTank;
+    [SerializeField] private UpgradeSoundManager soundManager;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -18,6 +19,8 @@ public class UpgradeTank : MonoBehaviour
     [SerializeField] private Image levelImageButton;
     [SerializeField] private List<Sprite> levelSprites;
     [SerializeField] private List<Sprite> levelSpritesButton;
+    [SerializeField] private List<Sprite> bodySprites;
+    [SerializeField] private List<Sprite> wepSprites;
 
     private int currentLevelTank = 1;
 
@@ -54,6 +57,7 @@ public class UpgradeTank : MonoBehaviour
                 GameManager.TotalScience -= upgradeCost;
                 currentLevelTank++;
                 UpgradePlayer(currentLevelTank);
+                soundManager.PlayUpgradeSuccessSound();
                 FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateTankStatsText();
                 UpdatePriceForUpgrade(currentLevelTank);
@@ -67,6 +71,10 @@ public class UpgradeTank : MonoBehaviour
 
                 PlayerPrefs.SetFloat(UpgradeSliderTankValuePrefKey, upgradeSlidertank.value);
                 PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevelTank);
+            }
+            else
+            {
+                soundManager.PlayUpgradeFailSound();
             }
 
         }
@@ -115,9 +123,39 @@ public class UpgradeTank : MonoBehaviour
     {
         playerTank.upgradeLevels = new List<UpgradeTanks>
         {
-            new UpgradeTanks { levelTank = 1, hpTank = 800, damageTank = 75, costTank = 0, damageUpTextTank = 45, hpUpTextTank = 500 },
-            new UpgradeTanks { levelTank = 2, hpTank = 1300, damageTank = 120, costTank = 450, damageUpTextTank = 50, hpUpTextTank = 700 },
-            new UpgradeTanks { levelTank = 3, hpTank = 2000, damageTank = 170, costTank = 700, damageUpTextTank = 0, hpUpTextTank = 0 }
+            new UpgradeTanks
+            {
+                levelTank = 1,
+                hpTank = 800,
+                damageTank = 75,
+                costTank = 0,
+                damageUpTextTank = 45,
+                hpUpTextTank = 500,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 2,
+                hpTank = 1300,
+                damageTank = 120,
+                costTank = 450,
+                damageUpTextTank = 50,
+                hpUpTextTank = 700,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 3,
+                hpTank = 2000,
+                damageTank = 170,
+                costTank = 700,
+                damageUpTextTank = 0,
+                hpUpTextTank = 0,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+            }
         };
     }
 

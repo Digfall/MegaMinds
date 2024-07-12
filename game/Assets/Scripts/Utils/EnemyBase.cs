@@ -32,6 +32,7 @@ public abstract class EnemyBase : MonoBehaviour
     protected bool isDead = false;
     protected Rigidbody2D rb;
     protected NavMeshAgent agent;
+    [SerializeField] private UnitSounds unitSounds;
 
     protected virtual void Start()
     {
@@ -87,6 +88,7 @@ public abstract class EnemyBase : MonoBehaviour
 
             if (attackTarget.CompareTag("Player") || attackTarget.CompareTag("Castle"))
             {
+                unitSounds.PlayAttackSound();
                 attackTarget.GetComponent<PlayerBase>()?.TakeDamage(damage);
                 attackTarget.GetComponent<Castle>()?.TakeDamage(damage);
                 nextDamageTime = Time.time + damageRate;
@@ -172,6 +174,7 @@ public abstract class EnemyBase : MonoBehaviour
             isDead = true;
             healthBar.SetHealth(HP);
             OnDeath();
+            unitSounds.PlayDeathSound();
         }
         else
         {

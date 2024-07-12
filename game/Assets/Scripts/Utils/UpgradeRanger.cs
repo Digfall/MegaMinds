@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UpgradeRanger : MonoBehaviour
 {
     [SerializeField] private PlayerRanger playerRanger;
+    [SerializeField] private UpgradeSoundManager soundManager;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -18,6 +19,8 @@ public class UpgradeRanger : MonoBehaviour
     [SerializeField] private Image levelImageButton;
     [SerializeField] private List<Sprite> levelSprites;
     [SerializeField] private List<Sprite> levelSpritesButton;
+    [SerializeField] private List<Sprite> bodySprites;
+    [SerializeField] private List<Sprite> wepSprites;
 
     private int currentLevelRanger = 1;
 
@@ -54,6 +57,7 @@ public class UpgradeRanger : MonoBehaviour
                 GameManager.TotalScience -= upgradeCost;
                 currentLevelRanger++;
                 UpgradePlayer(currentLevelRanger);
+                soundManager.PlayUpgradeSuccessSound();
                 FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateRangerStatsText();
                 UpdatePriceForUpgrade(currentLevelRanger);
@@ -67,6 +71,10 @@ public class UpgradeRanger : MonoBehaviour
 
                 PlayerPrefs.SetFloat(UpgradeSliderRangerValuePrefKey, upgradeRangerSlider.value);
                 PlayerPrefs.SetInt(CurrentLevelRngPrefKey, currentLevelRanger);
+            }
+            else
+            {
+                soundManager.PlayUpgradeFailSound();
             }
 
         }
@@ -115,9 +123,39 @@ public class UpgradeRanger : MonoBehaviour
     {
         playerRanger.upgradeLevels = new List<UpgradeRangers>
         {
-            new UpgradeRangers { levelran = 1, hpran = 150, damageran = 50, costran = 0, damageUpTextran = 50, hpUpTextran = 150 },
-            new UpgradeRangers { levelran = 2, hpran = 300, damageran = 100, costran = 100, damageUpTextran = 50, hpUpTextran = 150 },
-            new UpgradeRangers { levelran = 3, hpran = 450, damageran = 150, costran = 500, damageUpTextran = 0, hpUpTextran = 0 }
+            new UpgradeRangers
+            {
+                levelran = 1,
+                hpran = 150,
+                damageran = 50,
+                costran = 0,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+                },
+            new UpgradeRangers
+            {
+                levelran = 2,
+                hpran = 300,
+                damageran = 100,
+                costran = 100,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+                },
+            new UpgradeRangers
+            {
+                levelran = 3,
+                hpran = 450,
+                damageran = 150,
+                costran = 500,
+                damageUpTextran = 0,
+                hpUpTextran = 0,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+            }
         };
     }
 

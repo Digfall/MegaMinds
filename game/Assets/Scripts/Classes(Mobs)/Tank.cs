@@ -6,9 +6,20 @@ using UnityEngine;
 public class Tank : EnemyBase
 {
     [SerializeField] private TextMeshProUGUI tankLvlText;
+    [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private SpriteRenderer weaponRenderer;
+
+    [SerializeField] private Sprite bodySpriteLvl1;
+    [SerializeField] private Sprite bodySpriteLvl2;
+    [SerializeField] private Sprite bodySpriteLvl3;
+
+    [SerializeField] private Sprite weaponSpriteLvl1;
+    [SerializeField] private Sprite weaponSpriteLvl2;
+    [SerializeField] private Sprite weaponSpriteLvl3;
     protected override void Start()
     {
         UpdateText();
+        ApplyLevelAdjustments();
         base.Start();
     }
     private void UpdateText()
@@ -25,18 +36,26 @@ public class Tank : EnemyBase
             case 1:
                 HP = 400;
                 damage = 20;
+                bodyRenderer.sprite = bodySpriteLvl1;
+                weaponRenderer.sprite = weaponSpriteLvl1;
                 break;
             case 2:
                 HP = 1300;
                 damage = 100;
+                bodyRenderer.sprite = bodySpriteLvl2;
+                weaponRenderer.sprite = weaponSpriteLvl2;
                 break;
             case 3:
                 HP = 2000;
                 damage = 150;
+                bodyRenderer.sprite = bodySpriteLvl3;
+                weaponRenderer.sprite = weaponSpriteLvl3;
                 break;
             default:
                 HP = 400;
                 damage = 20;
+                bodyRenderer.sprite = bodySpriteLvl1;
+                weaponRenderer.sprite = weaponSpriteLvl1;
                 break;
         }
         speed = 1.2f;

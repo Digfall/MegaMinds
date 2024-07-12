@@ -13,6 +13,8 @@ public class UpgradeRangers
     public int costran;
     public int damageUpTextran;
     public int hpUpTextran;
+    public Sprite bodySprite;
+    public Sprite wepSprite;
 }
 
 public class PlayerRanger : PlayerBase
@@ -26,12 +28,15 @@ public class PlayerRanger : PlayerBase
     public Animator anim;
 
     public List<UpgradeRangers> upgradeLevels = new List<UpgradeRangers>();
+    [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private SpriteRenderer wepRenderer;
 
     protected override void Start()
     {
         CurrentLevelRng = PlayerPrefs.GetInt("CurrentLevelRng", CurrentLevelRng);
         UpdateText();
         UpdatePlayerStats();
+        UpdateSprites();
         base.Start();
     }
 
@@ -59,7 +64,15 @@ public class PlayerRanger : PlayerBase
         PlayerPrefs.SetInt(RangerDamagePrefKey, damage);
         PlayerPrefs.Save();
     }
-
+    private void UpdateSprites()
+    {
+        UpgradeRangers currentLevel = upgradeLevels.Find(level => level.levelran == CurrentLevelRng);
+        if (currentLevel != null)
+        {
+            bodyRenderer.sprite = currentLevel.bodySprite;
+            wepRenderer.sprite = currentLevel.wepSprite;
+        }
+    }
     public void UpdatePlayerStats()
     {
         HP = PlayerPrefs.GetInt(RangerHPPrefKey, HP);

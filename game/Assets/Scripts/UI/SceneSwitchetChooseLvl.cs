@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class SceneSwitcherChooseLevel : MonoBehaviour
     {
         targetSceneName = sceneName;
     }
+
 
     public void SwitchScene()
     {

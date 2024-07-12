@@ -27,10 +27,10 @@ public class ScienceManager : MonoBehaviour
         scienceCountEnemyEndLose.text = scienceCount.ToString();
     }
 
-    public void UpdateScienceCountCastle(int level)
+    public void UpdateScienceCountCastle(int levelREWARD)
     {
         int reward = 0;
-        switch (level)
+        switch (levelREWARD)
         {
             case 1:
                 reward = 350;

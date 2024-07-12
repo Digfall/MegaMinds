@@ -22,7 +22,7 @@ namespace InstantGamesBridge.Modules.RemoteConfig
 #endif
             }
         }
-        
+
 #if !UNITY_EDITOR
         [DllImport("__Internal")]
         private static extern string InstantGamesBridgeIsRemoteConfigSupported();
@@ -32,7 +32,7 @@ namespace InstantGamesBridge.Modules.RemoteConfig
 #endif
         private Action<bool, List<RemoteConfigValue>> _getCallback;
 
-        
+
         public void Get(Action<bool, List<RemoteConfigValue>> onComplete)
         {
             _getCallback = onComplete;
@@ -61,17 +61,17 @@ namespace InstantGamesBridge.Modules.RemoteConfig
             List<RemoteConfigValue> values;
 
             Debug.Log(result);
-            
+
             try
             {
                 var container = JsonUtility.FromJson<ValuesContainer>(result.SurroundWithKey("values").FixBooleans().SurroundWithBraces());
                 values = container.values;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 values = new List<RemoteConfigValue>();
             }
-            
+
             _getCallback?.Invoke(true, values);
         }
 
@@ -79,7 +79,7 @@ namespace InstantGamesBridge.Modules.RemoteConfig
         {
             _getCallback?.Invoke(false, null);
         }
-        
+
         // Unity's JsonUtility does only support objects as top level nodes
         [Serializable]
         private class ValuesContainer

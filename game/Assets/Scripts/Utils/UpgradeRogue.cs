@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UpgradeRogue : MonoBehaviour
 {
     [SerializeField] private PlayerRogue playerRogue;
+    [SerializeField] private UpgradeSoundManager soundManager;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -18,6 +19,8 @@ public class UpgradeRogue : MonoBehaviour
     [SerializeField] private Image levelImageButton;
     [SerializeField] private List<Sprite> levelSprites;
     [SerializeField] private List<Sprite> levelSpritesButton;
+    [SerializeField] private List<Sprite> bodySprites;
+    [SerializeField] private List<Sprite> wepSprites;
 
     private int currentLevelRogue = 1;
 
@@ -54,6 +57,7 @@ public class UpgradeRogue : MonoBehaviour
                 GameManager.TotalScience -= upgradeCost;
                 currentLevelRogue++;
                 UpgradePlayer(currentLevelRogue);
+                soundManager.PlayUpgradeSuccessSound();
                 FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateRogueStatsText();
                 UpdatePriceForUpgrade(currentLevelRogue);
@@ -67,6 +71,10 @@ public class UpgradeRogue : MonoBehaviour
 
                 PlayerPrefs.SetFloat(UpgradeSliderRogueValuePrefKey, upgradeRogueSlider.value);
                 PlayerPrefs.SetInt(CurrentLevelRogPrefKey, currentLevelRogue);
+            }
+            else
+            {
+                soundManager.PlayUpgradeFailSound();
             }
 
         }
@@ -115,9 +123,39 @@ public class UpgradeRogue : MonoBehaviour
     {
         playerRogue.upgradeLevels = new List<UpgradeRogues>
         {
-            new UpgradeRogues { levelrog = 1, hprog = 150, damagerog = 150, costrog = 0, damageUpTextrog = 50, hpUpTextrog = 50 },
-            new UpgradeRogues { levelrog = 2, hprog = 200, damagerog = 200, costrog = 300, damageUpTextrog = 100, hpUpTextrog = 100 },
-            new UpgradeRogues { levelrog = 3, hprog = 300, damagerog = 500, costrog = 450, damageUpTextrog = 0, hpUpTextrog = 0 }
+            new UpgradeRogues
+            {
+                levelrog = 1,
+                hprog = 150,
+                damagerog = 150,
+                costrog = 0,
+                damageUpTextrog = 50,
+                hpUpTextrog = 50,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 2,
+                hprog = 200,
+                damagerog = 200,
+                costrog = 300,
+                damageUpTextrog = 100,
+                hpUpTextrog = 100,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 3,
+                hprog = 300,
+                damagerog = 500,
+                costrog = 450,
+                damageUpTextrog = 0,
+                hpUpTextrog = 0,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+            }
         };
     }
 

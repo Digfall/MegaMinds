@@ -8,7 +8,7 @@ public class EnemyCastle : MonoBehaviour
     private LevelManager levelManager;
     [SerializeField] private int levelNumber; // Номер этого уровня
 
-    [SerializeField] private int level; // Уровень награды
+    [SerializeField] private int levelREWARD; // Уровень награды
     [SerializeField] private bool rewardRepeatable = false; // Повторная выдача награды
 
     void Start()
@@ -36,7 +36,7 @@ public class EnemyCastle : MonoBehaviour
     {
         if (!levelManager.IsLevelCompleted(levelNumber) || rewardRepeatable)
         {
-            FindObjectOfType<ScienceManager>().UpdateScienceCountCastle(level);
+            FindObjectOfType<ScienceManager>().UpdateScienceCountCastle(levelREWARD);
             levelManager.CompleteLevel(levelNumber);
         }
         else

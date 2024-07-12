@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UpgradeWarrior : MonoBehaviour
 {
     [SerializeField] private PlayerWarrior playerWarrior;
+    [SerializeField] private UpgradeSoundManager soundManager;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -19,7 +20,11 @@ public class UpgradeWarrior : MonoBehaviour
     [SerializeField] private List<Sprite> levelSprites;
     [SerializeField] private List<Sprite> levelSpritesButton;
 
+    [SerializeField] private List<Sprite> bodySprites; // Добавляем поле для спрайтов тела
+    [SerializeField] private List<Sprite> batSprites;  // Добавляем поле для спрайтов дубины
+
     [SerializeField] private int currentLevelWar = 1;
+
 
     private const string CurrentLevelWarPrefKey = "CurrentLevelWar"; // Ключ для сохранения/загрузки текущего уровня
     private const string UpgradeSliderWarValuePrefKey = "UpgradeSliderWarValue"; // Ключ для сохранения значения слайдера
@@ -56,6 +61,7 @@ public class UpgradeWarrior : MonoBehaviour
                     GameManager.TotalScience -= upgradeCost;
                     currentLevelWar++;
                     UpgradePlayer(currentLevelWar);
+                    soundManager.PlayUpgradeSuccessSound();
                     FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                     UpdateWarriorStatsText();
                     UpdatePriceForUpgrade(currentLevelWar);
@@ -69,6 +75,10 @@ public class UpgradeWarrior : MonoBehaviour
 
                     PlayerPrefs.SetFloat(UpgradeSliderWarValuePrefKey, upgradeSlider.value);
                     PlayerPrefs.SetInt(CurrentLevelWarPrefKey, currentLevelWar);
+                }
+                else
+                {
+                    soundManager.PlayUpgradeFailSound();
                 }
 
             }
@@ -117,12 +127,43 @@ public class UpgradeWarrior : MonoBehaviour
     private void DefineUpgradeLevels()
     {
         playerWarrior.upgradeLevels = new List<UpgradeLevel>
+    {
+        new UpgradeLevel
         {
-            new UpgradeLevel { levelwar = 1, hpwar = 200, damagewar = 50, costwar = 0, damageUpTextwar = 50, hpUpTextwar = 200 },
-            new UpgradeLevel { levelwar = 2, hpwar = 400, damagewar = 100, costwar = 100, damageUpTextwar = 65, hpUpTextwar = 200 },
-            new UpgradeLevel { levelwar = 3, hpwar = 600, damagewar = 165, costwar = 500, damageUpTextwar = 0, hpUpTextwar = 0 }
-        };
+            levelwar = 1,
+            hpwar = 200,
+            damagewar = 50,
+            costwar = 0,
+            damageUpTextwar = 50,
+            hpUpTextwar = 200,
+            bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
+            batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
+        },
+        new UpgradeLevel
+        {
+            levelwar = 2,
+            hpwar = 400,
+            damagewar = 100,
+            costwar = 100,
+            damageUpTextwar = 65,
+            hpUpTextwar = 200,
+            bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
+            batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
+        },
+        new UpgradeLevel
+        {
+            levelwar = 3,
+            hpwar = 600,
+            damagewar = 165,
+            costwar = 500,
+            damageUpTextwar = 0,
+            hpUpTextwar = 0,
+            bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
+            batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
+        }
+    };
     }
+
 
     private void UpgradePlayer(int levelwar)
     {

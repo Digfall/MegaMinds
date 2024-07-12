@@ -13,6 +13,8 @@ public class UpgradeRogues
     public int costrog;
     public int damageUpTextrog;
     public int hpUpTextrog;
+    public Sprite bodySprite;
+    public Sprite wepSprite;
 }
 
 public class PlayerRogue : PlayerBase
@@ -24,12 +26,15 @@ public class PlayerRogue : PlayerBase
     public Animator anim;
 
     public List<UpgradeRogues> upgradeLevels = new List<UpgradeRogues>();
+    [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private SpriteRenderer wepRenderer;
 
     protected override void Start()
     {
         CurrentLevelRog = PlayerPrefs.GetInt("CurrentLevelRog", CurrentLevelRog);
         UpdateText();
         UpdatePlayerStats();
+        UpdateSprites();
         base.Start();
     }
 
@@ -52,7 +57,15 @@ public class PlayerRogue : PlayerBase
         PlayerPrefs.SetInt(RogueDamagePrefKey, damage);
         PlayerPrefs.Save();
     }
-
+    private void UpdateSprites()
+    {
+        UpgradeRogues currentLevel = upgradeLevels.Find(level => level.levelrog == CurrentLevelRog);
+        if (currentLevel != null)
+        {
+            bodyRenderer.sprite = currentLevel.bodySprite;
+            wepRenderer.sprite = currentLevel.wepSprite;
+        }
+    }
     public void UpdatePlayerStats()
     {
         HP = PlayerPrefs.GetInt(RogueHPPrefKey, HP);

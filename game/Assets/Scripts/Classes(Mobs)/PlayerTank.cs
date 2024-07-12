@@ -13,6 +13,8 @@ public class UpgradeTanks
     public int costTank;
     public int damageUpTextTank;
     public int hpUpTextTank;
+    public Sprite bodySprite;
+    public Sprite wepSprite;
 }
 
 public class PlayerTank : PlayerBase
@@ -24,12 +26,15 @@ public class PlayerTank : PlayerBase
     public Animator anim;
 
     public List<UpgradeTanks> upgradeLevels = new List<UpgradeTanks>();
+    [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private SpriteRenderer wepRenderer;
 
     protected override void Start()
     {
         CurrentLevelTank = PlayerPrefs.GetInt("CurrentLevelTank", CurrentLevelTank);
         UpdateText();
         UpdatePlayerStats();
+        UpdateSprites();
         base.Start();
     }
 
@@ -50,7 +55,15 @@ public class PlayerTank : PlayerBase
         PlayerPrefs.SetInt(TankDamagePrefKey, damage);
         PlayerPrefs.Save();
     }
-
+    private void UpdateSprites()
+    {
+        UpgradeTanks currentLevel = upgradeLevels.Find(level => level.levelTank == CurrentLevelTank);
+        if (currentLevel != null)
+        {
+            bodyRenderer.sprite = currentLevel.bodySprite;
+            wepRenderer.sprite = currentLevel.wepSprite;
+        }
+    }
     public void UpdatePlayerStats()
     {
         HP = PlayerPrefs.GetInt(TankHPPrefKey, HP);

@@ -8,9 +8,20 @@ public class Ranger : EnemyBase
     [SerializeField] private TextMeshProUGUI rangerLvlText;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform projectileSpawnPoint;
+    [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private SpriteRenderer weaponRenderer;
+
+    [SerializeField] private Sprite bodySpriteLvl1;
+    [SerializeField] private Sprite bodySpriteLvl2;
+    [SerializeField] private Sprite bodySpriteLvl3;
+
+    [SerializeField] private Sprite weaponSpriteLvl1;
+    [SerializeField] private Sprite weaponSpriteLvl2;
+    [SerializeField] private Sprite weaponSpriteLvl3;
     protected override void Start()
     {
         UpdateText();
+        ApplyLevelAdjustments();
         base.Start();
     }
     private void UpdateText()
@@ -28,18 +39,26 @@ public class Ranger : EnemyBase
             case 1:
                 HP = 150;
                 damage = 35;
+                bodyRenderer.sprite = bodySpriteLvl1;
+                weaponRenderer.sprite = weaponSpriteLvl1;
                 break;
             case 2:
                 HP = 300;
                 damage = 70;
+                bodyRenderer.sprite = bodySpriteLvl2;
+                weaponRenderer.sprite = weaponSpriteLvl2;
                 break;
             case 3:
                 HP = 450;
                 damage = 100;
+                bodyRenderer.sprite = bodySpriteLvl3;
+                weaponRenderer.sprite = weaponSpriteLvl3;
                 break;
             default:
                 HP = 150;
                 damage = 35;
+                bodyRenderer.sprite = bodySpriteLvl1;
+                weaponRenderer.sprite = weaponSpriteLvl1;
                 break;
         }
         speed = 2f;

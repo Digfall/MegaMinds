@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\UI\SceneSwitcher.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\GetScorePlatformDependedOptions.cs" />
     <Compile Include="Assets\Scripts\Utils\LevelManager.cs" />
+    <Compile Include="Assets\Scripts\Sounds\UpgradeSoundManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\GameManager.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Social\SocialModule.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Assets\Scripts\Classes(Mobs)\PlayerRanger.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Common\Singleton.cs" />
     <Compile Include="Assets\Examples\Scripts\PlatformPanel.cs" />
+    <Compile Include="Assets\Scripts\UI\ParallaxBehaviour.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Payments\PaymentsCatalogItemData.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
     <Compile Include="Assets\Scripts\Classes(Mobs)\Tank.cs" />
     <Compile Include="Assets\Scripts\UI\LevelSelection.cs" />
+    <Compile Include="Assets\Scripts\Sounds\SoundVolumeController.cs" />
     <Compile Include="Assets\Examples\Scripts\AdvertisementPanel.cs" />
     <Compile Include="Assets\Scripts\Utils\ClassUnlocker.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\RemoteConfig\RemoteConfigGetPlatformDependedOptions.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\LeaderboardModule.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\AdvertisementModule.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
+    <Compile Include="Assets\Scripts\Sounds\MusicManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_FrameRateCounter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TeleType.cs" />
@@ -138,6 +142,7 @@
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\RemoteConfig\RemoteConfigGetYandexOptions.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\Scripts\Utils\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Sounds\UnitSounds.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Social\CreatePostVkOptions.cs" />
     <Compile Include="Assets\Examples\Scripts\LeaderboardPanel.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\ShowBannerPlatformDependedOptions.cs" />
@@ -147,6 +152,7 @@
     <Compile Include="Assets\Scripts\Utils\CoinManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\RewardedState.cs" />
+    <Compile Include="Assets\Scripts\Sounds\ButtonSoundPlayer.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Device\DeviceModule.cs" />
     <Compile Include="Assets\Scripts\UI\CameraController2D.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\LeaderboardEntry.cs" />
@@ -185,6 +191,7 @@
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Storage\StorageModule.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\ShowNativePopupPlatformDependedOptions.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Social\CreatePostPlatformDependedOptions.cs" />
+    <Compile Include="Assets\Scripts\Sounds\AudioManager.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\InterstitialState.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Player\PlayerModule.cs" />
     <Compile Include="Assets\Scripts\Utils\SpawnPlayer.cs" />

@@ -13,6 +13,8 @@ public class UpgradeLevel
     public int costwar;
     public int damageUpTextwar;
     public int hpUpTextwar;
+    public Sprite bodySprite;
+    public Sprite batSprite;
 }
 
 public class PlayerWarrior : PlayerBase
@@ -24,12 +26,15 @@ public class PlayerWarrior : PlayerBase
     public Animator anim;
 
     public List<UpgradeLevel> upgradeLevels = new List<UpgradeLevel>();
+    [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private SpriteRenderer batRenderer;
 
     protected override void Start()
     {
         CurrentLevelWar = PlayerPrefs.GetInt("CurrentLevelWar", CurrentLevelWar);
         UpdateText();
         UpdatePlayerStats();
+        UpdateSprites();
         base.Start();
     }
 
@@ -52,7 +57,15 @@ public class PlayerWarrior : PlayerBase
         PlayerPrefs.SetInt(WarriorDamagePrefKey, damage);
         PlayerPrefs.Save();
     }
-
+    private void UpdateSprites()
+    {
+        UpgradeLevel currentLevel = upgradeLevels.Find(level => level.levelwar == CurrentLevelWar);
+        if (currentLevel != null)
+        {
+            bodyRenderer.sprite = currentLevel.bodySprite;
+            batRenderer.sprite = currentLevel.batSprite;
+        }
+    }
     public void UpdatePlayerStats()
     {
         HP = PlayerPrefs.GetInt(WarriorHPPrefKey, HP);

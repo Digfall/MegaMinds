@@ -35,4 +35,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         gamePaused = false;
     }
+    private void OnEnable()
+    {
+        AudioManager.Instance?.UpdateAllSFXAudioSources();
+    }
 }
