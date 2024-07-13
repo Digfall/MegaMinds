@@ -581,9 +581,72 @@ MonoBehaviour:
     costTank: 0
     damageUpTextTank: 0
     hpUpTextTank: 0
+    bodySprite: {fileID: -2081781427, guid: 917858007aa944240853079c02df7606, type: 3}
+    wepSprite: {fileID: -898487866, guid: 917858007aa944240853079c02df7606, type: 3}
+  - levelTank: 3
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+    bodySprite: {fileID: -2081781427, guid: 917858007aa944240853079c02df7606, type: 3}
+    wepSprite: {fileID: -898487866, guid: 917858007aa944240853079c02df7606, type: 3}
+  - levelTank: 4
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+    bodySprite: {fileID: -2081781427, guid: 917858007aa944240853079c02df7606, type: 3}
+    wepSprite: {fileID: -898487866, guid: 917858007aa944240853079c02df7606, type: 3}
+  - levelTank: 5
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
     bodySprite: {fileID: 201762710, guid: 917858007aa944240853079c02df7606, type: 3}
     wepSprite: {fileID: -2039320127, guid: 917858007aa944240853079c02df7606, type: 3}
-  - levelTank: 3
+  - levelTank: 6
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+    bodySprite: {fileID: 201762710, guid: 917858007aa944240853079c02df7606, type: 3}
+    wepSprite: {fileID: -2039320127, guid: 917858007aa944240853079c02df7606, type: 3}
+  - levelTank: 7
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+    bodySprite: {fileID: 201762710, guid: 917858007aa944240853079c02df7606, type: 3}
+    wepSprite: {fileID: -2039320127, guid: 917858007aa944240853079c02df7606, type: 3}
+  - levelTank: 8
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+    bodySprite: {fileID: 135665564, guid: 917858007aa944240853079c02df7606, type: 3}
+    wepSprite: {fileID: 749411004, guid: 917858007aa944240853079c02df7606, type: 3}
+  - levelTank: 9
+    hpTank: 0
+    damageTank: 0
+    speed: 0
+    costTank: 0
+    damageUpTextTank: 0
+    hpUpTextTank: 0
+    bodySprite: {fileID: 135665564, guid: 917858007aa944240853079c02df7606, type: 3}
+    wepSprite: {fileID: 749411004, guid: 917858007aa944240853079c02df7606, type: 3}
+  - levelTank: 10
     hpTank: 0
     damageTank: 0
     speed: 0

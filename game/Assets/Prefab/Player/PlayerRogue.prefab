@@ -576,7 +576,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3506097913677785157}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 961a316a2930bf04c8e8f23eb3ccde38, type: 2}
   m_CullingMode: 0
@@ -634,8 +634,8 @@ MonoBehaviour:
     costrog: 300
     damageUpTextrog: 100
     hpUpTextrog: 100
-    bodySprite: {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-    wepSprite: {fileID: 15466070, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    bodySprite: {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   - levelrog: 3
     hprog: 300
     damagerog: 500
@@ -643,8 +643,71 @@ MonoBehaviour:
     costrog: 400
     damageUpTextrog: 0
     hpUpTextrog: 0
-    bodySprite: {fileID: 352455660, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-    wepSprite: {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    bodySprite: {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+  - levelrog: 4
+    hprog: 300
+    damagerog: 500
+    speed: 0
+    costrog: 400
+    damageUpTextrog: 0
+    hpUpTextrog: 0
+    bodySprite: {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+  - levelrog: 5
+    hprog: 300
+    damagerog: 500
+    speed: 0
+    costrog: 400
+    damageUpTextrog: 0
+    hpUpTextrog: 0
+    bodySprite: {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: 15466070, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+  - levelrog: 6
+    hprog: 300
+    damagerog: 500
+    speed: 0
+    costrog: 400
+    damageUpTextrog: 0
+    hpUpTextrog: 0
+    bodySprite: {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: 15466070, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+  - levelrog: 7
+    hprog: 300
+    damagerog: 500
+    speed: 0
+    costrog: 400
+    damageUpTextrog: 0
+    hpUpTextrog: 0
+    bodySprite: {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: 15466070, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+  - levelrog: 8
+    hprog: 300
+    damagerog: 500
+    speed: 0
+    costrog: 400
+    damageUpTextrog: 0
+    hpUpTextrog: 0
+    bodySprite: {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: 352455660, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+  - levelrog: 9
+    hprog: 300
+    damagerog: 500
+    speed: 0
+    costrog: 400
+    damageUpTextrog: 0
+    hpUpTextrog: 0
+    bodySprite: {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: 352455660, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+  - levelrog: 10
+    hprog: 300
+    damagerog: 500
+    speed: 0
+    costrog: 400
+    damageUpTextrog: 0
+    hpUpTextrog: 0
+    bodySprite: {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
+    wepSprite: {fileID: 352455660, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   bodyRenderer: {fileID: 6193599667023092984}
   wepRenderer: {fileID: 2731349444321637542}
 --- !u!195 &2630744706594389900

@@ -198,53 +198,74 @@ public class ClassUnlocker : MonoBehaviour
 
     public void UpgradeImagesWar(int levelwar)
     {
-        if (levelwar > 0 && levelwar <= playerWarrior.upgradeLevels.Count)
+        int spriteIndex = GetSpriteIndex(levelwar);
+        if (spriteIndex != -1 && spriteIndex < levelWarUnitSprites.Count)
         {
-            levelWarUnitImage.sprite = levelWarUnitSprites[levelwar - 1];
-            levelWarBgImage.sprite = levelWarBgSprites[levelwar - 1];
-            levelWarWepImage.sprite = levelWarWepSprites[levelwar - 1];
-            levelWarUnitImageUPGRUI.sprite = levelWarUnitSpritesUPGRUI[levelwar - 1];
-            levelWarBgImageUPGRUI.sprite = levelWarBgSpritesUPGRUI[levelwar - 1];
-            levelWarWepImageUPGRUI.sprite = levelWarWepSpritesUPGRUI[levelwar - 1];
+            levelWarUnitImage.sprite = levelWarUnitSprites[spriteIndex];
+            levelWarBgImage.sprite = levelWarBgSprites[spriteIndex];
+            levelWarWepImage.sprite = levelWarWepSprites[spriteIndex];
+            levelWarUnitImageUPGRUI.sprite = levelWarUnitSpritesUPGRUI[spriteIndex];
+            levelWarBgImageUPGRUI.sprite = levelWarBgSpritesUPGRUI[spriteIndex];
+            levelWarWepImageUPGRUI.sprite = levelWarWepSpritesUPGRUI[spriteIndex];
         }
     }
 
     public void UpgradeImagesTank(int levelTank)
     {
-        if (levelTank > 0 && levelTank <= playerTank.upgradeLevels.Count)
+        int spriteIndex = GetSpriteIndex(levelTank);
+        if (spriteIndex != -1 && spriteIndex < levelTankUnitSprites.Count)
         {
-            levelTankUnitImage.sprite = levelTankUnitSprites[levelTank - 1];
-            levelTankBgImage.sprite = levelTankBgSprites[levelTank - 1];
-            levelTankWepImage.sprite = levelTankWepSprites[levelTank - 1];
-            levelTankUnitImageUPGRUI.sprite = levelTankUnitSpritesUPGRUI[levelTank - 1];
-            levelTankBgImageUPGRUI.sprite = levelTankBgSpritesUPGRUI[levelTank - 1];
-            levelTankWepImageUPGRUI.sprite = levelTankWepSpritesUPGRUI[levelTank - 1];
+            levelTankUnitImage.sprite = levelTankUnitSprites[spriteIndex];
+            levelTankBgImage.sprite = levelTankBgSprites[spriteIndex];
+            levelTankWepImage.sprite = levelTankWepSprites[spriteIndex];
+            levelTankUnitImageUPGRUI.sprite = levelTankUnitSpritesUPGRUI[spriteIndex];
+            levelTankBgImageUPGRUI.sprite = levelTankBgSpritesUPGRUI[spriteIndex];
+            levelTankWepImageUPGRUI.sprite = levelTankWepSpritesUPGRUI[spriteIndex];
         }
     }
 
     public void UpgradeImagesRanger(int levelran)
     {
-        if (levelran > 0 && levelran <= playerRanger.upgradeLevels.Count)
+        int spriteIndex = GetSpriteIndex(levelran);
+        if (spriteIndex != -1 && spriteIndex < levelRangerUnitSprites.Count)
         {
-            levelRangerUnitImage.sprite = levelRangerUnitSprites[levelran - 1];
-            levelRangerBgImage.sprite = levelRangerBgSprites[levelran - 1];
-            levelRangerWepImage.sprite = levelRangerWepSprites[levelran - 1];
-            levelRangerUnitImageUPGRUI.sprite = levelRangerUnitSpritesUPGRUI[levelran - 1];
-            levelRangerBgImageUPGRUI.sprite = levelRangerBgSpritesUPGRUI[levelran - 1];
-            levelRangerWepImageUPGRUI.sprite = levelRangerWepSpritesUPGRUI[levelran - 1];
+            levelRangerUnitImage.sprite = levelRangerUnitSprites[spriteIndex];
+            levelRangerBgImage.sprite = levelRangerBgSprites[spriteIndex];
+            levelRangerWepImage.sprite = levelRangerWepSprites[spriteIndex];
+            levelRangerUnitImageUPGRUI.sprite = levelRangerUnitSpritesUPGRUI[spriteIndex];
+            levelRangerBgImageUPGRUI.sprite = levelRangerBgSpritesUPGRUI[spriteIndex];
+            levelRangerWepImageUPGRUI.sprite = levelRangerWepSpritesUPGRUI[spriteIndex];
         }
     }
 
     public void UpgradeImagesRogue(int levelrog)
     {
-        if (levelrog > 0 && levelrog <= playerRogue.upgradeLevels.Count)
+        int spriteIndex = GetSpriteIndex(levelrog);
+        if (spriteIndex != -1 && spriteIndex < levelRogueUnitSprites.Count)
         {
-            levelRogueUnitImage.sprite = levelRogueUnitSprites[levelrog - 1];
-            levelRogueBgImage.sprite = levelRogueBgSprites[levelrog - 1];
-            levelRogueWepImage.sprite = levelRogueWepSprites[levelrog - 1];
-            levelRogueUnitImageUPGRUI.sprite = levelRogueUnitSpritesUPGRUI[levelrog - 1];
-            levelRogueBgImageUPGRUI.sprite = levelRogueBgSpritesUPGRUI[levelrog - 1];
-            levelRogueWepImageUPGRUI.sprite = levelRogueWepSpritesUPGRUI[levelrog - 1];
+            levelRogueUnitImage.sprite = levelRogueUnitSprites[spriteIndex];
+            levelRogueBgImage.sprite = levelRogueBgSprites[spriteIndex];
+            levelRogueWepImage.sprite = levelRogueWepSprites[spriteIndex];
+            levelRogueUnitImageUPGRUI.sprite = levelRogueUnitSpritesUPGRUI[spriteIndex];
+            levelRogueBgImageUPGRUI.sprite = levelRogueBgSpritesUPGRUI[spriteIndex];
+            levelRogueWepImageUPGRUI.sprite = levelRogueWepSpritesUPGRUI[spriteIndex];
         }
+    }
+
+    private int GetSpriteIndex(int level)
+    {
+        if (level >= 1 && level <= 4)
+        {
+            return 0;
+        }
+        else if (level >= 5 && level <= 7)
+        {
+            return 1;
+        }
+        else if (level >= 8 && level <= 10)
+        {
+            return 2;
+        }
+        return -1; // Неправильный уровень
     }
 }

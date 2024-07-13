@@ -2792,18 +2792,15 @@ MonoBehaviour:
   rogueBGImage: {fileID: 360480754}
   rogueBGSprites:
   - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   rogueWEPImage: {fileID: 117951753}
   rogueWEPSprites:
   - {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   - {fileID: 15466070, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   - {fileID: 352455660, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   rogueBODYImage: {fileID: 463708391}
   rogueBODYSprites:
-  - {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   - {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   - {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   - {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
@@ -3105,6 +3102,7 @@ GameObject:
   - component: {fileID: 397093556}
   - component: {fileID: 397093555}
   - component: {fileID: 397093560}
+  - component: {fileID: 397093561}
   m_Layer: 5
   m_Name: Button (EarlyLose)
   m_TagString: Untagged
@@ -3225,6 +3223,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1771625541}
+        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &397093558
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3277,6 +3287,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickSound: {fileID: 8300000, guid: c9b75c166419c2d46918c3ea4eb47969, type: 3}
   hoverSound: {fileID: 0}
+--- !u!82 &397093561
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 397093553}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &417535531
 GameObject:
   m_ObjectHideFlags: 0
@@ -3563,7 +3669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.80200005}
   m_AnchorMax: {x: 0.29669127, y: 1}
-  m_AnchoredPosition: {x: -7.399994, y: -4.3999634}
+  m_AnchoredPosition: {x: -5.9000015, y: -4.3999634}
   m_SizeDelta: {x: 15.580002, y: -2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &436837506
@@ -6644,7 +6750,6 @@ MonoBehaviour:
   rangerBGImage: {fileID: 894686743}
   rangerBGSprites:
   - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   rangerWEPImage: {fileID: 1498253498}
@@ -6652,10 +6757,8 @@ MonoBehaviour:
   - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   rangerBODYImage: {fileID: 739648118}
   rangerBODYSprites:
-  - {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   - {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   - {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   - {fileID: 1019117588, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
@@ -10344,6 +10447,7 @@ GameObject:
   - component: {fileID: 1525691998}
   - component: {fileID: 1525691997}
   - component: {fileID: 1525692001}
+  - component: {fileID: 1525692002}
   m_Layer: 5
   m_Name: Button (Apply) (1)
   m_TagString: Untagged
@@ -10452,6 +10556,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1771625541}
+        m_TargetAssemblyTypeName: ButtonSoundPlayer, Assembly-CSharp
+        m_MethodName: PlayClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1525691999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10504,6 +10620,102 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickSound: {fileID: 8300000, guid: c9b75c166419c2d46918c3ea4eb47969, type: 3}
   hoverSound: {fileID: 0}
+--- !u!82 &1525692002
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525691995}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1529668757
 GameObject:
   m_ObjectHideFlags: 0
@@ -11115,18 +11327,15 @@ MonoBehaviour:
   warriorBGImage: {fileID: 1594759385}
   warriorBGSprites:
   - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   warriorWEPImage: {fileID: 319896835}
   warriorWEPSprites:
   - {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   - {fileID: 1298739020, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   - {fileID: -1470877987, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   warriorBODYImage: {fileID: 957052115}
   warriorBODYSprites:
-  - {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   - {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   - {fileID: 210339436, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   - {fileID: -1931369641, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
@@ -14177,18 +14386,15 @@ MonoBehaviour:
   tankBGImage: {fileID: 2017826174}
   tankBGSprites:
   - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
   tankWEPImage: {fileID: 822179389}
   tankWEPSprites:
   - {fileID: -898487866, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: -898487866, guid: 917858007aa944240853079c02df7606, type: 3}
   - {fileID: -2039320127, guid: 917858007aa944240853079c02df7606, type: 3}
   - {fileID: 749411004, guid: 917858007aa944240853079c02df7606, type: 3}
   tankBODYImage: {fileID: 126406118}
   tankBODYSprites:
-  - {fileID: -2081781427, guid: 917858007aa944240853079c02df7606, type: 3}
   - {fileID: -2081781427, guid: 917858007aa944240853079c02df7606, type: 3}
   - {fileID: 201762710, guid: 917858007aa944240853079c02df7606, type: 3}
   - {fileID: 135665564, guid: 917858007aa944240853079c02df7606, type: 3}

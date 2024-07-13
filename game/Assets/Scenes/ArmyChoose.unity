@@ -7221,16 +7221,14 @@ MonoBehaviour:
   damageUpTextwar: {fileID: 1463208123}
   hpUpTextwar: {fileID: 1177645800}
   upgradeSlider: {fileID: 1407544866}
-  levelImage: {fileID: 1090671856}
-  levelImageButton: {fileID: 1274076417}
   bodySprites:
-  - {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: 1298739020, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: -1470877987, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  batSprites:
   - {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   - {fileID: 210339436, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   - {fileID: -1931369641, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  batSprites:
+  - {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - {fileID: 1298739020, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - {fileID: -1470877987, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   currentLevelWar: 1
 --- !u!114 &826852970
 MonoBehaviour:

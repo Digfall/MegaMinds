@@ -16,6 +16,7 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private Image rogueBODYImage;
     [SerializeField] private Sprite[] rogueBODYSprites;
     [SerializeField] private int CurrentLevelRog = 1;
+
     [Header("Настройки Танка")]
     [SerializeField] private GameObject tankPrefab;
     [SerializeField] private int tankCost = 5;
@@ -28,6 +29,7 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private Image tankBODYImage;
     [SerializeField] private Sprite[] tankBODYSprites;
     [SerializeField] private int CurrentLevelTank = 1;
+
     [Header("Настройки Воина")]
     [SerializeField] private GameObject warriorPrefab;
     [SerializeField] private int warriorCost = 4;
@@ -40,6 +42,7 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private Image warriorBODYImage;
     [SerializeField] private Sprite[] warriorBODYSprites;
     [SerializeField] private int CurrentLevelWar = 1;
+
     [Header("Настройки Ренжа")]
     [SerializeField] private GameObject rangerPrefab;
     [SerializeField] private int rangerCost = 4;
@@ -53,9 +56,7 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private Sprite[] rangerBODYSprites;
     [SerializeField] private int CurrentLevelRng = 1;
 
-
     [SerializeField] private Transform[] spawnPositions;
-
     [SerializeField] private CoinManager coinManager;
     [SerializeField] private TextMeshProUGUI coinCountText;
 
@@ -106,30 +107,38 @@ public class SpawnPlayer : MonoBehaviour
 
     private void UpdateUnitImages()
     {
-        if (rogueBGImage != null && rogueBGSprites.Length > CurrentLevelRog)
+        UpdateCharacterImages(CurrentLevelRog, rogueBGImage, rogueBGSprites, rogueWEPImage, rogueWEPSprites, rogueBODYImage, rogueBODYSprites);
+        UpdateCharacterImages(CurrentLevelTank, tankBGImage, tankBGSprites, tankWEPImage, tankWEPSprites, tankBODYImage, tankBODYSprites);
+        UpdateCharacterImages(CurrentLevelWar, warriorBGImage, warriorBGSprites, warriorWEPImage, warriorWEPSprites, warriorBODYImage, warriorBODYSprites);
+        UpdateCharacterImages(CurrentLevelRng, rangerBGImage, rangerBGSprites, rangerWEPImage, rangerWEPSprites, rangerBODYImage, rangerBODYSprites);
+    }
+
+    private void UpdateCharacterImages(int currentLevel, Image bgImage, Sprite[] bgSprites, Image wepImage, Sprite[] wepSprites, Image bodyImage, Sprite[] bodySprites)
+    {
+        int spriteIndex = GetSpriteIndex(currentLevel);
+        if (spriteIndex != -1 && spriteIndex < bgSprites.Length)
         {
-            rogueBGImage.sprite = rogueBGSprites[CurrentLevelRog];
-            rogueWEPImage.sprite = rogueWEPSprites[CurrentLevelRog];
-            rogueBODYImage.sprite = rogueBODYSprites[CurrentLevelRog];
+            bgImage.sprite = bgSprites[spriteIndex];
+            wepImage.sprite = wepSprites[spriteIndex];
+            bodyImage.sprite = bodySprites[spriteIndex];
         }
-        if (tankBGImage != null && tankBGSprites.Length > CurrentLevelTank)
+    }
+
+    private int GetSpriteIndex(int level)
+    {
+        if (level >= 1 && level <= 4)
         {
-            tankBGImage.sprite = tankBGSprites[CurrentLevelTank];
-            tankWEPImage.sprite = tankWEPSprites[CurrentLevelTank];
-            tankBODYImage.sprite = tankBODYSprites[CurrentLevelTank];
+            return 0;
         }
-        if (warriorBGImage != null && warriorBGSprites.Length > CurrentLevelWar)
+        else if (level >= 5 && level <= 7)
         {
-            warriorBGImage.sprite = warriorBGSprites[CurrentLevelWar];
-            warriorWEPImage.sprite = warriorWEPSprites[CurrentLevelWar];
-            warriorBODYImage.sprite = warriorBODYSprites[CurrentLevelWar];
+            return 1;
         }
-        if (rangerBGImage != null && rangerBGSprites.Length > CurrentLevelRng)
+        else if (level >= 8 && level <= 10)
         {
-            rangerBGImage.sprite = rangerBGSprites[CurrentLevelRng];
-            rangerWEPImage.sprite = rangerWEPSprites[CurrentLevelRng];
-            rangerBODYImage.sprite = rangerBODYSprites[CurrentLevelRng];
+            return 2;
         }
+        return -1; // Неправильный уровень
     }
 
     public void SpawnUnit(GameObject unitPrefab, int cost)

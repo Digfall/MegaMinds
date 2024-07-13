@@ -383,8 +383,71 @@ MonoBehaviour:
     costwar: 500
     damageUpTextwar: 65
     hpUpTextwar: 250
+    bodySprite: {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+    batSprite: {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - levelwar: 3
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
+    bodySprite: {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+    batSprite: {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - levelwar: 4
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
+    bodySprite: {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+    batSprite: {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - levelwar: 5
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
     bodySprite: {fileID: 210339436, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
     batSprite: {fileID: 1298739020, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - levelwar: 6
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
+    bodySprite: {fileID: 210339436, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+    batSprite: {fileID: 1298739020, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - levelwar: 7
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
+    bodySprite: {fileID: 210339436, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+    batSprite: {fileID: 1298739020, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - levelwar: 8
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
+    bodySprite: {fileID: -1931369641, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+    batSprite: {fileID: -1470877987, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - levelwar: 9
+    hpwar: 750
+    damagewar: 165
+    speed: 0
+    costwar: 750
+    damageUpTextwar: 105
+    hpUpTextwar: 105
+    bodySprite: {fileID: -1931369641, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+    batSprite: {fileID: -1470877987, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   - levelwar: 3
     hpwar: 750
     damagewar: 165

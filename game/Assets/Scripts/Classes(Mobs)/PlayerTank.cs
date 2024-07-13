@@ -95,7 +95,7 @@ public class PlayerTank : PlayerBase
         base.TakeDamage(damageTank);
         if (HP <= 0 && isDead)
         {
-            anim.SetBool("Death", true);
+            // anim.SetBool("Death", true);
             StartCoroutine(DestroyAfterDeath());
         }
     }
@@ -150,14 +150,14 @@ public class PlayerTank : PlayerBase
 
             if (attackTarget != null)
             {
-                anim.SetBool("Attack", true);
+                // anim.SetBool("Attack", true);
                 isAttacking = true;
                 isFighting = true;
                 OnAttack();
             }
             else
             {
-                anim.SetBool("Attack", false);
+                // anim.SetBool("Attack", false);
                 isAttacking = false;
                 isFighting = false;
             }
