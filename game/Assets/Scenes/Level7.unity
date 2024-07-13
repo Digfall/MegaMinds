@@ -1890,64 +1890,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e3a30ce68b9d244aac5b244a64798f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loopWaves: 0
+  loopWaves: 1
   enemyWaves:
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
+    - {fileID: 8957537787719140412, guid: 9cca4f36c10ddbc44a5bd79d7a935bbb, type: 3}
     spawnDelay: 12
     betweenEnemiesDelay: 0
-    level: 1
-  - enemyBase:
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    spawnDelay: 24
-    betweenEnemiesDelay: 0
-    level: 1
-  - enemyBase:
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    spawnDelay: 6
-    betweenEnemiesDelay: 1
-    level: 1
-  - enemyBase:
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    spawnDelay: 5
-    betweenEnemiesDelay: 0
-    level: 1
+    level: 3
   - enemyBase:
     - {fileID: 8957537787719140412, guid: b653a21af9cbf7a43b924334e58b4330, type: 3}
-    - {fileID: 8957537787719140412, guid: b653a21af9cbf7a43b924334e58b4330, type: 3}
-    spawnDelay: 18
+    spawnDelay: 10
     betweenEnemiesDelay: 0
-    level: 1
+    level: 4
   - enemyBase:
     - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    spawnDelay: 5
+    spawnDelay: 16
     betweenEnemiesDelay: 0
-    level: 1
+    level: 5
   - enemyBase:
-    - {fileID: 8957537787719140412, guid: b653a21af9cbf7a43b924334e58b4330, type: 3}
-    - {fileID: 8957537787719140412, guid: b653a21af9cbf7a43b924334e58b4330, type: 3}
-    spawnDelay: 60
-    betweenEnemiesDelay: 0
-    level: 1
-  - enemyBase:
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    - {fileID: 8957537787719140412, guid: a9a983780947f41428c6f85b8f02f19d, type: 3}
-    spawnDelay: 0
+    - {fileID: 8957537787719140412, guid: e2ebe2a0717f3dc42b934f8e0ce839c4, type: 3}
+    spawnDelay: 13
     betweenEnemiesDelay: 0
     level: 1
   spawnPositions:
@@ -9108,7 +9070,7 @@ MonoBehaviour:
   tankBODYSprites: []
   CurrentLevelTank: 0
   warriorPrefab: {fileID: 3506097913677785157, guid: 9ccba9740112a124db7bdfa3cdcd8d3a, type: 3}
-  warriorCost: 4
+  warriorCost: 3
   warriorCostText: {fileID: 1628220669}
   warriorLvlText: {fileID: 2018078975}
   warriorBGImage: {fileID: 1510519709}

@@ -847,8 +847,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a327758ad096242a432eb17637cabb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 200
-  damage: 50
+  HP: 45
+  damage: 8
   speed: 2
   damageRate: 1
   radius: 1.4
@@ -860,7 +860,16 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
   level: 0
+  unitSounds: {fileID: 0}
   warriorLvlText: {fileID: 2657904250942299005}
+  bodyRenderer: {fileID: 0}
+  weaponRenderer: {fileID: 0}
+  bodySpriteLvl1: {fileID: 0}
+  bodySpriteLvl2: {fileID: 0}
+  bodySpriteLvl3: {fileID: 0}
+  weaponSpriteLvl1: {fileID: 0}
+  weaponSpriteLvl2: {fileID: 0}
+  weaponSpriteLvl3: {fileID: 0}
 --- !u!50 &4121635748126923234
 Rigidbody2D:
   serializedVersion: 4

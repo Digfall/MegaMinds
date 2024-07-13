@@ -128,39 +128,149 @@ public class UpgradeWarrior : MonoBehaviour
     {
         playerWarrior.upgradeLevels = new List<UpgradeLevel>
     {
-        new UpgradeLevel
-        {
-            levelwar = 1,
-            hpwar = 200,
-            damagewar = 50,
-            costwar = 0,
-            damageUpTextwar = 50,
-            hpUpTextwar = 200,
+        new UpgradeLevel 
+        { 
+            levelwar = 1, 
+            hpwar = 45, 
+            damagewar = 8, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
+            batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1           
+        },
+        new UpgradeLevel 
+        { 
+            levelwar = 2, 
+            hpwar = 50, 
+            damagewar = 8, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
             bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
             batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
         },
-        new UpgradeLevel
-        {
-            levelwar = 2,
-            hpwar = 400,
-            damagewar = 100,
-            costwar = 100,
-            damageUpTextwar = 65,
-            hpUpTextwar = 200,
+        new UpgradeLevel 
+        { 
+            levelwar = 3, 
+            hpwar = 55, 
+            damagewar = 9, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
+            batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
+        },
+        new UpgradeLevel 
+        { 
+            levelwar = 4, 
+            hpwar = 62, 
+            damagewar = 10, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
+            batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
+        },
+        new UpgradeLevel 
+        { 
+            levelwar = 5, 
+            hpwar = 70, 
+            damagewar = 12, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
             bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
             batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
         },
-        new UpgradeLevel
-        {
-            levelwar = 3,
-            hpwar = 600,
-            damagewar = 165,
-            costwar = 500,
-            damageUpTextwar = 0,
-            hpUpTextwar = 0,
+        new UpgradeLevel 
+        { 
+            levelwar = 6, 
+            hpwar = 78, 
+            damagewar = 13, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
+            batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
+        },
+        new UpgradeLevel 
+        { 
+            levelwar = 7, 
+            hpwar = 86, 
+            damagewar = 14, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
+            batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
+        },
+        new UpgradeLevel 
+        { 
+            levelwar = 8, 
+            hpwar = 94, 
+            damagewar = 16, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
+            batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
+        },
+        new UpgradeLevel 
+        { 
+            levelwar = 9, 
+            hpwar = 102, 
+            damagewar = 17, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
+            batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
+        },
+        new UpgradeLevel 
+        { 
+            levelwar = 10, 
+            hpwar = 110, 
+            damagewar = 18, 
+            costwar = 0, 
+            damageUpTextwar = 000, 
+            hpUpTextwar = 000,
             bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
             batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
         }
+        // new UpgradeLevel
+        // {
+        //     levelwar = 1,
+        //     hpwar = 200,
+        //     damagewar = 50,
+        //     costwar = 0,
+        //     damageUpTextwar = 50,
+        //     hpUpTextwar = 200,
+        //     bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
+        //     batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
+        // },
+        // new UpgradeLevel
+        // {
+        //     levelwar = 2,
+        //     hpwar = 400,
+        //     damagewar = 100,
+        //     costwar = 100,
+        //     damageUpTextwar = 65,
+        //     hpUpTextwar = 200,
+        //     bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
+        //     batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
+        // },
+        // new UpgradeLevel
+        // {
+        //     levelwar = 3,
+        //     hpwar = 600,
+        //     damagewar = 165,
+        //     costwar = 500,
+        //     damageUpTextwar = 0,
+        //     hpUpTextwar = 0,
+        //     bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
+        //     batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
+        // }
     };
     }
 

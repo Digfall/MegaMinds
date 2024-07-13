@@ -700,8 +700,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac8f78a2c89178f408959f44085a376c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 150
-  damage: 35
+  HP: 24
+  damage: 12
   speed: 2
   damageRate: 1
   radius: 2.13
@@ -713,9 +713,18 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
   level: 0
+  unitSounds: {fileID: 0}
   rangerLvlText: {fileID: 1610425876453108046}
   projectilePrefab: {fileID: 550702248292563470, guid: c0f8f4c70d863c1408935323dad27cfe, type: 3}
   projectileSpawnPoint: {fileID: 2474012708636347550}
+  bodyRenderer: {fileID: 0}
+  weaponRenderer: {fileID: 0}
+  bodySpriteLvl1: {fileID: 0}
+  bodySpriteLvl2: {fileID: 0}
+  bodySpriteLvl3: {fileID: 0}
+  weaponSpriteLvl1: {fileID: 0}
+  weaponSpriteLvl2: {fileID: 0}
+  weaponSpriteLvl3: {fileID: 0}
 --- !u!1 &9026848329510381380
 GameObject:
   m_ObjectHideFlags: 0
