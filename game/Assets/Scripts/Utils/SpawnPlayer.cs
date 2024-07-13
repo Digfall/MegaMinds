@@ -9,32 +9,48 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private int rogueCost = 2;
     [SerializeField] private TextMeshProUGUI rogueCostText;
     [SerializeField] private TextMeshProUGUI rogueLvlText;
-    [SerializeField] private Image rogueImage;
-    [SerializeField] private Sprite[] rogueSprites;
+    [SerializeField] private Image rogueBGImage;
+    [SerializeField] private Sprite[] rogueBGSprites;
+    [SerializeField] private Image rogueWEPImage;
+    [SerializeField] private Sprite[] rogueWEPSprites;
+    [SerializeField] private Image rogueBODYImage;
+    [SerializeField] private Sprite[] rogueBODYSprites;
     [SerializeField] private int CurrentLevelRog = 1;
     [Header("Настройки Танка")]
     [SerializeField] private GameObject tankPrefab;
     [SerializeField] private int tankCost = 5;
     [SerializeField] private TextMeshProUGUI tankCostText;
     [SerializeField] private TextMeshProUGUI tankLvlText;
-    [SerializeField] private Image tankImage;
-    [SerializeField] private Sprite[] tankSprites;
+    [SerializeField] private Image tankBGImage;
+    [SerializeField] private Sprite[] tankBGSprites;
+    [SerializeField] private Image tankWEPImage;
+    [SerializeField] private Sprite[] tankWEPSprites;
+    [SerializeField] private Image tankBODYImage;
+    [SerializeField] private Sprite[] tankBODYSprites;
     [SerializeField] private int CurrentLevelTank = 1;
     [Header("Настройки Воина")]
     [SerializeField] private GameObject warriorPrefab;
     [SerializeField] private int warriorCost = 4;
     [SerializeField] private TextMeshProUGUI warriorCostText;
     [SerializeField] private TextMeshProUGUI warriorLvlText;
-    [SerializeField] private Image warriorImage;
-    [SerializeField] private Sprite[] warriorSprites;
+    [SerializeField] private Image warriorBGImage;
+    [SerializeField] private Sprite[] warriorBGSprites;
+    [SerializeField] private Image warriorWEPImage;
+    [SerializeField] private Sprite[] warriorWEPSprites;
+    [SerializeField] private Image warriorBODYImage;
+    [SerializeField] private Sprite[] warriorBODYSprites;
     [SerializeField] private int CurrentLevelWar = 1;
     [Header("Настройки Ренжа")]
     [SerializeField] private GameObject rangerPrefab;
     [SerializeField] private int rangerCost = 4;
     [SerializeField] private TextMeshProUGUI rangerCostText;
     [SerializeField] private TextMeshProUGUI rangerLvlText;
-    [SerializeField] private Image rangerImage;
-    [SerializeField] private Sprite[] rangerSprites;
+    [SerializeField] private Image rangerBGImage;
+    [SerializeField] private Sprite[] rangerBGSprites;
+    [SerializeField] private Image rangerWEPImage;
+    [SerializeField] private Sprite[] rangerWEPSprites;
+    [SerializeField] private Image rangerBODYImage;
+    [SerializeField] private Sprite[] rangerBODYSprites;
     [SerializeField] private int CurrentLevelRng = 1;
 
 
@@ -90,21 +106,29 @@ public class SpawnPlayer : MonoBehaviour
 
     private void UpdateUnitImages()
     {
-        if (rogueImage != null && rogueSprites.Length > CurrentLevelRog)
+        if (rogueBGImage != null && rogueBGSprites.Length > CurrentLevelRog)
         {
-            rogueImage.sprite = rogueSprites[CurrentLevelRog];
+            rogueBGImage.sprite = rogueBGSprites[CurrentLevelRog];
+            rogueWEPImage.sprite = rogueWEPSprites[CurrentLevelRog];
+            rogueBODYImage.sprite = rogueBODYSprites[CurrentLevelRog];
         }
-        if (tankImage != null && tankSprites.Length > CurrentLevelTank)
+        if (tankBGImage != null && tankBGSprites.Length > CurrentLevelTank)
         {
-            tankImage.sprite = tankSprites[CurrentLevelTank];
+            tankBGImage.sprite = tankBGSprites[CurrentLevelTank];
+            tankWEPImage.sprite = tankWEPSprites[CurrentLevelTank];
+            tankBODYImage.sprite = tankBODYSprites[CurrentLevelTank];
         }
-        if (warriorImage != null && warriorSprites.Length > CurrentLevelWar)
+        if (warriorBGImage != null && warriorBGSprites.Length > CurrentLevelWar)
         {
-            warriorImage.sprite = warriorSprites[CurrentLevelWar];
+            warriorBGImage.sprite = warriorBGSprites[CurrentLevelWar];
+            warriorWEPImage.sprite = warriorWEPSprites[CurrentLevelWar];
+            warriorBODYImage.sprite = warriorBODYSprites[CurrentLevelWar];
         }
-        if (rangerImage != null && rangerSprites.Length > CurrentLevelRng)
+        if (rangerBGImage != null && rangerBGSprites.Length > CurrentLevelRng)
         {
-            rangerImage.sprite = rangerSprites[CurrentLevelRng];
+            rangerBGImage.sprite = rangerBGSprites[CurrentLevelRng];
+            rangerWEPImage.sprite = rangerWEPSprites[CurrentLevelRng];
+            rangerBODYImage.sprite = rangerBODYSprites[CurrentLevelRng];
         }
     }
 

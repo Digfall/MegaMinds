@@ -7,6 +7,7 @@ public class UpgradeWarrior : MonoBehaviour
 {
     [SerializeField] private PlayerWarrior playerWarrior;
     [SerializeField] private UpgradeSoundManager soundManager;
+    [SerializeField] private ClassUnlocker unlocker;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -17,8 +18,6 @@ public class UpgradeWarrior : MonoBehaviour
     [SerializeField] private Slider upgradeSlider;
     [SerializeField] private Image levelImage;
     [SerializeField] private Image levelImageButton;
-    [SerializeField] private List<Sprite> levelSprites;
-    [SerializeField] private List<Sprite> levelSpritesButton;
 
     [SerializeField] private List<Sprite> bodySprites; // Добавляем поле для спрайтов тела
     [SerializeField] private List<Sprite> batSprites;  // Добавляем поле для спрайтов дубины
@@ -64,14 +63,15 @@ public class UpgradeWarrior : MonoBehaviour
                     soundManager.PlayUpgradeSuccessSound();
                     FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                     UpdateWarriorStatsText();
+                    unlocker.UpgradeImagesWar(currentLevelWar);
                     UpdatePriceForUpgrade(currentLevelWar);
                     upgradeSlider.value = (float)(currentLevelWar - 1) / (float)(playerWarrior.upgradeLevels.Count - 1);
 
-                    if (currentLevelWar - 1 < levelSprites.Count)
-                    {
-                        levelImage.sprite = levelSprites[currentLevelWar - 1];
-                        levelImageButton.sprite = levelSpritesButton[currentLevelWar - 1];
-                    }
+                    // if (currentLevelWar - 1 < levelSprites.Count)
+                    // {
+                    //     levelImage.sprite = levelSprites[currentLevelWar - 1];
+                    //     levelImageButton.sprite = levelSpritesButton[currentLevelWar - 1];
+                    // }
 
                     PlayerPrefs.SetFloat(UpgradeSliderWarValuePrefKey, upgradeSlider.value);
                     PlayerPrefs.SetInt(CurrentLevelWarPrefKey, currentLevelWar);
@@ -172,11 +172,7 @@ public class UpgradeWarrior : MonoBehaviour
             playerWarrior.HP = playerWarrior.upgradeLevels[levelwar - 1].hpwar;
             playerWarrior.damage = playerWarrior.upgradeLevels[levelwar - 1].damagewar;
             playerWarrior.SavePlayerStats();
-            if (levelwar - 1 < levelSprites.Count)
-            {
-                levelImage.sprite = levelSprites[levelwar - 1];
-                levelImageButton.sprite = levelSpritesButton[levelwar - 1];
-            }
+
         }
     }
 }

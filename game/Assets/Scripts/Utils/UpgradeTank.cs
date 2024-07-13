@@ -7,6 +7,7 @@ public class UpgradeTank : MonoBehaviour
 {
     [SerializeField] private PlayerTank playerTank;
     [SerializeField] private UpgradeSoundManager soundManager;
+    [SerializeField] private ClassUnlocker unlocker;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -15,10 +16,7 @@ public class UpgradeTank : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageUpTextTank;
     [SerializeField] private TextMeshProUGUI hpUpTextTank;
     [SerializeField] private Slider upgradeSlidertank;
-    [SerializeField] private Image levelImage;
-    [SerializeField] private Image levelImageButton;
-    [SerializeField] private List<Sprite> levelSprites;
-    [SerializeField] private List<Sprite> levelSpritesButton;
+
     [SerializeField] private List<Sprite> bodySprites;
     [SerializeField] private List<Sprite> wepSprites;
 
@@ -60,14 +58,11 @@ public class UpgradeTank : MonoBehaviour
                 soundManager.PlayUpgradeSuccessSound();
                 FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateTankStatsText();
+                unlocker.UpgradeImagesTank(currentLevelTank);
                 UpdatePriceForUpgrade(currentLevelTank);
                 upgradeSlidertank.value = (float)(currentLevelTank - 1) / (float)(playerTank.upgradeLevels.Count - 1);
 
-                if (currentLevelTank - 1 < levelSprites.Count)
-                {
-                    levelImage.sprite = levelSprites[currentLevelTank - 1];
-                    levelImageButton.sprite = levelSpritesButton[currentLevelTank - 1];
-                }
+
 
                 PlayerPrefs.SetFloat(UpgradeSliderTankValuePrefKey, upgradeSlidertank.value);
                 PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevelTank);
@@ -166,11 +161,7 @@ public class UpgradeTank : MonoBehaviour
             playerTank.HP = playerTank.upgradeLevels[levelTank - 1].hpTank;
             playerTank.damage = playerTank.upgradeLevels[levelTank - 1].damageTank;
             playerTank.SavePlayerStats();
-            if (levelTank - 1 < levelSprites.Count)
-            {
-                levelImage.sprite = levelSprites[levelTank - 1];
-                levelImageButton.sprite = levelSpritesButton[levelTank - 1];
-            }
+
         }
     }
 }

@@ -7,6 +7,7 @@ public class UpgradeRogue : MonoBehaviour
 {
     [SerializeField] private PlayerRogue playerRogue;
     [SerializeField] private UpgradeSoundManager soundManager;
+    [SerializeField] private ClassUnlocker unlocker;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -15,10 +16,7 @@ public class UpgradeRogue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageUpTextrog;
     [SerializeField] private TextMeshProUGUI hpUpTextrog;
     [SerializeField] private Slider upgradeRogueSlider;
-    [SerializeField] private Image levelImage;
-    [SerializeField] private Image levelImageButton;
-    [SerializeField] private List<Sprite> levelSprites;
-    [SerializeField] private List<Sprite> levelSpritesButton;
+
     [SerializeField] private List<Sprite> bodySprites;
     [SerializeField] private List<Sprite> wepSprites;
 
@@ -60,14 +58,9 @@ public class UpgradeRogue : MonoBehaviour
                 soundManager.PlayUpgradeSuccessSound();
                 FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateRogueStatsText();
+                unlocker.UpgradeImagesRogue(currentLevelRogue);
                 UpdatePriceForUpgrade(currentLevelRogue);
                 upgradeRogueSlider.value = (float)(currentLevelRogue - 1) / (float)(playerRogue.upgradeLevels.Count - 1);
-
-                if (currentLevelRogue - 1 < levelSprites.Count)
-                {
-                    levelImage.sprite = levelSprites[currentLevelRogue - 1];
-                    levelImageButton.sprite = levelSpritesButton[currentLevelRogue - 1];
-                }
 
                 PlayerPrefs.SetFloat(UpgradeSliderRogueValuePrefKey, upgradeRogueSlider.value);
                 PlayerPrefs.SetInt(CurrentLevelRogPrefKey, currentLevelRogue);
@@ -166,11 +159,6 @@ public class UpgradeRogue : MonoBehaviour
             playerRogue.HP = playerRogue.upgradeLevels[levelrog - 1].hprog;
             playerRogue.damage = playerRogue.upgradeLevels[levelrog - 1].damagerog;
             playerRogue.SavePlayerStats();
-            if (levelrog - 1 < levelSprites.Count)
-            {
-                levelImage.sprite = levelSprites[levelrog - 1];
-                levelImageButton.sprite = levelSpritesButton[levelrog - 1];
-            }
         }
     }
 }

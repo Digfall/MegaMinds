@@ -7,6 +7,7 @@ public class UpgradeRanger : MonoBehaviour
 {
     [SerializeField] private PlayerRanger playerRanger;
     [SerializeField] private UpgradeSoundManager soundManager;
+    [SerializeField] private ClassUnlocker unlocker;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -15,10 +16,7 @@ public class UpgradeRanger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageUpTextran;
     [SerializeField] private TextMeshProUGUI hpUpTextran;
     [SerializeField] private Slider upgradeRangerSlider;
-    [SerializeField] private Image levelImage;
-    [SerializeField] private Image levelImageButton;
-    [SerializeField] private List<Sprite> levelSprites;
-    [SerializeField] private List<Sprite> levelSpritesButton;
+
     [SerializeField] private List<Sprite> bodySprites;
     [SerializeField] private List<Sprite> wepSprites;
 
@@ -60,14 +58,9 @@ public class UpgradeRanger : MonoBehaviour
                 soundManager.PlayUpgradeSuccessSound();
                 FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                 UpdateRangerStatsText();
+                unlocker.UpgradeImagesRanger(currentLevelRanger);
                 UpdatePriceForUpgrade(currentLevelRanger);
                 upgradeRangerSlider.value = (float)(currentLevelRanger - 1) / (float)(playerRanger.upgradeLevels.Count - 1);
-
-                if (currentLevelRanger - 1 < levelSprites.Count)
-                {
-                    levelImage.sprite = levelSprites[currentLevelRanger - 1];
-                    levelImageButton.sprite = levelSpritesButton[currentLevelRanger - 1];
-                }
 
                 PlayerPrefs.SetFloat(UpgradeSliderRangerValuePrefKey, upgradeRangerSlider.value);
                 PlayerPrefs.SetInt(CurrentLevelRngPrefKey, currentLevelRanger);
@@ -166,11 +159,6 @@ public class UpgradeRanger : MonoBehaviour
             playerRanger.HP = playerRanger.upgradeLevels[levelran - 1].hpran;
             playerRanger.damage = playerRanger.upgradeLevels[levelran - 1].damageran;
             playerRanger.SavePlayerStats();
-            if (levelran - 1 < levelSprites.Count)
-            {
-                levelImage.sprite = levelSprites[levelran - 1];
-                levelImageButton.sprite = levelSpritesButton[levelran - 1];
-            }
         }
     }
 }
