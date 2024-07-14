@@ -7,6 +7,7 @@ public class UpgradeTank : MonoBehaviour
 {
     [SerializeField] private PlayerTank playerTank;
     [SerializeField] private UpgradeSoundManager soundManager;
+    [SerializeField] private ClassUnlocker unlocker;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -15,10 +16,7 @@ public class UpgradeTank : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageUpTextTank;
     [SerializeField] private TextMeshProUGUI hpUpTextTank;
     [SerializeField] private Slider upgradeSlidertank;
-    [SerializeField] private Image levelImage;
-    [SerializeField] private Image levelImageButton;
-    [SerializeField] private List<Sprite> levelSprites;
-    [SerializeField] private List<Sprite> levelSpritesButton;
+
     [SerializeField] private List<Sprite> bodySprites;
     [SerializeField] private List<Sprite> wepSprites;
 
@@ -50,33 +48,32 @@ public class UpgradeTank : MonoBehaviour
     {
         if (currentLevelTank < playerTank.upgradeLevels.Count)
         {
-            int upgradeCost = playerTank.upgradeLevels[currentLevelTank].costTank;
-
-            if (GameManager.TotalScience >= upgradeCost)
+            if (currentLevelTank < 10)
             {
-                GameManager.TotalScience -= upgradeCost;
-                currentLevelTank++;
-                UpgradePlayer(currentLevelTank);
-                soundManager.PlayUpgradeSuccessSound();
-                FindObjectOfType<OtherScene>().UpdateTotalScienceText();
-                UpdateTankStatsText();
-                UpdatePriceForUpgrade(currentLevelTank);
-                upgradeSlidertank.value = (float)(currentLevelTank - 1) / (float)(playerTank.upgradeLevels.Count - 1);
+                int upgradeCost = playerTank.upgradeLevels[currentLevelTank].costTank;
 
-                if (currentLevelTank - 1 < levelSprites.Count)
+                if (GameManager.TotalScience >= upgradeCost)
                 {
-                    levelImage.sprite = levelSprites[currentLevelTank - 1];
-                    levelImageButton.sprite = levelSpritesButton[currentLevelTank - 1];
+                    GameManager.TotalScience -= upgradeCost;
+                    currentLevelTank++;
+                    UpgradePlayer(currentLevelTank);
+                    soundManager.PlayUpgradeSuccessSound();
+                    FindObjectOfType<OtherScene>().UpdateTotalScienceText();
+                    UpdateTankStatsText();
+                    unlocker.UpgradeImagesTank(currentLevelTank);
+                    UpdatePriceForUpgrade(currentLevelTank);
+                    upgradeSlidertank.value = (float)(currentLevelTank - 1) / (float)(playerTank.upgradeLevels.Count - 1);
+
+
+
+                    PlayerPrefs.SetFloat(UpgradeSliderTankValuePrefKey, upgradeSlidertank.value);
+                    PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevelTank);
                 }
-
-                PlayerPrefs.SetFloat(UpgradeSliderTankValuePrefKey, upgradeSlidertank.value);
-                PlayerPrefs.SetInt(CurrentLevelTankPrefKey, currentLevelTank);
+                else
+                {
+                    soundManager.PlayUpgradeFailSound();
+                }
             }
-            else
-            {
-                soundManager.PlayUpgradeFailSound();
-            }
-
         }
 
     }
@@ -106,7 +103,7 @@ public class UpgradeTank : MonoBehaviour
             hpText.text = playerTank.HP.ToString();
             damageText.text = playerTank.damage.ToString();
             levelText.text = currentLevelTank.ToString();
-            if (currentLevelTank < 3)
+            if (currentLevelTank < 10)
             {
                 damageUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevelTank - 1].damageUpTextTank.ToString();
                 hpUpTextTank.text = "+" + playerTank.upgradeLevels[currentLevelTank - 1].hpUpTextTank.ToString();
@@ -139,23 +136,101 @@ public class UpgradeTank : MonoBehaviour
                 levelTank = 2,
                 hpTank = 1300,
                 damageTank = 120,
-                costTank = 450,
+                costTank = 2,
                 damageUpTextTank = 50,
                 hpUpTextTank = 700,
-                bodySprite = bodySprites[1],
-                wepSprite = wepSprites[1]
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
             },
             new UpgradeTanks
             {
                 levelTank = 3,
                 hpTank = 2000,
                 damageTank = 170,
-                costTank = 700,
+                costTank = 3,
+                damageUpTextTank = 0,
+                hpUpTextTank = 0,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 4,
+                hpTank = 2500,
+                damageTank = 270,
+                costTank = 4,
+                damageUpTextTank = 0,
+                hpUpTextTank = 0,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 5,
+                hpTank = 25,
+                damageTank = 270,
+                costTank = 5,
+                damageUpTextTank = 0,
+                hpUpTextTank = 0,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 6,
+                hpTank = 2600,
+                damageTank = 270,
+                costTank = 6,
+                damageUpTextTank = 0,
+                hpUpTextTank = 0,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 7,
+                hpTank = 2700,
+                damageTank = 270,
+                costTank = 7,
+                damageUpTextTank = 0,
+                hpUpTextTank = 0,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 8,
+                hpTank = 2800,
+                damageTank = 270,
+                costTank = 8,
+                damageUpTextTank = 0,
+                hpUpTextTank = 0,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 9,
+                hpTank = 2900,
+                damageTank = 270,
+                costTank = 9,
+                damageUpTextTank = 0,
+                hpUpTextTank = 0,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+            },
+            new UpgradeTanks
+            {
+                levelTank = 10,
+                hpTank = 300,
+                damageTank = 270,
+                costTank = 10,
                 damageUpTextTank = 0,
                 hpUpTextTank = 0,
                 bodySprite = bodySprites[2],
                 wepSprite = wepSprites[2]
             }
+
         };
     }
 
@@ -166,11 +241,7 @@ public class UpgradeTank : MonoBehaviour
             playerTank.HP = playerTank.upgradeLevels[levelTank - 1].hpTank;
             playerTank.damage = playerTank.upgradeLevels[levelTank - 1].damageTank;
             playerTank.SavePlayerStats();
-            if (levelTank - 1 < levelSprites.Count)
-            {
-                levelImage.sprite = levelSprites[levelTank - 1];
-                levelImageButton.sprite = levelSpritesButton[levelTank - 1];
-            }
+
         }
     }
 }

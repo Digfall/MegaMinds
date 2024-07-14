@@ -7,6 +7,7 @@ public class UpgradeWarrior : MonoBehaviour
 {
     [SerializeField] private PlayerWarrior playerWarrior;
     [SerializeField] private UpgradeSoundManager soundManager;
+    [SerializeField] private ClassUnlocker unlocker;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -15,10 +16,6 @@ public class UpgradeWarrior : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageUpTextwar;
     [SerializeField] private TextMeshProUGUI hpUpTextwar;
     [SerializeField] private Slider upgradeSlider;
-    [SerializeField] private Image levelImage;
-    [SerializeField] private Image levelImageButton;
-    [SerializeField] private List<Sprite> levelSprites;
-    [SerializeField] private List<Sprite> levelSpritesButton;
 
     [SerializeField] private List<Sprite> bodySprites; // Добавляем поле для спрайтов тела
     [SerializeField] private List<Sprite> batSprites;  // Добавляем поле для спрайтов дубины
@@ -52,7 +49,7 @@ public class UpgradeWarrior : MonoBehaviour
     {
         if (currentLevelWar < playerWarrior.upgradeLevels.Count)
         {
-            if (currentLevelWar < 3)
+            if (currentLevelWar < 10)
             {
                 int upgradeCost = playerWarrior.upgradeLevels[currentLevelWar].costwar;
 
@@ -64,14 +61,9 @@ public class UpgradeWarrior : MonoBehaviour
                     soundManager.PlayUpgradeSuccessSound();
                     FindObjectOfType<OtherScene>().UpdateTotalScienceText();
                     UpdateWarriorStatsText();
+                    unlocker.UpgradeImagesWar(currentLevelWar);
                     UpdatePriceForUpgrade(currentLevelWar);
                     upgradeSlider.value = (float)(currentLevelWar - 1) / (float)(playerWarrior.upgradeLevels.Count - 1);
-
-                    if (currentLevelWar - 1 < levelSprites.Count)
-                    {
-                        levelImage.sprite = levelSprites[currentLevelWar - 1];
-                        levelImageButton.sprite = levelSpritesButton[currentLevelWar - 1];
-                    }
 
                     PlayerPrefs.SetFloat(UpgradeSliderWarValuePrefKey, upgradeSlider.value);
                     PlayerPrefs.SetInt(CurrentLevelWarPrefKey, currentLevelWar);
@@ -111,7 +103,7 @@ public class UpgradeWarrior : MonoBehaviour
             hpText.text = playerWarrior.HP.ToString();
             damageText.text = playerWarrior.damage.ToString();
             levelText.text = currentLevelWar.ToString();
-            if (currentLevelWar < 3)
+            if (currentLevelWar < 10)
             {
                 damageUpTextwar.text = "+" + playerWarrior.upgradeLevels[currentLevelWar - 1].damageUpTextwar.ToString();
                 hpUpTextwar.text = "+" + playerWarrior.upgradeLevels[currentLevelWar - 1].hpUpTextwar.ToString();
@@ -131,36 +123,114 @@ public class UpgradeWarrior : MonoBehaviour
         new UpgradeLevel
         {
             levelwar = 1,
-            hpwar = 200,
-            damagewar = 50,
+            hpwar = 45,
+            damagewar = 8,
             costwar = 0,
-            damageUpTextwar = 50,
-            hpUpTextwar = 200,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
+            batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1           
+        },
+        new UpgradeLevel
+        {
+            levelwar = 2,
+            hpwar = 50,
+            damagewar = 8,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
             bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
             batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
         },
         new UpgradeLevel
         {
-            levelwar = 2,
-            hpwar = 400,
-            damagewar = 100,
-            costwar = 100,
-            damageUpTextwar = 65,
-            hpUpTextwar = 200,
+            levelwar = 3,
+            hpwar = 55,
+            damagewar = 9,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
+            batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
+        },
+        new UpgradeLevel
+        {
+            levelwar = 4,
+            hpwar = 62,
+            damagewar = 10,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
+            batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
+        },
+        new UpgradeLevel
+        {
+            levelwar = 5,
+            hpwar = 70,
+            damagewar = 12,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
             bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
             batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
         },
         new UpgradeLevel
         {
-            levelwar = 3,
-            hpwar = 600,
-            damagewar = 165,
-            costwar = 500,
-            damageUpTextwar = 0,
-            hpUpTextwar = 0,
+            levelwar = 6,
+            hpwar = 78,
+            damagewar = 13,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
+            batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
+        },
+        new UpgradeLevel
+        {
+            levelwar = 7,
+            hpwar = 86,
+            damagewar = 14,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
+            batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
+        },
+        new UpgradeLevel
+        {
+            levelwar = 8,
+            hpwar = 94,
+            damagewar = 16,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
+            batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
+        },
+        new UpgradeLevel
+        {
+            levelwar = 9,
+            hpwar = 102,
+            damagewar = 17,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
+            bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
+            batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
+        },
+        new UpgradeLevel
+        {
+            levelwar = 10,
+            hpwar = 110,
+            damagewar = 18,
+            costwar = 0,
+            damageUpTextwar = 000,
+            hpUpTextwar = 000,
             bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
             batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
         }
+
     };
     }
 
@@ -172,11 +242,7 @@ public class UpgradeWarrior : MonoBehaviour
             playerWarrior.HP = playerWarrior.upgradeLevels[levelwar - 1].hpwar;
             playerWarrior.damage = playerWarrior.upgradeLevels[levelwar - 1].damagewar;
             playerWarrior.SavePlayerStats();
-            if (levelwar - 1 < levelSprites.Count)
-            {
-                levelImage.sprite = levelSprites[levelwar - 1];
-                levelImageButton.sprite = levelSpritesButton[levelwar - 1];
-            }
+
         }
     }
 }

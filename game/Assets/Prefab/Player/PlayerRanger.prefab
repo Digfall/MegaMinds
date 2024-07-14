@@ -341,8 +341,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 438b48ccdf1ba1d4897ecd8f3572a715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 150
-  damage: 51
+  HP: 24
+  damage: 12
   speed: 2
   damageRate: 1
   radius: 4
@@ -376,9 +376,72 @@ MonoBehaviour:
     costran: 0
     damageUpTextran: 0
     hpUpTextran: 0
-    bodySprite: {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+    bodySprite: {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
     wepSprite: {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   - levelran: 3
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+    bodySprite: {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+    wepSprite: {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+  - levelran: 4
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+    bodySprite: {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+    wepSprite: {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+  - levelran: 5
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+    bodySprite: {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+    wepSprite: {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+  - levelran: 6
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+    bodySprite: {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+    wepSprite: {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+  - levelran: 7
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+    bodySprite: {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+    wepSprite: {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+  - levelran: 8
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+    bodySprite: {fileID: 1019117588, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+    wepSprite: {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+  - levelran: 9
+    hpran: 0
+    damageran: 0
+    speed: 0
+    costran: 0
+    damageUpTextran: 0
+    hpUpTextran: 0
+    bodySprite: {fileID: 1019117588, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+    wepSprite: {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+  - levelran: 10
     hpran: 0
     damageran: 0
     speed: 0

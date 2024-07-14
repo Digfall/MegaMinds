@@ -7,6 +7,7 @@ public class UpgradeRanger : MonoBehaviour
 {
     [SerializeField] private PlayerRanger playerRanger;
     [SerializeField] private UpgradeSoundManager soundManager;
+    [SerializeField] private ClassUnlocker unlocker;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -15,10 +16,7 @@ public class UpgradeRanger : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageUpTextran;
     [SerializeField] private TextMeshProUGUI hpUpTextran;
     [SerializeField] private Slider upgradeRangerSlider;
-    [SerializeField] private Image levelImage;
-    [SerializeField] private Image levelImageButton;
-    [SerializeField] private List<Sprite> levelSprites;
-    [SerializeField] private List<Sprite> levelSpritesButton;
+
     [SerializeField] private List<Sprite> bodySprites;
     [SerializeField] private List<Sprite> wepSprites;
 
@@ -50,33 +48,30 @@ public class UpgradeRanger : MonoBehaviour
     {
         if (currentLevelRanger < playerRanger.upgradeLevels.Count)
         {
-            int upgradeCost = playerRanger.upgradeLevels[currentLevelRanger].costran;
-
-            if (GameManager.TotalScience >= upgradeCost)
+            if (currentLevelRanger < 10)
             {
-                GameManager.TotalScience -= upgradeCost;
-                currentLevelRanger++;
-                UpgradePlayer(currentLevelRanger);
-                soundManager.PlayUpgradeSuccessSound();
-                FindObjectOfType<OtherScene>().UpdateTotalScienceText();
-                UpdateRangerStatsText();
-                UpdatePriceForUpgrade(currentLevelRanger);
-                upgradeRangerSlider.value = (float)(currentLevelRanger - 1) / (float)(playerRanger.upgradeLevels.Count - 1);
+                int upgradeCost = playerRanger.upgradeLevels[currentLevelRanger].costran;
 
-                if (currentLevelRanger - 1 < levelSprites.Count)
+                if (GameManager.TotalScience >= upgradeCost)
                 {
-                    levelImage.sprite = levelSprites[currentLevelRanger - 1];
-                    levelImageButton.sprite = levelSpritesButton[currentLevelRanger - 1];
+                    GameManager.TotalScience -= upgradeCost;
+                    currentLevelRanger++;
+                    UpgradePlayer(currentLevelRanger);
+                    soundManager.PlayUpgradeSuccessSound();
+                    FindObjectOfType<OtherScene>().UpdateTotalScienceText();
+                    UpdateRangerStatsText();
+                    unlocker.UpgradeImagesRanger(currentLevelRanger);
+                    UpdatePriceForUpgrade(currentLevelRanger);
+                    upgradeRangerSlider.value = (float)(currentLevelRanger - 1) / (float)(playerRanger.upgradeLevels.Count - 1);
+
+                    PlayerPrefs.SetFloat(UpgradeSliderRangerValuePrefKey, upgradeRangerSlider.value);
+                    PlayerPrefs.SetInt(CurrentLevelRngPrefKey, currentLevelRanger);
                 }
-
-                PlayerPrefs.SetFloat(UpgradeSliderRangerValuePrefKey, upgradeRangerSlider.value);
-                PlayerPrefs.SetInt(CurrentLevelRngPrefKey, currentLevelRanger);
+                else
+                {
+                    soundManager.PlayUpgradeFailSound();
+                }
             }
-            else
-            {
-                soundManager.PlayUpgradeFailSound();
-            }
-
         }
 
     }
@@ -106,7 +101,7 @@ public class UpgradeRanger : MonoBehaviour
             hpText.text = playerRanger.HP.ToString();
             damageText.text = playerRanger.damage.ToString();
             levelText.text = currentLevelRanger.ToString();
-            if (currentLevelRanger < playerRanger.upgradeLevels.Count)
+            if (currentLevelRanger < 10)
             {
                 damageUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevelRanger - 1].damageUpTextran.ToString();
                 hpUpTextran.text = "+" + playerRanger.upgradeLevels[currentLevelRanger - 1].hpUpTextran.ToString();
@@ -142,12 +137,89 @@ public class UpgradeRanger : MonoBehaviour
                 costran = 100,
                 damageUpTextran = 50,
                 hpUpTextran = 150,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+                },
+            new UpgradeRangers
+            {
+                levelran = 3,
+                hpran = 300,
+                damageran = 100,
+                costran = 100,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+                },
+            new UpgradeRangers
+            {
+                levelran = 4,
+                hpran = 300,
+                damageran = 100,
+                costran = 100,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+                },
+            new UpgradeRangers
+            {
+                levelran = 5,
+                hpran = 300,
+                damageran = 100,
+                costran = 100,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
                 bodySprite = bodySprites[1],
                 wepSprite = wepSprites[1]
                 },
             new UpgradeRangers
             {
-                levelran = 3,
+                levelran = 6,
+                hpran = 300,
+                damageran = 100,
+                costran = 100,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+                },
+            new UpgradeRangers
+            {
+                levelran = 7,
+                hpran = 300,
+                damageran = 100,
+                costran = 100,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+                },
+            new UpgradeRangers
+            {
+                levelran = 8,
+                hpran = 300,
+                damageran = 100,
+                costran = 100,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+                },
+            new UpgradeRangers
+            {
+                levelran = 9,
+                hpran = 300,
+                damageran = 100,
+                costran = 100,
+                damageUpTextran = 50,
+                hpUpTextran = 150,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+                },
+            new UpgradeRangers
+            {
+                levelran = 10,
                 hpran = 450,
                 damageran = 150,
                 costran = 500,
@@ -166,11 +238,6 @@ public class UpgradeRanger : MonoBehaviour
             playerRanger.HP = playerRanger.upgradeLevels[levelran - 1].hpran;
             playerRanger.damage = playerRanger.upgradeLevels[levelran - 1].damageran;
             playerRanger.SavePlayerStats();
-            if (levelran - 1 < levelSprites.Count)
-            {
-                levelImage.sprite = levelSprites[levelran - 1];
-                levelImageButton.sprite = levelSpritesButton[levelran - 1];
-            }
         }
     }
 }

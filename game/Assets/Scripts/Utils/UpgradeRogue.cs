@@ -7,6 +7,7 @@ public class UpgradeRogue : MonoBehaviour
 {
     [SerializeField] private PlayerRogue playerRogue;
     [SerializeField] private UpgradeSoundManager soundManager;
+    [SerializeField] private ClassUnlocker unlocker;
     [SerializeField] private TextMeshProUGUI totalScienceText;
     [SerializeField] private TextMeshProUGUI priceForUpgrade;
     [SerializeField] private TextMeshProUGUI hpText;
@@ -15,10 +16,7 @@ public class UpgradeRogue : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageUpTextrog;
     [SerializeField] private TextMeshProUGUI hpUpTextrog;
     [SerializeField] private Slider upgradeRogueSlider;
-    [SerializeField] private Image levelImage;
-    [SerializeField] private Image levelImageButton;
-    [SerializeField] private List<Sprite> levelSprites;
-    [SerializeField] private List<Sprite> levelSpritesButton;
+
     [SerializeField] private List<Sprite> bodySprites;
     [SerializeField] private List<Sprite> wepSprites;
 
@@ -50,33 +48,30 @@ public class UpgradeRogue : MonoBehaviour
     {
         if (currentLevelRogue < playerRogue.upgradeLevels.Count)
         {
-            int upgradeCost = playerRogue.upgradeLevels[currentLevelRogue].costrog;
-
-            if (GameManager.TotalScience >= upgradeCost)
+            if (currentLevelRogue < 10)
             {
-                GameManager.TotalScience -= upgradeCost;
-                currentLevelRogue++;
-                UpgradePlayer(currentLevelRogue);
-                soundManager.PlayUpgradeSuccessSound();
-                FindObjectOfType<OtherScene>().UpdateTotalScienceText();
-                UpdateRogueStatsText();
-                UpdatePriceForUpgrade(currentLevelRogue);
-                upgradeRogueSlider.value = (float)(currentLevelRogue - 1) / (float)(playerRogue.upgradeLevels.Count - 1);
+                int upgradeCost = playerRogue.upgradeLevels[currentLevelRogue].costrog;
 
-                if (currentLevelRogue - 1 < levelSprites.Count)
+                if (GameManager.TotalScience >= upgradeCost)
                 {
-                    levelImage.sprite = levelSprites[currentLevelRogue - 1];
-                    levelImageButton.sprite = levelSpritesButton[currentLevelRogue - 1];
+                    GameManager.TotalScience -= upgradeCost;
+                    currentLevelRogue++;
+                    UpgradePlayer(currentLevelRogue);
+                    soundManager.PlayUpgradeSuccessSound();
+                    FindObjectOfType<OtherScene>().UpdateTotalScienceText();
+                    UpdateRogueStatsText();
+                    unlocker.UpgradeImagesRogue(currentLevelRogue);
+                    UpdatePriceForUpgrade(currentLevelRogue);
+                    upgradeRogueSlider.value = (float)(currentLevelRogue - 1) / (float)(playerRogue.upgradeLevels.Count - 1);
+
+                    PlayerPrefs.SetFloat(UpgradeSliderRogueValuePrefKey, upgradeRogueSlider.value);
+                    PlayerPrefs.SetInt(CurrentLevelRogPrefKey, currentLevelRogue);
                 }
-
-                PlayerPrefs.SetFloat(UpgradeSliderRogueValuePrefKey, upgradeRogueSlider.value);
-                PlayerPrefs.SetInt(CurrentLevelRogPrefKey, currentLevelRogue);
+                else
+                {
+                    soundManager.PlayUpgradeFailSound();
+                }
             }
-            else
-            {
-                soundManager.PlayUpgradeFailSound();
-            }
-
         }
 
     }
@@ -106,7 +101,7 @@ public class UpgradeRogue : MonoBehaviour
             hpText.text = playerRogue.HP.ToString();
             damageText.text = playerRogue.damage.ToString();
             levelText.text = currentLevelRogue.ToString();
-            if (currentLevelRogue < 3)
+            if (currentLevelRogue < 10)
             {
                 damageUpTextrog.text = "+" + playerRogue.upgradeLevels[currentLevelRogue - 1].damageUpTextrog.ToString();
                 hpUpTextrog.text = "+" + playerRogue.upgradeLevels[currentLevelRogue - 1].hpUpTextrog.ToString();
@@ -137,9 +132,42 @@ public class UpgradeRogue : MonoBehaviour
             new UpgradeRogues
             {
                 levelrog = 2,
-                hprog = 200,
+                hprog = 152,
+                damagerog = 150,
+                costrog = 0,
+                damageUpTextrog = 50,
+                hpUpTextrog = 50,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 3,
+                hprog = 153,
+                damagerog = 150,
+                costrog = 0,
+                damageUpTextrog = 50,
+                hpUpTextrog = 50,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 4,
+                hprog = 154,
+                damagerog = 150,
+                costrog = 0,
+                damageUpTextrog = 50,
+                hpUpTextrog = 50,
+                bodySprite = bodySprites[0],
+                wepSprite = wepSprites[0]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 5,
+                hprog = 205,
                 damagerog = 200,
-                costrog = 300,
+                costrog = 0,
                 damageUpTextrog = 100,
                 hpUpTextrog = 100,
                 bodySprite = bodySprites[1],
@@ -147,10 +175,54 @@ public class UpgradeRogue : MonoBehaviour
             },
             new UpgradeRogues
             {
-                levelrog = 3,
-                hprog = 300,
+                levelrog = 6,
+                hprog = 206,
+                damagerog = 200,
+                costrog = 0,
+                damageUpTextrog = 100,
+                hpUpTextrog = 100,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 7,
+                hprog = 207,
+                damagerog = 200,
+                costrog = 0,
+                damageUpTextrog = 100,
+                hpUpTextrog = 100,
+                bodySprite = bodySprites[1],
+                wepSprite = wepSprites[1]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 8,
+                hprog = 308,
                 damagerog = 500,
-                costrog = 450,
+                costrog = 0,
+                damageUpTextrog = 0,
+                hpUpTextrog = 0,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 9,
+                hprog = 309,
+                damagerog = 500,
+                costrog = 0,
+                damageUpTextrog = 0,
+                hpUpTextrog = 0,
+                bodySprite = bodySprites[2],
+                wepSprite = wepSprites[2]
+            },
+            new UpgradeRogues
+            {
+                levelrog = 10,
+                hprog = 310,
+                damagerog = 500,
+                costrog = 0,
                 damageUpTextrog = 0,
                 hpUpTextrog = 0,
                 bodySprite = bodySprites[2],
@@ -166,11 +238,6 @@ public class UpgradeRogue : MonoBehaviour
             playerRogue.HP = playerRogue.upgradeLevels[levelrog - 1].hprog;
             playerRogue.damage = playerRogue.upgradeLevels[levelrog - 1].damagerog;
             playerRogue.SavePlayerStats();
-            if (levelrog - 1 < levelSprites.Count)
-            {
-                levelImage.sprite = levelSprites[levelrog - 1];
-                levelImageButton.sprite = levelSpritesButton[levelrog - 1];
-            }
         }
     }
 }

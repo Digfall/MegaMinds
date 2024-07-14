@@ -39,26 +39,68 @@ public class Warrior : EnemyBase
         switch (level)
         {
             case 1:
-                HP = 200;
-                damage = 50;
+                HP = 45;
+                damage = 8;
                 bodyRenderer.sprite = bodySpriteLvl1;
                 weaponRenderer.sprite = weaponSpriteLvl1;
                 break;
             case 2:
-                HP = 400;
-                damage = 90;
+                HP = 50;
+                damage = 8;
+                bodyRenderer.sprite = bodySpriteLvl1;
+                weaponRenderer.sprite = weaponSpriteLvl1;
+                break;
+            case 3:
+                HP = 55;
+                damage = 9;
+                bodyRenderer.sprite = bodySpriteLvl1;
+                weaponRenderer.sprite = weaponSpriteLvl1;
+                break;
+            case 4:
+                HP = 62;
+                damage = 10;
+                bodyRenderer.sprite = bodySpriteLvl1;
+                weaponRenderer.sprite = weaponSpriteLvl1;
+                break;
+            case 5:
+                HP = 70;
+                damage = 12;
                 bodyRenderer.sprite = bodySpriteLvl2;
                 weaponRenderer.sprite = weaponSpriteLvl2;
                 break;
-            case 3:
-                HP = 600;
-                damage = 149;
+            case 6:
+                HP = 78;
+                damage = 13;
+                bodyRenderer.sprite = bodySpriteLvl2;
+                weaponRenderer.sprite = weaponSpriteLvl2;
+                break;
+            case 7:
+                HP = 86;
+                damage = 14;
+                bodyRenderer.sprite = bodySpriteLvl2;
+                weaponRenderer.sprite = weaponSpriteLvl2;
+                break;
+            case 8:
+                HP = 94;
+                damage = 16;
+                bodyRenderer.sprite = bodySpriteLvl3;
+                weaponRenderer.sprite = weaponSpriteLvl3;
+                break;
+            case 9:
+                HP = 102;
+                damage = 17;
+                bodyRenderer.sprite = bodySpriteLvl3;
+                weaponRenderer.sprite = weaponSpriteLvl3;
+                break;
+            case 10:
+                HP = 110;
+                damage = 18;
                 bodyRenderer.sprite = bodySpriteLvl3;
                 weaponRenderer.sprite = weaponSpriteLvl3;
                 break;
             default:
-                HP = 200;
-                damage = 50;
+                HP = 45;
+                damage = 8;
                 bodyRenderer.sprite = bodySpriteLvl1;
                 weaponRenderer.sprite = weaponSpriteLvl1;
                 break;

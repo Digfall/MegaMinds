@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Sounds\UpgradeSoundManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\Scripts\Utils\GameManager.cs" />
+    <Compile Include="Assets\Scripts\Sounds\MenuMusicManager.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Social\SocialModule.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\Examples\Scripts\PlayerPanel.cs" />
