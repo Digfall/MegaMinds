@@ -7,3 +7,7 @@
 /game/.vscode
 /game/Temp
 /game/Build
+game/NavMeshPlusEditor.csproj
+game/NavMeshPlus.csproj
+game/NavMeshPlusEditor.csproj
+game/Assembly-CSharp.csproj

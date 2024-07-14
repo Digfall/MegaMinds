@@ -9,6 +9,8 @@ public class Warrior : EnemyBase
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer weaponRenderer;
 
+    public Animator anim;
+
     [SerializeField] private Sprite bodySpriteLvl1;
     [SerializeField] private Sprite bodySpriteLvl2;
     [SerializeField] private Sprite bodySpriteLvl3;

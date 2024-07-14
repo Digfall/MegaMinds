@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -137346685, guid: 28f831de3e2125749969f072d8644dc2, type: 3}
+  m_Sprite: {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!1 &2691422876288438137
 GameObject:
@@ -512,7 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 70681179964010411}
-  offset: {x: 0, y: 1.41, z: 0}
+  offset: {x: 0, y: 1.5, z: 0}
   maxHealth: 1000
 --- !u!1 &4222361182884922688
 GameObject:
@@ -783,7 +783,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 726012126, guid: 28f831de3e2125749969f072d8644dc2, type: 3}
+  m_Sprite: {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -792,7 +792,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 1
+  m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!1 &6817274740201727070
 GameObject:
