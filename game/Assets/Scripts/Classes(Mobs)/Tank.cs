@@ -127,7 +127,7 @@ public class Tank : EnemyBase
             //     break;
         }
         speed = 1.2f;
-        attackRate = 1.5f;
+        attackRate = 0.75f;
     }
 
     protected override void Update()

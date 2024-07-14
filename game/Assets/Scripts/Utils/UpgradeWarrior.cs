@@ -126,8 +126,8 @@ public class UpgradeWarrior : MonoBehaviour
             hpwar = 45,
             damagewar = 8,
             costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            damageUpTextwar = 0,
+            hpUpTextwar = 5,
             bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
             batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1           
         },
@@ -136,9 +136,9 @@ public class UpgradeWarrior : MonoBehaviour
             levelwar = 2,
             hpwar = 50,
             damagewar = 8,
-            costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            costwar = 28,
+            damageUpTextwar = 1,
+            hpUpTextwar = 5,
             bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
             batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
         },
@@ -147,9 +147,9 @@ public class UpgradeWarrior : MonoBehaviour
             levelwar = 3,
             hpwar = 55,
             damagewar = 9,
-            costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            costwar = 32,
+            damageUpTextwar = 1,
+            hpUpTextwar = 7,
             bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
             batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
         },
@@ -158,9 +158,9 @@ public class UpgradeWarrior : MonoBehaviour
             levelwar = 4,
             hpwar = 62,
             damagewar = 10,
-            costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            costwar = 36,
+            damageUpTextwar = 2,
+            hpUpTextwar = 8,
             bodySprite = bodySprites[0], // Укажите спрайт тела для уровня 1
             batSprite = batSprites[0]    // Укажите спрайт дубины для уровня 1
         },
@@ -169,9 +169,9 @@ public class UpgradeWarrior : MonoBehaviour
             levelwar = 5,
             hpwar = 70,
             damagewar = 12,
-            costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            costwar = 40,
+            damageUpTextwar = 1,
+            hpUpTextwar = 8,
             bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
             batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
         },
@@ -180,9 +180,9 @@ public class UpgradeWarrior : MonoBehaviour
             levelwar = 6,
             hpwar = 78,
             damagewar = 13,
-            costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            costwar = 44,
+            damageUpTextwar = 1,
+            hpUpTextwar = 8,
             bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
             batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
         },
@@ -191,9 +191,9 @@ public class UpgradeWarrior : MonoBehaviour
             levelwar = 7,
             hpwar = 86,
             damagewar = 14,
-            costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            costwar = 48,
+            damageUpTextwar = 2,
+            hpUpTextwar = 8,
             bodySprite = bodySprites[1], // Укажите спрайт тела для уровня 2
             batSprite = batSprites[1]    // Укажите спрайт дубины для уровня 2
         },
@@ -202,9 +202,9 @@ public class UpgradeWarrior : MonoBehaviour
             levelwar = 8,
             hpwar = 94,
             damagewar = 16,
-            costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            costwar = 52,
+            damageUpTextwar = 1,
+            hpUpTextwar = 8,
             bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
             batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
         },
@@ -213,9 +213,9 @@ public class UpgradeWarrior : MonoBehaviour
             levelwar = 9,
             hpwar = 102,
             damagewar = 17,
-            costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            costwar = 56,
+            damageUpTextwar = 1,
+            hpUpTextwar = 8,
             bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
             batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
         },
@@ -225,8 +225,8 @@ public class UpgradeWarrior : MonoBehaviour
             hpwar = 110,
             damagewar = 18,
             costwar = 0,
-            damageUpTextwar = 000,
-            hpUpTextwar = 000,
+            damageUpTextwar = 0,
+            hpUpTextwar = 0,
             bodySprite = bodySprites[2], // Укажите спрайт тела для уровня 3
             batSprite = batSprites[2]    // Укажите спрайт дубины для уровня 3
         }

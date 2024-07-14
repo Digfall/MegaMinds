@@ -4938,7 +4938,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.80200005}
   m_AnchorMax: {x: 0.29669127, y: 1}
-  m_AnchoredPosition: {x: -5.9, y: -4.3999634}
+  m_AnchoredPosition: {x: -5.9000015, y: -4.3999634}
   m_SizeDelta: {x: 15.580002, y: -2}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &833452192
@@ -6076,7 +6076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977262cb3b8e61b4b9a845ed78dd3ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 15000
+  HP: 270
   healthBar: {fileID: 943212011}
   gameOverCanvas: {fileID: 1394960696}
   levelNumber: 6
@@ -7559,7 +7559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeec6c0a59298e4894f9eaada11d5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 2000
+  HP: 230
   healthBar: {fileID: 1964095219}
   gameOverCanvas: {fileID: 94994698}
 --- !u!224 &1105083108

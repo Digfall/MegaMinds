@@ -7047,7 +7047,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 977262cb3b8e61b4b9a845ed78dd3ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 15000
+  HP: 100
   healthBar: {fileID: 943212011}
   gameOverCanvas: {fileID: 1394960696}
   levelNumber: 2
@@ -8131,7 +8131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9eeec6c0a59298e4894f9eaada11d5ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 2000
+  HP: 100
   healthBar: {fileID: 1964095219}
   gameOverCanvas: {fileID: 94994698}
 --- !u!224 &1105083108

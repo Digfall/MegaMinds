@@ -121,107 +121,107 @@ public class UpgradeRogue : MonoBehaviour
             new UpgradeRogues
             {
                 levelrog = 1,
-                hprog = 150,
-                damagerog = 150,
+                hprog = 16,
+                damagerog = 35,
                 costrog = 0,
-                damageUpTextrog = 50,
-                hpUpTextrog = 50,
+                damageUpTextrog = 3,
+                hpUpTextrog = 1,
                 bodySprite = bodySprites[0],
                 wepSprite = wepSprites[0]
             },
             new UpgradeRogues
             {
                 levelrog = 2,
-                hprog = 152,
-                damagerog = 150,
-                costrog = 0,
-                damageUpTextrog = 50,
-                hpUpTextrog = 50,
+                hprog = 17,
+                damagerog = 38,
+                costrog = 52,
+                damageUpTextrog = 3,
+                hpUpTextrog = 1,
                 bodySprite = bodySprites[0],
                 wepSprite = wepSprites[0]
             },
             new UpgradeRogues
             {
                 levelrog = 3,
-                hprog = 153,
-                damagerog = 150,
-                costrog = 0,
-                damageUpTextrog = 50,
-                hpUpTextrog = 50,
+                hprog = 18,
+                damagerog = 41,
+                costrog = 58,
+                damageUpTextrog = 3,
+                hpUpTextrog = 1,
                 bodySprite = bodySprites[0],
                 wepSprite = wepSprites[0]
             },
             new UpgradeRogues
             {
                 levelrog = 4,
-                hprog = 154,
-                damagerog = 150,
-                costrog = 0,
-                damageUpTextrog = 50,
-                hpUpTextrog = 50,
+                hprog = 19,
+                damagerog = 44,
+                costrog = 64,
+                damageUpTextrog = 4,
+                hpUpTextrog = 1,
                 bodySprite = bodySprites[0],
                 wepSprite = wepSprites[0]
             },
             new UpgradeRogues
             {
                 levelrog = 5,
-                hprog = 205,
-                damagerog = 200,
-                costrog = 0,
-                damageUpTextrog = 100,
-                hpUpTextrog = 100,
+                hprog = 20,
+                damagerog = 48,
+                costrog = 70,
+                damageUpTextrog = 4,
+                hpUpTextrog = 2,
                 bodySprite = bodySprites[1],
                 wepSprite = wepSprites[1]
             },
             new UpgradeRogues
             {
                 levelrog = 6,
-                hprog = 206,
-                damagerog = 200,
-                costrog = 0,
-                damageUpTextrog = 100,
-                hpUpTextrog = 100,
+                hprog = 22,
+                damagerog = 52,
+                costrog = 76,
+                damageUpTextrog = 3,
+                hpUpTextrog = 2,
                 bodySprite = bodySprites[1],
                 wepSprite = wepSprites[1]
             },
             new UpgradeRogues
             {
                 levelrog = 7,
-                hprog = 207,
-                damagerog = 200,
-                costrog = 0,
-                damageUpTextrog = 100,
-                hpUpTextrog = 100,
+                hprog = 24,
+                damagerog = 55,
+                costrog = 82,
+                damageUpTextrog = 3,
+                hpUpTextrog = 1,
                 bodySprite = bodySprites[1],
                 wepSprite = wepSprites[1]
             },
             new UpgradeRogues
             {
                 levelrog = 8,
-                hprog = 308,
-                damagerog = 500,
-                costrog = 0,
-                damageUpTextrog = 0,
-                hpUpTextrog = 0,
+                hprog = 25,
+                damagerog = 58,
+                costrog = 88,
+                damageUpTextrog = 3,
+                hpUpTextrog = 1,
                 bodySprite = bodySprites[2],
                 wepSprite = wepSprites[2]
             },
             new UpgradeRogues
             {
                 levelrog = 9,
-                hprog = 309,
-                damagerog = 500,
-                costrog = 0,
-                damageUpTextrog = 0,
-                hpUpTextrog = 0,
+                hprog = 26,
+                damagerog = 61,
+                costrog = 94,
+                damageUpTextrog = 4,
+                hpUpTextrog = 1,
                 bodySprite = bodySprites[2],
                 wepSprite = wepSprites[2]
             },
             new UpgradeRogues
             {
                 levelrog = 10,
-                hprog = 310,
-                damagerog = 500,
+                hprog = 27,
+                damagerog = 65,
                 costrog = 0,
                 damageUpTextrog = 0,
                 hpUpTextrog = 0,
