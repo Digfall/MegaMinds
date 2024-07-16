@@ -858,13 +858,13 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
   level: 0
-  unitSounds: {fileID: 4360702676357974317}
   rangerLvlText: {fileID: 1610425876453108046}
   projectilePrefab: {fileID: 550702248292563470, guid: c0f8f4c70d863c1408935323dad27cfe, type: 3}
   projectileSpawnPoint: {fileID: 2474012708636347550}
   bodyRenderer: {fileID: 1443492867831329179}
   weaponRenderer: {fileID: 8652031353743104516}
   anim: {fileID: 2802972439622271650}
+  unitSounds: {fileID: 4360702676357974317}
   bodySpriteLvl1: {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   bodySpriteLvl2: {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   bodySpriteLvl3: {fileID: 1019117588, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
@@ -1081,8 +1081,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8.5
+  m_fontSizeBase: 8.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

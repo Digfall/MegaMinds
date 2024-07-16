@@ -14,13 +14,16 @@ public class SceneSwitcher : MonoBehaviour
 
     private IEnumerator SwitchSceneWithSound()
     {
+
         if (transitionSound != null)
         {
             transitionSound.Play();
-            yield return new WaitForSeconds(transitionSound.clip.length);
-        }
+            float clipLength = transitionSound.clip.length;
 
+            yield return new WaitForSecondsRealtime(clipLength);
+        }
         SceneManager.LoadScene(targetSceneName);
+
     }
 
     // Очистка данных PlayerPrefs

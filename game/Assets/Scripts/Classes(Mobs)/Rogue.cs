@@ -110,6 +110,7 @@ public class Rogue : EnemyBase
 
     protected override void OnDeath()
     {
+        FindObjectOfType<ScienceManager>().UpdateScienceCountEnemy();
         // Оставляем пустым, чтобы не вызывать Destroy в базовом классе
     }
 

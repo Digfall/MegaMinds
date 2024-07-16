@@ -243,8 +243,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 8.5
+  m_fontSizeBase: 8.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1110,11 +1110,11 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
   level: 1
-  unitSounds: {fileID: 882383707306582375}
   rogueLvlText: {fileID: 1484947881012051071}
   bodyRenderer: {fileID: 5256606554641793185}
   weaponRenderer: {fileID: 8652031353743104516}
   anim: {fileID: 2802972439622271650}
+  unitSounds: {fileID: 882383707306582375}
   bodySpriteLvl1: {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   bodySpriteLvl2: {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   bodySpriteLvl3: {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}

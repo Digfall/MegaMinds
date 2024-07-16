@@ -8042,7 +8042,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6b7279140433a9149849aebd43a67561, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 85eaaae4458af0448b3450290a37b3ba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -10007,8 +10007,8 @@ MonoBehaviour:
   - {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   - {fileID: 15466070, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   - {fileID: 352455660, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  rogueCost: 1500
-  tankCost: 1000
+  rogueCost: 200
+  tankCost: 150
   currentLevel: 1
   soundManager: {fileID: 943980009}
 --- !u!114 &943980009
@@ -15837,9 +15837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1500
-
-'
+  m_text: 200
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
   m_sharedMaterial: {fileID: 5335139831177009369, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
@@ -16107,9 +16105,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1000
-
-'
+  m_text: 150
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
   m_sharedMaterial: {fileID: 5335139831177009369, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}

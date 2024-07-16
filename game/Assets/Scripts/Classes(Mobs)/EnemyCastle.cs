@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyCastle : MonoBehaviour
@@ -15,6 +14,8 @@ public class EnemyCastle : MonoBehaviour
     [SerializeField] private AudioSource destructionSound; // Звук разрушения башни
     [SerializeField] private AudioSource postDestructionSound; // Звук после разрушения
 
+    private bool isDestroyed = false; // Флаг для предотвращения многократного вызова
+
     void Start()
     {
         healthBar.SetHealth(HP);
@@ -26,20 +27,13 @@ public class EnemyCastle : MonoBehaviour
     {
         HP -= damage;
         healthBar.SetHealth(HP);
-    }
-
-    void Update()
-    {
-        if (HP <= 0)
+        if (HP <= 0 && !isDestroyed)
         {
-            if (destructionSound != null)
-            {
-                DestroyCastle();
-                destructionSound.Play();
-            }
-
+            isDestroyed = true;
+            DestroyCastle();
         }
     }
+
     private IEnumerator HandleDestructionSequence()
     {
         Time.timeScale = 0f;
@@ -47,6 +41,7 @@ public class EnemyCastle : MonoBehaviour
         // Ждать окончания звука разрушения башни
         if (destructionSound != null)
         {
+            destructionSound.Play();
             yield return new WaitForSecondsRealtime(destructionSound.clip.length);
         }
 
@@ -69,13 +64,13 @@ public class EnemyCastle : MonoBehaviour
         // Удаление объекта башни
         Destroy(gameObject);
     }
+
     void DestroyCastle()
     {
         if (!levelManager.IsLevelCompleted(levelNumber) || rewardRepeatable)
         {
             FindObjectOfType<ScienceManager>().UpdateScienceCountCastle(levelREWARD);
             levelManager.CompleteLevel(levelNumber);
-
         }
         else
         {
@@ -83,8 +78,4 @@ public class EnemyCastle : MonoBehaviour
         }
         StartCoroutine(HandleDestructionSequence());
     }
-
-
-
-
 }

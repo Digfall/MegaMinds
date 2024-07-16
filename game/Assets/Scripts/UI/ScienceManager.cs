@@ -15,13 +15,9 @@ public class ScienceManager : MonoBehaviour
     [SerializeField] private int ScienceTotal = 0;
     [SerializeField] private int ScienceTotalLose = 0;
 
-    private void Update()
-    {
-    }
-
     public void UpdateScienceCountEnemy()
     {
-        scienceCount += 25;
+        scienceCount += 1;
         scienceCountEnemy.text = scienceCount.ToString();
         scienceCountEnemyEnd.text = scienceCount.ToString();
         scienceCountEnemyEndLose.text = scienceCount.ToString();
@@ -33,17 +29,10 @@ public class ScienceManager : MonoBehaviour
         switch (levelREWARD)
         {
             case 1:
-                reward = 350;
+                reward = 40;
                 break;
-            case 2:
-                reward = 500;
-                break;
-            case 3:
-                reward = 1000;
-                break;
-            // третий сам добавь 
             default:
-                reward = 350;
+                reward = 40;
                 break;
         }
         ScienceCastleCount += reward;

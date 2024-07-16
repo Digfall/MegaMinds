@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Castle : MonoBehaviour
@@ -11,6 +10,8 @@ public class Castle : MonoBehaviour
     [SerializeField] private AudioSource destructionSound; // Звук разрушения башни
     [SerializeField] private AudioSource postDestructionSound; // Звук после разрушения
 
+    private bool isDestroyed = false; // Флаг для предотвращения многократного вызова
+
     void Start()
     {
         healthBar.SetHealth(HP);
@@ -21,18 +22,10 @@ public class Castle : MonoBehaviour
     {
         HP -= damage;
         healthBar.SetHealth(HP);
-    }
-
-    void Update()
-    {
-        if (HP <= 0)
+        if (HP <= 0 && !isDestroyed)
         {
-            if (destructionSound != null)
-            {
-                DestroyCastle();
-                destructionSound.Play();
-            }
-
+            isDestroyed = true;
+            DestroyCastle();
         }
     }
 
@@ -40,14 +33,18 @@ public class Castle : MonoBehaviour
     {
         FindObjectOfType<ScienceManager>().UpdateScienceCountTotalLose();
 
+        // Воспроизведение звука разрушения башни
+        if (destructionSound != null)
+        {
+            destructionSound.Play();
+        }
+
         // Начало корутины для обработки последовательности разрушения
         StartCoroutine(HandleDestructionSequence());
     }
 
     private IEnumerator HandleDestructionSequence()
     {
-        Time.timeScale = 0f;
-
         // Ждать окончания звука разрушения башни
         if (destructionSound != null)
         {

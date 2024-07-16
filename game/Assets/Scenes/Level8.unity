@@ -2468,8 +2468,8 @@ RectTransform:
   - {fileID: 119400350}
   - {fileID: 142007475}
   - {fileID: 234824063}
-  - {fileID: 2085023805}
   - {fileID: 93791883}
+  - {fileID: 2085023805}
   - {fileID: 881913407}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6817,7 +6817,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6b7279140433a9149849aebd43a67561, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 85eaaae4458af0448b3450290a37b3ba, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -8176,7 +8176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 1079586253}
-  maxHealth: 15000
+  maxHealth: 390
 --- !u!1 &1106633826
 GameObject:
   m_ObjectHideFlags: 0
@@ -11587,7 +11587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sliderr: {fileID: 1570285587}
-  maxHealth: 2000
+  maxHealth: 350
 --- !u!114 &1570285587
 MonoBehaviour:
   m_ObjectHideFlags: 0
