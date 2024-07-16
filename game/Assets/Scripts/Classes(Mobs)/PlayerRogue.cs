@@ -24,6 +24,7 @@ public class PlayerRogue : PlayerBase
     private const string RogueHPPrefKey = "RogueHP";
     private const string RogueDamagePrefKey = "RogueDamage";
     public Animator anim;
+    [SerializeField] private UnitSounds unitSound;
 
     public List<UpgradeRogues> upgradeLevels = new List<UpgradeRogues>();
     [SerializeField] private SpriteRenderer bodyRenderer;
@@ -81,6 +82,7 @@ public class PlayerRogue : PlayerBase
 
             if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
             {
+                unitSound.PlayAttackSound();
                 attackTarget.GetComponent<EnemyBase>()?.TakeDamage(damage);
                 attackTarget.GetComponent<EnemyCastle>()?.TakeDamage(damage);
                 nextDamageTime = Time.time + damageRate;
@@ -97,8 +99,9 @@ public class PlayerRogue : PlayerBase
         base.TakeDamage(damagewar);
         if (HP <= 0 && isDead)
         {
-            // anim.SetBool("Death", true);
+            anim.SetBool("Death", true);
             StartCoroutine(DestroyAfterDeath());
+            unitSound.PlayDeathSound();
         }
     }
 
@@ -152,14 +155,14 @@ public class PlayerRogue : PlayerBase
 
             if (attackTarget != null)
             {
-                // anim.SetBool("Attack", true);
+                anim.SetBool("Attack", true);
                 isAttacking = true;
                 isFighting = true;
                 OnAttack();
             }
             else
             {
-                // anim.SetBool("Attack", false);
+                anim.SetBool("Attack", false);
                 isAttacking = false;
                 isFighting = false;
             }

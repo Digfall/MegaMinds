@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 3894516173035434513}
   m_Layer: 6
   m_Name: SoundObj
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -864,6 +864,7 @@ MonoBehaviour:
   projectileSpawnPoint: {fileID: 2474012708636347550}
   bodyRenderer: {fileID: 1443492867831329179}
   weaponRenderer: {fileID: 8652031353743104516}
+  anim: {fileID: 2802972439622271650}
   bodySpriteLvl1: {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   bodySpriteLvl2: {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   bodySpriteLvl3: {fileID: 1019117588, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}

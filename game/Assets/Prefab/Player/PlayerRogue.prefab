@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 7292661490038265770}
   m_Layer: 6
   m_Name: SoundObj
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -576,9 +576,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3506097913677785157}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 961a316a2930bf04c8e8f23eb3ccde38, type: 2}
+  m_Controller: {fileID: 9100000, guid: b52a3027913b62e46b906e7e78b63302, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -613,10 +613,10 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
-  unitSound: {fileID: 8603268460546750642}
   rogueLvlText: {fileID: 1807518501572954927}
   CurrentLevelRog: 1
   anim: {fileID: 4231507967514794430}
+  unitSound: {fileID: 8603268460546750642}
   upgradeLevels:
   - levelrog: 1
     hprog: 150

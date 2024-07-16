@@ -10,6 +10,8 @@ public class Ranger : EnemyBase
     [SerializeField] private Transform projectileSpawnPoint;
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer weaponRenderer;
+    public Animator anim;
+    [SerializeField] private UnitSounds unitSounds;
 
     [SerializeField] private Sprite bodySpriteLvl1;
     [SerializeField] private Sprite bodySpriteLvl2;
@@ -50,7 +52,7 @@ public class Ranger : EnemyBase
                 break;
             case 3:
                 HP = 30;
-                damage =15;
+                damage = 15;
                 bodyRenderer.sprite = bodySpriteLvl1;
                 weaponRenderer.sprite = weaponSpriteLvl1;
                 break;
@@ -102,32 +104,6 @@ public class Ranger : EnemyBase
                 bodyRenderer.sprite = bodySpriteLvl1;
                 weaponRenderer.sprite = weaponSpriteLvl1;
                 break;
-
-
-            // case 1:
-            //     HP = 150;
-            //     damage = 35;
-            //     bodyRenderer.sprite = bodySpriteLvl1;
-            //     weaponRenderer.sprite = weaponSpriteLvl1;
-            //     break;
-            // case 2:
-            //     HP = 300;
-            //     damage = 70;
-            //     bodyRenderer.sprite = bodySpriteLvl2;
-            //     weaponRenderer.sprite = weaponSpriteLvl2;
-            //     break;
-            // case 3:
-            //     HP = 450;
-            //     damage = 100;
-            //     bodyRenderer.sprite = bodySpriteLvl3;
-            //     weaponRenderer.sprite = weaponSpriteLvl3;
-            //     break;
-            // default:
-            //     HP = 150;
-            //     damage = 35;
-            //     bodyRenderer.sprite = bodySpriteLvl1;
-            //     weaponRenderer.sprite = weaponSpriteLvl1;
-            //     break;
         }
         speed = 2f;
         attackRate = 0.8f;
@@ -148,7 +124,7 @@ public class Ranger : EnemyBase
         if (Time.time >= nextAttackTime && attackTarget != null)
         {
             LaunchProjectile(attackTarget);
-
+            unitSounds.PlayAttackSound();
             nextDamageTime = Time.time + damageRate;
             nextAttackTime = Time.time + 1f / attackRate;
         }
@@ -186,12 +162,14 @@ public class Ranger : EnemyBase
 
             if (attackTarget != null)
             {
+                anim.SetBool("Attack", true);
                 isAttacking = true;
                 isFighting = true;
                 rb.velocity = Vector2.zero;
             }
             else
             {
+                anim.SetBool("Attack", false);
                 isAttacking = false;
                 isFighting = false;
             }
@@ -238,7 +216,26 @@ public class Ranger : EnemyBase
 
     public override void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         base.TakeDamage(damage);
+        if (HP <= 0 && isDead)
+        {
+            anim.SetTrigger("Death");
+            StartCoroutine(DestroyAfterDeath());
+            unitSounds.PlayDeathSound();
+        }
+    }
+
+    private IEnumerator DestroyAfterDeath()
+    {
+        yield return new WaitForSeconds(1f); // Задержка в секундах перед уничтожением объекта
+        Destroy(gameObject);
+    }
+
+    protected override void OnDeath()
+    {
+        // Оставляем пустым, чтобы не вызывать Destroy в базовом классе
     }
 
 }

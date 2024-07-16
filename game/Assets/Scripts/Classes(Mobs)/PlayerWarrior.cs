@@ -24,6 +24,7 @@ public class PlayerWarrior : PlayerBase
     private const string WarriorHPPrefKey = "WarriorHP";
     private const string WarriorDamagePrefKey = "WarriorDamage";
     public Animator anim;
+    [SerializeField] private UnitSounds unitSound;
 
     public List<UpgradeLevel> upgradeLevels = new List<UpgradeLevel>();
     [SerializeField] private SpriteRenderer bodyRenderer;
@@ -81,6 +82,7 @@ public class PlayerWarrior : PlayerBase
 
             if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
             {
+                unitSound.PlayAttackSound();
                 attackTarget.GetComponent<EnemyBase>()?.TakeDamage(damage);
                 attackTarget.GetComponent<EnemyCastle>()?.TakeDamage(damage);
                 nextDamageTime = Time.time + damageRate;
@@ -99,6 +101,7 @@ public class PlayerWarrior : PlayerBase
         {
             anim.SetTrigger("Death");
             StartCoroutine(DestroyAfterDeath());
+            unitSound.PlayDeathSound();
         }
     }
 

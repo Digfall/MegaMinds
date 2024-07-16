@@ -362,10 +362,10 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
-  unitSound: {fileID: 9110483370918372428}
   warriorLvlText: {fileID: 4837429037542577320}
   CurrentLevelWar: 1
   anim: {fileID: 4114710155401307434}
+  unitSound: {fileID: 9110483370918372428}
   upgradeLevels:
   - levelwar: 1
     hpwar: 200
@@ -1040,7 +1040,7 @@ GameObject:
   - component: {fileID: 5120072401887715232}
   m_Layer: 6
   m_Name: SoundObj
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

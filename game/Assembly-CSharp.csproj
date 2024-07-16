@@ -155,7 +155,6 @@
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\RewardedState.cs" />
     <Compile Include="Assets\Scripts\Sounds\ButtonSoundPlayer.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Device\DeviceModule.cs" />
-    <Compile Include="Assets\Scripts\UI\CameraController2D.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\LeaderboardEntry.cs" />
     <Compile Include="Assets\Scripts\UI\HealthBar.cs" />
     <Compile Include="Assets\Scripts\UI\ScienceManager.cs" />
@@ -188,6 +187,7 @@
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Device\DeviceType.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Advertisement\BannerState.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\GetEntriesYandexOptions.cs" />
+    <Compile Include="Assets\Scripts\UI\CameraController.cs" />
     <Compile Include="Assets\Examples\Scripts\SocialPanel.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Storage\StorageModule.cs" />
     <Compile Include="Assets\InstantGamesBridge\Scripts\Modules\Leaderboard\ShowNativePopupPlatformDependedOptions.cs" />

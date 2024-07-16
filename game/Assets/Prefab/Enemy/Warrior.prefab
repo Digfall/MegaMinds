@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2522688400508515172}
   m_Layer: 6
   m_Name: SoundObj
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1022,11 +1022,11 @@ MonoBehaviour:
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
   level: 0
-  unitSounds: {fileID: 8250362743973676571}
   warriorLvlText: {fileID: 2657904250942299005}
   bodyRenderer: {fileID: 8395845848292665364}
   weaponRenderer: {fileID: 1343091083811777740}
   anim: {fileID: 6914280966060245860}
+  UnitSounds: {fileID: 8250362743973676571}
   bodySpriteLvl1: {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   bodySpriteLvl2: {fileID: 210339436, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   bodySpriteLvl3: {fileID: -1931369641, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}

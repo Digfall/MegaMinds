@@ -24,6 +24,7 @@ public class PlayerTank : PlayerBase
     private const string TankHPPrefKey = "TankHP";
     private const string TankDamagePrefKey = "TankDamage";
     public Animator anim;
+    [SerializeField] private UnitSounds unitSound;
 
     public List<UpgradeTanks> upgradeLevels = new List<UpgradeTanks>();
     [SerializeField] private SpriteRenderer bodyRenderer;
@@ -79,6 +80,7 @@ public class PlayerTank : PlayerBase
 
             if (attackTarget.CompareTag("Enemy") || attackTarget.CompareTag("EnemyCastle"))
             {
+                unitSound.PlayAttackSound();
                 attackTarget.GetComponent<EnemyBase>()?.TakeDamage(damage);
                 attackTarget.GetComponent<EnemyCastle>()?.TakeDamage(damage);
                 nextDamageTime = Time.time + damageRate;
@@ -95,8 +97,9 @@ public class PlayerTank : PlayerBase
         base.TakeDamage(damageTank);
         if (HP <= 0 && isDead)
         {
-            // anim.SetBool("Death", true);
+            anim.SetBool("Death", true);
             StartCoroutine(DestroyAfterDeath());
+            unitSound.PlayDeathSound();
         }
     }
     private IEnumerator DestroyAfterDeath()
@@ -150,14 +153,14 @@ public class PlayerTank : PlayerBase
 
             if (attackTarget != null)
             {
-                // anim.SetBool("Attack", true);
+                anim.SetBool("Attack", true);
                 isAttacking = true;
                 isFighting = true;
                 OnAttack();
             }
             else
             {
-                // anim.SetBool("Attack", false);
+                anim.SetBool("Attack", false);
                 isAttacking = false;
                 isFighting = false;
             }

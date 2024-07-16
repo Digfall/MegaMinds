@@ -537,10 +537,10 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
-  unitSound: {fileID: 4254348478890456170}
   tankLvlText: {fileID: 5904816669054426390}
   CurrentLevelTank: 1
   anim: {fileID: 787429353118761494}
+  unitSound: {fileID: 4254348478890456170}
   upgradeLevels:
   - levelTank: 1
     hpTank: 0
@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 6757083541616200584}
   m_Layer: 6
   m_Name: SoundObj
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

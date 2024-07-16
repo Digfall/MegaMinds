@@ -353,12 +353,12 @@ MonoBehaviour:
   moveTarget: {fileID: 0}
   attackTarget: {fileID: 0}
   raycastDistanceToMove: 100
-  unitSound: {fileID: 3334477090470390856}
   projectilePrefab: {fileID: 550702248292563470, guid: c0f8f4c70d863c1408935323dad27cfe, type: 3}
   projectileSpawnPoint: {fileID: 5428892064114449753}
   rangerLvlText: {fileID: 3156740994325825830}
   CurrentLevelRng: 1
   anim: {fileID: 7073716572259796898}
+  unitSound: {fileID: 3334477090470390856}
   upgradeLevels:
   - levelran: 1
     hpran: 0
@@ -1073,7 +1073,7 @@ GameObject:
   - component: {fileID: 5276502760344454532}
   m_Layer: 6
   m_Name: SoundObj
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 8292446660545170856}
   m_Layer: 6
   m_Name: SoundObj
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1078,6 +1078,7 @@ MonoBehaviour:
   tankLvlText: {fileID: 1448093219167586730}
   bodyRenderer: {fileID: 3033670510424191014}
   weaponRenderer: {fileID: 8652031353743104516}
+  anim: {fileID: 2802972439622271650}
   bodySpriteLvl1: {fileID: -2081781427, guid: 917858007aa944240853079c02df7606, type: 3}
   bodySpriteLvl2: {fileID: 201762710, guid: 917858007aa944240853079c02df7606, type: 3}
   bodySpriteLvl3: {fileID: 135665564, guid: 917858007aa944240853079c02df7606, type: 3}

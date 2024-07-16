@@ -26,6 +26,7 @@ public class PlayerRanger : PlayerBase
     private const string RangerHPPrefKey = "RangerHP";
     private const string RangerDamagePrefKey = "RangerDamage";
     public Animator anim;
+    [SerializeField] private UnitSounds unitSound;
 
     public List<UpgradeRangers> upgradeLevels = new List<UpgradeRangers>();
     [SerializeField] private SpriteRenderer bodyRenderer;
@@ -91,7 +92,7 @@ public class PlayerRanger : PlayerBase
     {
         if (Time.time >= nextAttackTime && attackTarget != null)
         {
-
+            unitSound.PlayAttackSound();
             nextDamageTime = Time.time + damageRate;
             nextAttackTime = Time.time + 1f / attackRate;
         }
@@ -191,6 +192,7 @@ public class PlayerRanger : PlayerBase
         {
             anim.SetTrigger("Death");
             StartCoroutine(DestroyAfterDeath());
+            unitSound.PlayDeathSound();
         }
     }
 

@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 8565875652185065802}
   m_Layer: 6
   m_Name: SoundObj
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1114,6 +1114,7 @@ MonoBehaviour:
   rogueLvlText: {fileID: 1484947881012051071}
   bodyRenderer: {fileID: 5256606554641793185}
   weaponRenderer: {fileID: 8652031353743104516}
+  anim: {fileID: 2802972439622271650}
   bodySpriteLvl1: {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   bodySpriteLvl2: {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   bodySpriteLvl3: {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}

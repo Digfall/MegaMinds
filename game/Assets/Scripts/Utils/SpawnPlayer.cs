@@ -60,6 +60,10 @@ public class SpawnPlayer : MonoBehaviour
     [SerializeField] private CoinManager coinManager;
     [SerializeField] private TextMeshProUGUI coinCountText;
 
+    [Header("Звуки")]
+    [SerializeField] private AudioClip spawnSound; // Звук появления юнита
+    [SerializeField] private AudioSource audioSource; // Аудио источник
+
     private void Start()
     {
         LoadUnitLvlInfo();
@@ -151,6 +155,12 @@ public class SpawnPlayer : MonoBehaviour
             int randomIndex = Random.Range(0, spawnPositions.Length);
             Transform selectedSpawnPoint = spawnPositions[randomIndex];
             GameObject unitInstance = Instantiate(unitPrefab, selectedSpawnPoint.position, Quaternion.identity);
+
+            // Воспроизведение звука появления юнита
+            if (audioSource != null && spawnSound != null)
+            {
+                audioSource.PlayOneShot(spawnSound);
+            }
 
             HealthBar healthBar = unitInstance.GetComponentInChildren<HealthBar>();
             if (healthBar != null)

@@ -8,6 +8,8 @@ public class Tank : EnemyBase
     [SerializeField] private TextMeshProUGUI tankLvlText;
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer weaponRenderer;
+    public Animator anim;
+    [SerializeField] private UnitSounds unitSounds;
 
     [SerializeField] private Sprite bodySpriteLvl1;
     [SerializeField] private Sprite bodySpriteLvl2;
@@ -100,31 +102,6 @@ public class Tank : EnemyBase
                 weaponRenderer.sprite = weaponSpriteLvl1;
                 break;
 
-
-            // case 1:
-            //     HP = 400;
-            //     damage = 20;
-            //     bodyRenderer.sprite = bodySpriteLvl1;
-            //     weaponRenderer.sprite = weaponSpriteLvl1;
-            //     break;
-            // case 2:
-            //     HP = 1300;
-            //     damage = 100;
-            //     bodyRenderer.sprite = bodySpriteLvl2;
-            //     weaponRenderer.sprite = weaponSpriteLvl2;
-            //     break;
-            // case 3:
-            //     HP = 2000;
-            //     damage = 150;
-            //     bodyRenderer.sprite = bodySpriteLvl3;
-            //     weaponRenderer.sprite = weaponSpriteLvl3;
-            //     break;
-            // default:
-            //     HP = 400;
-            //     damage = 20;
-            //     bodyRenderer.sprite = bodySpriteLvl1;
-            //     weaponRenderer.sprite = weaponSpriteLvl1;
-            //     break;
         }
         speed = 1.2f;
         attackRate = 0.75f;
@@ -137,12 +114,45 @@ public class Tank : EnemyBase
 
     protected override void OnAttack()
     {
-        base.OnAttack();
+        if (Time.time >= nextAttackTime && attackTarget != null)
+        {
+            isAttacking = true;
+            isFighting = true;
+
+            if (attackTarget.CompareTag("Player") || attackTarget.CompareTag("Castle"))
+            {
+                unitSounds.PlayAttackSound();
+                attackTarget.GetComponent<PlayerBase>()?.TakeDamage(damage);
+                attackTarget.GetComponent<Castle>()?.TakeDamage(damage);
+                nextDamageTime = Time.time + damageRate;
+            }
+
+            nextAttackTime = Time.time + 1f / attackRate;
+        }
     }
 
     public override void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         base.TakeDamage(damage);
+        if (HP <= 0 && isDead)
+        {
+            anim.SetTrigger("Death");
+            StartCoroutine(DestroyAfterDeath());
+            unitSounds.PlayDeathSound();
+        }
+    }
+
+    private IEnumerator DestroyAfterDeath()
+    {
+        yield return new WaitForSeconds(1f); // Задержка в секундах перед уничтожением объекта
+        Destroy(gameObject);
+    }
+
+    protected override void OnDeath()
+    {
+        // Оставляем пустым, чтобы не вызывать Destroy в базовом классе
     }
 
     protected override Transform FindNearestTarget()
@@ -152,6 +162,46 @@ public class Tank : EnemyBase
 
     protected override void FindTargetToAttack()
     {
-        base.FindTargetToAttack();
+        Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(attackPos.position, radius);
+        if (targetsInRange.Length > 0)
+        {
+            Transform closestTarget = null;
+            float minDistance = Mathf.Infinity;
+
+            foreach (Collider2D target in targetsInRange)
+            {
+                if (target.CompareTag("Player") || target.CompareTag("Castle"))
+                {
+                    float distance = Vector2.Distance(transform.position, target.transform.position);
+                    if (distance < minDistance)
+                    {
+                        closestTarget = target.transform;
+                        minDistance = distance;
+                    }
+                }
+            }
+
+            attackTarget = closestTarget;
+
+            if (attackTarget != null)
+            {
+                anim.SetBool("Attack", true);
+                isAttacking = true;
+                isFighting = true;
+                OnAttack();
+            }
+            else
+            {
+                anim.SetBool("Attack", false);
+                isAttacking = false;
+                isFighting = false;
+            }
+        }
+        else
+        {
+            attackTarget = null;
+            isAttacking = false;
+            isFighting = false;
+        }
     }
 }

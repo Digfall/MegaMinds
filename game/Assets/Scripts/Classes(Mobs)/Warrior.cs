@@ -10,6 +10,7 @@ public class Warrior : EnemyBase
     [SerializeField] private SpriteRenderer weaponRenderer;
 
     public Animator anim;
+    [SerializeField] private UnitSounds UnitSounds;
 
     [SerializeField] private Sprite bodySpriteLvl1;
     [SerializeField] private Sprite bodySpriteLvl2;
@@ -116,12 +117,45 @@ public class Warrior : EnemyBase
 
     protected override void OnAttack()
     {
-        base.OnAttack();
+        if (Time.time >= nextAttackTime && attackTarget != null)
+        {
+            isAttacking = true;
+            isFighting = true;
+
+            if (attackTarget.CompareTag("Player") || attackTarget.CompareTag("Castle"))
+            {
+                UnitSounds.PlayAttackSound();
+                attackTarget.GetComponent<PlayerBase>()?.TakeDamage(damage);
+                attackTarget.GetComponent<Castle>()?.TakeDamage(damage);
+                nextDamageTime = Time.time + damageRate;
+            }
+
+            nextAttackTime = Time.time + 1f / attackRate;
+        }
     }
 
     public override void TakeDamage(int damage)
     {
+        if (isDead) return;
+
         base.TakeDamage(damage);
+        if (HP <= 0 && isDead)
+        {
+            anim.SetTrigger("Death");
+            StartCoroutine(DestroyAfterDeath());
+            UnitSounds.PlayDeathSound();
+        }
+    }
+
+    private IEnumerator DestroyAfterDeath()
+    {
+        yield return new WaitForSeconds(1f); // Задержка в секундах перед уничтожением объекта
+        Destroy(gameObject);
+    }
+
+    protected override void OnDeath()
+    {
+        // Оставляем пустым, чтобы не вызывать Destroy в базовом классе
     }
 
     protected override Transform FindNearestTarget()
@@ -131,6 +165,47 @@ public class Warrior : EnemyBase
 
     protected override void FindTargetToAttack()
     {
-        base.FindTargetToAttack();
+        Collider2D[] targetsInRange = Physics2D.OverlapCircleAll(attackPos.position, radius);
+        if (targetsInRange.Length > 0)
+        {
+            Transform closestTarget = null;
+            float minDistance = Mathf.Infinity;
+
+            foreach (Collider2D target in targetsInRange)
+            {
+                if (target.CompareTag("Player") || target.CompareTag("Castle"))
+                {
+                    float distance = Vector2.Distance(transform.position, target.transform.position);
+                    if (distance < minDistance)
+                    {
+                        closestTarget = target.transform;
+                        minDistance = distance;
+                    }
+                }
+            }
+
+            attackTarget = closestTarget;
+
+            if (attackTarget != null)
+            {
+                anim.SetBool("Attack", true);
+                isAttacking = true;
+                isFighting = true;
+                OnAttack();
+            }
+            else
+            {
+                anim.SetBool("Attack", false);
+                isAttacking = false;
+                isFighting = false;
+            }
+        }
+        else
+        {
+            attackTarget = null;
+            isAttacking = false;
+            isFighting = false;
+        }
     }
+
 }
