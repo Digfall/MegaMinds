@@ -2262,7 +2262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1175736631}
 --- !u!114 &233842812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2886,7 +2886,7 @@ GameObject:
   - component: {fileID: 357422468}
   m_Layer: 0
   m_Name: SoundsManager
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5204,7 +5204,7 @@ GameObject:
   - component: {fileID: 733242058}
   m_Layer: 0
   m_Name: SPAWNUNIT
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7521,7 +7521,7 @@ GameObject:
   - component: {fileID: 1026511200}
   m_Layer: 0
   m_Name: STARTGAME
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8221,7 +8221,7 @@ GameObject:
   - component: {fileID: 1181052941}
   m_Layer: 0
   m_Name: WIN
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8735,7 +8735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1175736631}
 --- !u!114 &1222770016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10231,7 +10231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1175736631}
 --- !u!114 &1405266141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13464,7 +13464,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1175736631}
 --- !u!114 &1843816093
 MonoBehaviour:
   m_ObjectHideFlags: 0

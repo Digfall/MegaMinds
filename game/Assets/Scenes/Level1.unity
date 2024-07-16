@@ -5218,7 +5218,7 @@ GameObject:
   - component: {fileID: 656656049}
   m_Layer: 0
   m_Name: SoundsManager
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7609,7 +7609,7 @@ GameObject:
   - component: {fileID: 993256948}
   m_Layer: 0
   m_Name: WIN
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8522,7 +8522,7 @@ MonoBehaviour:
   m_VoxelSize: 0.06666667
   m_BuildHeightMesh: 0
   m_HideEditorLogs: 0
-  m_NavMeshData: {fileID: 23800000, guid: 4d9484e6797414041930555328110256, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f4d4ad8bafe8563449b27d04db02f25b, type: 2}
 --- !u!4 &1129163813
 Transform:
   m_ObjectHideFlags: 0
@@ -8550,7 +8550,7 @@ GameObject:
   - component: {fileID: 1134248850}
   m_Layer: 0
   m_Name: STARTGAME
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8794,7 +8794,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 349541674}
 --- !u!114 &1150711425
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10375,7 +10375,7 @@ GameObject:
   - component: {fileID: 1420420135}
   m_Layer: 0
   m_Name: SPAWNUNIT
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12295,7 +12295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 349541674}
 --- !u!114 &1688502118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13476,7 +13476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 349541674}
 --- !u!114 &1875929251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14846,7 +14846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 349541674}
 --- !u!114 &2011309235
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1638543000}
 --- !u!114 &71281793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1849,7 +1849,7 @@ GameObject:
   - component: {fileID: 259772928}
   m_Layer: 0
   m_Name: STARTGAME
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2595,7 +2595,7 @@ GameObject:
   - component: {fileID: 367909679}
   m_Layer: 0
   m_Name: WIN
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4060,7 +4060,7 @@ GameObject:
   - component: {fileID: 557980690}
   m_Layer: 0
   m_Name: SoundsManager
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5033,7 +5033,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1638543000}
 --- !u!114 &749310252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7372,7 +7372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1638543000}
 --- !u!114 &1123390541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12158,7 +12158,7 @@ GameObject:
   - component: {fileID: 1812615921}
   m_Layer: 0
   m_Name: SPAWNUNIT
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12811,7 +12811,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1638543000}
 --- !u!114 &1859247154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15886,9 +15886,9 @@ SceneRoots:
   - {fileID: 528331232}
   - {fileID: 1105712863}
   - {fileID: 1886711382}
+  - {fileID: 782434069}
   - {fileID: 2128142779}
   - {fileID: 513280917}
   - {fileID: 557980692}
   - {fileID: 1112415020}
   - {fileID: 2083511740}
-  - {fileID: 782434069}

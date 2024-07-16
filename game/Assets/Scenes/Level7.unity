@@ -1237,7 +1237,7 @@ GameObject:
   - component: {fileID: 171228149}
   m_Layer: 0
   m_Name: SPAWNUNIT
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 226722166}
   m_Layer: 0
   m_Name: SoundsManager
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4475,7 +4475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1968710546}
 --- !u!114 &628074433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5440,7 +5440,7 @@ GameObject:
   - component: {fileID: 841895312}
   m_Layer: 0
   m_Name: STARTGAME
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6665,7 +6665,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1968710546}
 --- !u!114 &955159144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8150,7 +8150,7 @@ GameObject:
   - component: {fileID: 1105256951}
   m_Layer: 0
   m_Name: WIN
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10295,7 +10295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1968710546}
 --- !u!114 &1356164684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13484,7 +13484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetSceneName: LevelChoose
-  transitionSound: {fileID: 0}
+  transitionSound: {fileID: 1968710546}
 --- !u!114 &1878845591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15885,10 +15885,10 @@ SceneRoots:
   - {fileID: 1536855454}
   - {fileID: 1007491346}
   - {fileID: 1406592389}
+  - {fileID: 1085763245}
   - {fileID: 1120885890}
   - {fileID: 963367802}
   - {fileID: 1633802932}
   - {fileID: 226722168}
   - {fileID: 639148444}
   - {fileID: 1369932435}
-  - {fileID: 1085763245}

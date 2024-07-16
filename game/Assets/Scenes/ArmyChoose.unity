@@ -3568,7 +3568,7 @@ GameObject:
   - component: {fileID: 385768495}
   m_Layer: 5
   m_Name: Canvas(Options)
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7985,7 +7985,7 @@ GameObject:
   - component: {fileID: 848109300}
   m_Layer: 0
   m_Name: Sounds
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8292,7 +8292,7 @@ GameObject:
   - component: {fileID: 893965143}
   m_Layer: 5
   m_Name: Canvas(RangerLvlUp)
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9705,7 +9705,7 @@ GameObject:
   - component: {fileID: 943825162}
   m_Layer: 5
   m_Name: Canvas(WarriorLvlUp)
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14370,7 +14370,7 @@ GameObject:
   - component: {fileID: 1348857342}
   m_Layer: 5
   m_Name: Canvas(TankLvlUp)
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17438,7 +17438,7 @@ GameObject:
   - component: {fileID: 1556913929}
   m_Layer: 5
   m_Name: Canvas(RogueLvlUp)
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19199,7 +19199,7 @@ GameObject:
   - component: {fileID: 1684394605}
   m_Layer: 0
   m_Name: SoundsManager
-  m_TagString: Untagged
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
