@@ -123,7 +123,6 @@ public class Ranger : EnemyBase
     {
         if (Time.time >= nextAttackTime && attackTarget != null)
         {
-            LaunchProjectile(attackTarget);
             unitSounds.PlayAttackSound();
             nextDamageTime = Time.time + damageRate;
             nextAttackTime = Time.time + 1f / attackRate;
@@ -237,6 +236,14 @@ public class Ranger : EnemyBase
     {
         FindObjectOfType<ScienceManager>().UpdateScienceCountEnemy();
         // Оставляем пустым, чтобы не вызывать Destroy в базовом классе
+    }
+
+    public void FireProjectile()
+    {
+        if (attackTarget != null)
+        {
+            LaunchProjectile(attackTarget);
+        }
     }
 
 }
