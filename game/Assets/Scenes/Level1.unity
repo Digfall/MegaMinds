@@ -791,7 +791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &117951752
 RectTransform:
   m_ObjectHideFlags: 0
@@ -866,7 +866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &126406117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2452,7 +2452,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &319896834
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2893,9 +2893,9 @@ MonoBehaviour:
   rogueLvlText: {fileID: 274412869}
   rogueBGImage: {fileID: 360480754}
   rogueBGSprites:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  - {fileID: 818658559, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -258774144, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1171099505, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   rogueWEPImage: {fileID: 117951753}
   rogueWEPSprites:
   - {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
@@ -3039,7 +3039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 818658559, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4292,7 +4292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &463708390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5666,7 +5666,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &739648117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5891,7 +5891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &822179388
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6478,6 +6478,7 @@ RectTransform:
   m_Children:
   - {fileID: 1736281216}
   - {fileID: 1771625533}
+  - {fileID: 1800717120}
   - {fileID: 1421228148}
   - {fileID: 1665762044}
   - {fileID: 2039446418}
@@ -6854,9 +6855,9 @@ MonoBehaviour:
   rangerLvlText: {fileID: 446071979}
   rangerBGImage: {fileID: 894686743}
   rangerBGSprites:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  - {fileID: 1968080034, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1443756681, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1248156515, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   rangerWEPImage: {fileID: 1498253498}
   rangerWEPSprites:
   - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
@@ -6967,7 +6968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 1968080034, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7539,7 +7540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &957052114
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10701,7 +10702,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1498253497
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11822,9 +11823,9 @@ MonoBehaviour:
   warriorLvlText: {fileID: 243845858}
   warriorBGImage: {fileID: 1594759385}
   warriorBGSprites:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  - {fileID: 689087876, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1994895902, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1784893678, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   warriorWEPImage: {fileID: 319896835}
   warriorWEPSprites:
   - {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
@@ -11946,7 +11947,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 689087876, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12987,11 +12988,11 @@ Transform:
   m_GameObject: {fileID: 1800717117}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.739879, y: -0.83, z: 82.91}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -51.450703, y: -24.544283, z: 2570.0527}
+  m_LocalScale: {x: 29.571426, y: 29.571426, z: 29.571426}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 863166682}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1801882368
 GameObject:
@@ -15016,9 +15017,9 @@ MonoBehaviour:
   tankLvlText: {fileID: 1043888707}
   tankBGImage: {fileID: 2017826174}
   tankBGSprites:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  - {fileID: -1035279103, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1205657942, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 536819179, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   tankWEPImage: {fileID: 822179389}
   tankWEPSprites:
   - {fileID: -898487866, guid: 917858007aa944240853079c02df7606, type: 3}
@@ -15151,7 +15152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: -1035279103, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15867,7 +15868,6 @@ SceneRoots:
   - {fileID: 317973370}
   - {fileID: 1415916981}
   - {fileID: 1722881295}
-  - {fileID: 1800717120}
   - {fileID: 619421575}
   - {fileID: 94994702}
   - {fileID: 1394960700}

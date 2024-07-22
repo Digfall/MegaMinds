@@ -15,63 +15,63 @@ public class ClassUnlocker : MonoBehaviour
 
     [Header("WARRIOR")]
     [SerializeField] private PlayerWarrior playerWarrior;
-    [SerializeField] private Image levelWarUnitImage;
+    // [SerializeField] private Image levelWarUnitImage;
     [SerializeField] private Image levelWarBgImage;
-    [SerializeField] private Image levelWarWepImage;
-    [SerializeField] private List<Sprite> levelWarUnitSprites;
+    // [SerializeField] private Image levelWarWepImage;
+    // [SerializeField] private List<Sprite> levelWarUnitSprites;
     [SerializeField] private List<Sprite> levelWarBgSprites;
-    [SerializeField] private List<Sprite> levelWarWepSprites;
-    [SerializeField] private Image levelWarUnitImageUPGRUI;
+    // [SerializeField] private List<Sprite> levelWarWepSprites;
+    // [SerializeField] private Image levelWarUnitImageUPGRUI;
     [SerializeField] private Image levelWarBgImageUPGRUI;
-    [SerializeField] private Image levelWarWepImageUPGRUI;
-    [SerializeField] private List<Sprite> levelWarUnitSpritesUPGRUI;
+    // [SerializeField] private Image levelWarWepImageUPGRUI;
+    // [SerializeField] private List<Sprite> levelWarUnitSpritesUPGRUI;
     [SerializeField] private List<Sprite> levelWarBgSpritesUPGRUI;
-    [SerializeField] private List<Sprite> levelWarWepSpritesUPGRUI;
+    // [SerializeField] private List<Sprite> levelWarWepSpritesUPGRUI;
 
     [Header("TANK")]
     [SerializeField] private PlayerTank playerTank;
-    [SerializeField] private Image levelTankUnitImage;
+    // [SerializeField] private Image levelTankUnitImage;
     [SerializeField] private Image levelTankBgImage;
-    [SerializeField] private Image levelTankWepImage;
-    [SerializeField] private List<Sprite> levelTankUnitSprites;
+    // [SerializeField] private Image levelTankWepImage;
+    // [SerializeField] private List<Sprite> levelTankUnitSprites;
     [SerializeField] private List<Sprite> levelTankBgSprites;
-    [SerializeField] private List<Sprite> levelTankWepSprites;
-    [SerializeField] private Image levelTankUnitImageUPGRUI;
+    // [SerializeField] private List<Sprite> levelTankWepSprites;
+    // [SerializeField] private Image levelTankUnitImageUPGRUI;
     [SerializeField] private Image levelTankBgImageUPGRUI;
-    [SerializeField] private Image levelTankWepImageUPGRUI;
-    [SerializeField] private List<Sprite> levelTankUnitSpritesUPGRUI;
+    // [SerializeField] private Image levelTankWepImageUPGRUI;
+    // [SerializeField] private List<Sprite> levelTankUnitSpritesUPGRUI;
     [SerializeField] private List<Sprite> levelTankBgSpritesUPGRUI;
-    [SerializeField] private List<Sprite> levelTankWepSpritesUPGRUI;
+    // [SerializeField] private List<Sprite> levelTankWepSpritesUPGRUI;
 
     [Header("RANGER")]
     [SerializeField] private PlayerRanger playerRanger;
-    [SerializeField] private Image levelRangerUnitImage;
+    // [SerializeField] private Image levelRangerUnitImage;
     [SerializeField] private Image levelRangerBgImage;
-    [SerializeField] private Image levelRangerWepImage;
-    [SerializeField] private List<Sprite> levelRangerUnitSprites;
+    // [SerializeField] private Image levelRangerWepImage;
+    // [SerializeField] private List<Sprite> levelRangerUnitSprites;
     [SerializeField] private List<Sprite> levelRangerBgSprites;
-    [SerializeField] private List<Sprite> levelRangerWepSprites;
-    [SerializeField] private Image levelRangerUnitImageUPGRUI;
+    // [SerializeField] private List<Sprite> levelRangerWepSprites;
+    // [SerializeField] private Image levelRangerUnitImageUPGRUI;
     [SerializeField] private Image levelRangerBgImageUPGRUI;
-    [SerializeField] private Image levelRangerWepImageUPGRUI;
-    [SerializeField] private List<Sprite> levelRangerUnitSpritesUPGRUI;
+    // [SerializeField] private Image levelRangerWepImageUPGRUI;
+    // [SerializeField] private List<Sprite> levelRangerUnitSpritesUPGRUI;
     [SerializeField] private List<Sprite> levelRangerBgSpritesUPGRUI;
-    [SerializeField] private List<Sprite> levelRangerWepSpritesUPGRUI;
+    // [SerializeField] private List<Sprite> levelRangerWepSpritesUPGRUI;
 
     [Header("ROGUE")]
     [SerializeField] private PlayerRogue playerRogue;
-    [SerializeField] private Image levelRogueUnitImage;
+    // [SerializeField] private Image levelRogueUnitImage;
     [SerializeField] private Image levelRogueBgImage;
-    [SerializeField] private Image levelRogueWepImage;
-    [SerializeField] private List<Sprite> levelRogueUnitSprites;
+    // [SerializeField] private Image levelRogueWepImage;
+    // [SerializeField] private List<Sprite> levelRogueUnitSprites;
     [SerializeField] private List<Sprite> levelRogueBgSprites;
-    [SerializeField] private List<Sprite> levelRogueWepSprites;
-    [SerializeField] private Image levelRogueUnitImageUPGRUI;
+    // [SerializeField] private List<Sprite> levelRogueWepSprites;
+    // [SerializeField] private Image levelRogueUnitImageUPGRUI;
     [SerializeField] private Image levelRogueBgImageUPGRUI;
-    [SerializeField] private Image levelRogueWepImageUPGRUI;
-    [SerializeField] private List<Sprite> levelRogueUnitSpritesUPGRUI;
+    // [SerializeField] private Image levelRogueWepImageUPGRUI;
+    // [SerializeField] private List<Sprite> levelRogueUnitSpritesUPGRUI;
     [SerializeField] private List<Sprite> levelRogueBgSpritesUPGRUI;
-    [SerializeField] private List<Sprite> levelRogueWepSpritesUPGRUI;
+    // [SerializeField] private List<Sprite> levelRogueWepSpritesUPGRUI;
 
     [SerializeField] private int rogueCost = 200;
     [SerializeField] private int tankCost = 250;
@@ -199,56 +199,56 @@ public class ClassUnlocker : MonoBehaviour
     public void UpgradeImagesWar(int levelwar)
     {
         int spriteIndex = GetSpriteIndex(levelwar);
-        if (spriteIndex != -1 && spriteIndex < levelWarUnitSprites.Count)
+        if (spriteIndex != -1 && spriteIndex < levelWarBgSprites.Count)
         {
-            levelWarUnitImage.sprite = levelWarUnitSprites[spriteIndex];
+            // levelWarUnitImage.sprite = levelWarUnitSprites[spriteIndex];
             levelWarBgImage.sprite = levelWarBgSprites[spriteIndex];
-            levelWarWepImage.sprite = levelWarWepSprites[spriteIndex];
-            levelWarUnitImageUPGRUI.sprite = levelWarUnitSpritesUPGRUI[spriteIndex];
+            // levelWarWepImage.sprite = levelWarWepSprites[spriteIndex];
+            // levelWarUnitImageUPGRUI.sprite = levelWarUnitSpritesUPGRUI[spriteIndex];
             levelWarBgImageUPGRUI.sprite = levelWarBgSpritesUPGRUI[spriteIndex];
-            levelWarWepImageUPGRUI.sprite = levelWarWepSpritesUPGRUI[spriteIndex];
+            // levelWarWepImageUPGRUI.sprite = levelWarWepSpritesUPGRUI[spriteIndex];
         }
     }
 
     public void UpgradeImagesTank(int levelTank)
     {
         int spriteIndex = GetSpriteIndex(levelTank);
-        if (spriteIndex != -1 && spriteIndex < levelTankUnitSprites.Count)
+        if (spriteIndex != -1 && spriteIndex < levelTankBgSprites.Count)
         {
-            levelTankUnitImage.sprite = levelTankUnitSprites[spriteIndex];
+            // levelTankUnitImage.sprite = levelTankUnitSprites[spriteIndex];
             levelTankBgImage.sprite = levelTankBgSprites[spriteIndex];
-            levelTankWepImage.sprite = levelTankWepSprites[spriteIndex];
-            levelTankUnitImageUPGRUI.sprite = levelTankUnitSpritesUPGRUI[spriteIndex];
+            // levelTankWepImage.sprite = levelTankWepSprites[spriteIndex];
+            // levelTankUnitImageUPGRUI.sprite = levelTankUnitSpritesUPGRUI[spriteIndex];
             levelTankBgImageUPGRUI.sprite = levelTankBgSpritesUPGRUI[spriteIndex];
-            levelTankWepImageUPGRUI.sprite = levelTankWepSpritesUPGRUI[spriteIndex];
+            // levelTankWepImageUPGRUI.sprite = levelTankWepSpritesUPGRUI[spriteIndex];
         }
     }
 
     public void UpgradeImagesRanger(int levelran)
     {
         int spriteIndex = GetSpriteIndex(levelran);
-        if (spriteIndex != -1 && spriteIndex < levelRangerUnitSprites.Count)
+        if (spriteIndex != -1 && spriteIndex < levelRangerBgSprites.Count)
         {
-            levelRangerUnitImage.sprite = levelRangerUnitSprites[spriteIndex];
+            // levelRangerUnitImage.sprite = levelRangerUnitSprites[spriteIndex];
             levelRangerBgImage.sprite = levelRangerBgSprites[spriteIndex];
-            levelRangerWepImage.sprite = levelRangerWepSprites[spriteIndex];
-            levelRangerUnitImageUPGRUI.sprite = levelRangerUnitSpritesUPGRUI[spriteIndex];
+            // levelRangerWepImage.sprite = levelRangerWepSprites[spriteIndex];
+            // levelRangerUnitImageUPGRUI.sprite = levelRangerUnitSpritesUPGRUI[spriteIndex];
             levelRangerBgImageUPGRUI.sprite = levelRangerBgSpritesUPGRUI[spriteIndex];
-            levelRangerWepImageUPGRUI.sprite = levelRangerWepSpritesUPGRUI[spriteIndex];
+            // levelRangerWepImageUPGRUI.sprite = levelRangerWepSpritesUPGRUI[spriteIndex];
         }
     }
 
     public void UpgradeImagesRogue(int levelrog)
     {
         int spriteIndex = GetSpriteIndex(levelrog);
-        if (spriteIndex != -1 && spriteIndex < levelRogueUnitSprites.Count)
+        if (spriteIndex != -1 && spriteIndex < levelRogueBgSprites.Count)
         {
-            levelRogueUnitImage.sprite = levelRogueUnitSprites[spriteIndex];
+            // levelRogueUnitImage.sprite = levelRogueUnitSprites[spriteIndex];
             levelRogueBgImage.sprite = levelRogueBgSprites[spriteIndex];
-            levelRogueWepImage.sprite = levelRogueWepSprites[spriteIndex];
-            levelRogueUnitImageUPGRUI.sprite = levelRogueUnitSpritesUPGRUI[spriteIndex];
+            // levelRogueWepImage.sprite = levelRogueWepSprites[spriteIndex];
+            // levelRogueUnitImageUPGRUI.sprite = levelRogueUnitSpritesUPGRUI[spriteIndex];
             levelRogueBgImageUPGRUI.sprite = levelRogueBgSpritesUPGRUI[spriteIndex];
-            levelRogueWepImageUPGRUI.sprite = levelRogueWepSpritesUPGRUI[spriteIndex];
+            // levelRogueWepImageUPGRUI.sprite = levelRogueWepSpritesUPGRUI[spriteIndex];
         }
     }
 

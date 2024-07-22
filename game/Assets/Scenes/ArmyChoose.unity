@@ -215,7 +215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &22310026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 1968080034, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3923,7 +3923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &423846355
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4358,7 +4358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 8.8, y: 0.5}
+  m_AnchoredPosition: {x: 8.799999, y: 0.5}
   m_SizeDelta: {x: -8.400001, y: 9.54}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &443327293
@@ -4416,7 +4416,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &448519292
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6866,7 +6866,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &797277252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7095,7 +7095,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &820545104
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8145,7 +8145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &865889290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9017,7 +9017,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 1968080034, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9175,7 +9175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &920884229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9497,7 +9497,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &931101122
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9884,131 +9884,51 @@ MonoBehaviour:
   rogueUpgradeButton: {fileID: 2080394712}
   tankUpgradeButton: {fileID: 1940893818}
   playerWarrior: {fileID: 5936779502317487462, guid: 9ccba9740112a124db7bdfa3cdcd8d3a, type: 3}
-  levelWarUnitImage: {fileID: 1919268434}
   levelWarBgImage: {fileID: 1274076417}
-  levelWarWepImage: {fileID: 448519293}
-  levelWarUnitSprites:
-  - {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: 210339436, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: -1931369641, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   levelWarBgSprites:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  levelWarWepSprites:
-  - {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: 1298739020, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: -1470877987, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  levelWarUnitImageUPGRUI: {fileID: 1302965270}
+  - {fileID: 689087876, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1994895902, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1784893678, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   levelWarBgImageUPGRUI: {fileID: 1090671856}
-  levelWarWepImageUPGRUI: {fileID: 22310026}
-  levelWarUnitSpritesUPGRUI:
-  - {fileID: 1908555160, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: 210339436, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: -1931369641, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
   levelWarBgSpritesUPGRUI:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  levelWarWepSpritesUPGRUI:
-  - {fileID: -1343542354, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: 1298739020, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
-  - {fileID: -1470877987, guid: 2bce0be0e8809c74596e35fbd65512a3, type: 3}
+  - {fileID: 689087876, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1994895902, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1784893678, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   playerTank: {fileID: 7476295032263776217, guid: d557ed12c00ea874eb87d446285c1f46, type: 3}
-  levelTankUnitImage: {fileID: 1477204706}
   levelTankBgImage: {fileID: 1940893819}
-  levelTankWepImage: {fileID: 1514405259}
-  levelTankUnitSprites:
-  - {fileID: -2081781427, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: 201762710, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: 135665564, guid: 917858007aa944240853079c02df7606, type: 3}
   levelTankBgSprites:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  levelTankWepSprites:
-  - {fileID: -898487866, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: -2039320127, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: 749411004, guid: 917858007aa944240853079c02df7606, type: 3}
-  levelTankUnitImageUPGRUI: {fileID: 1194479310}
+  - {fileID: -1035279103, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1205657942, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 536819179, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   levelTankBgImageUPGRUI: {fileID: 1793682896}
-  levelTankWepImageUPGRUI: {fileID: 865889290}
-  levelTankUnitSpritesUPGRUI:
-  - {fileID: -2081781427, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: 201762710, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: 135665564, guid: 917858007aa944240853079c02df7606, type: 3}
   levelTankBgSpritesUPGRUI:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  levelTankWepSpritesUPGRUI:
-  - {fileID: -898487866, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: -2039320127, guid: 917858007aa944240853079c02df7606, type: 3}
-  - {fileID: 749411004, guid: 917858007aa944240853079c02df7606, type: 3}
+  - {fileID: -1035279103, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1205657942, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 536819179, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   playerRanger: {fileID: 4864305090776730808, guid: 55bb8751a33a2d847925ca5d1707e020, type: 3}
-  levelRangerUnitImage: {fileID: 2011425446}
   levelRangerBgImage: {fileID: 920432643}
-  levelRangerWepImage: {fileID: 920884229}
-  levelRangerUnitSprites:
-  - {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: 1019117588, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   levelRangerBgSprites:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  levelRangerWepSprites:
-  - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  levelRangerUnitImageUPGRUI: {fileID: 931101124}
+  - {fileID: 1968080034, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1443756681, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1248156515, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   levelRangerBgImageUPGRUI: {fileID: 134104216}
-  levelRangerWepImageUPGRUI: {fileID: 1844804271}
-  levelRangerUnitSpritesUPGRUI:
-  - {fileID: 982992340, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: -368327041, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: 1019117588, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
   levelRangerBgSpritesUPGRUI:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  levelRangerWepSpritesUPGRUI:
-  - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
-  - {fileID: -163496932, guid: f701fc9d658608841abc5ca34ca015d5, type: 3}
+  - {fileID: 1968080034, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1443756681, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: 1248156515, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   playerRogue: {fileID: -8702032987371493619, guid: 53e90bd4a2018b9479daa295b7bb94e8, type: 3}
-  levelRogueUnitImage: {fileID: 1953180873}
   levelRogueBgImage: {fileID: 2080394713}
-  levelRogueWepImage: {fileID: 423846356}
-  levelRogueUnitSprites:
-  - {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   levelRogueBgSprites:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  levelRogueWepSprites:
-  - {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: 15466070, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: 352455660, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  levelRogueUnitImageUPGRUI: {fileID: 820545106}
+  - {fileID: 818658559, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -258774144, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1171099505, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   levelRogueBgImageUPGRUI: {fileID: 1548922825}
-  levelRogueWepImageUPGRUI: {fileID: 797277252}
-  levelRogueUnitSpritesUPGRUI:
-  - {fileID: -216728330, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: 828576500, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: 1187332281, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
   levelRogueBgSpritesUPGRUI:
-  - {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: -1685152937, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  - {fileID: 1747663325, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
-  levelRogueWepSpritesUPGRUI:
-  - {fileID: -836309630, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: 15466070, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  - {fileID: 352455660, guid: 6c228e463ea13b245a893bb6e011842c, type: 3}
-  rogueCost: 200
-  tankCost: 150
+  - {fileID: 818658559, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -258774144, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  - {fileID: -1171099505, guid: 32210ef0943afa54c837874d03492b82, type: 3}
+  rogueCost: 50
+  tankCost: 50
   currentLevel: 1
   soundManager: {fileID: 943980009}
 --- !u!114 &943980009
@@ -11571,7 +11491,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 689087876, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12507,7 +12427,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1194479308
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13854,7 +13774,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 689087876, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14012,7 +13932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1302965268
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15458,7 +15378,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -178.2, y: -149.9}
+  m_AnchoredPosition: {x: -178.5, y: -149.9}
   m_SizeDelta: {x: 124.71, y: 11.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1407544866
@@ -15837,7 +15757,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 200
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
   m_sharedMaterial: {fileID: 5335139831177009369, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
@@ -16105,7 +16025,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 150
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
   m_sharedMaterial: {fileID: 5335139831177009369, guid: 819ccb869161a11469f9f1b78e8f0eb0, type: 2}
@@ -16336,7 +16256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1477204706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16807,7 +16727,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1514405259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17402,7 +17322,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 818658559, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19178,9 +19098,9 @@ RectTransform:
   m_Father: {fileID: 1407544865}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.91200006, y: 1}
-  m_AnchoredPosition: {x: 5.799999, y: -0.29000044}
-  m_SizeDelta: {x: 10.6, y: -4.19}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0.29999924, y: -0.29000044}
+  m_SizeDelta: {x: -0.39999962, y: -4.19}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1684394604
 GameObject:
@@ -20853,7 +20773,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: -1035279103, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21038,7 +20958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1844804271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21472,7 +21392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1919268433
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21935,7 +21855,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: -1035279103, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22436,7 +22356,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1953180872
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23444,7 +23364,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2011425446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23848,7 +23768,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -252643120, guid: f5177d4722237454cbe6936725f1fc48, type: 3}
+  m_Sprite: {fileID: 818658559, guid: 32210ef0943afa54c837874d03492b82, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
