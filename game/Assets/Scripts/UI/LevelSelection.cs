@@ -17,21 +17,21 @@ public class LevelSelection : MonoBehaviour
             if (i + 1 < levelReached)
             {
                 levelButtons[i].interactable = true;
-                levelButtons[i].GetComponent<Image>().sprite = unlockedSprite;
+                levelButtons[i].GetComponent<SpriteRenderer>().sprite = unlockedSprite;
                 int levelIndex = i + 1;
                 levelButtons[i].onClick.AddListener(() => SelectLevel(levelIndex));
             }
             else if (i + 1 == levelReached)
             {
                 levelButtons[i].interactable = true;
-                levelButtons[i].GetComponent<Image>().sprite = availableSprite;
+                levelButtons[i].GetComponent<SpriteRenderer>().sprite = availableSprite;
                 int levelIndex = i + 1;
                 levelButtons[i].onClick.AddListener(() => SelectLevel(levelIndex));
             }
             else
             {
                 levelButtons[i].interactable = false;
-                levelButtons[i].GetComponent<Image>().sprite = lockedSprite;
+                levelButtons[i].GetComponent<SpriteRenderer>().sprite = lockedSprite;
             }
         }
     }
